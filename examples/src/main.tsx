@@ -1,9 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import {
+  ComponentsAndPropsExample,
+  HandlingEventsExample,
+  StateAndLifecycleExample,
+  ConditionalRenderingExample,
+  ListsAndKeysExample,
+  FormsExample,
+} from './App';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <ComponentsAndPropsExample />
+    <StateAndLifecycleExample />
+    <HandlingEventsExample />
+    <ConditionalRenderingExample />
+    <ListsAndKeysExample />
+    <FormsExample />
   </React.StrictMode>
 );

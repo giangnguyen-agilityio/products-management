@@ -1,6 +1,25 @@
 #root {
-  max-width: 1280px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 2rem;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+.components-and-props-example,
+.state-and-lifecycle-example,
+.handling-events-example,
+.conditional-rendering-example,
+.lists-and-keys-example,
+.forms-example {
+  border: 1px solid red;
+  padding: 1rem;
+}
+
+.forms-example {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
