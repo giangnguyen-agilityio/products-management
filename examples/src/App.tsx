@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Component, ErrorInfo, ReactNode, Fragment } from 'react';
 import './App.css';
-import { Component } from 'react';
 
 type CounterState = {
   count: number;
@@ -343,6 +342,525 @@ function FormsExample() {
     </div>
   );
 }
+
+/*--------------------Lifting State Up Example------------------------*/
+interface CalculatorProps {}
+interface CalculatorState {
+  temperature: number;
+  scale: string;
+}
+
+interface CelsiusProps {
+  temperature: number;
+  onTemperatureChange: (temperature: number) => void;
+}
+
+interface FahrenheitProps {
+  temperature: number;
+  onTemperatureChange: (temperature: number) => void;
+}
+
+interface CelsiusState {
+  temperature: number;
+}
+
+interface FahrenheitState {
+  temperature: number;
+}
+
+class LiftingStateUpExample extends React.Component<
+  CalculatorProps,
+  CalculatorState
+> {
+  constructor(props: CalculatorProps) {
+    super(props);
+    this.state = {
+      temperature: 0,
+      scale: 'celsius',
+    };
+  }
+
+  handleCelsiusChange = (temperature: number) => {
+    this.setState({ scale: 'celsius', temperature });
+  };
+
+  handleFahrenheitChange = (temperature: number) => {
+    this.setState({ scale: 'fahrenheit', temperature });
+  };
+
+  render() {
+    const { temperature, scale } = this.state;
+    const celsius =
+      scale === 'fahrenheit' ? toCelsius(temperature) : temperature;
+    const fahrenheit =
+      scale === 'celsius' ? toFahrenheit(temperature) : temperature;
+
+    return (
+      <div className="lifting-state-up-example">
+        <Celsius
+          temperature={celsius}
+          onTemperatureChange={this.handleCelsiusChange}
+        />
+        <Fahrenheit
+          temperature={fahrenheit}
+          onTemperatureChange={this.handleFahrenheitChange}
+        />
+      </div>
+    );
+  }
+}
+
+class Celsius extends React.Component<CelsiusProps, CelsiusState> {
+  constructor(props: CelsiusProps) {
+    super(props);
+    this.state = {
+      temperature: props.temperature,
+    };
+  }
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.props.onTemperatureChange(parseFloat(e.target.value));
+  };
+
+  render() {
+    return (
+      <fieldset>
+        <legend>Enter temperature in Celsius:</legend>
+        <input value={this.props.temperature} onChange={this.handleChange} />
+      </fieldset>
+    );
+  }
+}
+
+class Fahrenheit extends React.Component<FahrenheitProps, FahrenheitState> {
+  constructor(props: FahrenheitProps) {
+    super(props);
+    this.state = {
+      temperature: props.temperature,
+    };
+  }
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.props.onTemperatureChange(parseFloat(e.target.value));
+  };
+
+  render() {
+    return (
+      <fieldset>
+        <legend>Enter temperature in Fahrenheit:</legend>
+        <input value={this.props.temperature} onChange={this.handleChange} />
+      </fieldset>
+    );
+  }
+}
+
+function toCelsius(fahrenheit: number) {
+  return ((fahrenheit - 32) * 5) / 9;
+}
+
+function toFahrenheit(celsius: number) {
+  return (celsius * 9) / 5 + 32;
+}
+
+/*--------------------Composition and Inheritance Example------------------------*/
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+}
+
+const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
+  return <button onClick={onClick}>{text}</button>;
+};
+
+interface CardProps {
+  title: string;
+  content: string;
+}
+
+const Card: React.FC<CardProps> = ({ title, content }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>{content}</p>
+    </div>
+  );
+};
+
+interface PageProps {
+  title: string;
+  content: string;
+  buttonLabel: string;
+  onButtonClick: () => void;
+}
+
+const CompositionExample: React.FC<PageProps> = ({
+  title,
+  content,
+  buttonLabel,
+  onButtonClick,
+}) => {
+  return (
+    <div className="composition-example">
+      <Card title={title} content={content} />
+      <Button text={buttonLabel} onClick={onButtonClick} />
+    </div>
+  );
+};
+
+// Inheritance example
+interface AnimalProps {
+  name: string;
+}
+
+interface AnimalState {
+  isHungry: boolean;
+}
+
+class Animal extends React.Component<AnimalProps, AnimalState> {
+  constructor(props: AnimalProps) {
+    super(props);
+    this.state = {
+      isHungry: true,
+    };
+  }
+
+  eat = () => {
+    this.setState({
+      isHungry: false,
+    });
+  };
+
+  render() {
+    const { name } = this.props;
+    const { isHungry } = this.state;
+    return (
+      <div>
+        <h1>{name}</h1>
+        <p>{isHungry ? 'Hungry' : 'Full'}</p>
+        <button onClick={this.eat}>Eat</button>
+      </div>
+    );
+  }
+}
+
+interface CatProps extends AnimalProps {}
+
+class Cat extends Animal {
+  meow = () => {
+    alert('Meow!');
+  };
+
+  render() {
+    return (
+      <div className="inheritance-example">
+        {super.render()}
+        <br />
+        <button onClick={this.meow}>Meow</button>
+      </div>
+    );
+  }
+}
+
+const InheritanceExample: React.FC = () => {
+  return <Cat name="Benjamin" />;
+};
+
+/*--------------------ADVANCED GUIDES------------------------*/
+/*--------------------Accessibility------------------------*/
+// Keyboard navigation
+function handleKeyPress(event: React.KeyboardEvent<HTMLButtonElement>) {
+  if (event.key === 'Enter') {
+    alert('You pressed Enter!');
+  }
+}
+
+function KeyboardNavigationExample() {
+  return (
+    <div className="keyboard-navigation-example">
+      <button
+        onClick={() => {
+          alert('You are clicking');
+        }}
+      >
+        Click me
+      </button>
+      <br />
+      <br />
+      <button onKeyPress={handleKeyPress}>Press enter</button>
+    </div>
+  );
+}
+//Focus management
+interface AppState {
+  showModal: boolean;
+}
+
+class FocusManagementExample extends Component<{}, AppState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      showModal: false,
+    };
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleButtonClick(): void {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal(): void {
+    this.setState({ showModal: false });
+  }
+
+  render() {
+    return (
+      <div className="focus-management-example">
+        <button onClick={this.handleButtonClick}>Show modal</button>
+        {this.state.showModal && (
+          <div role="dialog">
+            <button onClick={this.handleCloseModal}>Close modal</button>
+            <input type="text" />
+          </div>
+        )}
+      </div>
+    );
+  }
+}
+
+/*--------------------Context------------------------*/
+// Define a new context
+interface ThemeContextProps {
+  background: string;
+  color: string;
+}
+
+const ThemeContext = React.createContext<ThemeContextProps>({
+  background: 'white',
+  color: 'black',
+});
+
+// Create a provider component
+interface ThemeProviderProps {
+  value: ThemeContextProps;
+  children?: React.ReactNode;
+}
+
+class ThemeProvider extends Component<ThemeProviderProps> {
+  render() {
+    return (
+      <ThemeContext.Provider value={this.props.value}>
+        {this.props.children}
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+// Create a consumer component
+interface ThemeConsumerProps {
+  children: (theme: ThemeContextProps) => React.ReactNode;
+}
+
+class ThemeConsumer extends Component<ThemeConsumerProps> {
+  render() {
+    return (
+      <ThemeContext.Consumer>
+        {(theme) => this.props.children(theme)}
+      </ThemeContext.Consumer>
+    );
+  }
+}
+
+// Example usage
+const ContextExample = () => {
+  return (
+    <ThemeProvider value={{ background: 'black', color: 'white' }}>
+      <div className="context-example">
+        <h1>Hello, world!</h1>
+        <ThemeConsumer>
+          {(theme) => (
+            <p style={{ background: theme.background, color: theme.color }}>
+              This text has a {theme.background} background and {theme.color}{' '}
+              text.
+            </p>
+          )}
+        </ThemeConsumer>
+      </div>
+    </ThemeProvider>
+  );
+};
+
+/*--------------------Error Boundaries------------------------*/
+//How to use Error Boundaries in React
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(_: Error): ErrorBoundaryState {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Log the error to an error reporting service
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
+
+function ErrorBoundaryExample() {
+  return (
+    <div className="error-boundary-example">
+      <h1>My App</h1>
+      <ErrorBoundary>
+        <BrokenComponent />
+      </ErrorBoundary>
+    </div>
+  );
+}
+
+class BrokenComponent extends Component {
+  render() {
+    return <h1>Something went wrong</h1>;
+  }
+}
+/*--------------------Forwarding Refs------------------------*/
+interface ChildProps {
+  value: string;
+  ref?: React.RefObject<HTMLDivElement>;
+}
+
+// We define ChildComponent as a function component that takes a ref as its second argument.
+const ChildComponent = React.forwardRef<HTMLDivElement, ChildProps>(
+  (props, ref) => {
+    return (
+      <div ref={ref} className="forwarding-refs-example">
+        {props.value}
+      </div>
+    );
+  }
+);
+
+interface ParentProps {
+  children: React.ReactNode;
+}
+
+// We define ParentComponent as a class component that renders its children and passes a ref down to the first child.
+class ParentComponent extends React.Component<ParentProps> {
+  private ref = React.createRef<HTMLDivElement>();
+
+  componentDidMount() {
+    // Access the child component's instance using the ref.
+    console.log(this.ref.current);
+  }
+
+  render() {
+    const { children } = this.props;
+    // Pass the ref down to the first child.
+    const child = React.Children.only(
+      children
+    ) as React.ReactElement<ChildProps>;
+    return React.cloneElement(child, { ref: this.ref });
+  }
+}
+
+// We can then use ParentComponent to render ChildComponent and pass a ref down to it.
+function ForwardingRefs() {
+  return (
+    <ParentComponent>
+      <ChildComponent value="Hello, world!" />
+    </ParentComponent>
+  );
+}
+/*--------------------Fragments------------------------*/
+function FragmentsExample() {
+  return (
+    <>
+      <h1>Title</h1>
+      <p>Paragraph 1</p>
+      <p>Paragraph 2</p>
+    </>
+  );
+}
+
+//Keyed Fragments
+function KeyedFragmentsExample({
+  items,
+}: {
+  items: Array<{ id: number; text: string }>;
+}) {
+  return (
+    <>
+      {items.map((item) => (
+        <Fragment key={item.id}>
+          <h2>{item.id}</h2>
+          <p>{item.text}</p>
+        </Fragment>
+      ))}
+    </>
+  );
+}
+/*--------------------JSX In Depth------------------------*/
+//Embedding Expressions in JSX
+function EmbeddingExpressionsInJSX() {
+  const name = 'Giang';
+  return <div>Hello, {name}!</div>;
+}
+
+//Props in JSX
+interface GreetingProps {
+  name: string;
+}
+
+function GreetingExample(props: GreetingProps) {
+  return <div>Hello, {props.name}!</div>;
+}
+
+function PropsInJSX() {
+  return <GreetingExample name="Giang" />;
+}
+
+//Children in JSX
+function List(props: { children: React.ReactNode }) {
+  return <ul>{props.children}</ul>;
+}
+
+function Item(props: { children: React.ReactNode }) {
+  return <li>{props.children}</li>;
+}
+
+function ChildrenInJSX() {
+  return (
+    <List>
+      <Item>Apples</Item>
+      <Item>Bananas</Item>
+      <Item>Cherries</Item>
+    </List>
+  );
+}
+
+//JSX Prevents Injection Attacks
+function JSXPreventsInjectionAttacks() {
+  const name = '<script>alert("gotcha!");</script>';
+  return <div>Hello, {name}!</div>; // Will display "<script>alert("gotcha!");</script>" as plain text
+}
 export {
   ComponentsAndPropsExample,
   StateAndLifecycleExample,
@@ -350,4 +868,18 @@ export {
   ConditionalRenderingExample,
   ListsAndKeysExample,
   FormsExample,
+  LiftingStateUpExample,
+  CompositionExample,
+  InheritanceExample,
+  KeyboardNavigationExample,
+  FocusManagementExample,
+  ContextExample,
+  ErrorBoundaryExample,
+  ForwardingRefs,
+  FragmentsExample,
+  KeyedFragmentsExample,
+  EmbeddingExpressionsInJSX,
+  PropsInJSX,
+  ChildrenInJSX,
+  JSXPreventsInjectionAttacks,
 };

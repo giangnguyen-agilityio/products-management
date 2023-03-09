@@ -13,7 +13,15 @@
 .handling-events-example,
 .conditional-rendering-example,
 .lists-and-keys-example,
-.forms-example {
+.forms-example,
+.lifting-state-up-example,
+.composition-example,
+.inheritance-example,
+.keyboard-navigation-example,
+.focus-management-example,
+.context-example,
+.error-boundary-example,
+.forwarding-refs-example {
   border: 1px solid red;
   padding: 1rem;
 }
