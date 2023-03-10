@@ -21,7 +21,14 @@
 .focus-management-example,
 .context-example,
 .error-boundary-example,
-.forwarding-refs-example {
+.forwarding-refs-example,
+.portals-example,
+.profiler-example,
+.react-without-es6-example,
+.refs-and-dom-example,
+.render-props-example,
+.typechecking-with-proptypes-example,
+.uncontrolled-components-example {
   border: 1px solid red;
   padding: 1rem;
 }

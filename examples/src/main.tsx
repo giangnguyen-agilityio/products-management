@@ -21,6 +21,14 @@ import {
   PropsInJSX,
   ChildrenInJSX,
   JSXPreventsInjectionAttacks,
+  ParentComponentPortalsExample,
+  ProfilerExampleContainer,
+  ReactWithoutES6Example,
+  ReactWithoutJSXExample,
+  RefsAndTheDomExample,
+  RenderPropsExample,
+  TypecheckingWithPropTypesExample,
+  UncontrolledComponentsExample,
 } from './App';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -52,5 +60,13 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <PropsInJSX />
     <ChildrenInJSX />
     <JSXPreventsInjectionAttacks />
+    <ParentComponentPortalsExample />
+    <ProfilerExampleContainer />
+    <ReactWithoutES6Example name={'Giang'} />
+    <ReactWithoutJSXExample />
+    <RefsAndTheDomExample />
+    <RenderPropsExample />
+    <TypecheckingWithPropTypesExample name={'Nguyen Truong Giang'} age={23} />
+    <UncontrolledComponentsExample />
   </React.StrictMode>
 );

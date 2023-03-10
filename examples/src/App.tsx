@@ -1,5 +1,14 @@
-import React, { Component, ErrorInfo, ReactNode, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import React, {
+  Component,
+  ErrorInfo,
+  FC,
+  Fragment,
+  Profiler,
+  createRef,
+} from 'react';
 import './App.css';
+import ReactDOM from 'react-dom';
 
 type CounterState = {
   count: number;
@@ -861,6 +870,220 @@ function JSXPreventsInjectionAttacks() {
   const name = '<script>alert("gotcha!");</script>';
   return <div>Hello, {name}!</div>; // Will display "<script>alert("gotcha!");</script>" as plain text
 }
+
+/*--------------------Portals------------------------*/
+// Define a portal container
+const portalContainer = document.createElement('div');
+document.body.appendChild(portalContainer);
+
+// Define a child component to be rendered in the portal
+const ChildComponentPortalsExample = () => {
+  return (
+    <div className="portals-example">
+      This is a child component rendered in a portal!
+    </div>
+  );
+};
+
+// Define a parent component that renders the child component in a portal
+class ParentComponentPortalsExample extends React.Component {
+  render() {
+    return (
+      <div className="portals-example">
+        <h1>This is the parent component</h1>
+        {ReactDOM.createPortal(
+          <ChildComponentPortalsExample />,
+          portalContainer
+        )}
+      </div>
+    );
+  }
+}
+
+/*--------------------Profiler------------------------*/
+function ProfilerExample() {
+  const [count, setCount] = React.useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div className="profiler-example">
+      <h1>Counter App</h1>
+      <button onClick={handleClick}>Click me</button>
+      <p>Count: {count}</p>
+    </div>
+  );
+}
+
+function onRenderCallback(
+  id: string,
+  phase: 'mount' | 'update',
+  actualDuration: number,
+  baseDuration: number,
+  startTime: number,
+  commitTime: number,
+  interactions: any
+) {
+  console.log({
+    id,
+    phase,
+    actualDuration,
+    baseDuration,
+    startTime,
+    commitTime,
+    interactions,
+  });
+}
+
+function ProfilerExampleContainer() {
+  return (
+    <Profiler id="Counter" onRender={onRenderCallback}>
+      <ProfilerExample />
+    </Profiler>
+  );
+}
+
+/*--------------------React without ES6------------------------*/
+interface PropsReactWithoutES6Example {
+  name: string;
+}
+
+interface StateReactWithoutES6Example {
+  count: number;
+}
+
+class ReactWithoutES6Example extends React.Component<
+  PropsReactWithoutES6Example,
+  StateReactWithoutES6Example
+> {
+  constructor(props: PropsReactWithoutES6Example) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  handleClick = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  render() {
+    return (
+      <div className="react-without-es6-example">
+        <h1>Hello, {this.props.name}!</h1>
+        <p>You clicked the button {this.state.count} times.</p>
+        <button onClick={this.handleClick}>Click me!</button>
+      </div>
+    );
+  }
+}
+
+/*--------------------React without JSX --------------------*/
+const ReactWithoutJSXExample = () => {
+  const greeting = React.createElement('h1', null, 'Hello, world!');
+  const message = React.createElement(
+    'p',
+    null,
+    'This is a React component created without JSX.'
+  );
+
+  return React.createElement('div', null, greeting, message);
+};
+
+/*--------------------Refs and the DOM------------------------*/
+class RefsAndTheDomExample extends Component {
+  private inputRef = createRef<HTMLInputElement>();
+
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert(this.inputRef.current?.value);
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit} className="refs-and-dom-example">
+        <label>
+          Name:
+          <input type="text" ref={this.inputRef} />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    );
+  }
+}
+
+/*--------------------Render Props------------------------*/
+type PropsOfRenderPropsExample = {
+  render: (data: string) => React.ReactNode;
+};
+
+class RenderPropComponent extends Component<PropsOfRenderPropsExample> {
+  state = {
+    data: 'This is the data of the Render Props Example!',
+  };
+
+  render() {
+    const { render } = this.props;
+    const { data } = this.state;
+
+    return <div>{render(data)}</div>;
+  }
+}
+
+const RenderPropsExample = () => {
+  return (
+    <div className="render-props-example">
+      <h1>Hello Giang. This is the Render Props Example</h1>
+      <RenderPropComponent render={(data) => <p>{data}</p>} />
+    </div>
+  );
+};
+
+/*--------------------Typechecking with PropTypes------------------------*/
+interface PropsOfPropTypesExample {
+  name: string;
+  age: number;
+}
+
+const TypecheckingWithPropTypesExample: FC<PropsOfPropTypesExample> = ({
+  name,
+  age,
+}) => (
+  <div className="typechecking-with-proptypes-example">
+    <p>Full Name: {name}</p>
+    <p>Age: {age}</p>
+  </div>
+);
+
+TypecheckingWithPropTypesExample.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+};
+
+/*--------------------Uncontrolled Components------------------------*/
+function UncontrolledComponentsExample() {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert(`Input value: ${inputRef.current?.value}`);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="uncontrolled-components-example">
+      <label>
+        Name:
+        <input type="text" ref={inputRef} />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
 export {
   ComponentsAndPropsExample,
   StateAndLifecycleExample,
@@ -882,4 +1105,12 @@ export {
   PropsInJSX,
   ChildrenInJSX,
   JSXPreventsInjectionAttacks,
+  ParentComponentPortalsExample,
+  ProfilerExampleContainer,
+  ReactWithoutES6Example,
+  ReactWithoutJSXExample,
+  RefsAndTheDomExample,
+  RenderPropsExample,
+  TypecheckingWithPropTypesExample,
+  UncontrolledComponentsExample,
 };

@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/prop-types': ^15.7.5
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@typescript-eslint/eslint-plugin': ^5.0.0
@@ -13,6 +14,7 @@ specifiers:
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-react: ^7.32.2
   prettier: ^2.8.4
+  prop-types: ^15.8.1
   react: ^18.2.0
   react-dom: ^18.2.0
   typescript: ^4.9.5
@@ -23,6 +25,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
+  '@types/prop-types': 15.7.5
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@typescript-eslint/eslint-plugin': 5.54.1_mlk7dnz565t663n4razh6a6v6i
@@ -35,6 +38,7 @@ devDependencies:
   eslint-plugin-promise: 6.1.1_eslint@8.35.0
   eslint-plugin-react: 7.32.2_eslint@8.35.0
   prettier: 2.8.4
+  prop-types: 15.8.1
   typescript: 4.9.5
   vite: 4.1.4
 
