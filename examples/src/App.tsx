@@ -6,6 +6,11 @@ import React, {
   Fragment,
   Profiler,
   createRef,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
 } from 'react';
 import './App.css';
 import ReactDOM from 'react-dom';
@@ -1084,6 +1089,144 @@ function UncontrolledComponentsExample() {
   );
 }
 
+/*--------------------Hook API Reference------------------------*/
+// useState Hook
+const UseStateHookExample = () => {
+  const [count, setCount] = useState<number>(0);
+
+  return (
+    <div className="useState-hook-example">
+      <h1>This is useState hook example</h1>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+// useEffect Hook
+const UseEffectHookExample = () => {
+  const [count, setCount] = useState<number>(0);
+
+  useEffect(() => {
+    document.title = `Count: ${count}`;
+  }, [count]);
+
+  return (
+    <div className="useEffect-hook-example">
+      <h1>This is the useEffect hook example</h1>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+// useContext Hook
+interface UserContext {
+  name: string;
+  email: string;
+  logout: () => void;
+}
+
+const user = {
+  name: 'Giang Nguyen Truong',
+  email: 'giang.nguyen@asnet.com.vn',
+  logout: () => {
+    console.log('Logged out');
+  },
+};
+
+const UserContext = React.createContext<UserContext>(user);
+
+const Profile: React.FC = () => {
+  const { name, email } = useContext<UserContext>(UserContext);
+
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>{email}</p>
+    </div>
+  );
+};
+
+const Navigation: React.FC = () => {
+  const { logout } = useContext<UserContext>(UserContext);
+
+  return (
+    <div>
+      <button onClick={logout}>Logout</button>
+    </div>
+  );
+};
+
+const UseContextHookExample: React.FC = () => {
+  return (
+    <div className="useContext-hook-example">
+      <UserContext.Provider value={user}>
+        <Profile />
+        <Navigation />
+      </UserContext.Provider>
+    </div>
+  );
+};
+
+//useReducer Hook
+interface StateOfUseReducerHookExample {
+  count: number;
+}
+
+interface Action {
+  type: string;
+}
+
+function reducer(
+  state: StateOfUseReducerHookExample,
+  action: Action
+): StateOfUseReducerHookExample {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+const UseReducerHookExample = () => {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div className="useReducer-hook-example">
+      <h1>This is useReducer Hook Example</h1>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+    </div>
+  );
+};
+
+// useCallback Hook
+const UseCallbackHookExample: React.FC = () => {
+  const [count, setCount] = useState<number>(0);
+
+  const increment = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
+
+  const decrement = useCallback(() => {
+    setCount((prevCount) => prevCount - 1);
+  }, []);
+
+  return (
+    <div className="useCallback-hook-example">
+      <h1>This is the useCallback Hook Example</h1>
+      <h2>Count: {count}</h2>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
+
 export {
   ComponentsAndPropsExample,
   StateAndLifecycleExample,
@@ -1113,4 +1256,9 @@ export {
   RenderPropsExample,
   TypecheckingWithPropTypesExample,
   UncontrolledComponentsExample,
+  UseStateHookExample,
+  UseEffectHookExample,
+  UseReducerHookExample,
+  UseContextHookExample,
+  UseCallbackHookExample,
 };

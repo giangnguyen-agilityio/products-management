@@ -29,6 +29,11 @@ import {
   RenderPropsExample,
   TypecheckingWithPropTypesExample,
   UncontrolledComponentsExample,
+  UseStateHookExample,
+  UseReducerHookExample,
+  UseEffectHookExample,
+  UseContextHookExample,
+  UseCallbackHookExample,
 } from './App';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -68,5 +73,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <RenderPropsExample />
     <TypecheckingWithPropTypesExample name={'Nguyen Truong Giang'} age={23} />
     <UncontrolledComponentsExample />
+    <UseStateHookExample />
+    <UseEffectHookExample />
+    <UseReducerHookExample />
+    <UseContextHookExample />
+    <UseCallbackHookExample />
   </React.StrictMode>
 );

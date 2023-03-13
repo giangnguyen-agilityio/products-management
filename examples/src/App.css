@@ -28,7 +28,12 @@
 .refs-and-dom-example,
 .render-props-example,
 .typechecking-with-proptypes-example,
-.uncontrolled-components-example {
+.uncontrolled-components-example,
+.useState-hook-example,
+.useEffect-hook-example,
+.useReducer-hook-example,
+.useContext-hook-example,
+.useCallback-hook-example {
   border: 1px solid red;
   padding: 1rem;
 }
