@@ -6,11 +6,20 @@ import React, {
   Fragment,
   Profiler,
   createRef,
+  forwardRef,
   useCallback,
   useContext,
+  useDebugValue,
+  useDeferredValue,
   useEffect,
+  useId,
+  useImperativeHandle,
+  useLayoutEffect,
+  useMemo,
   useReducer,
+  useRef,
   useState,
+  useTransition,
 } from 'react';
 import './App.css';
 import ReactDOM from 'react-dom';
@@ -1227,6 +1236,183 @@ const UseCallbackHookExample: React.FC = () => {
   );
 };
 
+// useMemo Hook
+interface PropsUseMemoHookExample {
+  books: Array<string>;
+}
+
+const UseMemoHookExample: React.FC<PropsUseMemoHookExample> = ({ books }) => {
+  const expensiveOperation = useMemo(() => {
+    return books.map((book) => book.toUpperCase());
+  }, [books]);
+
+  return <div className="useMemo-hook-example">{expensiveOperation}</div>;
+};
+
+// useRef Hook
+interface PropsUseRefHookExample {}
+
+const UseRefHookExample: React.FC<PropsUseRefHookExample> = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleClick = () => {
+    inputRef.current?.focus();
+  };
+
+  return (
+    <div className="useRef-hook-example">
+      <input type="text" ref={inputRef} />
+      <button onClick={handleClick}>Focus input</button>
+    </div>
+  );
+};
+
+// useImperativeHandle Hook
+interface PropsUseImperativeHandleHookExample {
+  initialCount: number;
+}
+
+export interface CounterRef {
+  increment: () => void;
+  decrement: () => void;
+}
+
+const UseImperativeHandleHookExample = forwardRef<
+  CounterRef,
+  PropsUseImperativeHandleHookExample
+>((props, ref) => {
+  const [count, setCount] = useState(props.initialCount);
+
+  const increment = () => setCount((c) => c + 1);
+  const decrement = () => setCount((c) => c - 1);
+
+  useImperativeHandle(ref, () => ({ increment, decrement }));
+
+  return (
+    <div className="useImperativeHandle-hook-example">
+      <h1>This is useImperativeHandle Hook Example</h1>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+});
+
+// useLayoutEffect Hook
+interface PropsUseLayoutEffectHookExample {}
+
+const UseLayoutEffectHookExample: React.FC<
+  PropsUseLayoutEffectHookExample
+> = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    console.log(ref.current?.getBoundingClientRect());
+  });
+
+  return (
+    <div className="useLayoutEffect-hook-example" ref={ref}>
+      Hello, Nguyen Truong Giang!
+    </div>
+  );
+};
+
+// useDebugValue Hook
+interface PropsUseDebugValueHookExample {}
+
+const useCounter = () => {
+  const [count, setCount] = useState(0);
+  useDebugValue(count > 10 ? 'Greater than 10' : 'Less than or equal to 10');
+  const increment = () => setCount((prevCount) => prevCount + 1);
+  const decrement = () => setCount((prevCount) => prevCount - 1);
+  return { count, increment, decrement };
+};
+
+const UseDebugValueHookExample: React.FC<Props> = () => {
+  const { count, increment, decrement } = useCounter();
+  return (
+    <div className="useDebugValue-hook-example">
+      <span>The current number is: {count}</span>
+      <br />
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+    </div>
+  );
+};
+
+// useDeferredValue Hook
+interface PropsUseDeferredValueHookExample {}
+
+const UseDeferredValueHookExample: React.FC<
+  PropsUseDeferredValueHookExample
+> = () => {
+  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
+
+  const deferredValue = useDeferredValue(value);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    setValue(inputValue);
+  };
+
+  return (
+    <div className="useDeferredValue-hook-example">
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <button onClick={handleSubmit}>Submit</button>
+      <div>Deferred value: {deferredValue}</div>
+    </div>
+  );
+};
+
+// useTransition Hook
+interface PropsUseTransitionHookExample {}
+
+const UseTransitionHookExample: React.FC<
+  PropsUseTransitionHookExample
+> = () => {
+  const [value, setValue] = useState('');
+  const [isPending, startTransition] = useTransition();
+
+  const handleClick = () => {
+    startTransition(() => {
+      setValue('New Value');
+    });
+  };
+
+  return (
+    <div className="useTransition-hook-example">
+      <button onClick={handleClick}>Update Value</button>
+      {isPending ? <p>Loading...</p> : <p>Value: {value}</p>}
+    </div>
+  );
+};
+
+// useId Hook
+interface PropsUseIdHookExample {}
+
+const UseIdHookExample: React.FC<PropsUseIdHookExample> = () => {
+  const inputId = useId();
+  const email = useId();
+
+  return (
+    <div className="useId-hook-example">
+      <div>
+        <label htmlFor={inputId}>Input: </label>
+        <input type="text" id={inputId} />
+      </div>
+      <br />
+      <div>
+        <label htmlFor={email}>Email: </label>
+        <input type="text" id={email} />
+      </div>
+    </div>
+  );
+};
+
 export {
   ComponentsAndPropsExample,
   StateAndLifecycleExample,
@@ -1261,4 +1447,12 @@ export {
   UseReducerHookExample,
   UseContextHookExample,
   UseCallbackHookExample,
+  UseMemoHookExample,
+  UseRefHookExample,
+  UseImperativeHandleHookExample,
+  UseLayoutEffectHookExample,
+  UseDebugValueHookExample,
+  UseDeferredValueHookExample,
+  UseTransitionHookExample,
+  UseIdHookExample,
 };

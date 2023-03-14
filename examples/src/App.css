@@ -33,7 +33,15 @@
 .useEffect-hook-example,
 .useReducer-hook-example,
 .useContext-hook-example,
-.useCallback-hook-example {
+.useCallback-hook-example,
+.useMemo-hook-example,
+.useRef-hook-example,
+.useImperativeHandle-hook-example,
+.useLayoutEffect-hook-example,
+.useDebugValue-hook-example,
+.useDeferredValue-hook-example,
+.useTransition-hook-example,
+.useId-hook-example {
   border: 1px solid red;
   padding: 1rem;
 }

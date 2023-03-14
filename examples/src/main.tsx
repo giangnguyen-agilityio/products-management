@@ -34,6 +34,14 @@ import {
   UseEffectHookExample,
   UseContextHookExample,
   UseCallbackHookExample,
+  UseMemoHookExample,
+  UseRefHookExample,
+  UseImperativeHandleHookExample,
+  UseLayoutEffectHookExample,
+  UseDebugValueHookExample,
+  UseDeferredValueHookExample,
+  UseTransitionHookExample,
+  UseIdHookExample,
 } from './App';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -78,5 +86,13 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <UseReducerHookExample />
     <UseContextHookExample />
     <UseCallbackHookExample />
+    <UseMemoHookExample books={["Harry Potter and the Sorcerer's Stone "]} />
+    <UseRefHookExample />
+    <UseImperativeHandleHookExample initialCount={20} />
+    <UseLayoutEffectHookExample />
+    <UseDebugValueHookExample />
+    <UseDeferredValueHookExample />
+    <UseTransitionHookExample />
+    <UseIdHookExample />
   </React.StrictMode>
 );
