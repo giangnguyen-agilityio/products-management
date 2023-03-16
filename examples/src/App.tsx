@@ -83,7 +83,7 @@ class Clock extends React.Component<{}, ClockState> {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
+    this.timerID = window.setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -367,7 +367,7 @@ function FormsExample() {
 }
 
 /*--------------------Lifting State Up Example------------------------*/
-interface CalculatorProps {}
+interface CalculatorProps { }
 interface CalculatorState {
   temperature: number;
   scale: string;
@@ -566,7 +566,7 @@ class Animal extends React.Component<AnimalProps, AnimalState> {
   }
 }
 
-interface CatProps extends AnimalProps {}
+interface CatProps extends AnimalProps { }
 
 class Cat extends Animal {
   meow = () => {
@@ -1231,7 +1231,7 @@ const UseCallbackHookExample: React.FC = () => {
       <h1>This is the useCallback Hook Example</h1>
       <h2>Count: {count}</h2>
       <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      0      <button onClick={decrement}>Decrement</button>
     </div>
   );
 };
@@ -1250,7 +1250,7 @@ const UseMemoHookExample: React.FC<PropsUseMemoHookExample> = ({ books }) => {
 };
 
 // useRef Hook
-interface PropsUseRefHookExample {}
+interface PropsUseRefHookExample { }
 
 const UseRefHookExample: React.FC<PropsUseRefHookExample> = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -1299,7 +1299,7 @@ const UseImperativeHandleHookExample = forwardRef<
 });
 
 // useLayoutEffect Hook
-interface PropsUseLayoutEffectHookExample {}
+interface PropsUseLayoutEffectHookExample { }
 
 const UseLayoutEffectHookExample: React.FC<
   PropsUseLayoutEffectHookExample
@@ -1318,7 +1318,7 @@ const UseLayoutEffectHookExample: React.FC<
 };
 
 // useDebugValue Hook
-interface PropsUseDebugValueHookExample {}
+interface PropsUseDebugValueHookExample { }
 
 const useCounter = () => {
   const [count, setCount] = useState(0);
@@ -1341,7 +1341,7 @@ const UseDebugValueHookExample: React.FC<Props> = () => {
 };
 
 // useDeferredValue Hook
-interface PropsUseDeferredValueHookExample {}
+interface PropsUseDeferredValueHookExample { }
 
 const UseDeferredValueHookExample: React.FC<
   PropsUseDeferredValueHookExample
@@ -1369,7 +1369,7 @@ const UseDeferredValueHookExample: React.FC<
 };
 
 // useTransition Hook
-interface PropsUseTransitionHookExample {}
+interface PropsUseTransitionHookExample { }
 
 const UseTransitionHookExample: React.FC<
   PropsUseTransitionHookExample
@@ -1392,7 +1392,7 @@ const UseTransitionHookExample: React.FC<
 };
 
 // useId Hook
-interface PropsUseIdHookExample {}
+interface PropsUseIdHookExample { }
 
 const UseIdHookExample: React.FC<PropsUseIdHookExample> = () => {
   const inputId = useId();
