@@ -1,0 +1,26 @@
+.ListItemTodo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ListItemTodo.completed .text {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.ListItemTodo input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.ListItemTodo .text {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.ListItemTodo button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: red;
+}
