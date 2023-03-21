@@ -1,0 +1,47 @@
+{
+  "name": "library-management",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite src",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .tsx",
+    "lint:fix": "eslint . --ext .tsx --fix",
+    "format": "prettier --write **.tsx **.json **.css",
+    "prepare": "cd ../.. && husky install pre-commit/.husky",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "pnpm run commitmsg"
+    }
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "commitlint": "^17.4.4",
+    "eslint": "^8.36.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "json-server": "^0.17.2",
+    "prettier": "^2.8.5",
+    "typescript": "^5.0.2",
+    "vite": "^4.2.0"
+  }
+}
