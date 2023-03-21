@@ -14,9 +14,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "importHelpers": true
   },
-  "include": ["src/App.tsx"],
+  "include": ["src/**/*", "vite.config.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

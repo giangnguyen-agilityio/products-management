@@ -1,26 +1,25 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "standard-with-typescript"
-    ],
-    "overrides": [],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    },
-    "plugins": [
-        "prettier",
-        "@typescript-eslint",
-        "react"
-    ],
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
-    },
-    "rules": {}
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "standard-with-typescript"],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["prettier", "@typescript-eslint", "react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "semi": ["off"],
+    "quotes": ["error", "single"],
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/triple-slash-reference": "off"
+  }
 }

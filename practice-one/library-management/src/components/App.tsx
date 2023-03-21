@@ -1,7 +1,5 @@
-import React from "react";
-
-function App() {
-  return <>ReactJS Practice One</>;
+function App () {
+  return <>ReactJS Practice One</>
 }
 
-export default App;
+export default App

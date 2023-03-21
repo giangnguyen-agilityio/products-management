@@ -1,235 +1,235 @@
 {
-  "books": [
-    {
-      "bookId": 1,
-      "image": "src/images/book-1.jpg",
-      "title": "Harry Potter and the Prisoner of Azkaban",
-      "author": "J.K.Rowling",
-      "price": 10.99,
-      "availableQuantity": 20,
-      "totalQuantity": 50
-    },
-    {
-      "bookId": 2,
-      "image": "src/images/book-2.jpg",
-      "title": "Harry Potter and the Chamber of Secrets",
-      "author": "J.K.Rowling",
-      "price": 15.50,
-      "availableQuantity": 24,
-      "totalQuantity": 80
-    },
-    {
-      "bookId": 3,
-      "image": "src/images/book-3.jpg",
-      "title": "Harry Potter and the Goblet of Fire",
-      "author": "J.K.Rowling",
-      "price": 12.08,
-      "availableQuantity": 32,
-      "totalQuantity": 67
-    },
-    {
-      "bookId": 4,
-      "image": "src/images/book-4.jpg",
-      "title": "Harry Potter and the Order of the Phoenix",
-      "author": "J.K.Rowling",
-      "price": 13.94,
-      "availableQuantity": 27,
-      "totalQuantity": 64
-    },
-    {
-      "bookId": 5,
-      "image": "src/images/book-5.jpg",
-      "title": "Harry Potter and the Half-Blood Prince",
-      "author": "J.K.Rowling",
-      "price": 20.00,
-      "availableQuantity": 47,
-      "totalQuantity": 97
-    },
-    {
-      "bookId": 6,
-      "image": "src/images/book-6.jpg",
-      "title": "Harry Potter and the Deathly Hallows",
-      "author": "J.K.Rowling",
-      "price": 24.13,
-      "availableQuantity": 46,
-      "totalQuantity": 67
-    },
-    {
-      "bookId": 7,
-      "image": "src/images/book-7.jpg",
-      "title": "Harry Potter and the Philosopher's Stone",
-      "author": "J.K.Rowling",
-      "price": 21.43,
-      "availableQuantity": 23,
-      "totalQuantity": 45
-    },
-    {
-      "bookId": 8,
-      "image": "src/images/book-8.jpg",
-      "title": "Sherlock Holmes: A Study in Scarlet",
-      "author": "Arthur Conan Doyle",
-      "price": 20.04,
-      "availableQuantity": 13,
-      "totalQuantity": 76
-    },
-    {
-      "bookId": 9,
-      "image": "src/images/book-9.jpg",
-      "title": "Sherlock Holmes: The Sign of Four",
-      "author": "Arthur Conan Doyle",
-      "price": 13.94,
-      "availableQuantity": 24,
-      "totalQuantity": 88
-    },
-    {
-      "bookId": 10,
-      "image": "src/images/book-10.jpg",
-      "title": "The Adventures of Sherlock Holmes",
-      "author": "Arthur Conan Doyle",
-      "price": 17.94,
-      "availableQuantity": 34,
-      "totalQuantity": 52
-    },
-    {
-      "bookId": 11,
-      "image": "src/images/book-11.jpg",
-      "title": "The Memoirs of Sherlock Holmes",
-      "author": "Arthur Conan Doyle",
-      "price": 19.94,
-      "availableQuantity": 27,
-      "totalQuantity": 46
-    },
-    {
-      "bookId": 12,
-      "image": "src/images/book-12.jpg",
-      "title": "Sherlock Holmes: The Hound of the Baskervilles",
-      "author": "Arthur Conan Doyle",
-      "price": 23.90,
-      "availableQuantity": 32,
-      "totalQuantity": 65
-    },
-    {
-      "bookId": 13,
-      "image": "src/images/book-13.jpg",
-      "title": "The Return of Sherlock Holmes",
-      "author": "Arthur Conan Doyle",
-      "price": 18.94,
-      "availableQuantity": 45,
-      "totalQuantity": 76
-    },
-    {
-      "bookId": 14,
-      "image": "src/images/book-14.jpg",
-      "title": "Sherlock Holmes: The Valley of Fear",
-      "author": "Arthur Conan Doyle",
-      "price": 19.25,
-      "availableQuantity": 25,
-      "totalQuantity": 45
-    },
-    {
-      "bookId": 15,
-      "image": "src/images/book-15.jpg",
-      "title": "Sherlock Holmes: His Last Bow",
-      "author": "Arthur Conan Doyle",
-      "price": 18.94,
-      "availableQuantity": 43,
-      "totalQuantity": 76
-    },
-    {
-      "bookId": 16,
-      "image": "src/images/book-16.jpg",
-      "title": "Arsène Lupin, Gentleman-Thief",
-      "author": "Maurice Leblanc",
-      "price": 20.44,
-      "availableQuantity": 29,
-      "totalQuantity": 48
-    },
-    {
-      "bookId": 17,
-      "image": "src/images/book-17.jpg",
-      "title": "V for Vendetta",
-      "author": "Alan Moore",
-      "price": 20.02,
-      "availableQuantity": 43,
-      "totalQuantity": 68
-    },
-    {
-      "bookId": 18,
-      "image": "src/images/book-18.jpg",
-      "title": "Where Darkness Blooms",
-      "author": "Andrea Hannah",
-      "price": 17.44,
-      "availableQuantity": 33,
-      "totalQuantity": 54
-    },
-    {
-      "bookId": 19,
-      "image": "src/images/book-19.jpg",
-      "title": "Catch Me If You Can: The True Story of a Real Fake",
-      "author": "Frank W. Abagnale, Stan Redding",
-      "price": 26.08,
-      "availableQuantity": 19,
-      "totalQuantity": 32
-    },
-    {
-      "bookId": 20,
-      "image": "src/images/book-20.jpg",
-      "title": "Stars in an Italian Sky",
-      "author": "Jill Santopolo",
-      "price": 23.94,
-      "availableQuantity": 27,
-      "totalQuantity": 44
-    }
-  ],
-  "members": [
-    {
-      "memberId": 1,
-      "role": "Admin",
-      "firstName": "Giang",
-      "lastName": "Nguyen",
-      "email": "giang.nguyen@asnet.com.vn",
-      "phoneNumber": 882227474,
-      "address": "Da Nang",
-      "hiredBooks": [
+    "books": [
         {
-          "bookId": 20,
-          "image": "src/images/book-20.jpg",
-          "title": "Stars in an Italian Sky"
-        }
-      ]
-    },
-    {
-      "memberId": 2,
-      "role": "Admin",
-      "firstName": "Linh",
-      "lastName": "Hoang",
-      "email": "linh.hoang@asnet.com.vn",
-      "phoneNumber": 945145255,
-      "address": "Da Nang",
-      "hiredBooks": [
-        {
-          "bookId": 17,
-          "image": "src/images/book-17.jpg",
-          "title": "V for Vendetta"
+            "bookId": 1,
+            "image": "src/images/book-1.jpg",
+            "title": "Harry Potter and the Prisoner of Azkaban",
+            "author": "J.K.Rowling",
+            "price": 10.99,
+            "availableQuantity": 20,
+            "totalQuantity": 50
         },
         {
-          "bookId": 6,
-          "image": "src/images/book-6.jpg",
-          "title": "Harry Potter and the Deathly Hallows"
+            "bookId": 2,
+            "image": "src/images/book-2.jpg",
+            "title": "Harry Potter and the Chamber of Secrets",
+            "author": "J.K.Rowling",
+            "price": 15.5,
+            "availableQuantity": 24,
+            "totalQuantity": 80
+        },
+        {
+            "bookId": 3,
+            "image": "src/images/book-3.jpg",
+            "title": "Harry Potter and the Goblet of Fire",
+            "author": "J.K.Rowling",
+            "price": 12.08,
+            "availableQuantity": 32,
+            "totalQuantity": 67
+        },
+        {
+            "bookId": 4,
+            "image": "src/images/book-4.jpg",
+            "title": "Harry Potter and the Order of the Phoenix",
+            "author": "J.K.Rowling",
+            "price": 13.94,
+            "availableQuantity": 27,
+            "totalQuantity": 64
+        },
+        {
+            "bookId": 5,
+            "image": "src/images/book-5.jpg",
+            "title": "Harry Potter and the Half-Blood Prince",
+            "author": "J.K.Rowling",
+            "price": 20.0,
+            "availableQuantity": 47,
+            "totalQuantity": 97
+        },
+        {
+            "bookId": 6,
+            "image": "src/images/book-6.jpg",
+            "title": "Harry Potter and the Deathly Hallows",
+            "author": "J.K.Rowling",
+            "price": 24.13,
+            "availableQuantity": 46,
+            "totalQuantity": 67
+        },
+        {
+            "bookId": 7,
+            "image": "src/images/book-7.jpg",
+            "title": "Harry Potter and the Philosopher's Stone",
+            "author": "J.K.Rowling",
+            "price": 21.43,
+            "availableQuantity": 23,
+            "totalQuantity": 45
+        },
+        {
+            "bookId": 8,
+            "image": "src/images/book-8.jpg",
+            "title": "Sherlock Holmes: A Study in Scarlet",
+            "author": "Arthur Conan Doyle",
+            "price": 20.04,
+            "availableQuantity": 13,
+            "totalQuantity": 76
+        },
+        {
+            "bookId": 9,
+            "image": "src/images/book-9.jpg",
+            "title": "Sherlock Holmes: The Sign of Four",
+            "author": "Arthur Conan Doyle",
+            "price": 13.94,
+            "availableQuantity": 24,
+            "totalQuantity": 88
+        },
+        {
+            "bookId": 10,
+            "image": "src/images/book-10.jpg",
+            "title": "The Adventures of Sherlock Holmes",
+            "author": "Arthur Conan Doyle",
+            "price": 17.94,
+            "availableQuantity": 34,
+            "totalQuantity": 52
+        },
+        {
+            "bookId": 11,
+            "image": "src/images/book-11.jpg",
+            "title": "The Memoirs of Sherlock Holmes",
+            "author": "Arthur Conan Doyle",
+            "price": 19.94,
+            "availableQuantity": 27,
+            "totalQuantity": 46
+        },
+        {
+            "bookId": 12,
+            "image": "src/images/book-12.jpg",
+            "title": "Sherlock Holmes: The Hound of the Baskervilles",
+            "author": "Arthur Conan Doyle",
+            "price": 23.9,
+            "availableQuantity": 32,
+            "totalQuantity": 65
+        },
+        {
+            "bookId": 13,
+            "image": "src/images/book-13.jpg",
+            "title": "The Return of Sherlock Holmes",
+            "author": "Arthur Conan Doyle",
+            "price": 18.94,
+            "availableQuantity": 45,
+            "totalQuantity": 76
+        },
+        {
+            "bookId": 14,
+            "image": "src/images/book-14.jpg",
+            "title": "Sherlock Holmes: The Valley of Fear",
+            "author": "Arthur Conan Doyle",
+            "price": 19.25,
+            "availableQuantity": 25,
+            "totalQuantity": 45
+        },
+        {
+            "bookId": 15,
+            "image": "src/images/book-15.jpg",
+            "title": "Sherlock Holmes: His Last Bow",
+            "author": "Arthur Conan Doyle",
+            "price": 18.94,
+            "availableQuantity": 43,
+            "totalQuantity": 76
+        },
+        {
+            "bookId": 16,
+            "image": "src/images/book-16.jpg",
+            "title": "Arsène Lupin, Gentleman-Thief",
+            "author": "Maurice Leblanc",
+            "price": 20.44,
+            "availableQuantity": 29,
+            "totalQuantity": 48
+        },
+        {
+            "bookId": 17,
+            "image": "src/images/book-17.jpg",
+            "title": "V for Vendetta",
+            "author": "Alan Moore",
+            "price": 20.02,
+            "availableQuantity": 43,
+            "totalQuantity": 68
+        },
+        {
+            "bookId": 18,
+            "image": "src/images/book-18.jpg",
+            "title": "Where Darkness Blooms",
+            "author": "Andrea Hannah",
+            "price": 17.44,
+            "availableQuantity": 33,
+            "totalQuantity": 54
+        },
+        {
+            "bookId": 19,
+            "image": "src/images/book-19.jpg",
+            "title": "Catch Me If You Can: The True Story of a Real Fake",
+            "author": "Frank W. Abagnale, Stan Redding",
+            "price": 26.08,
+            "availableQuantity": 19,
+            "totalQuantity": 32
+        },
+        {
+            "bookId": 20,
+            "image": "src/images/book-20.jpg",
+            "title": "Stars in an Italian Sky",
+            "author": "Jill Santopolo",
+            "price": 23.94,
+            "availableQuantity": 27,
+            "totalQuantity": 44
         }
-      ]
+    ],
+    "members": [
+        {
+            "memberId": 1,
+            "role": "Admin",
+            "firstName": "Giang",
+            "lastName": "Nguyen",
+            "email": "giang.nguyen@asnet.com.vn",
+            "phoneNumber": 882227474,
+            "address": "Da Nang",
+            "hiredBooks": [
+                {
+                    "bookId": 20,
+                    "image": "src/images/book-20.jpg",
+                    "title": "Stars in an Italian Sky"
+                }
+            ]
+        },
+        {
+            "memberId": 2,
+            "role": "Admin",
+            "firstName": "Linh",
+            "lastName": "Hoang",
+            "email": "linh.hoang@asnet.com.vn",
+            "phoneNumber": 945145255,
+            "address": "Da Nang",
+            "hiredBooks": [
+                {
+                    "bookId": 17,
+                    "image": "src/images/book-17.jpg",
+                    "title": "V for Vendetta"
+                },
+                {
+                    "bookId": 6,
+                    "image": "src/images/book-6.jpg",
+                    "title": "Harry Potter and the Deathly Hallows"
+                }
+            ]
+        }
+    ],
+    "hireRequests": {
+        "bookId": 1,
+        "memberId": 1,
+        "memberName": {
+            "firstName": "Giang",
+            "lastName": "Nguyen"
+        },
+        "bookTitle": "Book",
+        "fromDate": "2023-03-21T08:52:13.000Z",
+        "toDate": "2023-03-24T08:52:13.000Z",
+        "status": "completed"
     }
-  ],
-  "hireRequests": {
-    "bookId": 1,
-    "memberId": 1,
-    "memberName": {
-      "firstName": "Giang",
-      "lastName": "Nguyen"
-    },
-    "bookTitle": "Book",
-    "fromDate": "2023-03-21T08:52:13.000Z",
-    "toDate": "2023-03-24T08:52:13.000Z",
-    "status": "completed"
-  }
 }
