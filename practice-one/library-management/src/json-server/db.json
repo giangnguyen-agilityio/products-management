@@ -1,8 +1,9 @@
 {
     "books": [
         {
-            "bookId": 1,
-            "image": "src/images/book-1.jpg",
+            "bookId": "B1",
+            "image": "src/images/harry-potter-and-the-prisoner-of-azkaban.jpg",
+            "alt": "Harry Potter and the Prisoner of Azkaban book cover",
             "title": "Harry Potter and the Prisoner of Azkaban",
             "author": "J.K.Rowling",
             "price": 10.99,
@@ -10,8 +11,9 @@
             "totalQuantity": 50
         },
         {
-            "bookId": 2,
-            "image": "src/images/book-2.jpg",
+            "bookId": "B2",
+            "image": "src/images/harry-potter-and-the-chamber-of-secrets.jpg",
+            "alt": "Harry Potter and the Chamber of Secrets book cover",
             "title": "Harry Potter and the Chamber of Secrets",
             "author": "J.K.Rowling",
             "price": 15.5,
@@ -19,8 +21,9 @@
             "totalQuantity": 80
         },
         {
-            "bookId": 3,
-            "image": "src/images/book-3.jpg",
+            "bookId": "B3",
+            "image": "src/images/harry-potter-and-the-goblet-of-fire.jpg",
+            "alt": "Harry Potter and the Goblet of Fire book cover",
             "title": "Harry Potter and the Goblet of Fire",
             "author": "J.K.Rowling",
             "price": 12.08,
@@ -28,8 +31,9 @@
             "totalQuantity": 67
         },
         {
-            "bookId": 4,
-            "image": "src/images/book-4.jpg",
+            "bookId": "B4",
+            "image": "src/images/harry-potter-and-the-order-of-the-phoenix.jpg",
+            "alt": "Harry Potter and the Order of the Phoenix book cover",
             "title": "Harry Potter and the Order of the Phoenix",
             "author": "J.K.Rowling",
             "price": 13.94,
@@ -37,8 +41,9 @@
             "totalQuantity": 64
         },
         {
-            "bookId": 5,
-            "image": "src/images/book-5.jpg",
+            "bookId": "B5",
+            "image": "src/images/harry-potter-and-the-half-blood-prince.jpg",
+            "alt": "Harry Potter and the Half-Blood Prince book cover",
             "title": "Harry Potter and the Half-Blood Prince",
             "author": "J.K.Rowling",
             "price": 20.0,
@@ -46,8 +51,9 @@
             "totalQuantity": 97
         },
         {
-            "bookId": 6,
-            "image": "src/images/book-6.jpg",
+            "bookId": "B6",
+            "image": "src/images/harry-potter-and-the-deathly-hallows.jpg",
+            "alt": "Harry Potter and the Deathly Hallows book cover",
             "title": "Harry Potter and the Deathly Hallows",
             "author": "J.K.Rowling",
             "price": 24.13,
@@ -55,8 +61,9 @@
             "totalQuantity": 67
         },
         {
-            "bookId": 7,
-            "image": "src/images/book-7.jpg",
+            "bookId": "B7",
+            "image": "src/images/harry-potter-and-the-philosopher-stone.jpg",
+            "alt": "Harry Potter and the Philosopher's Stone book cover",
             "title": "Harry Potter and the Philosopher's Stone",
             "author": "J.K.Rowling",
             "price": 21.43,
@@ -64,8 +71,9 @@
             "totalQuantity": 45
         },
         {
-            "bookId": 8,
-            "image": "src/images/book-8.jpg",
+            "bookId": "B8",
+            "image": "src/images/sherlock-holmes-a-study-in-scarlet.jpg",
+            "alt": "Sherlock Holmes: A Study in Scarlet book cover",
             "title": "Sherlock Holmes: A Study in Scarlet",
             "author": "Arthur Conan Doyle",
             "price": 20.04,
@@ -73,8 +81,9 @@
             "totalQuantity": 76
         },
         {
-            "bookId": 9,
-            "image": "src/images/book-9.jpg",
+            "bookId": "B9",
+            "image": "src/images/sherlock-holmes-the-sign-of-four.jpg",
+            "alt": "Sherlock Holmes: The Sign of Four book cover",
             "title": "Sherlock Holmes: The Sign of Four",
             "author": "Arthur Conan Doyle",
             "price": 13.94,
@@ -82,8 +91,9 @@
             "totalQuantity": 88
         },
         {
-            "bookId": 10,
-            "image": "src/images/book-10.jpg",
+            "bookId": "B10",
+            "image": "src/images/the-adventures-of-sherlock-holmes.jpg",
+            "alt": "The Adventures of Sherlock Holmes book cover",
             "title": "The Adventures of Sherlock Holmes",
             "author": "Arthur Conan Doyle",
             "price": 17.94,
@@ -91,8 +101,9 @@
             "totalQuantity": 52
         },
         {
-            "bookId": 11,
-            "image": "src/images/book-11.jpg",
+            "bookId": "B11",
+            "image": "src/images/the-memoirs-of-sherlock-holmes.jpg",
+            "alt": "The Memoirs of Sherlock Holmes book cover",
             "title": "The Memoirs of Sherlock Holmes",
             "author": "Arthur Conan Doyle",
             "price": 19.94,
@@ -100,8 +111,9 @@
             "totalQuantity": 46
         },
         {
-            "bookId": 12,
-            "image": "src/images/book-12.jpg",
+            "bookId": "B12",
+            "image": "src/images/sherlock-holmes-the-hound-of-the-baskervilles.jpg",
+            "alt": "Sherlock Holmes: The Hound of the Baskervilles book cover",
             "title": "Sherlock Holmes: The Hound of the Baskervilles",
             "author": "Arthur Conan Doyle",
             "price": 23.9,
@@ -109,8 +121,9 @@
             "totalQuantity": 65
         },
         {
-            "bookId": 13,
-            "image": "src/images/book-13.jpg",
+            "bookId": "B13",
+            "image": "src/images/the-return-of-sherlock-holmes.jpg",
+            "alt": "The Return of Sherlock Holmes book cover",
             "title": "The Return of Sherlock Holmes",
             "author": "Arthur Conan Doyle",
             "price": 18.94,
@@ -118,8 +131,9 @@
             "totalQuantity": 76
         },
         {
-            "bookId": 14,
-            "image": "src/images/book-14.jpg",
+            "bookId": "B14",
+            "image": "src/images/sherlock-holmes-the-valley-of-fear.jpg",
+            "alt": "Sherlock Holmes: The Valley of Fear book cover",
             "title": "Sherlock Holmes: The Valley of Fear",
             "author": "Arthur Conan Doyle",
             "price": 19.25,
@@ -127,8 +141,9 @@
             "totalQuantity": 45
         },
         {
-            "bookId": 15,
-            "image": "src/images/book-15.jpg",
+            "bookId": "B15",
+            "image": "src/images/sherlock-holmes-his-last-bow.jpg",
+            "alt": "Sherlock Holmes: His Last Bow book cover",
             "title": "Sherlock Holmes: His Last Bow",
             "author": "Arthur Conan Doyle",
             "price": 18.94,
@@ -136,8 +151,9 @@
             "totalQuantity": 76
         },
         {
-            "bookId": 16,
-            "image": "src/images/book-16.jpg",
+            "bookId": "B16",
+            "image": "src/images/arsene-lupin-gentleman-thief.jpg",
+            "alt": "Arsène Lupin, Gentleman-Thief book cover",
             "title": "Arsène Lupin, Gentleman-Thief",
             "author": "Maurice Leblanc",
             "price": 20.44,
@@ -145,8 +161,9 @@
             "totalQuantity": 48
         },
         {
-            "bookId": 17,
-            "image": "src/images/book-17.jpg",
+            "bookId": "B17",
+            "image": "src/images/v-for-vendetta.jpg",
+            "alt": "V for Vendetta book cover",
             "title": "V for Vendetta",
             "author": "Alan Moore",
             "price": 20.02,
@@ -154,8 +171,9 @@
             "totalQuantity": 68
         },
         {
-            "bookId": 18,
-            "image": "src/images/book-18.jpg",
+            "bookId": "B18",
+            "image": "src/images/where-darkness-blooms.jpg",
+            "alt": "Where Darkness Blooms book cover",
             "title": "Where Darkness Blooms",
             "author": "Andrea Hannah",
             "price": 17.44,
@@ -163,8 +181,9 @@
             "totalQuantity": 54
         },
         {
-            "bookId": 19,
-            "image": "src/images/book-19.jpg",
+            "bookId": "B19",
+            "image": "src/images/catch-me-if-you-can.jpg",
+            "alt": "Catch Me If You Can: The True Story of a Real Fake book cover",
             "title": "Catch Me If You Can: The True Story of a Real Fake",
             "author": "Frank W. Abagnale, Stan Redding",
             "price": 26.08,
@@ -172,8 +191,9 @@
             "totalQuantity": 32
         },
         {
-            "bookId": 20,
-            "image": "src/images/book-20.jpg",
+            "bookId": "B20",
+            "image": "src/images/stars-in-an-italian-sky.jpg",
+            "alt": "Stars in an Italian Sky book cover",
             "title": "Stars in an Italian Sky",
             "author": "Jill Santopolo",
             "price": 23.94,
@@ -183,51 +203,40 @@
     ],
     "members": [
         {
-            "memberId": 1,
+            "memberId": "M1",
             "role": "Admin",
             "firstName": "Giang",
             "lastName": "Nguyen",
             "email": "giang.nguyen@asnet.com.vn",
-            "phoneNumber": 882227474,
+            "phoneNumber": "+84882227474",
             "address": "Da Nang",
             "hiredBooks": [
                 {
-                    "bookId": 20,
-                    "image": "src/images/book-20.jpg",
-                    "title": "Stars in an Italian Sky"
+                    "bookId": "B20"
                 }
             ]
         },
         {
-            "memberId": 2,
+            "memberId": "M2",
             "role": "Admin",
             "firstName": "Linh",
             "lastName": "Hoang",
             "email": "linh.hoang@asnet.com.vn",
-            "phoneNumber": 945145255,
+            "phoneNumber": "+84945145255",
             "address": "Da Nang",
             "hiredBooks": [
                 {
-                    "bookId": 17,
-                    "image": "src/images/book-17.jpg",
-                    "title": "V for Vendetta"
+                    "bookId": "B17"
                 },
                 {
-                    "bookId": 6,
-                    "image": "src/images/book-6.jpg",
-                    "title": "Harry Potter and the Deathly Hallows"
+                    "bookId": "B6"
                 }
             ]
         }
     ],
     "hireRequests": {
-        "bookId": 1,
-        "memberId": 1,
-        "memberName": {
-            "firstName": "Giang",
-            "lastName": "Nguyen"
-        },
-        "bookTitle": "Book",
+        "bookId": "B1",
+        "memberId": "M1",
         "fromDate": "2023-03-21T08:52:13.000Z",
         "toDate": "2023-03-24T08:52:13.000Z",
         "status": "completed"
