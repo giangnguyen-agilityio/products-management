@@ -1,4 +1,3 @@
-
 function App() {
   return (<>
     ReactJS Practice 1
