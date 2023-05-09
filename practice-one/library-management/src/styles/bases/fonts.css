@@ -1,17 +1,19 @@
 @font-face {
-     font-family: "Roboto-Regular";
-     src: url("../../assets/fonts/RobotoRegular/Roboto-Regular.woff2") format("woff"),
-          url("../../assets/fonts/RobotoRegular/Roboto-Regular.ttf") format("truetype");
+  font-family: "Roboto-Regular";
+  src: url("../../assets/fonts/RobotoRegular/Roboto-Regular.woff2")
+      format("woff"),
+    url("../../assets/fonts/RobotoRegular/Roboto-Regular.ttf")
+      format("truetype");
 }
 
 @font-face {
-     font-family: "Roboto-Medium";
-     src: url("../../assets/fonts/RobotoMedium/Roboto-Medium.woff2") format("woff"),
-          url("../../assets/fonts/RobotoMedium/Roboto-Medium.ttf") format("truetype");
+  font-family: "Roboto-Medium";
+  src: url("../../assets/fonts/RobotoMedium/Roboto-Medium.woff2") format("woff"),
+    url("../../assets/fonts/RobotoMedium/Roboto-Medium.ttf") format("truetype");
 }
 
 @font-face {
-     font-family: "Roboto-Bold";
-     src: url("../../assets/fonts/RobotoBold/Roboto-Bold.woff2") format("woff"),
-          url("../../assets/fonts/RobotoBold/Roboto-Bold.ttf") format("truetype");
+  font-family: "Roboto-Bold";
+  src: url("../../assets/fonts/RobotoBold/Roboto-Bold.woff2") format("woff"),
+    url("../../assets/fonts/RobotoBold/Roboto-Bold.ttf") format("truetype");
 }

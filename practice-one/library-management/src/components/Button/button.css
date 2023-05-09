@@ -1,0 +1,65 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: var(--primary-font);
+  color: var(--secondary-text-color);
+  background-color: var(--primary-color);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 10px 16px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:disabled {
+  cursor: default;
+  color: var(--primary-text-color);
+  background-color: var(--secondary-color);
+}
+
+.btn-default {
+  background-color: var(--tertiary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+
+.btn-success {
+  background-color: var(--success-color);
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+}
+
+.btn-small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+
+.btn-medium {
+  font-size: 14px;
+  padding: 11px 20px;
+  font-weight: var(--secondary-font);
+}
+
+.btn-large {
+  font-size: 16px;
+  padding: 12px 24px;
+  font-weight: var(--tertiary-font);
+}

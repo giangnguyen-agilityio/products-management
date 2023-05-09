@@ -1,19 +1,25 @@
-import "./Button.css"
+import './button.css'
 interface ButtonProps {
-    size?: 'small' | 'medium' | 'large';
-    variant?: 'primary' | 'secondary' | 'default' | 'success' | 'warning' | 'danger';
-    className?: string;
-    ariaLabel?: string;
-    onClick?: () => void;
+  size?: 'small' | 'medium' | 'large'
+  variant?:
+  | 'primary'
+  | 'secondary'
+  | 'default'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  className?: string
+  ariaLabel?: string
+  onClick?: () => void
 }
 
 const Button = (
-    props: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+  props: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 ): JSX.Element => {
-    const { children, size, variant, className, ariaLabel, onClick, ...rest } =
-        props;
+  const { children, size, variant, className, ariaLabel, onClick, ...rest } =
+        props
 
-    return (
+  return (
         <button
             className={`btn btn-${variant} btn-${size} ${className}`}
             onClick={onClick}
@@ -23,7 +29,7 @@ const Button = (
         >
             {children}
         </button>
-    );
-};
+  )
+}
 
-export default Button;
+export default Button

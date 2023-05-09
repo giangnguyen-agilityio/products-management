@@ -1,0 +1,32 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  text-transform: capitalize;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  padding: 5px 8px;
+  transition: outline-color 0.2s ease-in-out;
+}
+
+.input:hover {
+  cursor: pointer;
+}
+
+.input:focus {
+  outline-color: var(--primary-color);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-family: var(--secondary-font);
+}
