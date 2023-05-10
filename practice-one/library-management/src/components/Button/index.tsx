@@ -17,18 +17,18 @@ const Button = (
   props: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 ): JSX.Element => {
   const { children, size, variant, className, ariaLabel, onClick, ...rest } =
-        props
+    props
 
   return (
-        <button
-            className={`btn btn-${variant} btn-${size} ${className}`}
-            onClick={onClick}
-            type="button"
-            aria-label={ariaLabel}
-            {...rest}
-        >
-            {children}
-        </button>
+    <button
+      className={`btn btn-${variant} btn-${size} ${className}`}
+      onClick={onClick}
+      type="button"
+      aria-label={ariaLabel}
+      {...rest}
+    >
+      {children}
+    </button>
   )
 }
 
