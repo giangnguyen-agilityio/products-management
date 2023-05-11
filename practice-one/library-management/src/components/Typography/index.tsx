@@ -13,7 +13,7 @@ const Typography = ({
   children,
   className
 }: TypographyProps) => {
-  const textClasses = `text-${variant} text-${color} ${className}`
+  const textClasses = `text-${variant} text-${color} ${className ?? ''}`
 
   switch (variant) {
     case 'h1':
