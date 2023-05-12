@@ -1,0 +1,22 @@
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--secondary-font);
+  gap: 50px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.link-label {
+  font-size: 26px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.link-label:hover {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--primary-color);
+}
