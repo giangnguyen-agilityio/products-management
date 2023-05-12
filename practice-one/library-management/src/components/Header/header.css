@@ -1,0 +1,36 @@
+.site-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.site-navigation {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 250px;
+}
+
+.site-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    height: 100%;
+    align-items: center;
+}
+
+.sign-up {
+    background-color: unset !important;
+    color: var(--primary-color) !important;
+}
+
+.sign-up:hover {
+    background-color: var(--bg-btn-color) !important;
+}
+
+.sign-up,
+.sign-in {
+    padding: 15px !important;
+    border-radius: 25px !important;
+    transition: all 0.3s ease-in-out;
+}
