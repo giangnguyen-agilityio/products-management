@@ -1,4 +1,6 @@
+import { memo } from 'react'
 import './button.css'
+
 interface ButtonProps {
   size?: 'small' | 'medium' | 'large'
   variant?:
@@ -32,4 +34,4 @@ const Button = (
   )
 }
 
-export default Button
+export default memo(Button)

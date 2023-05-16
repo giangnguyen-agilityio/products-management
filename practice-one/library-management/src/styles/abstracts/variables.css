@@ -12,8 +12,15 @@
   --success-color: #28a745;
   --warning-color: #ffc107;
   --bg-btn-color: #dcdcdc;
+  --bg-introduction-color: rgba(14, 98, 72, 0.8);
 
   /* Text-color */
   --primary-text-color: #000;
   --secondary-text-color: #fff;
+
+  /* Text-shadow */
+  --text-shadow-primary: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  /* Drop-shadow */
+  --drop-shadow-color: 25px 20px 15px rgba(0, 0, 0, 0.15);
 }

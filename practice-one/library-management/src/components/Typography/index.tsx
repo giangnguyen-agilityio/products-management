@@ -1,8 +1,9 @@
 import './typography.css'
+import { memo } from 'react'
 
 export interface TypographyProps {
   variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
-  color: 'primary' | 'secondary'
+  color?: 'primary' | 'secondary'
   className?: string
   children: React.ReactNode
 }
@@ -13,7 +14,9 @@ const Typography = ({
   children,
   className
 }: TypographyProps) => {
-  const textClasses = `text-${variant} text-${color} ${className ?? ''}`
+  const textClasses = `text-${variant} text-${color ?? 'default'} ${
+    className ?? ''
+  }`
 
   switch (variant) {
     case 'h1':
@@ -33,4 +36,4 @@ const Typography = ({
   }
 }
 
-export default Typography
+export default memo(Typography)

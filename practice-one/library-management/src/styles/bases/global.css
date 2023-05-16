@@ -7,3 +7,12 @@
 body {
   font-family: var(--primary-font);
 }
+
+.wrapper {
+  max-width: 2560px;
+  margin: 0 auto;
+}
+
+.container {
+  padding: 0 110px;
+}
