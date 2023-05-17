@@ -82,12 +82,13 @@ const Banner: React.FC = () => {
               <div className="pagination">
                 {books.map((_, index) => (
                   <div
+                    key={index}
                     className={`pagination-item-border ${
                       index === activeIndex ? 'active' : ''
                     }`}
                   >
                     <div
-                      key={index}
+                      key={`pagination-item-${index}`}
                       className={`pagination-item ${
                         index === activeIndex ? 'active' : ''
                       }`}

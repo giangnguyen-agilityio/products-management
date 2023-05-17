@@ -1,0 +1,106 @@
+.card-section {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card-wrapper {
+  position: relative;
+  cursor: pointer;
+  padding-top: 320px;
+}
+
+.card-image-wrapper {
+  position: absolute;
+  left: 35px;
+  width: 100%;
+  top: 0;
+}
+
+.card-image {
+  width: 500px;
+  height: 550px;
+  border-radius: 10px;
+}
+
+.card-info {
+  width: 450px;
+  border: 2px solid var(--bg-btn-color);
+  padding: 250px 30px 30px;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 26px;
+  font-family: var(--secondary-font) !important;
+}
+
+.card-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--secondary-font) !important;
+  margin: 15px 0;
+}
+
+.card-author,
+.card-price {
+  font-size: 22px !important;
+}
+
+.card-description {
+  height: 420px;
+  margin: 20px 0 10px;
+  font-size: 21px;
+  line-height: 22px;
+  color: var(--secondary-color);
+}
+
+.card-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-button {
+  display: flex;
+  gap: 10px;
+}
+
+.card-rent-btn,
+.edit-btn,
+.delete-btn {
+  padding: 15px;
+  font-size: 20px !important;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid var(--bg-btn-color) !important;
+  font-family: var(--secondary-font);
+  background: unset !important;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card-rent-btn {
+  color: var(--primary-color) !important;
+}
+
+.card-rent-btn:hover {
+  border-color: var(--primary-color) !important;
+}
+
+.edit-btn {
+  color: var(--tertiary-color) !important;
+}
+
+.edit-btn:hover {
+  border-color: var(--tertiary-color) !important;
+}
+
+.delete-btn {
+  color: var(--danger-color) !important;
+}
+
+.delete-btn:hover {
+  border-color: var(--danger-color) !important;
+}
