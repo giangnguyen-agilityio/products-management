@@ -4,8 +4,7 @@ import Typography from '../Typography/index'
 import Button from '../Button/index'
 import axios from 'axios'
 import './banner.css'
-import { Book } from '../../types/book'
-
+import { type Book } from '../../types/book'
 
 const Banner: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([])
@@ -83,10 +82,17 @@ const Banner: React.FC = () => {
               <div className="pagination">
                 {books.map((_, index) => (
                   <div
-                    key={index}
-                    className={`pagination-item ${index === activeIndex ? 'active' : ''
+                    className={`pagination-item-border ${
+                      index === activeIndex ? 'active' : ''
+                    }`}
+                  >
+                    <div
+                      key={index}
+                      className={`pagination-item ${
+                        index === activeIndex ? 'active' : ''
                       }`}
-                  />
+                    />
+                  </div>
                 ))}
               </div>
             </div>

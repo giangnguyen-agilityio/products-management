@@ -135,6 +135,7 @@
 .pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 50px 0;
 }
 
@@ -149,4 +150,10 @@
 
 .pagination-item.active {
   background-color: var(--primary-color);
+}
+
+.pagination-item-border.active {
+  border: 2px solid var(--primary-color);
+  padding: 5px 0;
+  border-radius: 50%;
 }
