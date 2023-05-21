@@ -1,9 +1,3 @@
-.card-section {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
 .card-wrapper {
   position: relative;
   cursor: pointer;

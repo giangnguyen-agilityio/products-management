@@ -1,0 +1,53 @@
+.card-section-title {
+  font-family: var(--secondary-font);
+  font-size: 52px;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.card-section-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px 0;
+}
+
+.add-new-btn,
+.show-more-btn {
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  color: var(--primary-color);
+  transition: all 0.5s ease-in-out;
+  background: unset;
+}
+
+.add-new-btn {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  border: 2px solid var(--bg-btn-color);
+  border-radius: 15px;
+  text-transform: uppercase;
+}
+
+.add-new-btn:hover {
+  border-color: var(--primary-color);
+}
+
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.show-more-btn {
+  border-bottom: 2px solid transparent;
+  padding: 10px 5px;
+  text-transform: capitalize;
+}
+
+.show-more-btn:hover {
+  border-bottom: 2px solid var(--primary-color);
+}

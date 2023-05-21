@@ -9,13 +9,13 @@ import './card.css'
 
 interface CardProps {
   book: Book
-  onRent: () => void
-  onEdit: () => void
-  onDelete: () => void
+  onRent: (id: string) => void
+  onEdit: (id: string) => void
+  onDelete: (id: string) => void
 }
 
 const Card: React.FC<CardProps> = memo(({ book, onRent, onEdit, onDelete }) => {
-  const { title, author, price, description, image } = book
+  const { bookId, title, author, price, description, image } = book
 
   return (
     <div className="card-wrapper">
@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = memo(({ book, onRent, onEdit, onDelete }) => {
             variant="primary"
             className="card-rent-btn"
             ariaLabel="Card rent button"
-            onClick={onRent}
+            onClick={() => { onRent(bookId) }}
           >
             Rent
           </Button>
@@ -53,7 +53,7 @@ const Card: React.FC<CardProps> = memo(({ book, onRent, onEdit, onDelete }) => {
               variant="primary"
               className="edit-btn"
               ariaLabel="Edit button"
-              onClick={onEdit}
+              onClick={() => { onEdit(bookId) }}
             >
               <HiOutlinePencilSquare size={25} />
             </Button>
@@ -62,7 +62,7 @@ const Card: React.FC<CardProps> = memo(({ book, onRent, onEdit, onDelete }) => {
               variant="primary"
               className="delete-btn"
               ariaLabel="Delete button"
-              onClick={onDelete}
+              onClick={() => { onDelete(bookId) }}
             >
               <BsTrash3 size={25} />
             </Button>

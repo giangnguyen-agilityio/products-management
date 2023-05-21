@@ -1,9 +1,9 @@
 import Header from './components/Header'
 import Banner from './components/Banner'
-import Card from './components/Card'
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { type Book } from './types/book'
+import CardList from './components/CardList'
 
 const App = () => {
   const [books, setBooks] = useState<Book[]>([])
@@ -25,26 +25,8 @@ const App = () => {
     <div className="wrapper">
       <div className="container">
         <Header isLogin={true} />
-        <Banner />
-        <section className="card-section">
-          {books.map((book) => (
-            <>
-              <Card
-                key={`book-${book.bookId}`}
-                book={book}
-                onRent={() => {
-                  /* Handle rent action */
-                }}
-                onEdit={() => {
-                  /* Handle edit action */
-                }}
-                onDelete={() => {
-                  /* Handle delete action */
-                }}
-              />
-            </>
-          ))}
-        </section>
+        <Banner bookList={books} />
+        <CardList bookList={books} />
       </div>
     </div>
   )
