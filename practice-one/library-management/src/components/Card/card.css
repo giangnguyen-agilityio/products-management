@@ -8,12 +8,13 @@
   position: relative;
   cursor: pointer;
   padding-top: 320px;
+  border: 2px solid transparent;
+  transition: all 0.8s ease-in-out;
 }
 
 .card-image-wrapper {
   position: absolute;
   left: 35px;
-  width: 100%;
   top: 0;
 }
 
@@ -25,12 +26,14 @@
 
 .card-info {
   width: 450px;
+  height: 100%;
   border: 2px solid var(--bg-btn-color);
   padding: 250px 30px 30px;
   border-radius: 10px;
 }
 
 .card-title {
+  height: 50px;
   font-size: 26px;
   font-family: var(--secondary-font) !important;
 }
@@ -40,12 +43,17 @@
   justify-content: space-between;
   align-items: center;
   font-family: var(--secondary-font) !important;
-  margin: 15px 0;
+  margin: 15px 0 0;
+  height: 45px;
 }
 
 .card-author,
 .card-price {
   font-size: 22px !important;
+}
+
+.card-author {
+  width: 80%;
 }
 
 .card-description {
@@ -73,7 +81,7 @@
   padding: 15px;
   font-size: 20px !important;
   text-transform: uppercase;
-  border-radius: 5px;
+  border-radius: 50%;
   border: 1px solid var(--bg-btn-color) !important;
   font-family: var(--secondary-font);
   background: unset !important;
@@ -82,6 +90,7 @@
 }
 
 .card-rent-btn {
+  border-radius: 15px;
   color: var(--primary-color) !important;
 }
 
@@ -103,4 +112,9 @@
 
 .delete-btn:hover {
   border-color: var(--danger-color) !important;
+}
+
+.card-wrapper:hover .card-info {
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
 }

@@ -4,6 +4,7 @@ import Typography from '../Typography/index'
 import Button from '../Button/index'
 import { HiOutlinePencilSquare } from 'react-icons/hi2'
 import { BsTrash3 } from 'react-icons/bs'
+
 import './card.css'
 
 interface CardProps {
@@ -22,24 +23,20 @@ const Card: React.FC<CardProps> = memo(({ book, onRent, onEdit, onDelete }) => {
         <img src={image} alt={title} className="card-image" />
       </div>
       <div className="card-info">
-        <Typography variant={'h3'} className={'card-title'} children={title} />
+        <Typography variant={'h3'} className={'card-title'}>
+          {title}
+        </Typography>
         <div className="card-detail">
-          <Typography
-            variant={'p'}
-            className={'card-author'}
-            children={author}
-          />
-          <Typography
-            variant={'p'}
-            className={'card-price'}
-            children={`${price.toFixed(2)} $`}
-          />
+          <Typography variant={'p'} className={'card-author'}>
+            {author}
+          </Typography>
+          <Typography variant={'p'} className={'card-price'}>{`${price.toFixed(
+            2
+          )} $`}</Typography>
         </div>
-        <Typography
-          variant={'p'}
-          className={'card-description'}
-          children={description}
-        />
+        <Typography variant={'p'} className={'card-description'}>
+          {description}
+        </Typography>
         <div className="card-controls">
           <Button
             size={'medium'}
@@ -56,7 +53,7 @@ const Card: React.FC<CardProps> = memo(({ book, onRent, onEdit, onDelete }) => {
               variant="primary"
               className="edit-btn"
               ariaLabel="Edit button"
-              onClick={onRent}
+              onClick={onEdit}
             >
               <HiOutlinePencilSquare size={25} />
             </Button>
@@ -64,8 +61,8 @@ const Card: React.FC<CardProps> = memo(({ book, onRent, onEdit, onDelete }) => {
               size={'medium'}
               variant="primary"
               className="delete-btn"
-              ariaLabel="Edit button"
-              onClick={onRent}
+              ariaLabel="Delete button"
+              onClick={onDelete}
             >
               <BsTrash3 size={25} />
             </Button>
