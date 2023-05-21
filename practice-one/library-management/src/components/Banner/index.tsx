@@ -41,23 +41,27 @@ const Banner = ({ bookList }: BannerProps) => {
             <Typography
               variant="h2"
               className="book-title"
-              children={currentBook.title}
-            />
+            >
+            {currentBook.title}
+            </Typography>
             <Typography
               variant="h3"
               className="book-author"
-              children={currentBook.author}
-            />
+            >
+            {currentBook.author}
+            </Typography>
             <Typography
               variant="h3"
               className="book-price"
-              children={`${currentBook.price.toFixed(2)} $`}
-            />
+            >
+            {`${currentBook.price.toFixed(2)} $`}
+            </Typography>
             <Typography
               variant="p"
               className="book-description"
-              children={currentBook.description}
-            />
+            >
+            {currentBook.description}
+            </Typography>
             <Button
               size="large"
               variant="primary"
@@ -120,8 +124,9 @@ const Banner = ({ bookList }: BannerProps) => {
         <Typography
           variant="p"
           className="introduction-text"
-          children={'Welcome to Giang Nguyen\'s Library Management Website! Discover an exceptional library experience designed to manage books, members, and hassle-free book rentals. Our user-friendly features ensure a seamless and enjoyable journey as you explore our vast collection.'}
-        />
+        >
+        {'Welcome to Giang Nguyen\'s Library Management Website! Discover an exceptional library experience designed to manage books, members, and hassle-free book rentals. Our user-friendly features ensure a seamless and enjoyable journey as you explore our vast collection.'}
+        </Typography>
       </div>
     </div>
   )

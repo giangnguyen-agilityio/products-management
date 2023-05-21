@@ -29,7 +29,6 @@ export default function CardList (props: CardListProps) {
 
   const getCurrentBooks = () => {
     const lastIndex = currentPage * itemsPerPage
-    const firstIndex = lastIndex - itemsPerPage
     return bookList.slice(0, lastIndex)
   }
 
