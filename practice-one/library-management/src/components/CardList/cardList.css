@@ -6,12 +6,13 @@
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
+  margin-bottom: 40px;
 }
 
 .card-section-controls {
   display: flex;
   justify-content: flex-end;
-  margin: 40px 0;
+  margin: 0 0 40px;
 }
 
 .add-new-btn,
