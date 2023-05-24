@@ -23,7 +23,7 @@ const Button = (
 
   return (
     <button
-      className={`btn btn-${variant} btn-${size} ${className}`}
+      className={`btn btn-${variant ?? 'primary'} btn-${size ?? 'medium'} ${className ?? ''}`}
       onClick={onClick}
       type="button"
       aria-label={ariaLabel}
