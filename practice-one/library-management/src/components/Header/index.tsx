@@ -23,7 +23,12 @@ const Header = (props: HeaderProps) => {
     <header className="site-header">
       <div className="site-header-content">
         {/* The website logo */}
-        <Logo imageSrc={logo} altText={'This is the logo website'} size={150} />
+        <Logo
+          imageSrc={logo}
+          altText={'This is the logo website'}
+          widthSize={150}
+          heightSize={150}
+        />
         {/* The website navigation */}
         <nav className="site-navigation">
           <Router>

@@ -1,4 +1,4 @@
-.card-section-title {
+.product-list-title {
   font-family: var(--secondary-font);
   font-size: 52px;
   color: var(--primary-color);
@@ -9,7 +9,7 @@
   margin-bottom: 40px;
 }
 
-.card-section-controls {
+.product-list-controls {
   display: flex;
   justify-content: flex-end;
   margin: 0 0 40px;
@@ -37,7 +37,7 @@
   border-color: var(--primary-color);
 }
 
-.card-section {
+.product-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;

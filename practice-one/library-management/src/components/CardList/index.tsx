@@ -56,11 +56,11 @@ const CardList = (props: CardListProps) => {
     <>
       {bookList.length > 0
         ? (
-        <>
-          <Typography variant="h2" className="card-section-title">
+        <section className="product-list-section">
+          <Typography variant="h2" className="product-list-title">
             popular books
           </Typography>
-          <div className="card-section-controls">
+          <div className="product-list-controls">
             <Button
               size="large"
               variant="primary"
@@ -71,7 +71,7 @@ const CardList = (props: CardListProps) => {
               Add new book <AiOutlineFileAdd size={30} />
             </Button>
           </div>
-          <section className="card-section">
+          <ul className="product-list">
             {currentBooks.map((book) => (
               <Card
                 key={`book-${book.bookId}`}
@@ -81,14 +81,14 @@ const CardList = (props: CardListProps) => {
                 onDelete={handleDeleteBook}
               />
             ))}
-          </section>
+          </ul>
           {currentPage < totalPages && (
             <>
               <Pagination
                 list={paginationRange}
                 activeIndex={currentPage - 1}
               />
-              <div className="card-section-controls">
+              <div className="product-list-controls">
                 <Button
                   size="large"
                   variant="primary"
@@ -101,7 +101,7 @@ const CardList = (props: CardListProps) => {
               </div>
             </>
           )}
-        </>
+        </section>
           )
         : (
         <EmptyProductList errorMessage="We couldn't find any books at the moment" />

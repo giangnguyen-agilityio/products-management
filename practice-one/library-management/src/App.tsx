@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Banner from './components/Banner'
+import Footer from './components/Footer'
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { type Book } from './types/book'
@@ -25,8 +26,11 @@ const App = () => {
     <div className="wrapper">
       <div className="container">
         <Header isLogin={true} />
-        <Banner bookList={books} />
-        <CardList bookList={books} />
+        <main className="main-content">
+          <Banner bookList={books} />
+          <CardList bookList={books} />
+        </main>
+        <Footer />
       </div>
     </div>
   )

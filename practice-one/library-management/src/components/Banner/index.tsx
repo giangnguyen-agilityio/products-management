@@ -36,7 +36,7 @@ const Banner = ({ bookList }: BannerProps) => {
   )
 
   return (
-    <div className="banner-wrapper">
+    <section className="banner-wrapper">
       {bookList.length > 0
         ? (
         <div className="banner">
@@ -106,14 +106,14 @@ const Banner = ({ bookList }: BannerProps) => {
         />
           )}
 
-      <div className="introduction">
+      <article className="introduction">
         <Typography variant="p" className="introduction-text">
           {
             'Welcome to Giang Nguyen\'s Library Management Website! Discover an exceptional library experience designed to manage books, members, and hassle-free book rentals. Our user-friendly features ensure a seamless and enjoyable journey as you explore our vast collection.'
           }
         </Typography>
-      </div>
-    </div>
+      </article>
+    </section>
   )
 }
 

@@ -19,7 +19,7 @@ const Card = (props: CardProps) => {
   const { book, onRent, onEdit, onDelete } = props
 
   return (
-    <div className="card-wrapper">
+    <li className="card-wrapper">
       <div className="card-image-wrapper">
         <img src={book.image} alt={book.title} className="card-image" />
       </div>
@@ -77,7 +77,7 @@ const Card = (props: CardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </li>
   )
 }
 
