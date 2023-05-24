@@ -40,7 +40,7 @@ const Input = (props: InputProps): JSX.Element => {
         id={id}
         onChange={onChange}
       />
-      {(errorMessage != null) && <p className="error-message">{errorMessage}</p>}
+      {errorMessage != null && <p className="error-message">{errorMessage}</p>}
     </div>
   )
 }

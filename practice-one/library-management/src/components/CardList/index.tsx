@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import EmptyProductList from '../EmptyProductList/index'
 import Typography from '../Typography'
 import Card from '../Card'
 import Button from '../Button'
@@ -40,44 +41,54 @@ export default function CardList (props: CardListProps) {
 
   return (
     <>
-      <Typography variant="h2" className="card-section-title">
-        popular books
-      </Typography>
-      <div className="card-section-controls">
-        <Button
-          size={'large'}
-          variant="primary"
-          className="add-new-btn"
-          ariaLabel="Add new book button"
-          onClick={handleShowMore}
-        >
-          Add new book <AiOutlineFileAdd size={30} />
-        </Button>
-      </div>
-      <section className="card-section">
-        {currentBooks.map((book) => (
-          <Card
-            key={`book-${book.bookId}`}
-            book={book}
-            onRent={handleRentBook}
-            onEdit={handleEditBook}
-            onDelete={handleDeleteBook}
-          />
-        ))}
-      </section>
-      <div className="card-section-controls">
-        {bookList.length > currentPage * itemsPerPage && (
-          <Button
-            size={'large'}
-            variant="primary"
-            className="show-more-btn"
-            ariaLabel="Show more button"
-            onClick={handleShowMore}
-          >
-            View more products
-          </Button>
-        )}
-      </div>
+      {bookList.length > 0
+        ? (
+        <>
+          <Typography variant="h2" className="card-section-title">
+            popular books
+          </Typography>
+          <div className="card-section-controls">
+            <Button
+              size={'large'}
+              variant="primary"
+              className="add-new-btn"
+              ariaLabel="Add new book button"
+              onClick={handleShowMore}
+            >
+              Add new book <AiOutlineFileAdd size={30} />
+            </Button>
+          </div>
+          <section className="card-section">
+            {currentBooks.map((book) => (
+              <Card
+                key={`book-${book.bookId}`}
+                book={book}
+                onRent={handleRentBook}
+                onEdit={handleEditBook}
+                onDelete={handleDeleteBook}
+              />
+            ))}
+          </section>
+          <div className="card-section-controls">
+            {bookList.length > currentPage * itemsPerPage && (
+              <Button
+                size={'large'}
+                variant="primary"
+                className="show-more-btn"
+                ariaLabel="Show more button"
+                onClick={handleShowMore}
+              >
+                View more products
+              </Button>
+            )}
+          </div>
+        </>
+          )
+        : (
+        <EmptyProductList
+          errorMessage={'We couldn\'t find any books at the moment'}
+        />
+          )}
     </>
   )
 }
