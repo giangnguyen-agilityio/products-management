@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import { FaArrowRight, FaArrowLeft, FaRegHandPointRight } from 'react-icons/fa'
 import EmptyProductList from '../EmptyProductList/index'
+import Pagination from '../Pagination/index'
 import Typography from '../Typography/index'
 import Button from '../Button/index'
 import './banner.css'
@@ -64,22 +65,7 @@ const Banner = ({ bookList }: BannerProps) => {
               Rent this book
               <FaRegHandPointRight />
             </Button>
-            <div className="pagination">
-              {bookList.map((_, index) => (
-                <div
-                  key={`pagination-item-${index}`}
-                  className={`pagination-item-border ${
-                    index === activeIndex ? 'active' : ''
-                  }`}
-                >
-                  <div
-                    className={`pagination-item ${
-                      index === activeIndex ? 'active' : ''
-                    }`}
-                  />
-                </div>
-              ))}
-            </div>
+            <Pagination list={bookList} activeIndex={activeIndex} />
           </div>
           <div className="banner-image-wrapper">
             <img
