@@ -28,7 +28,7 @@ const Input = (props: InputProps): JSX.Element => {
   } = props
   return (
     <div className="input-wrapper">
-      <label htmlFor={id} className={`label ${classNameLabel}`}>
+      <label htmlFor={id} className={`label ${classNameLabel ?? ''}`}>
         {label}
       </label>
       <input
@@ -36,11 +36,11 @@ const Input = (props: InputProps): JSX.Element => {
         name={name}
         placeholder={placeholder}
         value={value}
-        className={`input ${className}`}
+        className={`input ${className ?? ''}`}
         id={id}
         onChange={onChange}
       />
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {(errorMessage != null) && <p className="error-message">{errorMessage}</p>}
     </div>
   )
 }
