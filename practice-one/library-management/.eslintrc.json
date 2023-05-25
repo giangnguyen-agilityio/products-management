@@ -23,16 +23,11 @@
     }
   },
   "rules": {
-    "semi": [
-      "off"
-    ],
     "quotes": [
       "error",
       "single"
     ],
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/triple-slash-reference": "off",
-    "@typescript-eslint/key-spacing": "off"
+    "@typescript-eslint/key-spacing": "off",
+    "multiline-ternary": "off"
   }
 }
