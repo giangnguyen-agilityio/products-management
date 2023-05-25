@@ -1,7 +1,10 @@
-import { memo } from 'react'
+import React, { memo } from 'react'
+
+// Importing the CSS file for styling
 import './button.css'
 
-interface ButtonProps {
+// Define the props for the Button component
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'small' | 'medium' | 'large'
   variant?:
   | 'primary'
@@ -15,9 +18,8 @@ interface ButtonProps {
   onClick?: () => void
 }
 
-const Button = (
-  props: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
-): JSX.Element => {
+const Button: React.FC<ButtonProps> = (props) => {
+  // Destructure the props
   const { children, size, variant, className, ariaLabel, onClick, ...rest } =
     props
 

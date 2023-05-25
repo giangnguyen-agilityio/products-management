@@ -1,13 +1,20 @@
 import React, { memo } from 'react'
-import { type Book } from '../../types/book'
+
+// Importing the Typography, and Button components
 import Typography from '../Typography/index'
 import Button from '../Button/index'
+
+// Importing the Icons form the React-icons library
 import { HiOutlinePencilSquare } from 'react-icons/hi2'
 import { BsTrash3 } from 'react-icons/bs'
-import PropTypes from 'prop-types'
 
+// Importing the Book type
+import { type Book } from '../../types/book'
+
+// Importing the CSS file for styling
 import './card.css'
 
+// Define the props for the Card component
 interface CardProps {
   book: Book
   onRent: (id: string) => void
@@ -15,33 +22,45 @@ interface CardProps {
   onDelete: (id: string) => void
 }
 
-const Card = (props: CardProps) => {
+// Define the Card component
+const Card: React.FC<CardProps> = (props) => {
+  // Destructure the props
   const { book, onRent, onEdit, onDelete } = props
 
   return (
     <li className="card-wrapper">
+      {/* Display the card image */}
       <div className="card-image-wrapper">
         <img src={book.image} alt={book.title} className="card-image" />
       </div>
+
+      {/* Display the card info */}
       <div className="card-info">
-        <Typography variant={'h3'} className={'card-title'}>
+        {/* Book title */}
+        <Typography variant="h3" className="card-title">
           {book.title}
         </Typography>
+
+        {/* Book details (author and price) */}
         <div className="card-detail">
-          <Typography variant={'p'} className={'card-author'}>
+          <Typography variant="p" className="card-author">
             {book.author}
           </Typography>
-          <Typography
-            variant={'p'}
-            className={'card-price'}
-          >{`${book.price.toFixed(2)} $`}</Typography>
+          <Typography variant="p" className="card-price">{`${book.price.toFixed(
+            2
+          )} $`}</Typography>
         </div>
-        <Typography variant={'p'} className={'card-description'}>
+
+        {/* Book description */}
+        <Typography variant="p" className="card-description">
           {book.description}
         </Typography>
+
+        {/* Card controls */}
         <div className="card-controls">
+          {/* Rent button */}
           <Button
-            size={'medium'}
+            size="medium"
             variant="primary"
             className="card-rent-btn"
             ariaLabel="Card rent button"
@@ -51,9 +70,11 @@ const Card = (props: CardProps) => {
           >
             Rent
           </Button>
+
+          {/* Edit and Delete buttons */}
           <div className="card-button">
             <Button
-              size={'medium'}
+              size="medium"
               variant="primary"
               className="edit-btn"
               ariaLabel="Edit button"
@@ -64,7 +85,7 @@ const Card = (props: CardProps) => {
               <HiOutlinePencilSquare size={25} />
             </Button>
             <Button
-              size={'medium'}
+              size="medium"
               variant="primary"
               className="delete-btn"
               ariaLabel="Delete button"
@@ -79,13 +100,6 @@ const Card = (props: CardProps) => {
       </div>
     </li>
   )
-}
-
-Card.propTypes = {
-  book: PropTypes.object.isRequired,
-  onRent: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
 }
 
 export default memo(Card)

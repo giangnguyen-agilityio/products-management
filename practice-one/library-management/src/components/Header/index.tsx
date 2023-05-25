@@ -1,18 +1,27 @@
-import './header.css'
-import Logo from '../Logo/index'
+import React from 'react'
+
+// Importing the image URL as the variable
 import logo from '../../assets/images/logo-website.png'
+
+// Importing the Logo, Navigation, UserProfile, and Button components
+import Logo from '../Logo/index'
 import Navigation from '../Navigation/index'
 import UserProfile from '../UserProfile/index'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Button from '../Button/index'
 
+// Importing the Router to navigation the application
+import { BrowserRouter as Router } from 'react-router-dom'
+
+// Importing the CSS file for styling
+import './header.css'
+
+// Define the props for the Header component
 interface HeaderProps {
   isLogin: boolean
 }
 
-const Header = (props: HeaderProps) => {
+const Header: React.FC<HeaderProps> = (props) => {
   const { isLogin } = props
-
   const links = [
     { id: 'book', label: 'book', url: '/book' },
     { id: 'member', label: 'member', url: '/member' },
@@ -25,23 +34,24 @@ const Header = (props: HeaderProps) => {
         {/* The website logo */}
         <Logo
           imageSrc={logo}
-          altText={'This is the logo website'}
+          altText="This is the logo website"
           widthSize={150}
           heightSize={150}
         />
         {/* The website navigation */}
         <nav className="site-navigation">
           <Router>
+            {/* Render navigation links */}
             <Navigation links={links} />
           </Router>
           {/* The website actions */}
           <div className="site-actions-wrapper">
-            {isLogin
-              ? (
-              <UserProfile avatarUrl={logo} email={'useremail@gmail.com'} />
-                )
-              : (
+            {/* Render user profile if logged in */}
+            {isLogin ? (
+              <UserProfile avatarUrl={logo} email="useremail@gmail.com" />
+            ) : (
               <div className="site-actions">
+                {/* Render sign up button */}
                 <Button
                   size="large"
                   variant="secondary"
@@ -50,6 +60,7 @@ const Header = (props: HeaderProps) => {
                 >
                   SIGN UP
                 </Button>
+                {/* Render sign in button */}
                 <Button
                   size="large"
                   variant="primary"
@@ -59,7 +70,7 @@ const Header = (props: HeaderProps) => {
                   SIGN IN
                 </Button>
               </div>
-                )}
+            )}
           </div>
         </nav>
       </div>

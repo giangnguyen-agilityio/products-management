@@ -1,26 +1,38 @@
+import React from 'react'
+
+// Importing the Logo,and Typography components
 import Logo from '../Logo/index'
 import Typography from '../Typography/index'
+
+// Importing the image URL as the variable
 import logo from '../../assets/images/logo-website-footer.png'
+
+// Importing the Icon from the React-icons library
 import { BsTwitter, BsInstagram } from 'react-icons/bs'
 import { FaFacebookSquare } from 'react-icons/fa'
+
+// Importing the CSS file for styling
 import './footer.css'
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="site-footer">
+      {/* The footer left */}
       <div className="footer-left">
         {/* The website logo */}
         <Logo
           imageSrc={logo}
-          altText={'This is the logo website'}
+          altText="This is the logo website"
           widthSize={150}
           heightSize={70}
         />
+        {/* The website copyright */}
         <Typography variant="p" className="copyright">
           Copyright &copy; 2023, Giang Nguyen
           <br />
           All rights reserved.
         </Typography>
+        {/* The website link social */}
         <ul className="link-social">
           <li>
             <a href="javascript:void(0)" className="link-social-item">
@@ -39,6 +51,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      {/* The footer right */}
       <div className="footer-right">
         <div className="footer-column">
           <Typography variant="p" className="footer-column-title">

@@ -1,5 +1,9 @@
+import React from 'react'
+
+// Importing the CSS file for styling
 import './input.css'
 
+// Define the props for the Input component
 interface InputProps {
   label?: string
   classNameLabel?: string
@@ -13,7 +17,7 @@ interface InputProps {
   errorMessage?: string
 }
 
-const Input = (props: InputProps): JSX.Element => {
+const Input: React.FC<InputProps> = (props): JSX.Element => {
   const {
     classNameLabel,
     label,

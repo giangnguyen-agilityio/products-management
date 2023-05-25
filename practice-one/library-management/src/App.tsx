@@ -6,7 +6,7 @@ import axios from 'axios'
 import { type Book } from './types/book'
 import CardList from './components/CardList'
 
-const App = () => {
+const App = (): JSX.Element => {
   const [books, setBooks] = useState<Book[]>([])
 
   useEffect(() => {

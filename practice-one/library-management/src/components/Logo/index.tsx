@@ -1,5 +1,9 @@
+import React from 'react'
+
+// Importing the CSS file for styling
 import './logo.css'
 
+// Define the props for the Logo component
 interface LogoProps {
   text?: string
   imageSrc?: string
@@ -8,11 +12,13 @@ interface LogoProps {
   heightSize?: number
 }
 
-const Logo = (props: LogoProps) => {
+const Logo: React.FC<LogoProps> = (props) => {
   const { text, imageSrc, altText, widthSize, heightSize } = props
   return (
     <div className="logo">
+      {/* Render the text if provided */}
       {text != null && <h1>{text}</h1>}
+      {/* Render the image if provided */}
       {imageSrc != null && (
         <img
           src={imageSrc}

@@ -1,23 +1,25 @@
-import './typography.css'
-import { memo } from 'react'
+import React, { memo } from 'react'
 
+// Importing the CSS file for styling
+import './typography.css'
+
+// Define the props for the Typography component
 export interface TypographyProps {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
-  color?: 'primary' | 'secondary'
-  className?: string
-  children: React.ReactNode
+  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' // The variant of the typography (heading or paragraph)
+  color?: 'primary' | 'secondary' // The color of the text
+  className?: string // Additional CSS class names
+  children: React.ReactNode // The content of the typography
 }
 
-const Typography = ({
-  variant,
-  color,
-  children,
-  className
-}: TypographyProps) => {
+const Typography: React.FC<TypographyProps> = (props) => {
+  const { variant, color, children, className } = props
+
+  // Generate the CSS class names based on the props
   const textClasses = `text-${variant} text-${color ?? 'default'} ${
     className ?? ''
   }`
 
+  // Render the typography based on the variant
   switch (variant) {
     case 'h1':
       return <h1 className={textClasses}>{children}</h1>
