@@ -35,17 +35,17 @@ const Footer: React.FC = () => {
         {/* The website link social */}
         <ul className="link-social">
           <li>
-            <a href="javascript:void(0)" className="link-social-item">
+            <a href="#" className="link-social-item">
               <BsTwitter size={30} />
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)" className="link-social-item">
+            <a href="#" className="link-social-item">
               <FaFacebookSquare size={30} />
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)" className="link-social-item">
+            <a href="#" className="link-social-item">
               <BsInstagram size={30} />
             </a>
           </li>
@@ -59,27 +59,27 @@ const Footer: React.FC = () => {
           </Typography>
           <ul className="footer-column-items">
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Home
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Books
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Authors
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Member
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Hire requests
               </a>
             </li>
@@ -91,17 +91,17 @@ const Footer: React.FC = () => {
           </Typography>
           <ul className="footer-column-items">
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Service Terms
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Contact
               </a>
             </li>
@@ -113,17 +113,17 @@ const Footer: React.FC = () => {
           </Typography>
           <ul className="footer-column-items">
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Help Center
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Report a Problem
               </a>
             </li>
             <li>
-              <a href="javascript:void(0)" className="footer-column-link">
+              <a href="#" className="footer-column-link">
                 Contact Us
               </a>
             </li>
