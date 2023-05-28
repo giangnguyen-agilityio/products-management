@@ -3,6 +3,8 @@ import React, { memo } from 'react'
 // Importing the Typography, Form, ConfirmModal and Button components
 import Typography from '../Typography'
 import Button from '../Button'
+import Form from '../Form'
+import ConfirmModal from '../ConfirmModal'
 
 // Importing the Icon from the React-icons library
 import { IoClose } from 'react-icons/io5'
@@ -68,7 +70,19 @@ const Modal: React.FC<ModalProps> = (props) => {
         {/* Modal content */}
         <div className="modal-content">
           {/* Render Form component for 'add' or 'edit' modal type */}
-          {modalType === 'add' ? ('ADD MODAL') : modalType === 'edit' ? ('EDIT MODAL') : ('DELETE MODAL')}
+          {modalType === 'add' || modalType === 'edit' ? (
+            <Form
+              formType={modalType === 'add' ? 'add' : 'edit'}
+              onSubmit={handleCloseModal}
+            />
+          ) : (
+            // Render ConfirmModal component for 'delete' modal type
+            <ConfirmModal
+              text={'book'}
+              onConfirm={handleCloseModal}
+              onCancel={handleCloseModal}
+            />
+          )}
         </div>
       </div>
     </div>

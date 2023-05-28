@@ -1,0 +1,55 @@
+.confirm-modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.confirm-modal-image {
+  width: 250px;
+}
+
+.confirm-modal-title {
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 10px 0 30px;
+  color: var(--secondary-color);
+}
+
+.highlight-text {
+  color: var(--danger-color);
+}
+
+.confirm-modal-control {
+  display: flex;
+  gap: 60px;
+}
+
+.confirm-modal-button,
+.cancel-modal-button {
+  width: 100px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.8;
+  border: 1px solid transparent;
+}
+
+.cancel-modal-button {
+  color: var(--secondary-color);
+  background-color: unset;
+}
+
+.cancel-modal-button:hover {
+  opacity: unset;
+  border-color: var(--secondary-color);
+}
+
+.confirm-modal-button {
+  background-color: var(--danger-color);
+  color: var(--secondary-text-color);
+}
+
+.confirm-modal-button:hover {
+  opacity: unset;
+}
