@@ -12,7 +12,8 @@ export const Primary = Template.bind({});
 Primary.args = {
   imageSrc: "src/assets/images/logo-website.png",
   altText: "This is the logo website",
-  size: 50,
+  widthSize: 50,
+  heightSize: 50,
 };
 
 export const Secondary = Template.bind({});

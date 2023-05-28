@@ -10,7 +10,7 @@ const Template: StoryFn<typeof EmptyProductList> = (args) => (
   <EmptyProductList {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Default = Template.bind({});
+Default.args = {
   errorMessage: "We couldn't find any books at the moment",
 };
