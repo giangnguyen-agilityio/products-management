@@ -8,11 +8,12 @@
   --primary-color: #0e6248;
   --secondary-color: #919191;
   --tertiary-color: #1677ff;
-  --danger-color: #dc3545;
+  --danger-color: #ff0000;
   --success-color: #28a745;
   --warning-color: #ffc107;
   --bg-btn-color: #dcdcdc;
   --bg-introduction-color: #0e6248cc;
+  --bg-overlay-color: #000000cc;
 
   /* Text-color */
   --primary-text-color: #000;

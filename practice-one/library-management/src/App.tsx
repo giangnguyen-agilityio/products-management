@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { type Book } from './types/book'
-import CardList from './components/CardList'
+import ProductList from './components/ProductList'
 
 const App = (): JSX.Element => {
   const [books, setBooks] = useState<Book[]>([])
@@ -28,7 +28,7 @@ const App = (): JSX.Element => {
         <Header isLogin={true} />
         <main className="main-content">
           <Banner bookList={books} />
-          <CardList bookList={books} />
+          <ProductList bookList={books} />
         </main>
         <Footer />
       </div>
