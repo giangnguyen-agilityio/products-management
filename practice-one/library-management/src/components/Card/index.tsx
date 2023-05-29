@@ -51,6 +51,17 @@ const Card: React.FC<CardProps> = (props) => {
           )} $`}</Typography>
         </div>
 
+        {/* Book quantity */}
+        <div className="card-detail">
+          <Typography variant="p" className="card-total-quantity">
+            Available quantity:
+          </Typography>
+          <Typography variant="p" className="card-available-quantity">
+            {book.availableQuantity}/
+            <span className="card-total-quantity">{book.totalQuantity}</span>
+          </Typography>
+        </div>
+
         {/* Book description */}
         <Typography variant="p" className="card-description">
           {book.description}

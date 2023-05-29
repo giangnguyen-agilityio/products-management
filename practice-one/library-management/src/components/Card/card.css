@@ -30,6 +30,7 @@
   height: 50px;
   font-size: 26px;
   font-family: var(--secondary-font) !important;
+  margin: 0 0 10px;
 }
 
 .card-detail {
@@ -37,21 +38,30 @@
   justify-content: space-between;
   align-items: center;
   font-family: var(--secondary-font) !important;
-  margin: 15px 0 0;
   height: 45px;
 }
 
 .card-author,
 .card-price {
-  font-size: 22px !important;
+  font-size: 24px !important;
+}
+
+.card-total-quantity,
+.card-available-quantity {
+  font-size: 24px;
+  color: var(--primary-text-color);
+}
+
+.card-available-quantity {
+  color: var(--secondary-color);
 }
 
 .card-author {
-  width: 80%;
+  width: 70%;
 }
 
 .card-description {
-  height: 420px;
+  height: 440px;
   margin: 20px 0 10px;
   font-size: 21px;
   line-height: 22px;
