@@ -9,3 +9,22 @@ export interface Book {
   availableQuantity: number
   totalQuantity: number
 }
+
+export interface Member {
+  memberId: string
+  role: string
+  firstName: string
+  lastName: string
+  email: string
+  phoneNumber: string
+  address: string
+  hiredBooks: string[]
+}
+
+export interface HireRequest {
+  bookId: string
+  memberId: string
+  fromDate: string
+  toData: string
+  status: boolean
+}
