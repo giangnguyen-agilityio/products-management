@@ -6,8 +6,15 @@ export interface SetBookAction {
   payload: Book[]
 }
 
-export interface StoreState {
-  book: Book[]
+export interface AddNewBookAction {
+  type: typeof ACTION.ADD_NEW_BOOK
+  payload: Book
 }
 
-export type ActionTypes = SetBookAction
+export interface BooksState {
+  books: Book[]
+}
+
+export type ActionTypes =
+| SetBookAction
+| AddNewBookAction
