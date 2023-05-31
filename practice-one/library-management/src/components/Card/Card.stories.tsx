@@ -12,7 +12,7 @@ const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   book: {
-    bookId: "B1",
+    id: "B1",
     image: "src/assets/images/book-1.jpg",
     alt: "Harry Potter and the Prisoner of Azkaban book cover",
     title: "Harry Potter and the Prisoner of Azkaban",

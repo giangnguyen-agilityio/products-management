@@ -12,7 +12,7 @@ export const Default = Template.bind({});
 Default.args = {
   bookList: [
     {
-      bookId: "B1",
+      id: "B1",
       image: "src/assets/images/book-1.jpg",
       alt: "Harry Potter and the Prisoner of Azkaban book cover",
       title: "Harry Potter and the Prisoner of Azkaban",
@@ -24,7 +24,7 @@ Default.args = {
       totalQuantity: 50,
     },
     {
-      bookId: "B2",
+      id: "B2",
       image: "src/assets/images/book-2.jpg",
       alt: "Harry Potter and the Chamber of Secrets book cover",
       title: "Harry Potter and the Chamber of Secrets",
@@ -36,7 +36,7 @@ Default.args = {
       totalQuantity: 80,
     },
     {
-      bookId: "B3",
+      id: "B3",
       image: "src/assets/images/book-3.jpg",
       alt: "Harry Potter and the Goblet of Fire book cover",
       title: "Harry Potter and the Goblet of Fire",
