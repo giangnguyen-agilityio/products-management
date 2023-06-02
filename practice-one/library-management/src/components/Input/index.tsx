@@ -1,4 +1,4 @@
-import React, { type InputHTMLAttributes } from 'react'
+import React, { memo, type InputHTMLAttributes } from 'react'
 
 // Importing the CSS file for styling
 import './input.css'
@@ -24,4 +24,4 @@ const Input: React.FC<InputProps> = (props): JSX.Element => {
   )
 }
 
-export default Input
+export default memo(Input)
