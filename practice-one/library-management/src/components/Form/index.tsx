@@ -1,54 +1,101 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useCallback } from 'react'
 
 // Importing the Input and Button components
 import Input from '../Input/index'
 import Button from '../Button/index'
+
+// Importing the BookContext
+import BookContext from '../../store/BookContext'
+
+// Importing the API methods
+import { addNewBookAPI } from '../../services/api-actions'
+
+// Importing the actions
+import { addNewBook } from '../../store/action'
 
 // Importing the CSS file for styling
 import './form.css'
 
 // Define the props for the Form component
 interface FormProps {
-  formType: string
-  onSubmit: (formData: any) => void
+  id: string
+  formType: 'add' | 'edit'
+  onCloseModal: () => void
+  handleToast: (message: string, status: 'success' | 'failure') => void
 }
-const Form: React.FC<FormProps> = (props): JSX.Element => {
-  // Initialize the state of the component
-  const { formType, onSubmit } = props
-  const [title, setTitle] = useState<string>('')
-  const [author, setAuthor] = useState<string>('')
-  const [price, setPrice] = useState<string>('')
-  const [description, setDescription] = useState<string>('')
-  const [availableQuantity, setAvailableQuantity] = useState<string>('')
-  const [totalQuantity, setTotalQuantity] = useState<string>('')
-  const [image, setImage] = useState<string | null>(null)
 
-  // Function to handle upload the image
-  const handleImageUpload = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    // Retrieve the selected file from the Image input field
-    const selectedFile = event.target?.files?.[0]
-    // Retrieve the selected file from the Image input field
-    const fileReader = new FileReader()
+// Define the Form component
+const Form: React.FC<FormProps> = ({
+  id,
+  formType,
+  onCloseModal,
+  handleToast
+}) => {
+  // Accesses the BookContext using useContext hook
+  const { dispatch } = useContext(BookContext)
 
-    // Set up the onload event handler for when the file is loaded
-    fileReader.onload = () => {
-      // Retrieve the uploaded image data as a base64-encoded string
-      const uploadedImage = fileReader.result as string
-      // Update the image state variable with the uploaded image data
-      setImage(uploadedImage)
-    }
+  // State to hold the form data
+  const [formData, setFormData] = useState({
+    title: '',
+    author: '',
+    price: 0,
+    description: '',
+    availableQuantity: 0,
+    totalQuantity: 0,
+    image: ''
+  })
 
-    // If a file is selected, start reading it as a data URL
-    if (selectedFile != null) {
-      fileReader.readAsDataURL(selectedFile)
-    }
-  }
+  // State to track if any field is empty
+  const [isFieldEmpty, setIsFieldEmpty] = useState(false)
+
+  // Function to handles changes in input fields
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>): void => {
+      const { name, value } = event.target
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]:
+          name === 'price' ||
+          name === 'availableQuantity' ||
+          name === 'totalQuantity'
+            ? Number(value)
+            : value
+      }))
+    },
+    []
+  )
+
+  // Function to handles image upload
+  const handleImageUpload = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>): void => {
+      // Retrieve the selected file from the event target's files array
+      const selectedFile = event.target?.files?.[0]
+      if (selectedFile != null) {
+        // Create a FileReader object
+        const fileReader = new FileReader()
+        // Define the onload event handler for the FileReader
+        fileReader.onload = () => {
+          // Update the form data by setting the image field to the result of the FileReader
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            image: fileReader.result as string
+          }))
+        }
+        // Read the selected file as a data URL
+        fileReader.readAsDataURL(selectedFile)
+      }
+    },
+    []
+  )
+
+  // Generates a random number and constructs the alternative image path and book ID
+  const randomNumber = Math.floor(Math.random() * 1000).toString()
+  const altImagePath = `${formData.title} book cover`
+  const bookId = `B${randomNumber}`
 
   // Function to handle submit the form
-  const submitForm = (): void => {
-    const formData = {
+  const submitForm = async (): Promise<void> => {
+    const {
       title,
       author,
       price,
@@ -56,135 +103,175 @@ const Form: React.FC<FormProps> = (props): JSX.Element => {
       availableQuantity,
       totalQuantity,
       image
+    } = formData
+
+    // Checks if all required fields are filled
+    const isValid =
+      title !== '' &&
+      author !== '' &&
+      price !== 0 &&
+      description !== '' &&
+      availableQuantity !== 0 &&
+      totalQuantity !== 0 &&
+      image !== ''
+
+    if (!isValid) {
+      setIsFieldEmpty(true)
+      return
     }
-    onSubmit(formData)
+    setIsFieldEmpty(false)
+
+    const newBookData = {
+      id: bookId,
+      alt: altImagePath,
+      ...formData
+    }
+
+    try {
+      if (formType === 'add') {
+        // Call the `addNewBookAPI` function with `newBookData` and wait for it to complete
+        await addNewBookAPI(newBookData)
+        // Dispatch an action to add the new book using the `dispatch` function
+        dispatch(addNewBook(newBookData))
+        // Show a success toast message using the `handleToast` function
+        handleToast('Book added successfully', 'success')
+      }
+      // Close the modal
+      onCloseModal()
+    } catch (error) {
+      // Close the modal
+      onCloseModal()
+      // Show a failure toast message based on the `formType` using the `handleToast` function
+      handleToast(
+        `Failed to ${formType === 'add' ? 'add' : 'edit'} book`,
+        'failure'
+      )
+    }
   }
 
-  // Function to handle the title change
-  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setTitle(event.target.value)
-  }
-
-  // Function to handle the author change
-  const handleAuthorChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setAuthor(event.target.value)
-  }
-
-  // Function to handle the price change
-  const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setPrice(event.target.value)
-  }
-
-  // Function to handle the description change
-  const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setDescription(event.target.value)
-  }
-
-  // Function to handle the available quantity change
-  const handleAvailableQuantityChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setAvailableQuantity(event.target.value)
-  }
-
-  // Function to handle the total quantity change
-  const handleTotalQuantityChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setTotalQuantity(event.target.value)
+  // Renders an error message if a field is empty
+  const renderErrorMessage = (
+    fieldName: keyof typeof formData,
+    message: string
+  ): string => {
+    if (
+      isFieldEmpty &&
+      (formData[fieldName] === '' || formData[fieldName] === 0)
+    ) {
+      return message
+    } else {
+      return ''
+    }
   }
 
   return (
     <>
-      {/* Form content */}
       <form className="form-content">
-        {/* Name of book input fields */}
         <Input
           className="input-field"
-          name={title}
+          name="title"
           label="Name of book:"
           classNameLabel="form-label"
-          value={title}
-          onChange={handleTitleChange}
+          value={formData.title}
+          onChange={handleChange}
+          errorMessage={renderErrorMessage(
+            'title',
+            'Please enter the name of book for this field'
+          )}
         />
 
-        {/* Author input fields */}
         <Input
           className="input-field"
-          name={author}
+          name="author"
           label="Author:"
           classNameLabel="form-label"
-          value={author}
-          onChange={handleAuthorChange}
+          value={formData.author}
+          onChange={handleChange}
+          errorMessage={renderErrorMessage(
+            'author',
+            'Please enter the author for this field'
+          )}
         />
 
-        {/* Price input fields */}
         <Input
           className="input-field"
-          name={price}
+          name="price"
           label="Price:"
           classNameLabel="form-label"
           type="number"
-          value={price}
-          onChange={handlePriceChange}
+          value={formData.price.toString()}
+          onChange={handleChange}
+          errorMessage={renderErrorMessage(
+            'price',
+            'Please enter a value greater than 0'
+          )}
         />
 
-        {/* Description input fields */}
         <Input
           className="input-field"
-          name={description}
+          name="description"
           label="Description:"
+          value={formData.description}
           classNameLabel="form-label"
-          onChange={handleDescriptionChange}
+          onChange={handleChange}
+          errorMessage={renderErrorMessage(
+            'description',
+            'Please enter the description for this field'
+          )}
         />
 
-        {/* Available quantity input fields */}
         <Input
           className="input-field"
-          name={availableQuantity}
+          name="availableQuantity"
           label="Available quantity:"
           classNameLabel="form-label"
           type="number"
           min={0}
-          value={availableQuantity}
-          onChange={handleAvailableQuantityChange}
+          value={formData.availableQuantity.toString()}
+          onChange={handleChange}
+          errorMessage={renderErrorMessage(
+            'availableQuantity',
+            'Please enter a value greater than 0'
+          )}
         />
 
-        {/* Total quantity input fields */}
         <Input
           className="input-field"
-          name={totalQuantity}
+          name="totalQuantity"
           label="Total quantity:"
           classNameLabel="form-label"
           type="number"
           min={0}
-          value={totalQuantity}
-          onChange={handleTotalQuantityChange}
+          value={formData.totalQuantity.toString()}
+          onChange={handleChange}
+          errorMessage={renderErrorMessage(
+            'totalQuantity',
+            'Please enter a value greater than 0'
+          )}
         />
 
-        {/* Image upload field */}
         <Input
           className="input-field image-uploaded"
           name="image"
           label="Image:"
           classNameLabel="form-label"
           type="file"
-          accept="image/."
+          accept="image/*"
           onChange={handleImageUpload}
+          errorMessage={renderErrorMessage('image', 'Please select an image')}
         />
-        {/* Display the uploaded image */}
-        {image !== null && (
+        {formData.image !== '' && (
           <img
             className="image-uploaded"
-            src={image}
-            alt={`${title} book cover`}
+            src={formData.image}
+            alt={`${formData.title} book cover`}
           />
         )}
       </form>
 
-      {/* Control buttons */}
       <div className="control-buttons">
-        {/* Submit button */}
         <Button
-          onClick={() => {
-            submitForm()
-          }}
+          onClick={submitForm}
           type="submit"
           size="large"
           variant="primary"

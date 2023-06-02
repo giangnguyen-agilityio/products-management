@@ -1,12 +1,18 @@
 import { ACTION } from '../constants/action'
-import { type StoreState, type ActionTypes } from '../types/store'
+import { type BooksState, type ActionTypes } from '../types/store'
+import { type Book } from '../types/book'
 
-const reducer = (state: StoreState, action: ActionTypes): any => {
+const reducer = (state: BooksState, action: ActionTypes): BooksState => {
   switch (action.type) {
     case ACTION.SET_BOOK:
       return {
         ...state,
-        book: action.payload
+        books: action.payload as Book[]
+      }
+    case ACTION.ADD_NEW_BOOK:
+      return {
+        ...state,
+        books: [action.payload as Book, ...state.books]
       }
     default:
       throw new Error('Invalid action')

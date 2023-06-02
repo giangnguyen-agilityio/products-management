@@ -1,4 +1,4 @@
-import { type ACTION } from 'constants/action'
+import { type ACTION } from '../constants/action'
 import { type Book } from './book'
 
 export interface SetBookAction {

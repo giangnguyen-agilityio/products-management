@@ -1,4 +1,6 @@
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useState, useCallback, useRef, useContext } from 'react'
+
+import BookContext from '../../store/BookContext'
 
 // Importing the EmptyProductList, Pagination, Typography, Card and Button components
 import EmptyProductList from '../EmptyProductList/index'
@@ -17,17 +19,17 @@ import { type Book } from '../../types/book'
 // Importing the CSS file for styling
 import './product-list.css'
 
-// Define the props for the Card List component
-interface CardListProps {
-  bookList: Book[]
-}
+const ProductList: React.FC = () => {
+  const { state } = useContext(BookContext)
+  const bookList: Book[] = state.books
 
-const ProductList: React.FC<CardListProps> = ({ bookList }) => {
   const itemsPerPage = 4
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
   const [modalType, setModalType] = useState<'add' | 'edit' | 'delete'>('add')
-  const [previousScrollPosition, setPreviousScrollPosition] = useState<number>(0)
+  const [modalId, setModalId] = useState<string>('')
+  const [previousScrollPosition, setPreviousScrollPosition] =
+    useState<number>(0)
   const productSectionRef = useRef<HTMLDivElement>(null)
 
   // Function to handle renting a book
@@ -36,16 +38,20 @@ const ProductList: React.FC<CardListProps> = ({ bookList }) => {
   }, [])
 
   // Function to handle editing, or deleting a book
-  const handleBookAction = useCallback((id: string, action: 'add' | 'edit' | 'delete'): void => {
-    setIsOpenModal(true)
-    setModalType(action)
-    if (action === 'edit' || action === 'delete') {
-      setPreviousScrollPosition(window.scrollY)
-      productSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      setPreviousScrollPosition(window.scrollY)
-    }
-  }, [])
+  const handleBookAction = useCallback(
+    (id: string, action: 'add' | 'edit' | 'delete'): void => {
+      setIsOpenModal(true)
+      setModalType(action)
+      if (action === 'edit' || action === 'delete') {
+        setPreviousScrollPosition(window.scrollY)
+        productSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        setPreviousScrollPosition(window.scrollY)
+      }
+      setModalId(id)
+    },
+    []
+  )
 
   // Function to handle add new book
   const handleAddNewBook = useCallback((): void => {
@@ -54,9 +60,9 @@ const ProductList: React.FC<CardListProps> = ({ bookList }) => {
 
   // Function to handle close the modal
   const handleCloseModal = useCallback(() => {
-    setIsOpenModal(!isOpenModal)
+    setIsOpenModal(false)
     window.scrollTo({ top: previousScrollPosition, behavior: 'smooth' })
-    console.log('close modal re-render')
+    setModalId('')
   }, [isOpenModal])
 
   // Calculate the total number of pages
@@ -65,12 +71,12 @@ const ProductList: React.FC<CardListProps> = ({ bookList }) => {
   // Function to get the current books and pagination range based on the current page
   const getBooksAndPaginationRange = (): {
     currentBooks: Book[]
-    paginationRange: Book[]
+    paginationRange: number
   } => {
     const startIndex = (currentPage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
     const currentBooks = bookList.slice(0, endIndex)
-    const paginationRange = bookList.slice(startIndex, endIndex + 1)
+    const paginationRange = bookList.length / itemsPerPage
     return { currentBooks, paginationRange }
   }
 
@@ -108,14 +114,14 @@ const ProductList: React.FC<CardListProps> = ({ bookList }) => {
               {/* Render cards for current books */}
               {currentBooks.map((book) => (
                 <Card
-                  key={`book-${book.bookId}`}
+                  key={`book-${book.id}`}
                   book={book}
                   onRent={handleRentBook}
                   onEdit={() => {
-                    handleBookAction(book.bookId, 'edit')
+                    handleBookAction(book.id, 'edit')
                   }}
                   onDelete={() => {
-                    handleBookAction(book.bookId, 'delete')
+                    handleBookAction(book.id, 'delete')
                   }}
                 />
               ))}
@@ -125,7 +131,7 @@ const ProductList: React.FC<CardListProps> = ({ bookList }) => {
               <>
                 {/* Pagination */}
                 <Pagination
-                  list={paginationRange}
+                  length={paginationRange}
                   activeIndex={currentPage - 1}
                 />
                 <div className="product-list-controls">
@@ -147,6 +153,7 @@ const ProductList: React.FC<CardListProps> = ({ bookList }) => {
               modalType={modalType}
               showModal={isOpenModal}
               closeModal={handleCloseModal}
+              modalId={modalId}
             />
           </section>
         </>
