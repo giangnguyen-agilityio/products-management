@@ -1,24 +1,24 @@
 import React from 'react'
 
-// Importing the Book type from '../../types/book'
-import { type Book } from '../../types/book'
-
 // Importing the CSS file for styling
 import './pagination.css'
 
 // Define the props for the Pagination component
 interface PaginationProps {
-  list: Book[] // An array of books
+  length: number // The length of the list
   activeIndex: number // The index of the active item
 }
 
 const Pagination: React.FC<PaginationProps> = (props) => {
-  const { list, activeIndex } = props
+  const { length, activeIndex } = props
+
+  // Generate an array with the desired length
+  const paginationItems = Array.from({ length }, (_, index) => index)
 
   return (
     <div className="pagination">
       {/* Render each pagination item */}
-      {list.map((_, index) => (
+      {paginationItems.map((index) => (
         <div
           key={`pagination-item-${index}`}
           className={`pagination-item-border ${
