@@ -18,21 +18,21 @@ interface IFetch {
 }
 
 interface IBooks extends IFetch {
-  items: Book[] | undefined
+  allBooks: Book[] | undefined
 }
 
 // Using SWR to fetch all products
 export const useBooks = (): IBooks => {
   const { data, error } = useSWR<Book[]>(
-    `${API_URL}/${APIType.BOOKS}`,
-    fetchAllBooks
+        `${API_URL}/${APIType.BOOKS}`,
+        fetchAllBooks
   )
 
-  const errorMessage = (error !== null) ? handleServerError(error) : null
+  const errorMessage = error !== null ? handleServerError(error) : null
 
   return {
-    items: data,
-    isLoading: (error === null) && (data === undefined),
+    allBooks: data,
+    isLoading: error === null && data === undefined,
     error,
     errorMessage
   }
