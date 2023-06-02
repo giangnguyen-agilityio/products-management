@@ -27,28 +27,54 @@ const Card: React.FC<CardProps> = (props) => {
   // Destructure the props
   const { book, onRent, onEdit, onDelete } = props
 
+  // Render the book image if available
+  const renderBookImage =
+    book.image != null ? (
+      <img src={book.image} alt={book.title} className="card-image" />
+    ) : null
+
+  // Render the book title
+  const renderBookTitle =
+    book.title !== '' ? book.title : 'This is the book title'
+
+  // Render the book author
+  const renderBookAuthor =
+    book.author !== '' ? book.author : 'The author of the book'
+
+  // Render the book price
+  const renderBookPrice = book.price !== undefined ? book.price.toFixed(2) : 0
+
+  // Render the book description
+  const renderBookDescription =
+    book.description !== '' ? book.description : 'This is the description'
+
+  // Render the available and total quantity of the book
+  const renderBookAvailableQuantity =
+    book.availableQuantity !== undefined ? book.availableQuantity : 0
+  const renderBookTotalQuantity =
+    book.totalQuantity !== undefined ? book.totalQuantity : 0
+
+  // Render the Card component
   return (
     <li className="card-wrapper">
       {/* Display the card image */}
-      <div className="card-image-wrapper">
-        <img src={book.image} alt={book.title} className="card-image" />
-      </div>
+      <div className="card-image-wrapper">{renderBookImage}</div>
 
       {/* Display the card info */}
       <div className="card-info">
         {/* Book title */}
         <Typography variant="h3" className="card-title">
-          {book.title}
+          {renderBookTitle}
         </Typography>
 
         {/* Book details (author and price) */}
         <div className="card-detail">
           <Typography variant="p" className="card-author">
-            {book.author}
+            {renderBookAuthor}
           </Typography>
-          <Typography variant="p" className="card-price">{`${book.price.toFixed(
-            2
-          )} $`}</Typography>
+          <Typography variant="p" className="card-price">
+            {renderBookPrice}
+          </Typography>
         </div>
 
         {/* Book quantity */}
@@ -57,14 +83,16 @@ const Card: React.FC<CardProps> = (props) => {
             Available quantity:
           </Typography>
           <Typography variant="p" className="card-available-quantity">
-            {book.availableQuantity}/
-            <span className="card-total-quantity">{book.totalQuantity}</span>
+            {renderBookAvailableQuantity}/
+            <span className="card-total-quantity">
+              {renderBookTotalQuantity}
+            </span>
           </Typography>
         </div>
 
         {/* Book description */}
         <Typography variant="p" className="card-description">
-          {book.description}
+          {renderBookDescription}
         </Typography>
 
         {/* Card controls */}
@@ -76,7 +104,7 @@ const Card: React.FC<CardProps> = (props) => {
             className="card-rent-btn"
             ariaLabel="Card rent button"
             onClick={() => {
-              onRent(book.bookId)
+              onRent(book.id)
             }}
           >
             Rent
@@ -90,7 +118,7 @@ const Card: React.FC<CardProps> = (props) => {
               className="edit-btn"
               ariaLabel="Edit button"
               onClick={() => {
-                onEdit(book.bookId)
+                onEdit(book.id)
               }}
             >
               <HiOutlinePencilSquare size={25} />
@@ -101,7 +129,7 @@ const Card: React.FC<CardProps> = (props) => {
               className="delete-btn"
               ariaLabel="Delete button"
               onClick={() => {
-                onDelete(book.bookId)
+                onDelete(book.id)
               }}
             >
               <BsTrash3 size={25} />

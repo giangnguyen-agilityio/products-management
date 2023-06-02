@@ -46,6 +46,13 @@
   font-size: 24px !important;
 }
 
+.card-title,
+.card-author,
+.card-price {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card-total-quantity,
 .card-available-quantity {
   font-size: 24px;
