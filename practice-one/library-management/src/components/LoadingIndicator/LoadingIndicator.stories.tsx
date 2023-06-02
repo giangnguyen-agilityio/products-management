@@ -1,6 +1,6 @@
 import { type StoryFn, type Meta } from "@storybook/react";
-
 import LoadingIndicator from "./index";
+import React from "react";
 
 export default {
   title: "Example/LoadingIndicator",

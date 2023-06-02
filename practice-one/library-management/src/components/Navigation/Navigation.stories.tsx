@@ -1,6 +1,7 @@
 import { type StoryFn, type Meta } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
 import Navigation from "./index";
+import React from "react";
 
 export default {
   title: "Example/Navigation",

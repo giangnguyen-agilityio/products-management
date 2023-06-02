@@ -1,5 +1,6 @@
 import { type StoryFn, type Meta } from "@storybook/react";
 import Footer from "./index";
+import React from "react";
 
 export default {
   title: "Example/Footer",
