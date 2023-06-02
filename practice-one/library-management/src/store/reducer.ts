@@ -14,6 +14,17 @@ const reducer = (state: BooksState, action: ActionTypes): BooksState => {
         ...state,
         books: [action.payload as Book, ...state.books]
       }
+    case ACTION.EDIT_BOOK: {
+      const editedBook = action.payload as Book
+      const updatedBooks = state.books.map((book) =>
+        book.id === editedBook.id ? editedBook : book
+      )
+
+      return {
+        ...state,
+        books: updatedBooks
+      }
+    }
     default:
       throw new Error('Invalid action')
   }

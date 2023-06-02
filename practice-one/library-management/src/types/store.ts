@@ -11,6 +11,11 @@ export interface AddNewBookAction {
   payload: Book
 }
 
+export interface EditBookAction {
+  type: typeof ACTION.EDIT_BOOK
+  payload: Book
+}
+
 export interface BooksState {
   books: Book[]
 }
@@ -18,3 +23,4 @@ export interface BooksState {
 export type ActionTypes =
 | SetBookAction
 | AddNewBookAction
+| EditBookAction

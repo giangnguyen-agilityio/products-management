@@ -21,3 +21,12 @@ export const addNewBookAPI = async (book: Book): Promise<Book> => {
   const res = await axios.post(`${API_URL}/${APIType.BOOKS}`, book)
   return res.data
 }
+
+// API method for editing a book
+export const editBookAPI = async (
+  id: string,
+  book: Book
+): Promise<Book> => {
+  const res = await axios.put(`${API_URL}/${APIType.BOOKS}/${id}`, book)
+  return res.data
+}

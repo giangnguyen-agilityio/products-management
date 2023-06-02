@@ -1,4 +1,4 @@
-import React, { useState, useContext, useCallback } from 'react'
+import React, { useState, useContext, useCallback, useEffect } from 'react'// Importing the Input and Button components
 
 // Importing the Input and Button components
 import Input from '../Input/index'
@@ -8,10 +8,14 @@ import Button from '../Button/index'
 import BookContext from '../../store/BookContext'
 
 // Importing the API methods
-import { addNewBookAPI } from '../../services/api-actions'
+import {
+  fetchBookById,
+  addNewBookAPI,
+  editBookAPI
+} from '../../services/api-actions'
 
 // Importing the actions
-import { addNewBook } from '../../store/action'
+import { addNewBook, editBook } from '../../store/action'
 
 // Importing the CSS file for styling
 import './form.css'
@@ -47,6 +51,29 @@ const Form: React.FC<FormProps> = ({
 
   // State to track if any field is empty
   const [isFieldEmpty, setIsFieldEmpty] = useState(false)
+
+  // Fetches book data when the component mounts or when formType or id changes
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      try {
+        if (formType === 'edit' && id !== '') {
+          const book = await fetchBookById(id)
+          const { image, ...rest } = book
+          const updatedBook = {
+            ...rest,
+            image: image ?? ''
+          }
+          setFormData(updatedBook)
+        }
+      } catch (error) {
+        console.log('Failed to fetch book:', error)
+      }
+    }
+
+    fetchData().catch((error) => {
+      console.log('Failed to fetch book:', error)
+    })
+  }, [formType, id])
 
   // Function to handles changes in input fields
   const handleChange = useCallback(
@@ -135,6 +162,13 @@ const Form: React.FC<FormProps> = ({
         dispatch(addNewBook(newBookData))
         // Show a success toast message using the `handleToast` function
         handleToast('Book added successfully', 'success')
+      } else if (formType === 'edit') {
+        // Call the `editBookAPI` function with the book `id` and `newBookData` and wait for it to complete
+        await editBookAPI(id, newBookData)
+        // Dispatch an action to edit the book using the `dispatch` function
+        dispatch(editBook(newBookData))
+        // Show a success toast message using the `handleToast` function
+        handleToast('Book edited successfully', 'success')
       }
       // Close the modal
       onCloseModal()
@@ -143,8 +177,8 @@ const Form: React.FC<FormProps> = ({
       onCloseModal()
       // Show a failure toast message based on the `formType` using the `handleToast` function
       handleToast(
-        `Failed to ${formType === 'add' ? 'add' : 'edit'} book`,
-        'failure'
+              `Failed to ${formType === 'add' ? 'add' : 'edit'} book`,
+              'failure'
       )
     }
   }
