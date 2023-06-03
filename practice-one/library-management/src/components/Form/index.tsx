@@ -29,14 +29,14 @@ interface FormProps {
 }
 
 // Define the Form component
-const Form: React.FC<FormProps> = ({
-  id,
-  formType,
-  onCloseModal,
-  handleToast
-}) => {
+const Form: React.FC<FormProps> = (props) => {
+  const { id, formType, onCloseModal, handleToast } = props
+
   // Accesses the BookContext using useContext hook
   const { dispatch } = useContext(BookContext)
+
+  // State to set disable button
+  const [disableButton, setDisableButton] = useState(false)
 
   // State to hold the form data
   const [formData, setFormData] = useState({
@@ -156,30 +156,40 @@ const Form: React.FC<FormProps> = ({
 
     try {
       if (formType === 'add') {
+        setDisableButton(true) // Set disableButton state to true
         // Call the `addNewBookAPI` function with `newBookData` and wait for it to complete
-        await addNewBookAPI(newBookData)
+        const result = await addNewBookAPI(newBookData)
         // Dispatch an action to add the new book using the `dispatch` function
         dispatch(addNewBook(newBookData))
-        // Show a success toast message using the `handleToast` function
-        handleToast('Book added successfully', 'success')
+        if (result != null) {
+          setDisableButton(false) // Set disableButton state to false
+          // Show a success toast message using the `handleToast` function
+          handleToast('Book added successfully', 'success')
+          // Close the modal
+          onCloseModal()
+        }
       } else if (formType === 'edit') {
+        setDisableButton(true) // Set disableButton state to true
         // Call the `editBookAPI` function with the book `id` and `newBookData` and wait for it to complete
-        await editBookAPI(id, newBookData)
+        const result = await editBookAPI(id, newBookData)
         // Dispatch an action to edit the book using the `dispatch` function
         dispatch(editBook(newBookData))
-        // Show a success toast message using the `handleToast` function
-        handleToast('Book edited successfully', 'success')
+        if (result != null) {
+          setDisableButton(false) // Set disableButton state to false
+          // Show a success toast message using the `handleToast` function
+          handleToast('Book edited successfully', 'success')
+          // Close the modal
+          onCloseModal()
+        }
       }
-      // Close the modal
-      onCloseModal()
     } catch (error) {
-      // Close the modal
-      onCloseModal()
       // Show a failure toast message based on the `formType` using the `handleToast` function
       handleToast(
-              `Failed to ${formType === 'add' ? 'add' : 'edit'} book`,
-              'failure'
+        `Failed to ${formType === 'add' ? 'add' : 'edit'} book`,
+        'failure'
       )
+      // Close the modal
+      onCloseModal()
     }
   }
 
@@ -310,6 +320,7 @@ const Form: React.FC<FormProps> = ({
           size="large"
           variant="primary"
           className="submit-form-btn"
+          disabled = {disableButton}
         >
           {formType === 'add' ? 'ADD' : 'EDIT'}
         </Button>

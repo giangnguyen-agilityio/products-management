@@ -19,6 +19,14 @@ const reducer = (state: BooksState, action: ActionTypes): BooksState => {
       const updatedBooks = state.books.map((book) =>
         book.id === editedBook.id ? editedBook : book
       )
+      return {
+        ...state,
+        books: updatedBooks
+      }
+    }
+    case ACTION.DELETE_BOOK: {
+      const deletedBookId = action.payload
+      const updatedBooks = state.books.filter((book) => book.id !== deletedBookId)
 
       return {
         ...state,

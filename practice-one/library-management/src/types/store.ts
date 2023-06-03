@@ -16,6 +16,11 @@ export interface EditBookAction {
   payload: Book
 }
 
+export interface DeleteBookAction {
+  type: typeof ACTION.DELETE_BOOK
+  payload: string
+}
+
 export interface BooksState {
   books: Book[]
 }
@@ -24,3 +29,4 @@ export type ActionTypes =
 | SetBookAction
 | AddNewBookAction
 | EditBookAction
+| DeleteBookAction

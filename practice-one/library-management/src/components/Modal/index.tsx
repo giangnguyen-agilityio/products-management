@@ -29,16 +29,27 @@ const Modal: React.FC<ModalProps> = (props) => {
   )
 
   // Function to handle close the modal
-  const handleCloseModal = (): void => {
+  const handleCloseModal = (showToast = true): void => {
     closeModal()
     document.removeEventListener('keydown', handleKeyDown)
+    // // Check if the toast should be shown
+    if (!showToast) {
+    // Set the toast message and status to null
+      setToastMessage(null)
+      setToastStatus(null)
+    }
   }
 
   // Function to handle keydown events
   const handleKeyDown = (event: KeyboardEvent): void => {
     if (event.key === 'Escape') {
-      handleCloseModal()
+      handleCloseModal(false) // Pass false to indicate the ESC key is pressed
     }
+  }
+
+  // Function to handle button close modal clicked
+  const handleCloseModalButtonClick = (): void => {
+    handleCloseModal(false)
   }
 
   // Function to handle showing or hiding the toast
@@ -76,7 +87,7 @@ const Modal: React.FC<ModalProps> = (props) => {
               variant="primary"
               className="close-modal-btn"
               aria-label="Close the modal button"
-              onClick={handleCloseModal}
+              onClick={handleCloseModalButtonClick}
             >
               <IoClose size={20} />
             </Button>

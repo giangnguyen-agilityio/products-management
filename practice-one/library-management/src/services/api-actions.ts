@@ -30,3 +30,11 @@ export const editBookAPI = async (
   const res = await axios.put(`${API_URL}/${APIType.BOOKS}/${id}`, book)
   return res.data
 }
+
+// API method for deleting a book
+export const deleteBookAPI = async (
+  id: string
+): Promise<Book> => {
+  const res = await axios.delete(`${API_URL}/${APIType.BOOKS}/${id}`)
+  return res.data
+}
