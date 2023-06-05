@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo, useContext } from 'react'
 
 // Importing the Book Context
-import BookContext from '../../store/BookContext'
+import BookContext from '../../store/books/BookContext'
 
 // Importing the Icon from the React-icons library
 import { FaArrowRight, FaArrowLeft, FaRegHandPointRight } from 'react-icons/fa'

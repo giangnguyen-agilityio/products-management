@@ -1,11 +1,11 @@
-import { ACTION } from '../constants/action'
+import { ACTION } from '../../constants/action'
 import {
   type SetBookAction,
   type AddNewBookAction,
   type EditBookAction,
   type DeleteBookAction
 } from 'types/store'
-import { type Book } from '../types/book'
+import { type Book } from '../../types/book'
 
 // This function creates an action to set the book data in the store
 export const setBook = (payload: Book[]): SetBookAction => ({

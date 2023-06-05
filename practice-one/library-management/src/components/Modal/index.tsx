@@ -32,9 +32,9 @@ const Modal: React.FC<ModalProps> = (props) => {
   const handleCloseModal = (showToast = true): void => {
     closeModal()
     document.removeEventListener('keydown', handleKeyDown)
-    // // Check if the toast should be shown
+    // Check if the toast should be shown
     if (!showToast) {
-    // Set the toast message and status to null
+      // Set the toast message and status to null
       setToastMessage(null)
       setToastStatus(null)
     }
@@ -93,7 +93,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             </Button>
           </div>
           <div className="modal-content">
-             {/* Render the appropriate content based on the modalType */}
+            {/* Render the appropriate content based on the modalType */}
             {modalType === 'add' || modalType === 'edit' ? (
               <Form
                 id={modalId}

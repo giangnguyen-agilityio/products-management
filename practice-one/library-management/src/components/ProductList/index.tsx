@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef, useContext } from 'react'
 
-import BookContext from '../../store/BookContext'
+import BookContext from '../../store/books/BookContext'
 
 // Importing the EmptyProductList, Pagination, Typography, Card and Button components
 import EmptyProductList from '../EmptyProductList/index'

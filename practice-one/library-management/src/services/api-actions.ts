@@ -3,6 +3,7 @@ import axios from 'axios'
 import { API_URL, APIType } from '../constants/api'
 
 import { type Book } from '../types/book'
+import { type HireRequest } from '../types/hireRequest'
 
 // API method for fetching all products
 export const fetchAllBooks = async (): Promise<Book[]> => {
@@ -36,5 +37,11 @@ export const deleteBookAPI = async (
   id: string
 ): Promise<Book> => {
   const res = await axios.delete(`${API_URL}/${APIType.BOOKS}/${id}`)
+  return res.data
+}
+
+// API method for fetching all products
+export const fetchAllHireRequest = async (): Promise<HireRequest[]> => {
+  const res = await axios.get(`${API_URL}/${APIType.HIRE_REQUEST}`)
   return res.data
 }

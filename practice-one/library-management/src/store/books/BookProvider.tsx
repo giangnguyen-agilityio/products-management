@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useReducer } from 'react'
-import { ACTION } from '../constants/action'
+import { ACTION } from '../../constants/action'
 import BookContext from './BookContext'
 import reducer from './reducer'
-import { useBooks } from '../hooks/fetch'
-import { type BooksState } from '../types/store'
+import { useBooks } from '../../hooks/fetch'
+import { type BooksState } from '../../types/store'
 
 interface ProviderProps {
   children: JSX.Element

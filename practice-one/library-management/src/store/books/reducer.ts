@@ -1,6 +1,6 @@
-import { ACTION } from '../constants/action'
-import { type BooksState, type ActionTypes } from '../types/store'
-import { type Book } from '../types/book'
+import { ACTION } from '../../constants/action'
+import { type BooksState, type ActionTypes } from '../../types/store'
+import { type Book } from '../../types/book'
 
 const reducer = (state: BooksState, action: ActionTypes): BooksState => {
   switch (action.type) {
@@ -26,7 +26,9 @@ const reducer = (state: BooksState, action: ActionTypes): BooksState => {
     }
     case ACTION.DELETE_BOOK: {
       const deletedBookId = action.payload
-      const updatedBooks = state.books.filter((book) => book.id !== deletedBookId)
+      const updatedBooks = state.books.filter(
+        (book) => book.id !== deletedBookId
+      )
 
       return {
         ...state,

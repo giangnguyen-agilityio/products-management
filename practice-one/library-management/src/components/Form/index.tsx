@@ -1,11 +1,11 @@
-import React, { useState, useContext, useCallback, useEffect } from 'react'// Importing the Input and Button components
+import React, { useState, useContext, useCallback, useEffect } from 'react' // Importing the Input and Button components
 
 // Importing the Input and Button components
 import Input from '../Input/index'
 import Button from '../Button/index'
 
 // Importing the BookContext
-import BookContext from '../../store/BookContext'
+import BookContext from '../../store/books/BookContext'
 
 // Importing the API methods
 import {
@@ -15,7 +15,7 @@ import {
 } from '../../services/api-actions'
 
 // Importing the actions
-import { addNewBook, editBook } from '../../store/action'
+import { addNewBook, editBook } from '../../store/books/actions'
 
 // Importing the CSS file for styling
 import './form.css'
@@ -320,7 +320,7 @@ const Form: React.FC<FormProps> = (props) => {
           size="large"
           variant="primary"
           className="submit-form-btn"
-          disabled = {disableButton}
+          disabled={disableButton}
         >
           {formType === 'add' ? 'ADD' : 'EDIT'}
         </Button>

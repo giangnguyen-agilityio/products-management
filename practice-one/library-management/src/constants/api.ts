@@ -3,4 +3,5 @@ export const API_URL = 'http://localhost:3000'
 
 export enum APIType {
   BOOKS = 'books',
+  HIRE_REQUEST = 'hireRequests'
 }

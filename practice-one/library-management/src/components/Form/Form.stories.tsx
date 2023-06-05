@@ -1,5 +1,5 @@
 import { type StoryFn, type Meta } from "@storybook/react";
-import BookContext from "../../store/BookContext";
+import BookContext from "../../store/books/BookContext";
 import Form from "./index";
 import React from "react";
 

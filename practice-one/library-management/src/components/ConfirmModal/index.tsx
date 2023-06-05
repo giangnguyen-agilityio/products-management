@@ -5,7 +5,7 @@ import Button from '../Button'
 import Typography from '../Typography'
 
 // Importing the BookContext
-import BookContext from '../../store/BookContext'
+import BookContext from '../../store/books/BookContext'
 
 // Import the Delete image
 import deleteImage from '../../assets/images/delete-icon.gif'
@@ -14,7 +14,7 @@ import deleteImage from '../../assets/images/delete-icon.gif'
 import { deleteBookAPI } from '../../services/api-actions'
 
 // Importing the actions
-import { deleteBook } from '../../store/action'
+import { deleteBook } from '../../store/books/actions'
 
 // Importing the CSS file for styling
 import './confirm-modal.css'
@@ -67,7 +67,11 @@ const ConfirmModal: React.FC<ConfirmModalProps> = (props) => {
 
   return (
     <div className="confirm-modal-content">
-      <img src={deleteImage} alt="Image for delete action" className="confirm-modal-image" />
+      <img
+        src={deleteImage}
+        alt="Image for delete action"
+        className="confirm-modal-image"
+      />
       <Typography variant="p" className="confirm-modal-title">
         Do you really want to delete this {text} ?
         <br />
