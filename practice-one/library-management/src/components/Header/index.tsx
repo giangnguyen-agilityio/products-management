@@ -12,6 +12,9 @@ import Button from '../Button/index'
 // Importing the Router to navigation the application
 import { BrowserRouter as Router } from 'react-router-dom'
 
+// Importing the links to navigation
+import links from '../../constants/navigation-links'
+
 // Importing the CSS file for styling
 import './header.css'
 
@@ -22,11 +25,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = (props) => {
   const { isLogin } = props
-  const links = [
-    { id: 'book', label: 'book', url: '/book' },
-    { id: 'member', label: 'member', url: '/member' },
-    { id: 'hire request', label: 'hire request', url: '/request' }
-  ]
 
   return (
     <header className="site-header">
