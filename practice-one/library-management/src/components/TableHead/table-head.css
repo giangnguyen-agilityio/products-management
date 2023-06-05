@@ -1,0 +1,17 @@
+.table-header {
+  margin: 15px 0;
+  background: var(--bg-introduction-color);
+  color: var(--secondary-text-color);
+}
+
+.table-header-cell {
+  text-align: center;
+  padding: 15px;
+  width: 25%;
+}
+
+.table-header-cell:first-child,
+.table-header-cell:nth-child(2),
+.table-header-cell:nth-child(3) {
+  width: 15%;
+}
