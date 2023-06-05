@@ -1,0 +1,62 @@
+.table-row {
+  border: 1px solid;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.table-row-cell {
+  text-align: center;
+  padding: 15px;
+  vertical-align: middle;
+  text-transform: capitalize;
+}
+
+.table-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.highlight {
+  background-color: var(--highlight-color);
+}
+
+.toggle-completion-btn,
+.edit-btn,
+.delete-btn {
+  padding: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-btn-color);
+  background: unset;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.toggle-completion-btn {
+  color: var(--primary-color);
+}
+
+.toggle-completion-btn:hover {
+  border-color: var(--primary-color);
+}
+
+.edit-btn {
+  color: var(--tertiary-color);
+}
+
+.edit-btn:hover {
+  border-color: var(--tertiary-color);
+}
+
+.delete-btn {
+  color: var(--danger-color);
+}
+
+.delete-btn:hover {
+  border-color: var(--danger-color);
+}

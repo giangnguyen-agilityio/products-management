@@ -3,6 +3,11 @@ export interface HireRequest {
   bookId: string
   memberId: string
   fromDate: string
-  toData: string
-  status: boolean
+  toDate: string
+  status: string
+}
+
+export interface TableColumn {
+  field: string
+  headerName: string
 }
