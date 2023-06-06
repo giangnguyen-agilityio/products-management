@@ -1,4 +1,5 @@
 .hire-request-table {
-  border: 1px solid var(--primary-color);
+  border-collapse: separate;
+  border-spacing: 0 10px;
   width: 100%;
 }

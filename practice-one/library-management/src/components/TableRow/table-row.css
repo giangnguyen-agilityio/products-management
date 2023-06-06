@@ -1,7 +1,12 @@
 .table-row {
   border: 1px solid;
   transition: all 0.3s ease-in-out;
+  background-color: var(--secondary-text-color);
   cursor: pointer;
+}
+
+.table-row:not(.highlight):hover {
+  background-color: var(--bg-btn-color);
 }
 
 .table-row-cell {
@@ -26,37 +31,37 @@
   background-color: var(--highlight-color);
 }
 
-.toggle-completion-btn,
-.edit-btn,
-.delete-btn {
+.table-controls .toggle-completion-btn,
+.table-controls .edit-btn,
+.table-controls .delete-btn {
   padding: 10px;
   border-radius: 50%;
-  border: 2px solid var(--bg-btn-color);
+  border: 1.5px solid var(--bg-btn-color) !important;
   background: unset;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
-.toggle-completion-btn {
+.table-controls .toggle-completion-btn {
   color: var(--primary-color);
 }
 
-.toggle-completion-btn:hover {
-  border-color: var(--primary-color);
+.table-controls .toggle-completion-btn:hover {
+  border-color: var(--primary-color) !important;
 }
 
-.edit-btn {
+.table-controls.edit-btn {
   color: var(--tertiary-color);
 }
 
-.edit-btn:hover {
-  border-color: var(--tertiary-color);
+.table-controls .edit-btn:hover {
+  border-color: var(--tertiary-color) !important;
 }
 
-.delete-btn {
+.table-controls .delete-btn {
   color: var(--danger-color);
 }
 
-.delete-btn:hover {
-  border-color: var(--danger-color);
+.table-controls .delete-btn:hover {
+  border-color: var(--danger-color) !important;
 }
