@@ -1,17 +1,17 @@
-import { type StoryFn, type Meta } from "@storybook/react";
-import LoadingIndicator from "./index";
-import React from "react";
+import {type StoryFn, type Meta} from '@storybook/react'
+import LoadingIndicator from './index'
+import React from 'react'
 
 export default {
-  title: "Example/LoadingIndicator",
+  title: 'Example/LoadingIndicator',
   component: LoadingIndicator,
-} as Meta<typeof LoadingIndicator>;
+} as Meta<typeof LoadingIndicator>
 
-const Template: StoryFn<typeof LoadingIndicator> = (args) => (
+const Template: StoryFn<typeof LoadingIndicator> = args => (
   <LoadingIndicator {...args} />
-);
+)
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   isLoading: true,
-};
+}

@@ -1,43 +1,43 @@
-import { type StoryFn, type Meta } from "@storybook/react";
+import {type StoryFn, type Meta} from '@storybook/react'
 
-import Button from "./index";
+import Button from './index'
 
 export default {
-  title: "Example/Button",
+  title: 'Example/Button',
   component: Button,
   argTypes: {
     size: {
       control: {
-        type: "select",
-        options: ["small", "medium", "large"],
+        type: 'select',
+        options: ['small', 'medium', 'large'],
       },
     },
     variant: {
       control: {
-        type: "select",
+        type: 'select',
         options: [
-          "primary",
-          "secondary",
-          "default",
-          "success",
-          "warning",
-          "danger",
+          'primary',
+          'secondary',
+          'default',
+          'success',
+          'warning',
+          'danger',
         ],
       },
     },
-    onClick: { action: "clicked" },
+    onClick: {action: 'clicked'},
   },
-} as Meta<typeof Button>;
+} as Meta<typeof Button>
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = args => <Button {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  children: "Button",
-};
+  children: 'Button',
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
-  children: "Disabled Button",
+  children: 'Disabled Button',
   disabled: true,
-};
+}

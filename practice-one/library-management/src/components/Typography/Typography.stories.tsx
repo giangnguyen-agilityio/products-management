@@ -1,29 +1,29 @@
-import { type StoryFn, type Meta } from "@storybook/react";
-import Typography from "./index";
-import React from "react";
+import {type StoryFn, type Meta} from '@storybook/react'
+import Typography from './index'
+import React from 'react'
 
 export default {
-  title: "Example/Typography",
+  title: 'Example/Typography',
   component: Typography,
   argTypes: {
     variant: {
       control: {
-        type: "select",
-        options: ["h1", "h2", "h3", "h4", "h5", "h6", "p"],
+        type: 'select',
+        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
       },
     },
     color: {
       control: {
-        type: "select",
-        options: ["primary", "secondary"],
+        type: 'select',
+        options: ['primary', 'secondary'],
       },
     },
   },
-} as Meta<typeof Typography>;
+} as Meta<typeof Typography>
 
-const Template: StoryFn<typeof Typography> = (args) => <Typography {...args} />;
+const Template: StoryFn<typeof Typography> = args => <Typography {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  children: "This is a paragraph",
-};
+  children: 'This is a paragraph',
+}

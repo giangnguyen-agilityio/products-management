@@ -1,24 +1,24 @@
-import { type StoryFn, type Meta } from "@storybook/react";
+import {type StoryFn, type Meta} from '@storybook/react'
 
-import Toast from "./index";
+import Toast from './index'
 
 export default {
-  title: "Example/Toast",
+  title: 'Example/Toast',
   component: Toast,
-} as Meta<typeof Toast>;
+} as Meta<typeof Toast>
 
-const Template: StoryFn<typeof Toast> = (args) => <Toast {...args} />;
+const Template: StoryFn<typeof Toast> = args => <Toast {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   duration: 5000,
-  message: "Book added successfully",
-  status: "success",
-};
+  message: 'Book added successfully',
+  status: 'success',
+}
 
-export const Secondary = Template.bind({});
+export const Secondary = Template.bind({})
 Secondary.args = {
   duration: 5000,
-  message: "Failed to add a new book",
-  status: "failure",
-};
+  message: 'Failed to add a new book',
+  status: 'failure',
+}

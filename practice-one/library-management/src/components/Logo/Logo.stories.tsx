@@ -1,23 +1,28 @@
-import { type StoryFn, type Meta } from "@storybook/react";
-import Logo from "./index";
-import React from "react";
+import {type StoryFn, type Meta} from '@storybook/react'
+import {BrowserRouter} from 'react-router-dom'
+import Logo from './index'
+import React from 'react'
 
 export default {
-  title: "Example/Logo",
+  title: 'Example/Logo',
   component: Logo,
-} as Meta<typeof Logo>;
+} as Meta<typeof Logo>
 
-const Template: StoryFn<typeof Logo> = (args) => <Logo {...args} />;
+const Template: StoryFn<typeof Logo> = args => (
+  <BrowserRouter>
+    <Logo {...args} />
+  </BrowserRouter>
+)
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
-  imageSrc: "src/assets/images/logo-website.png",
-  altText: "This is the logo website",
+  imageSrc: 'src/assets/images/logo-website.png',
+  altText: 'This is the logo website',
   widthSize: 50,
   heightSize: 50,
-};
+}
 
-export const Secondary = Template.bind({});
+export const Secondary = Template.bind({})
 Secondary.args = {
-  text: "Logo Website",
-};
+  text: 'Logo Website',
+}

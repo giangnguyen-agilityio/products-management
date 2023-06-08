@@ -1,21 +1,19 @@
-import { type StoryFn, type Meta } from "@storybook/react";
-import UserProfile from "./index";
-import React from "react";
+import {type StoryFn, type Meta} from '@storybook/react'
+import UserProfile from './index'
+import React from 'react'
 
 export default {
-  title: "Example/User Profile",
+  title: 'Example/User Profile',
   component: UserProfile,
   argTypes: {
-    onLogout: { action: "clicked" },
+    onLogout: {action: 'clicked'},
   },
-} as Meta<typeof UserProfile>;
+} as Meta<typeof UserProfile>
 
-const Template: StoryFn<typeof UserProfile> = (args) => (
-  <UserProfile {...args} />
-);
+const Template: StoryFn<typeof UserProfile> = args => <UserProfile {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  avatarUrl: "src/assets/images/logo-website.png",
-  email: "useremail@gmail.com",
-};
+  avatarUrl: 'src/assets/images/logo-website.png',
+  email: 'useremail@gmail.com',
+}
