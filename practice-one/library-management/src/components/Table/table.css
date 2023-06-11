@@ -3,3 +3,10 @@
   border-spacing: 0 10px;
   width: 100%;
 }
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .hire-request-table {
+    border: 0;
+  }
+}

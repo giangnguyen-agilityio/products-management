@@ -1,26 +1,32 @@
-import React from 'react'
+import React, {memo} from 'react'
 
 // Importing the TableHead and TableRow components
-import TableHead from '../TableHead/index'
-import TableRow from '../TableRow/index'
+import TableHead from '@components/TableHead'
+import TableRow from '@components/TableRow'
 
 // Importing the HireRequest and Table column types
-import { type HireRequest, type TableColumn } from '../../types/hireRequest'
+import {IHireRequest, IMember, TableColumn} from '@types'
 
 // Importing the CSS file for styling
 import './table.css'
 
 // Define the props for the Table component
 interface TableProps {
-  data: HireRequest[]
+  data: IHireRequest[]
   columns: TableColumn[]
-  onToggleCompletion: (id: string) => void
-  onEdit: (id: string) => void
-  onDelete: (id: string) => void
+  onToggleCompletion?: (id: string, memberId: string, bookId: string) => void
+  onOpenModalEdit?: (id: string) => void
+  onOpenModalDelete?: (id: string) => void
 }
 
-const Table: React.FC<TableProps> = (props) => {
-  const { data, columns, onToggleCompletion, onEdit, onDelete } = props
+const Table: React.FC<TableProps> = props => {
+  const {
+    data,
+    columns,
+    onToggleCompletion,
+    onOpenModalEdit,
+    onOpenModalDelete,
+  } = props
   return (
     // Render the hire request table
     <table className="hire-request-table">
@@ -28,14 +34,14 @@ const Table: React.FC<TableProps> = (props) => {
       <TableHead columns={columns} />
       <tbody>
         {/* Render table rows for each data item */}
-        {data.map((item) => (
+        {data.map(item => (
           <TableRow
             key={item.id}
             data={item}
             columns={columns}
             onToggleCompletion={onToggleCompletion}
-            onEdit={onEdit}
-            onDelete={onDelete}
+            onOpenModalEdit={onOpenModalEdit}
+            onOpenModalDelete={onOpenModalDelete}
           />
         ))}
       </tbody>
@@ -43,4 +49,4 @@ const Table: React.FC<TableProps> = (props) => {
   )
 }
 
-export default Table
+export default memo(Table)
