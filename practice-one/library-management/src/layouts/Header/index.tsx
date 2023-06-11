@@ -1,31 +1,35 @@
 import React from 'react'
 
 // Importing the image URL as the variable
-import logo from '../../assets/images/logo-website.png'
+import logo from '@assets/images/logo-website.png'
 
 // Importing the Logo, Navigation, UserProfile, and Button components
-import Logo from '../Logo/index'
-import Navigation from '../Navigation/index'
-import UserProfile from '../UserProfile/index'
-import Button from '../Button/index'
-
-// Importing the Router to navigation the application
-import { BrowserRouter as Router } from 'react-router-dom'
+import Logo from '@components/Logo'
+import Navigation from '@components/Navigation'
+import UserProfile from '@components/UserProfile'
+import Button from '@components/Button'
 
 // Importing the links to navigation
-import links from '../../constants/navigation-links'
+import {linksForAdmin, linksForUser} from '@constants/navigationLinks'
+
+// Importing the helper functions
+import {getItemInLocalStorage} from '@helpers'
 
 // Importing the CSS file for styling
 import './header.css'
-
 // Define the props for the Header component
 interface HeaderProps {
   isLogin: boolean
+  onSignIn: () => void
+  onLogout: () => void
 }
 
-const Header: React.FC<HeaderProps> = (props) => {
-  const { isLogin } = props
+const Header: React.FC<HeaderProps> = props => {
+  // Destructuring props to get specific variables ('isLogin', 'onSignIn', and 'onLogout') from an object passed as props.
+  const {isLogin, onSignIn, onLogout} = props
 
+  // Checking if the value of 'memberRole' in local storage is equal to 'admin', then storing a boolean result in the 'isAdmin' variable.
+  const isAdmin = getItemInLocalStorage('memberRole') === 'admin'
   return (
     <header className="site-header">
       <div className="site-header-content">
@@ -38,15 +42,17 @@ const Header: React.FC<HeaderProps> = (props) => {
         />
         {/* The website navigation */}
         <nav className="site-navigation">
-          <Router>
-            {/* Render navigation links */}
-            <Navigation links={links} />
-          </Router>
+          {/* Render navigation links */}
+          <Navigation links={isAdmin ? linksForAdmin : linksForUser} />
           {/* The website actions */}
           <div className="site-actions-wrapper">
             {/* Render user profile if logged in */}
             {isLogin ? (
-              <UserProfile avatarUrl={logo} email="useremail@gmail.com" />
+              <UserProfile
+                avatarUrl={logo}
+                email="useremail@gmail.com"
+                onLogout={onLogout}
+              />
             ) : (
               <div className="site-actions">
                 {/* Render sign up button */}
@@ -64,6 +70,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                   variant="primary"
                   className="sign-in"
                   ariaLabel="Sign in"
+                  onClick={onSignIn}
                 >
                   SIGN IN
                 </Button>

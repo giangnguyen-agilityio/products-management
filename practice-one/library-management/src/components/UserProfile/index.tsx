@@ -1,10 +1,10 @@
 import React from 'react'
 
 // Importing the Button component
-import Button from '../Button/index'
+import Button from '@components/Button'
 
 // Importing the Icon from the React-icons library
-import { FaSignOutAlt } from 'react-icons/fa'
+import {FaSignOutAlt} from 'react-icons/fa'
 
 // Importing the CSS file for styling
 import './user-profile.css'
@@ -16,8 +16,8 @@ interface UserProfileProps {
   onLogout?: () => void // Callback function for logout action
 }
 
-const UserProfile: React.FC<UserProfileProps> = (props) => {
-  const { avatarUrl, email, onLogout } = props
+const UserProfile: React.FC<UserProfileProps> = props => {
+  const {avatarUrl, email, onLogout} = props
 
   return (
     <div className="user-profile-wrapper">
@@ -45,7 +45,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
           {/* Render the logout icon */}
           <FaSignOutAlt />
         </Button>
-        Logout
+        <span className="logout-text">Logout</span>
       </div>
     </div>
   )

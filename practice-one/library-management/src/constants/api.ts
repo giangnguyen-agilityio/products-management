@@ -1,7 +1,9 @@
-// export const API_URL = process.env.VITE_BASE_URL
-export const API_URL = 'http://localhost:3000'
+const API_URL = 'http://localhost:3000'
 
-export enum APIType {
+enum ENDPOINT {
   BOOKS = 'books',
-  HIRE_REQUEST = 'hireRequests'
+  HIRE_REQUEST = 'hireRequests',
+  MEMBERS = 'members',
 }
+
+export {API_URL, ENDPOINT}

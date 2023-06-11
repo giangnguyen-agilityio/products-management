@@ -1,15 +1,15 @@
 import React from 'react'
 
 // Importing the Logo,and Typography components
-import Logo from '../Logo/index'
-import Typography from '../Typography/index'
+import Logo from '@components/Logo'
+import Typography from '@components/Typography'
 
 // Importing the image URL as the variable
-import logo from '../../assets/images/logo-website-footer.png'
+import logo from '@assets/images/logo-website-footer.png'
 
 // Importing the Icon from the React-icons library
-import { BsTwitter, BsInstagram } from 'react-icons/bs'
-import { FaFacebookSquare } from 'react-icons/fa'
+import {BsTwitter, BsInstagram} from 'react-icons/bs'
+import {FaFacebookSquare} from 'react-icons/fa'
 
 // Importing the CSS file for styling
 import './footer.css'
