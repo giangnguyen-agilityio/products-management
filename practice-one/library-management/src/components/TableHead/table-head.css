@@ -15,3 +15,23 @@
 .table-header-cell:nth-child(3) {
   width: 15%;
 }
+
+/* Media Query for Tablets and Smaller Screens */
+@media only screen and (max-width: 768px) {
+  .table-header-cell {
+    padding: 15px 0px;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .table-header {
+    display: none;
+  }
+
+  .table-header-row {
+    border-bottom: 3px solid var(--primary-color);
+    display: block;
+    margin-bottom: 15px;
+  }
+}
