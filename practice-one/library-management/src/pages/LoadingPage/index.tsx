@@ -1,6 +1,8 @@
-import Loading from '../../components/LoadingIndicator/index'
-import Typography from '../../components/Typography/index'
 import React from 'react'
+
+// Importing the Loading and Typography components
+import Loading from '@components/LoadingIndicator'
+import Typography from '@components/Typography'
 
 const LoadingPage = (): JSX.Element => {
   return (
