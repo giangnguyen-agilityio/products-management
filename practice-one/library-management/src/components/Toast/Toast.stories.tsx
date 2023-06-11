@@ -13,12 +13,12 @@ export const Default = Template.bind({})
 Default.args = {
   duration: 5000,
   message: 'Book added successfully',
-  status: 'success',
+  status: true,
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
   duration: 5000,
   message: 'Failed to add a new book',
-  status: 'failure',
+  status: false,
 }

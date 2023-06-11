@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 
 // Importing the Icons form the React-icons library
-import {
-  AiOutlineCheckCircle,
-  AiOutlineExclamationCircle
-} from 'react-icons/ai'
+import {AiOutlineCheckCircle, AiOutlineExclamationCircle} from 'react-icons/ai'
 
 // Importing the CSS file for styling
 import './toast.css'
@@ -13,12 +10,12 @@ import './toast.css'
 interface ToastProps {
   message: string
   duration: number
-  status: 'success' | 'failure'
+  status: boolean
 }
 
-const Toast: React.FC<ToastProps> = (props) => {
+const Toast: React.FC<ToastProps> = props => {
   // Destructure the props
-  const { message, duration, status } = props
+  const {message, duration, status} = props
 
   // State to manage the visibility of the toast
   const [isVisible, setIsVisible] = useState(false)
@@ -46,17 +43,13 @@ const Toast: React.FC<ToastProps> = (props) => {
   // Render the toast component with appropriate styling and content
   return (
     <div
-      className={`toast toast-${status} ${
+      className={`toast ${status ? 'success' : 'failure'} ${
         isVisible ? 'slide-in' : 'slide-out'
       }`}
     >
       <div className="toast-content">
         {/* Render success or failure icon based on the status prop */}
-        {status === 'success' ? (
-          <AiOutlineCheckCircle />
-        ) : (
-          <AiOutlineExclamationCircle />
-        )}
+        {status ? <AiOutlineCheckCircle /> : <AiOutlineExclamationCircle />}
         {message}
       </div>
       <div className="border-bottom"></div>

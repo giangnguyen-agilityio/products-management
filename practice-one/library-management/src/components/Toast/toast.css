@@ -20,11 +20,11 @@
   gap: 10px;
 }
 
-.toast-success {
+.toast.success {
   background-color: var(--primary-color);
 }
 
-.toast-failure {
+.toast.failure {
   background-color: var(--danger-color);
 }
 
