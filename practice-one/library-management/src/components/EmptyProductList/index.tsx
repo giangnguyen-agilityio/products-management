@@ -1,10 +1,10 @@
 import React from 'react'
 
 // Importing the image URL as the variable
-import errorImage from '../../assets/images/error-image.png'
+import errorImage from '@assets/images/error-image.png'
 
 // Importing the Typography component
-import Typography from '../Typography/index'
+import Typography from '@components/Typography'
 
 // Importing the CSS file for styling
 import './empty-list.css'
@@ -14,8 +14,8 @@ interface EmptyProductListProps {
   errorMessage?: string
 }
 
-const EmptyProductList: React.FC<EmptyProductListProps> = (props) => {
-  const { errorMessage } = props
+const EmptyProductList: React.FC<EmptyProductListProps> = props => {
+  const {errorMessage} = props
   return (
     <div className="empty-product-list">
       <div className="error-list-image">
