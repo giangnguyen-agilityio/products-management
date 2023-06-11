@@ -52,3 +52,14 @@
   color: var(--secondary-text-color);
   opacity: unset;
 }
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .input-field.image-uploaded {
+    width: 70%;
+  }
+
+  .image-uploaded {
+    width: 350px;
+  }
+}
