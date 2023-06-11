@@ -50,8 +50,8 @@
   border-color: var(--primary-color) !important;
 }
 
-.table-controls.edit-btn {
-  color: var(--tertiary-color);
+.table-controls .edit-btn {
+  color: var(--tertiary-color) !important;
 }
 
 .table-controls .edit-btn:hover {
@@ -64,4 +64,43 @@
 
 .table-controls .delete-btn:hover {
   border-color: var(--danger-color) !important;
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .table-row-cell {
+    border-bottom: 1px solid var(--bg-btn-color);
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  .table-row-cell::before {
+    float: left;
+    font-family: var(--tertiary-font);
+    color: var(--primary-color);
+    text-transform: uppercase;
+  }
+
+  .table-row-cell:nth-of-type(1):before {
+    content: 'ID';
+  }
+  .table-row-cell:nth-of-type(2):before {
+    content: 'Book ID';
+  }
+  .table-row-cell:nth-of-type(3):before {
+    content: 'Member ID';
+  }
+  .table-row-cell:nth-of-type(4):before {
+    content: 'From Date';
+  }
+  .table-row-cell:nth-of-type(5):before {
+    content: 'To Date';
+  }
+  .table-row-cell:nth-of-type(6):before {
+    content: 'Status';
+  }
+  .table-row-cell:nth-of-type(7):before {
+    content: 'Actions';
+  }
 }
