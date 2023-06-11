@@ -28,3 +28,40 @@ body {
   color: var(--primary-color);
   font-family: var(--secondary-font);
 }
+
+/* Media Query for Laptop Devices */
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding: 0;
+  }
+
+  .site-header {
+    padding: 30px;
+  }
+
+  .site-footer {
+    padding: 30px;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .site-header {
+    padding: 20px;
+  }
+
+  .site-footer {
+    padding: 20px;
+  }
+}
+
+/* Media Query for Old Mobile Devices */
+@media only screen and (max-width: 320px) {
+  .site-header {
+    padding: 10px;
+  }
+
+  .site-footer {
+    padding: 10px;
+  }
+}
