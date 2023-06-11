@@ -16,7 +16,50 @@
   transition: all 0.2s ease-in-out;
 }
 
+.link-label.active,
 .link-label:hover {
   padding-bottom: 10px;
   border-bottom: 1px solid var(--primary-color);
+}
+
+/* Media Query for Laptop Devices */
+@media only screen and (max-width: 1024px) {
+  .navigation {
+    gap: 30px;
+  }
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media only screen and (max-width: 768px) {
+  .navigation {
+    gap: 20px;
+  }
+
+  .link-label {
+    font-size: 24px;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .navigation {
+    gap: 10px;
+  }
+
+  .link-label {
+    font-size: 16px;
+  }
+}
+
+/* Media Query for Old Mobile Devices */
+@media only screen and (max-width: 320px) {
+  .navigation {
+    justify-content: start;
+
+    padding: 0 20px 0 0;
+  }
+
+  .link-label {
+    font-size: 14px;
+  }
 }

@@ -1,13 +1,16 @@
 import React from 'react'
 
 // Importing the Link component from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+
+// Importing the helper functions
+import {getItemInLocalStorage} from '@helpers'
 
 // Importing the CSS file for styling
 import './navigation.css'
 
 // Define the type for a single navigation link
-interface NavLink {
+interface Link {
   id: string
   label: string
   url: string
@@ -15,21 +18,28 @@ interface NavLink {
 
 // Define the props for the Navigation component
 interface NavigationProps {
-  links: NavLink[] // An array of navigation links
+  links: Link[] // An array of navigation links
 }
 
-const Navigation: React.FC<NavigationProps> = (props) => {
-  const { links } = props
+const Navigation: React.FC<NavigationProps> = props => {
+  const {links} = props
+  const isMember = getItemInLocalStorage('memberId')
 
   return (
     <ul className="navigation">
-      {/* Render each navigation link */}
-      {links.map((link) => (
-        <li key={link.id} id={`${link.id}-page`}>
-          {/* Use React Router's Link component for navigation */}
-          <Link to={link.url} className="link-label">
-            {link.label}
-          </Link>
+      {links.map(({id, label, url}) => (
+        // Render a list item for each navigation link in `links` array
+        <li key={id} id={`${id}-page`}>
+          {/* Check if the user is a member */}
+          {isMember ? (
+            // Render a NavLink component with the navigation link data if user is a member
+            <NavLink to={url} className="link-label">
+              {label}
+            </NavLink>
+          ) : (
+            // Render a span tag with the navigation link label if user is not a member
+            <span className="link-label">{label}</span>
+          )}
         </li>
       ))}
     </ul>
