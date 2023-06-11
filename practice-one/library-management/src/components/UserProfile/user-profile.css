@@ -67,3 +67,41 @@
   background-color: var(--secondary-text-color);
   color: var(--primary-color);
 }
+
+/* Media Query for Tablets and Smaller Screens */
+@media only screen and (max-width: 768px) {
+  .user-info {
+    border: none;
+  }
+
+  .logout-action {
+    overflow: hidden;
+    background: none;
+    border: none;
+    animation: slideRightToLeft 0.3s ease;
+  }
+
+  .logout-button {
+    font-size: 19px;
+    border: 1px solid;
+  }
+
+  .user-email {
+    display: none;
+  }
+
+  .logout-text {
+    display: none;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .user-email {
+    display: none;
+  }
+
+  .logout-text {
+    display: none;
+  }
+}
