@@ -8,8 +8,8 @@ interface LoadingIndicatorProps {
   isLoading: boolean
 }
 
-const Loading: React.FC<LoadingIndicatorProps> = (props) => {
-  const { isLoading } = props
+const Loading: React.FC<LoadingIndicatorProps> = props => {
+  const {isLoading} = props
   return isLoading ? (
     <div className="loading-indicator">
       <ul className="loading-icon">
