@@ -1,4 +1,4 @@
-export interface HireRequest {
+export interface IHireRequest {
   id: string
   bookId: string
   memberId: string
