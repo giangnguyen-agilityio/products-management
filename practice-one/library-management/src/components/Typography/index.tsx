@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, {memo} from 'react'
 
 // Importing the CSS file for styling
 import './typography.css'
@@ -11,8 +11,8 @@ export interface TypographyProps {
   children: React.ReactNode // The content of the typography
 }
 
-const Typography: React.FC<TypographyProps> = (props) => {
-  const { variant, color, children, className } = props
+const Typography: React.FC<TypographyProps> = props => {
+  const {variant, color, children, className} = props
 
   // Generate the CSS class names based on the props
   const textClasses = `text-${variant} text-${color ?? 'default'} ${
