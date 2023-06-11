@@ -1,9 +1,9 @@
 .hire-request-section {
-  /* border: 2px solid var(--primary-color); */
   border-radius: 10px;
-  background-color: #ebeaea;
+  background-color: var(--bg-color);
   padding: 20px;
   margin-top: 50px;
+  position: relative;
 }
 
 .hire-request-title {
@@ -11,4 +11,12 @@
   color: var(--primary-color);
   font-family: var(--secondary-font);
   margin: 20px 0;
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media only screen and (max-width: 768px) {
+  .hire-request-section {
+    padding: 20px 10px;
+    margin: 0;
+  }
 }
