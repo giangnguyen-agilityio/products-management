@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
 
 const useDelay = (delay: number): boolean => {
   const [isLoading, setIsLoading] = useState(true)

@@ -1,16 +1,21 @@
 import useSWR from 'swr'
-import { type AxiosError } from 'axios'
-import { handleServerError } from '../helpers/error-handler'
+import {type AxiosError} from 'axios'
 
-// services
-import { fetchAllBooks, fetchAllHireRequest } from '../services/api-actions'
+// Importing the API methods
+import {
+  fetchAllBooks,
+  fetchAllHireRequest,
+  fetchAllMember,
+} from '@services/api-actions'
 
-// type
-import { type Book } from '../types/book'
-import { type HireRequest } from '../types/hireRequest'
+// Importing the types
+import {IBook, IHireRequest, IMember} from '@types'
 
-// constants
-import { API_URL, APIType } from '../constants/api'
+// Importing the helper functions
+import {handleServerError} from '@helpers'
+
+// Importing the constants
+import {API_URL, ENDPOINT} from '@constants'
 
 interface IFetch {
   isLoading: boolean
@@ -19,43 +24,64 @@ interface IFetch {
 }
 
 interface IBooks extends IFetch {
-  allBooks: Book[] | undefined
+  allBooks: IBook[] | undefined
 }
 
 interface IHireRequests extends IFetch {
-  allHireRequests: HireRequest[] | undefined
+  allHireRequests: IHireRequest[] | undefined
+}
+
+interface IMembers extends IFetch {
+  allMembers: IMember[] | undefined
 }
 
 // Using SWR to fetch all products
 export const useBooks = (): IBooks => {
-  const { data, error } = useSWR<Book[]>(
-        `${API_URL}/${APIType.BOOKS}`,
-        fetchAllBooks
+  const {data, error} = useSWR<IBook[]>(
+    `${API_URL}/${ENDPOINT.BOOKS}`,
+    fetchAllBooks
   )
 
-  const errorMessage = error !== null ? handleServerError(error) : null
+  const errorMessage = error ? handleServerError(error) : null
 
   return {
     allBooks: data,
     isLoading: error === null && data === undefined,
     error,
-    errorMessage
+    errorMessage,
   }
 }
 
 // Using SWR to fetch all hire requests
 export const useHireRequests = (): IHireRequests => {
-  const { data, error } = useSWR<HireRequest[]>(
-    `${API_URL}/${APIType.HIRE_REQUEST}`,
+  const {data, error} = useSWR<IHireRequest[]>(
+    `${API_URL}/${ENDPOINT.HIRE_REQUEST}`,
     fetchAllHireRequest
   )
 
-  const errorMessage = error !== null ? handleServerError(error) : null
+  const errorMessage = error ? handleServerError(error) : null
 
   return {
     allHireRequests: data,
     isLoading: error === null && data === undefined,
     error,
-    errorMessage
+    errorMessage,
+  }
+}
+
+// Using SWR to fetch all hire requests
+export const useMembers = (): IMembers => {
+  const {data, error} = useSWR<IMember[]>(
+    `${API_URL}/${ENDPOINT.MEMBERS}`,
+    fetchAllMember
+  )
+
+  const errorMessage = error ? handleServerError(error) : null
+
+  return {
+    allMembers: data,
+    isLoading: error === null && data === undefined,
+    error,
+    errorMessage,
   }
 }
