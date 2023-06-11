@@ -1,4 +1,4 @@
-import React, { memo, type InputHTMLAttributes } from 'react'
+import React, {memo, type InputHTMLAttributes} from 'react'
 
 // Importing the CSS file for styling
 import './input.css'
@@ -11,7 +11,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input: React.FC<InputProps> = (props): JSX.Element => {
-  const { classNameLabel, label, errorMessage, ...inputProps } = props
+  const {classNameLabel, label, errorMessage, ...inputProps} = props
   return (
     <div className="input-wrapper">
       <label className={`label ${classNameLabel ?? ''}`}>{label}</label>
