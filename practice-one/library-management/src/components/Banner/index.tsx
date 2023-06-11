@@ -1,36 +1,52 @@
-import React, { useState, useCallback, useMemo, useContext } from 'react'
+import React, {useState, useCallback, useMemo, useContext} from 'react'
 
-// Importing the Book Context
-import BookContext from '../../store/books/BookContext'
+// Importing the Button, EmptyProductList, Pagination and Typography components
+import Button from '@components/Button'
+import EmptyProductList from '@components/EmptyProductList'
+import Pagination from '@components/Pagination'
+import Typography from '@components/Typography'
 
 // Importing the Icon from the React-icons library
-import { FaArrowRight, FaArrowLeft, FaRegHandPointRight } from 'react-icons/fa'
+import {FaArrowRight, FaArrowLeft, FaRegHandPointRight} from 'react-icons/fa'
 
-// Importing the EmptyProductList component
-import EmptyProductList from '../EmptyProductList/index'
-
-// Importing the Pagination, Typography, and Button components
-import Pagination from '../Pagination/index'
-import Typography from '../Typography/index'
-import Button from '../Button/index'
+// Importing the Book context
+import BookContext from '@stores/books/BookContext'
 
 // Importing the Book type
-import { type Book } from '../../types/book'
+import {IBook} from '@types'
+
+// Importing the helper functions
+import {getItemInLocalStorage} from '@helpers'
 
 // Importing the CSS file for styling
 import './banner.css'
 
-const Banner: React.FC = () => {
-  const { state } = useContext(BookContext)
-  const bookList: Book[] = state.books
+// Define the props for Banner component
+interface BannerProps {
+  onRent: (id: string) => void
+}
 
-  // State to keep track of the active book index
-  const [activeIndex, setActiveIndex] = useState(0)
+const Banner: React.FC<BannerProps> = props => {
+  // Destructure props to obtain onRent, toastMessage and toastStatus
+  const {onRent} = props
+
+  // Retrieve book state from the BookContext
+  const {bookState} = useContext(BookContext)
+
+  // Obtain the array of books from the book state
+  const bookList: IBook[] = bookState.books
+
+  // State hook to keep track of the active book index
+  const [activeIndex, setActiveIndex] = useState<number>(0)
+
+  // Check if the current user is an admin
+  const isAdmin: boolean = getItemInLocalStorage('memberRole') === 'admin'
 
   // Callback function to handle the previous button click
   const handlePreviousBtnClick = useCallback(() => {
-    if (bookList != null) {
-      setActiveIndex((prevIndex) =>
+    // Check if bookList exists
+    if (bookList) {
+      setActiveIndex(prevIndex =>
         prevIndex === 0 ? bookList.length - 1 : prevIndex - 1
       )
     }
@@ -38,39 +54,32 @@ const Banner: React.FC = () => {
 
   // Callback function to handle the next button click
   const handleNextBtnClick = useCallback(() => {
-    if (bookList != null) {
-      setActiveIndex((prevIndex) =>
+    // Check if bookList exists
+    if (bookList) {
+      setActiveIndex(prevIndex =>
         prevIndex === bookList.length - 1 ? 0 : prevIndex + 1
       )
     }
   }, [bookList])
 
   // Callback function to handle the rent button click
-  const handleRentBtnClick = useCallback((id: string | undefined) => {
-    if (id != null) {
-      window.alert(`${id} was rented`)
-    }
-  }, [])
+  const handleRentBook = useCallback(
+    (id: string) => {
+      onRent(id)
+    },
+    [onRent]
+  )
 
   // Get the current book based on the active index
-  const currentBook = useMemo(() => {
-    if (bookList !== null) {
-      return bookList[activeIndex]
-    }
-    return null
-  }, [bookList, activeIndex])
+  const currentBook: IBook = bookList[activeIndex]
 
   // Render the data of Book
-  const renderBookTitle =
-    currentBook?.title !== '' ? currentBook?.title : 'This is the book title'
-  const renderBookAuthor =
-    currentBook?.author !== '' ? currentBook?.author : 'The author of the book'
-  const renderBookPrice =
-    currentBook?.price !== undefined ? currentBook?.price.toFixed(2) : 0
-  const renderBookDescription =
-    currentBook?.description !== ''
-      ? currentBook?.description
-      : 'This is the description'
+  const renderBookTitle: string = currentBook?.title || 'This is the book title'
+  const renderBookAuthor: string =
+    currentBook?.author || 'The author of the book'
+  const renderBookPrice: string = currentBook?.price.toFixed(2) || '0.00'
+  const renderBookDescription: string =
+    currentBook?.description || 'This is the description'
 
   return (
     <section className="banner-wrapper">
@@ -94,18 +103,20 @@ const Banner: React.FC = () => {
               {renderBookDescription}
             </Typography>
             {/* Rent button */}
-            <Button
-              size="large"
-              variant="primary"
-              className="rent-btn"
-              ariaLabel="Rent button"
-              onClick={() => {
-                handleRentBtnClick(currentBook?.id)
-              }}
-            >
-              Rent this book
-              <FaRegHandPointRight />
-            </Button>
+            {!isAdmin && (
+              <Button
+                size="large"
+                variant="primary"
+                className="rent-btn"
+                ariaLabel="Rent button"
+                onClick={() => {
+                  handleRentBook(currentBook?.id)
+                }}
+              >
+                Rent this book
+                <FaRegHandPointRight />
+              </Button>
+            )}
             {/* Pagination */}
             <Pagination length={bookList.length} activeIndex={activeIndex} />
           </div>
@@ -125,7 +136,6 @@ const Banner: React.FC = () => {
               className="previous-btn"
               ariaLabel="Previous button"
               onClick={handlePreviousBtnClick}
-              disabled={activeIndex === 0}
             >
               <FaArrowLeft />
             </Button>
@@ -136,7 +146,6 @@ const Banner: React.FC = () => {
               className="next-btn"
               ariaLabel="Next button"
               onClick={handleNextBtnClick}
-              disabled={activeIndex === bookList.length - 1}
             >
               <FaArrowRight />
             </Button>
