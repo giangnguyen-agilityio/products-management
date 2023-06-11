@@ -43,6 +43,11 @@ export interface AddNewHireRequestAction {
   payload: IHireRequest
 }
 
+export interface EditHireRequestAction {
+  type: typeof ACTION.EDIT_HIRE_REQUEST
+  payload: IHireRequest
+}
+
 /* The actions for managing the members  */
 export interface MembersState {
   members: IMember[]
@@ -60,4 +65,5 @@ export type ActionTypes =
   | DeleteBookAction
   | SetHireRequestsAction
   | AddNewHireRequestAction
+  | EditHireRequestAction
   | SetMemberAction

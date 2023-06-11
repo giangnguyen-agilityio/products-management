@@ -42,12 +42,32 @@ export const fetchAllHireRequest = async (): Promise<IHireRequest[]> => {
   return res.data
 }
 
+// API method for fetching the hire request by id
+export const fetchHireRequestById = async (
+  id: string
+): Promise<IHireRequest> => {
+  const res = await axios.get(`${API_URL}/${ENDPOINT.HIRE_REQUEST}/${id}`)
+  return res.data
+}
+
 // API method for add a new hire request
 export const addNewHireRequestAPI = async (
   hireRequest: IHireRequest
 ): Promise<IHireRequest> => {
   const res = await axios.post(
     `${API_URL}/${ENDPOINT.HIRE_REQUEST}`,
+    hireRequest
+  )
+  return res.data
+}
+
+// API method for editing the hire request
+export const editHireRequestAPI = async (
+  id: string,
+  hireRequest: IHireRequest
+): Promise<IHireRequest> => {
+  const res = await axios.put(
+    `${API_URL}/${ENDPOINT.HIRE_REQUEST}/${id}`,
     hireRequest
   )
   return res.data

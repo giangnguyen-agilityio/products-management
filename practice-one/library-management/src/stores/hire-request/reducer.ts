@@ -21,6 +21,18 @@ const reducer = (
         ...state,
         hireRequests: [action.payload as IHireRequest, ...state.hireRequests],
       }
+    case ACTION.EDIT_HIRE_REQUEST: {
+      const editedHireRequest = action.payload as IHireRequest // Extracting payload from action object
+      const updatedHireRequests = state.hireRequests.map(hireRequest =>
+        hireRequest.id === editedHireRequest.id // Finding the index of edited request in existing requests array
+          ? editedHireRequest // Replacing the old request with edited request
+          : hireRequest
+      )
+      return {
+        ...state,
+        hireRequests: updatedHireRequests,
+      }
+    }
     default:
       throw new Error(ACTION.INVALID_ACTION) // Throwing error for invalid action type
   }
