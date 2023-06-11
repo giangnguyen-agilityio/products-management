@@ -9,16 +9,16 @@ interface PaginationProps {
   activeIndex: number // The index of the active item
 }
 
-const Pagination: React.FC<PaginationProps> = (props) => {
-  const { length, activeIndex } = props
+const Pagination: React.FC<PaginationProps> = props => {
+  const {length, activeIndex} = props
 
   // Generate an array with the desired length
-  const paginationItems = Array.from({ length }, (_, index) => index)
+  const paginationItems = Array.from({length}, (_, index) => index)
 
   return (
     <div className="pagination">
       {/* Render each pagination item */}
-      {paginationItems.map((index) => (
+      {paginationItems.map(index => (
         <div
           key={`pagination-item-${index}`}
           className={`pagination-item-border ${
