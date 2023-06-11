@@ -42,6 +42,17 @@ export const fetchAllHireRequest = async (): Promise<IHireRequest[]> => {
   return res.data
 }
 
+// API method for add a new hire request
+export const addNewHireRequestAPI = async (
+  hireRequest: IHireRequest
+): Promise<IHireRequest> => {
+  const res = await axios.post(
+    `${API_URL}/${ENDPOINT.HIRE_REQUEST}`,
+    hireRequest
+  )
+  return res.data
+}
+
 // API method for fetching all members
 export const fetchAllMember = async (): Promise<IMember[]> => {
   const res = await axios.get(`${API_URL}/${ENDPOINT.MEMBERS}`)
