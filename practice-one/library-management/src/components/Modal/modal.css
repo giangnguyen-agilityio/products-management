@@ -5,6 +5,7 @@
   position: absolute;
   padding: 10% 0;
   top: 0;
+  right: 0;
 }
 
 .modal-container {
@@ -50,4 +51,18 @@
 .close-modal-btn:hover {
   color: var(--primary-text-color);
   border: 3px solid var(--primary-text-color);
+}
+
+/* Media Query for Laptop Devices */
+@media only screen and (max-width: 1024px) {
+  .modal-container {
+    width: 100%;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .modal-overlay {
+    padding: 0;
+  }
 }
