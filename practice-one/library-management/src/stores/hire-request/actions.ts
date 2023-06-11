@@ -7,6 +7,7 @@ import {
   SetHireRequestsAction,
   AddNewHireRequestAction,
   EditHireRequestAction,
+  DeleteHireRequestAction,
 } from '@types'
 
 // This function creates an action to set the Hire requests data in the store
@@ -31,4 +32,12 @@ export const editHireRequest = (
 ): EditHireRequestAction => ({
   type: ACTION.EDIT_HIRE_REQUEST, // Specifies the action type as "EDIT_HIRE_REQUEST"
   payload, // Contains the hire request object to be edited in the store
+})
+
+// This function creates an action to delete the hire request from the store
+export const deleteHireRequest = (
+  payload: string
+): DeleteHireRequestAction => ({
+  type: ACTION.DELETE_HIRE_REQUEST, // Specifies the action type as "DELETE_HIRE_REQUEST"
+  payload, // Contains the ID of the hire request to be deleted from the store
 })

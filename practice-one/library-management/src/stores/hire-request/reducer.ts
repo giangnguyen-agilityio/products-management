@@ -33,6 +33,16 @@ const reducer = (
         hireRequests: updatedHireRequests,
       }
     }
+    case ACTION.DELETE_HIRE_REQUEST: {
+      const deletedHireRequestId = action.payload // Extracting payload from action object
+      const updatedHireRequests = state.hireRequests.filter(
+        hireRequest => hireRequest.id !== deletedHireRequestId // Filtering out deleted request from existing requests array
+      )
+      return {
+        ...state,
+        hireRequests: updatedHireRequests,
+      }
+    }
     default:
       throw new Error(ACTION.INVALID_ACTION) // Throwing error for invalid action type
   }

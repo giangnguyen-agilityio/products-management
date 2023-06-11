@@ -12,8 +12,9 @@ export default {
 
 const Template: StoryFn<typeof Modal> = args => <Modal {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
+export const Primary = Template.bind({})
+Primary.args = {
+  modalTitle: 'Modal title',
   showModal: true,
   modalType: 'add',
 }

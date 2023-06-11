@@ -13,6 +13,16 @@ const reducer = (state: MembersState, action: ActionTypes): MembersState => {
         ...state,
         members: action.payload as IMember[],
       }
+    case ACTION.EDIT_MEMBER: {
+      const editedMember = action.payload as IMember // Extracting payload from action object
+      const updatedMember = state.members.map(
+        member => (member.id === editedMember.id ? editedMember : member) // Finding the index of edited member in existing members array
+      )
+      return {
+        ...state,
+        members: updatedMember,
+      }
+    }
     default:
       throw new Error(ACTION.INVALID_ACTION) // Throwing error for invalid action type
   }

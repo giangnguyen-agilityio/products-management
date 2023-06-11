@@ -73,6 +73,14 @@ export const editHireRequestAPI = async (
   return res.data
 }
 
+// API method for deleting the hire request
+export const deleteHireRequestAPI = async (
+  id: string
+): Promise<IHireRequest> => {
+  const res = await axios.delete(`${API_URL}/${ENDPOINT.HIRE_REQUEST}/${id}`)
+  return res.data
+}
+
 // API method for fetching all members
 export const fetchAllMember = async (): Promise<IMember[]> => {
   const res = await axios.get(`${API_URL}/${ENDPOINT.MEMBERS}`)
