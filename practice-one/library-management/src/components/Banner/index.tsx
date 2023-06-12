@@ -32,7 +32,7 @@ const Banner: React.FC<BannerProps> = props => {
 
   // Retrieve book state from the BookContext
   const {bookState} = useContext(BookContext)
-
+  console.log(bookState)
   // Obtain the array of books from the book state
   const bookList: IBook[] = bookState.books
 

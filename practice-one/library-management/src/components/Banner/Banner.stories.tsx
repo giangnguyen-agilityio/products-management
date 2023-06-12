@@ -6,6 +6,9 @@ import React from 'react'
 export default {
   title: 'Example/Banner',
   component: Banner,
+  argTypes: {
+    onRent: {action: 'Rent button clicked'},
+  },
 } as Meta<typeof Banner>
 
 const Template: StoryFn<typeof Banner> = args => {
@@ -50,7 +53,7 @@ const Template: StoryFn<typeof Banner> = args => {
     ],
   }
   return (
-    <BookContext.Provider value={bookState.books}>
+    <BookContext.Provider value={{bookState}}>
       <Banner {...args} />
     </BookContext.Provider>
   )
