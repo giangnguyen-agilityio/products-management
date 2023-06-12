@@ -1,10 +1,15 @@
-import React from 'react'
 import {type StoryFn, type Meta} from '@storybook/react'
 import Card from './index'
+import React from 'react'
 
 export default {
   title: 'Example/Card',
   component: Card,
+  argTypes: {
+    onRent: {action: 'Rent button clicked'},
+    onEdit: {action: 'Edit button clicked'},
+    onDelete: {action: 'Delete button clicked'},
+  },
 } as Meta<typeof Card>
 
 const Template: StoryFn<typeof Card> = args => <Card {...args} />
@@ -23,13 +28,5 @@ Default.args = {
     availableQuantity: 20,
     totalQuantity: 50,
   },
-  onRent: () => {
-    console.log('Rent clicked')
-  },
-  onEdit: () => {
-    console.log('Edit clicked')
-  },
-  onDelete: () => {
-    console.log('Delete clicked')
-  },
+  isAdmin: false,
 }
