@@ -17,6 +17,7 @@ import {getItemInLocalStorage} from '@helpers'
 
 // Importing the CSS file for styling
 import './header.css'
+
 // Define the props for the Header component
 interface HeaderProps {
   isLogin: boolean

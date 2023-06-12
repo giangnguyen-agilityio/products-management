@@ -10,7 +10,7 @@ export default {
 
 const Template: StoryFn<typeof Banner> = args => {
   const bookState = {
-    test: [
+    books: [
       {
         id: 'B1',
         image: 'src/assets/images/book-1.jpg',
@@ -50,7 +50,7 @@ const Template: StoryFn<typeof Banner> = args => {
     ],
   }
   return (
-    <BookContext.Provider value={bookState}>
+    <BookContext.Provider value={bookState.books}>
       <Banner {...args} />
     </BookContext.Provider>
   )

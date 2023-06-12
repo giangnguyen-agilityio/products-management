@@ -9,14 +9,10 @@ import Footer from '@layouts/Footer'
 // Importing the Book provider
 import BookProvider from '@stores/books/BookProvider'
 
-// Importing the custom hooks
-import useDelay from '@hooks/useDelay'
-
 // Importing the helper functions
 import {getItemInLocalStorage, clearLocalStorage} from '@helpers'
 
 const MainLayout = (): JSX.Element => {
-  const isLoading = useDelay(2000)
   const [isLogin, setIsLogin] = useState(false)
   const memberId: string = getItemInLocalStorage('memberId')
   const navigate = useNavigate()
@@ -48,15 +44,11 @@ const MainLayout = (): JSX.Element => {
             onLogout={handleLogout}
           />
           <main className="main-content">
-            {isLoading ? (
-              <LoadingPage />
-            ) : (
-              <BookProvider>
-                <Suspense>
-                  <Outlet />
-                </Suspense>
-              </BookProvider>
-            )}
+            <BookProvider>
+              <Suspense fallback={<LoadingPage />}>
+                <Outlet />
+              </Suspense>
+            </BookProvider>
           </main>
           <Footer />
         </div>

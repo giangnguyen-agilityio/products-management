@@ -1,19 +1,19 @@
-import React from 'react'
+import React, {lazy} from 'react'
 import {type RouteObject} from 'react-router-dom'
 
 // Importing the layouts
 import MainLayout from '@layouts/MainLayout'
 
-// Importing the pages
-import LoginPage from '@pages/LoginPage'
-import BookManagement from '@pages/BookManagement'
-import EmptyProductList from '@components/EmptyProductList'
-import HireRequestPage from '@pages/HireRequestManagement'
-
 // Importing the providers
 import HireRequestsProvider from '@stores/hire-request/HireRequestsProvider'
 import MembersProvider from '@stores/members/MemberProvider'
-import HireRequestSent from '@pages/HireRequestSentManagement'
+
+// Importing the pages
+const BookManagement = lazy(() => import('@pages/BookManagement'))
+const HireRequestPage = lazy(() => import('@pages/HireRequestManagement'))
+const HireRequestSent = lazy(() => import('@pages/HireRequestSentManagement'))
+const EmptyProductList = lazy(() => import('@components/EmptyProductList'))
+const LoginPage = lazy(() => import('@pages/LoginPage'))
 
 // Router configuration
 export const routerConfig: RouteObject[] = [

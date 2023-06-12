@@ -13,6 +13,8 @@ export const ERROR_MESSAGES = {
   AVAILABLE_QUANTITY_IS_LESS_THAN_0: 'Please enter a value greater than 0',
   TOTAL_QUANTITY_IS_LESS_THAN_0: 'Please enter a value greater than 0',
   BOOK_IMAGE_IS_MISSING: 'Please select an image',
+  REQUEST_RENT_BOOK_OVER_LIMIT:
+    'Your request to rent the book is over the limit',
 
   // For the form EDIT the hire request
   INVALID_DATE: 'The end date cannot be the same as the start date',

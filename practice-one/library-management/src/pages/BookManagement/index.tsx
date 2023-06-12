@@ -1,7 +1,8 @@
 import React, {useCallback, useState} from 'react'
 
-// Importing the Banner and ProductList components
+// Importing the Banner, Toast and ProductList components
 import Banner from '@components/Banner'
+import Toast from '@components/Toast'
 import ProductList from '@components/ProductList'
 
 // Importing the helper function
@@ -11,7 +12,7 @@ import {getItemInLocalStorage} from '@helpers'
 import {IHireRequest} from '@types'
 
 // Importing the constants
-import {NOTIFICATIONS} from '@constants'
+import {ERROR_MESSAGES, NOTIFICATIONS} from '@constants'
 
 // Importing the API methods
 import {
@@ -22,7 +23,6 @@ import {
 
 // Importing the uuid library
 import {v4 as uuidv4} from 'uuid'
-import Toast from '@components/Toast'
 
 const BookManagement = (): JSX.Element => {
   // Toast configuration
@@ -51,7 +51,7 @@ const BookManagement = (): JSX.Element => {
 
     // Checking the limit of rented books
     if (hireRequestsSentQuantity >= 5 || hiredBooksQuantity >= 5) {
-      window.alert('Your request to rent the book is over the limit')
+      window.alert(ERROR_MESSAGES.REQUEST_RENT_BOOK_OVER_LIMIT)
       return
     }
 

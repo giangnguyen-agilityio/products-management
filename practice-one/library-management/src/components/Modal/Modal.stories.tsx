@@ -1,4 +1,5 @@
 import {type StoryFn, type Meta} from '@storybook/react'
+import {MODAL} from '@constants'
 import Modal from './index'
 import React from 'react'
 
@@ -16,5 +17,5 @@ export const Primary = Template.bind({})
 Primary.args = {
   modalTitle: 'Modal title',
   showModal: true,
-  modalType: 'add',
+  modalType: MODAL.ADD,
 }
