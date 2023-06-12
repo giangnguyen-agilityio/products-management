@@ -7,15 +7,17 @@ import Button from '@components/Button'
 // Importing the Icon from the React-icons library
 import {IoClose} from 'react-icons/io5'
 
+// Importing the constants
+import {MODAL} from '@constants'
+
 // Importing the CSS file for styling
 import './modal.css'
-import {MODAL} from '@constants'
 
 // Define the props for the Modal component
 interface ModalProps {
   closeModal: () => void
   showModal: boolean
-  modalType: 'add' | 'edit' | 'delete'
+  modalType: MODAL.ADD | MODAL.EDIT | MODAL.DELETE
   modalTitle: React.ReactNode
   children: React.ReactNode
 }

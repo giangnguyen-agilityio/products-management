@@ -49,7 +49,9 @@ const HireRequestPage: React.FC = () => {
 
   // Modal configuration
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
-  const [modalType, setModalType] = useState<'add' | 'edit' | 'delete'>('add')
+  const [modalType, setModalType] = useState<
+    MODAL.ADD | MODAL.EDIT | MODAL.DELETE
+  >(MODAL.ADD)
   const [modalId, setModalId] = useState<string>('')
 
   // Setting up scroll position hook for returning to previous scroll position when modal is closed
@@ -61,14 +63,14 @@ const HireRequestPage: React.FC = () => {
 
   // Define a function to handle opening the modal with specific type and id
   const handleOpenModal = useCallback(
-    (id: string, type: 'add' | 'edit' | 'delete'): void => {
+    (id: string, type: MODAL.ADD | MODAL.EDIT | MODAL.DELETE): void => {
       setToastMessage('')
       setToastStatus(false)
       setIsOpenModal(true)
       setModalType(type)
       setModalId(id)
-      if (type === 'edit' || type === 'delete') {
-        setPreviousScrollPosition(window.scrollY + 220)
+      if (type === MODAL.EDIT || type === MODAL.DELETE) {
+        setPreviousScrollPosition(window.scrollY)
         hireRequestSectionRef.current?.scrollIntoView({behavior: 'smooth'})
       }
     },
@@ -78,7 +80,7 @@ const HireRequestPage: React.FC = () => {
   // Call the function 'handleOpenModal' to open the edit modal
   const handleOpenModalEdit = useCallback(
     (id: string): void => {
-      handleOpenModal(id, 'edit')
+      handleOpenModal(id, MODAL.EDIT)
     },
     [handleOpenModal]
   )
@@ -86,7 +88,7 @@ const HireRequestPage: React.FC = () => {
   // Call the function 'handleOpenModal' to open the delete modal
   const handleOpenModalDelete = useCallback(
     (id: string): void => {
-      handleOpenModal(id, 'delete')
+      handleOpenModal(id, MODAL.DELETE)
     },
     [handleOpenModal]
   )
@@ -219,11 +221,11 @@ const HireRequestPage: React.FC = () => {
         showModal={isOpenModal}
         closeModal={handleCloseModal}
         modalTitle={
-          modalType === 'edit' ? MODAL_TITLE.MODAL_EDIT_HIRE_REQUEST : null
+          modalType === MODAL.EDIT ? MODAL_TITLE.MODAL_EDIT_HIRE_REQUEST : null
         }
       >
         {/* Render the appropriate content based on the modalType */}
-        {modalType === 'edit' ? (
+        {modalType === MODAL.EDIT ? (
           <EditHireRequestForm id={modalId} onEdit={handleEdit} />
         ) : (
           <ConfirmModal

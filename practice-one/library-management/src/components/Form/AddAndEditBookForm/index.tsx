@@ -1,11 +1,8 @@
-import React, {useState, useContext, useCallback, useEffect, memo} from 'react'
+import React, {useState, useCallback, useEffect, memo} from 'react'
 
 // Importing the Input and Button components
 import Input from '@components/Input'
 import Button from '@components/Button'
-
-// Importing the BookContext
-import BookContext from '@stores/books/BookContext'
 
 // Importing the API methods
 import {fetchBookById} from '../../../services/api-actions'
@@ -55,7 +52,7 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
-        if (formType === 'edit' && id !== '') {
+        if (formType === MODAL.EDIT && id !== '') {
           const book: IBook = await fetchBookById(id)
           const {image, ...rest} = book
           const updatedBook = {

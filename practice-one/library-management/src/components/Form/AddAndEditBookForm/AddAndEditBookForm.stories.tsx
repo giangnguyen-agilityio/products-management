@@ -1,11 +1,16 @@
 import {type StoryFn, type Meta} from '@storybook/react'
 import BookContext from '@stores/books/BookContext'
 import AddAndEditBookForm from './index'
+import {MODAL} from '@constants'
 import React from 'react'
 
 export default {
   title: 'Example/AddAndEditBookForm',
   component: AddAndEditBookForm,
+  argTypes: {
+    onAdd: {action: 'The ADD button clicked'},
+    onEdit: {action: 'The EDIT button clicked'},
+  },
 } as Meta<typeof AddAndEditBookForm>
 
 const Template: StoryFn<typeof AddAndEditBookForm> = args => {
@@ -36,15 +41,11 @@ const Template: StoryFn<typeof AddAndEditBookForm> = args => {
 export const AddForm = Template.bind({})
 AddForm.args = {
   id: '',
-  formType: 'add',
-  onCloseModal: () => {},
-  handleToast: (message, status) => {},
+  formType: MODAL.ADD,
 }
 
 export const EditForm = Template.bind({})
 EditForm.args = {
   id: 'B1',
-  formType: 'edit',
-  onCloseModal: () => {},
-  handleToast: (message, status) => {},
+  formType: MODAL.EDIT,
 }

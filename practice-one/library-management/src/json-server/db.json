@@ -234,6 +234,9 @@
       "hiredBooks": [
         {
           "bookId": "B20"
+        },
+        {
+          "bookId": "B4"
         }
       ]
     },
