@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000'
+const API_URL = process.env.VITE_BASE_URL
 
 enum ENDPOINT {
   BOOKS = 'books',
