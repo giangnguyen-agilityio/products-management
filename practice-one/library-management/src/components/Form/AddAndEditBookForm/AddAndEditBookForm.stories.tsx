@@ -14,8 +14,8 @@ export default {
 } as Meta<typeof AddAndEditBookForm>
 
 const Template: StoryFn<typeof AddAndEditBookForm> = args => {
-  const bookContextValue = {
-    bookList: [
+  const bookContextValueDemo = {
+    bookListDemo: [
       {
         id: 'B1',
         image: 'src/assets/images/book-1.jpg',
@@ -32,7 +32,7 @@ const Template: StoryFn<typeof AddAndEditBookForm> = args => {
   }
 
   return (
-    <BookContext.Provider value={bookContextValue}>
+    <BookContext.Provider value={bookContextValueDemo}>
       <AddAndEditBookForm {...args} />
     </BookContext.Provider>
   )
