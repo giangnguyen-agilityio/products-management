@@ -254,6 +254,39 @@
           "bookId": "B17"
         }
       ]
+    },
+    {
+      "id": "M3",
+      "role": "admin",
+      "firstName": "Admin First Name",
+      "lastName": "Admin Last Name",
+      "email": "admin@gmail.com",
+      "password": "123",
+      "phoneNumber": "+84945145255",
+      "address": "Da Nang",
+      "hiredBooks": [
+        {
+          "bookId": "B17"
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "role": "user",
+      "firstName": "User First Name",
+      "lastName": "User Last Name",
+      "email": "user@gmail.com",
+      "password": "123",
+      "phoneNumber": "+84882222222",
+      "address": "Da Nang",
+      "hiredBooks": [
+        {
+          "bookId": "B20"
+        },
+        {
+          "bookId": "B4"
+        }
+      ]
     }
   ],
   "hireRequests": [
