@@ -1,15 +1,8 @@
 import React from 'react'
-
-// Importing the image URL as the variable
 import errorImage from '@assets/images/error-image.png'
-
-// Importing the Typography component
-import Typography from '@components/Typography'
-
-// Importing the CSS file for styling
+import Typography from '@components/commons/Typography'
 import './empty-list.css'
 
-// Define the props for the EmptyProductList component
 interface EmptyProductListProps {
   errorMessage?: string
 }

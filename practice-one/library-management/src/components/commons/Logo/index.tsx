@@ -1,13 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-
-// Importing the helper functions
 import {getItemInLocalStorage} from '@helpers'
-
-// Importing the CSS file for styling
 import './logo.css'
 
-// Define the props for the Logo component
 interface LogoProps {
   text?: string
   imageSrc?: string
@@ -17,7 +12,7 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = props => {
-  const isMember = getItemInLocalStorage('memberId')
+  const isMember: string = getItemInLocalStorage('memberId')
 
   const {text, imageSrc, altText, widthSize, heightSize} = props
   return isMember ? (

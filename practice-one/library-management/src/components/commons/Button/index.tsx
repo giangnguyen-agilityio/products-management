@@ -1,9 +1,6 @@
 import React, {memo} from 'react'
-
-// Importing the CSS file for styling
 import './button.css'
 
-// Define the props for the Button component
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'small' | 'medium' | 'large'
   variant?:
@@ -15,12 +12,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     | 'danger'
   className?: string
   ariaLabel?: string
-  onClick?: () => void
+  onClick: () => void
+  disabled?: boolean
+  children: React.ReactNode | undefined
 }
 
 const Button: React.FC<ButtonProps> = props => {
   // Destructure the props
-  const {children, size, variant, className, ariaLabel, onClick, ...rest} =
+  const {children, size, variant, className, ariaLabel, onClick, disabled} =
     props
 
   return (
@@ -31,7 +30,7 @@ const Button: React.FC<ButtonProps> = props => {
       onClick={onClick}
       type="button"
       aria-label={ariaLabel}
-      {...rest}
+      disabled={disabled}
     >
       {children}
     </button>

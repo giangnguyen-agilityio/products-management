@@ -1,9 +1,6 @@
 import React, {memo} from 'react'
-
-// Importing the CSS file for styling
 import './typography.css'
 
-// Define the props for the Typography component
 export interface TypographyProps {
   variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' // The variant of the typography (heading or paragraph)
   color?: 'primary' | 'secondary' // The color of the text

@@ -1,9 +1,6 @@
 import React from 'react'
-
-// Importing the CSS file for styling
 import './pagination.css'
 
-// Define the props for the Pagination component
 interface PaginationProps {
   length: number // The length of the list
   activeIndex: number // The index of the active item

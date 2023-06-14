@@ -1,9 +1,6 @@
 import React from 'react'
-
-// Importing the CSS file for styling
 import './loading-indicator.css'
 
-// Define the props for the Loading component
 interface LoadingIndicatorProps {
   isLoading: boolean
 }
