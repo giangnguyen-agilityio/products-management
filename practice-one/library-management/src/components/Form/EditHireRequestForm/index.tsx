@@ -1,29 +1,19 @@
 import React, {useState, useEffect, useCallback} from 'react'
-
-// Importing the Button and Input components
-import Button from '@components/Button'
-import Input from '@components/Input'
-
-// Importing the constants
+import Button from '@components/commons/Button'
+import Input from '@components/commons/Input'
 import {ERROR_MESSAGES, NOTIFICATIONS} from '@constants'
-
-// Importing the API methods
 import {fetchHireRequestById} from '@services/api-actions'
-
-// Importing the Hire request types
 import {IHireRequest} from 'types/hireRequest'
-
-// Importing the helper functions
 import {formatDatetimeLocal} from '@helpers'
 
 interface HireRequestFormProps {
   id: string
   onEdit: (id: string, formData: IHireRequest) => void
+  onHandleToast: (message: string, status: boolean) => void
 }
 
 const EditHireRequestForm: React.FC<HireRequestFormProps> = props => {
-  // Destructure props to get `id` and `onEdit` properties
-  const {id, onEdit} = props
+  const {id, onEdit, onHandleToast} = props
 
   // Set up initial state for formData and disableButton using the useState hook
   const [formData, setFormData] = useState<IHireRequest>({
@@ -40,13 +30,9 @@ const EditHireRequestForm: React.FC<HireRequestFormProps> = props => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Make an API request to fetch the hire request by id
         const hireRequest: IHireRequest = await fetchHireRequestById(id)
-
-        // Destructure the from and to dates from the retrieved hire request object and rest of the properties into another object
         const {fromDate, toDate, ...rest} = hireRequest
         const updateHireRequest: IHireRequest = {
-          // Spread the rest of the properties into a new object
           ...rest,
           // Explicitly set the fromDate and toDate properties
           fromDate: fromDate,
@@ -55,7 +41,7 @@ const EditHireRequestForm: React.FC<HireRequestFormProps> = props => {
         // Update the form data state with the fetched data
         setFormData(updateHireRequest)
       } catch (error) {
-        console.log(NOTIFICATIONS.FAILED_TO_FETCH_HIRE_REQUEST, error)
+        onHandleToast(NOTIFICATIONS.FAILED_TO_GET_HIRE_REQUEST, false)
       }
     }
 
@@ -79,12 +65,10 @@ const EditHireRequestForm: React.FC<HireRequestFormProps> = props => {
     // Validate the form data by checking if the fromDate and toDate properties has a value
     const isValid = formData.fromDate && formData.toDate
     if (isValid) {
-      // Disable the submit button to prevent multiple submissions
       setDisableButton(true)
       // Call the onEdit function to update the hire request data using the id and formData
       onEdit(id, {...formData})
     }
-    // Re-enable the submit button after the submission is complete
     setDisableButton(false)
   }
 

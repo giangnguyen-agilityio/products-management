@@ -9,7 +9,7 @@ export const NOTIFICATIONS = {
   BOOK_EDITED_FAILED: 'Failed to edit the book',
   BOOK_DELETED_SUCCESSFULLY: 'Book has been deleted successfully',
   BOOK_DELETED_FAILED: 'Failure to delete the book',
-  FAILED_TO_FETCH_BOOK: 'Failed to fetch the book',
+  FAILED_TO_GET_BOOK: 'Failed to get the book data',
 
   HIRE_REQUEST_SENT_SUCCESSFULLY:
     'Sending a request to rent the book successfully',
@@ -20,7 +20,7 @@ export const NOTIFICATIONS = {
   HIRE_REQUEST_DELETED_SUCCESSFULLY:
     'Hire request has been deleted successfully',
   HIRE_REQUEST_DELETED_FAILED: 'Failure to delete the hire request',
-  FAILED_TO_FETCH_HIRE_REQUEST: 'Failed to fetch the hire request',
+  FAILED_TO_GET_HIRE_REQUEST: 'Failed to get the hire request data',
 
   TOGGLE_COMPLETION_SUCCESSFUL:
     'The hire request has been marked as completed successfully',

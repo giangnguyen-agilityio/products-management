@@ -177,6 +177,12 @@ const HireRequestPage: React.FC = () => {
     [allHireRequests]
   )
 
+  // Function to handle showing or hiding the toast
+  const handleToast = (message: string, status: boolean): void => {
+    setToastMessage(message)
+    setToastStatus(status)
+  }
+
   return (
     <section className="hire-request-section" ref={hireRequestSectionRef}>
       <Typography variant={'h2'} className="hire-request-title">
@@ -199,7 +205,11 @@ const HireRequestPage: React.FC = () => {
       >
         {/* Render the appropriate content based on the modalType */}
         {modalType === MODAL.EDIT ? (
-          <EditHireRequestForm id={modalId} onEdit={handleEdit} />
+          <EditHireRequestForm
+            id={modalId}
+            onEdit={handleEdit}
+            onHandleToast={handleToast}
+          />
         ) : (
           <ConfirmModal
             id={modalId}

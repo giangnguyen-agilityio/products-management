@@ -1,40 +1,24 @@
 import React, {useState, useCallback, useEffect, memo} from 'react'
-
-// Importing the Input and Button components
-import Input from '@components/Input'
-import Button from '@components/Button'
-
-// Importing the API methods
+import Input from '@components/commons/Input'
+import Button from '@components/commons/Button'
 import {fetchBookById} from '../../../services/api-actions'
-
-// Importing the constants
 import {NOTIFICATIONS, ERROR_MESSAGES, MODAL} from '@constants'
-
-// Importing the uuid library
 import {v4 as uuidv4} from 'uuid'
-
-// Importing the types
 import {IBook} from 'types/book'
-
-// Importing the CSS file for styling
 import '../form.css'
 
-// Define the props for the Form component
 interface AddAndEditFormProps {
   id: string
   formType: MODAL.ADD | MODAL.EDIT
   onAdd: (formData: IBook) => void
   onEdit: (id: string, formData: IBook) => void
+  onHandleToast: (message: string, status: boolean) => void
 }
 
-// Define the Form component
 const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
-  const {id, formType, onAdd, onEdit} = props
+  const {id, formType, onAdd, onEdit, onHandleToast} = props
 
-  // State to set disable button
   const [disableButton, setDisableButton] = useState(false)
-
-  // State to hold the form data
   const [formData, setFormData] = useState({
     title: '',
     author: '',
@@ -44,8 +28,6 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
     totalQuantity: 0,
     image: '',
   })
-
-  // State to track if any field is empty
   const [isFieldEmpty, setIsFieldEmpty] = useState(false)
 
   // Fetches book data when the component mounts or when formType or id changes
@@ -62,7 +44,7 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
           setFormData(updatedBook)
         }
       } catch (error) {
-        console.log(NOTIFICATIONS.FAILED_TO_FETCH_BOOK, error)
+        onHandleToast(NOTIFICATIONS.FAILED_TO_GET_BOOK, false)
       }
     }
     fetchData()
@@ -114,7 +96,6 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
 
   // Function to handle submit the form
   const submitForm = async (): Promise<void> => {
-    // Destructure formData object
     const {
       title,
       author,
@@ -136,7 +117,6 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
       image,
     ].every(Boolean)
 
-    // Set state variable based on whether any fields are empty
     setIsFieldEmpty(!isValid)
 
     // Combine book ID, altImagePath and formData into newBookData
@@ -280,7 +260,6 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
       <div className="control-buttons">
         <Button
           onClick={submitForm}
-          type="submit"
           size="large"
           variant="primary"
           className="submit-form-btn"
