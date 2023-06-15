@@ -1,19 +1,9 @@
 import React, {memo} from 'react'
-
-// Importing the Button component
-import Button from '@components/Button'
-
-// Importing the Icon from the React-icons library
+import Button from '@components/commons/Button'
 import {HiOutlinePencilSquare} from 'react-icons/hi2'
 import {BsCheckAll, BsTrash3} from 'react-icons/bs'
-
-// Importing the HireRequest and Table column types
 import {IHireRequest, TableColumn} from '@types'
-
-// Importing the helper functions to format the date
 import {parseDateString} from '@helpers/formatDate'
-
-// Importing the CSS file for styling
 import './table-row.css'
 
 // Define the props for the Table Row component
@@ -37,14 +27,34 @@ const TableRow: React.FC<TableRowProps> = props => {
     onToggleCompletion || onOpenModalEdit || onOpenModalDelete
 
   // Convert and calculate date differences
-  const toDate: Date = parseDateString(data.toDate) // Parse toDate string
-  const currentDate: Date = new Date() // Get the current date
+  const toDate: Date = parseDateString(data.toDate)
+  const currentDate: Date = new Date()
   // If the data status is 'completed', the button will be hidden.
   const hideButton: string = `${data.status === 'completed' ? 'hide' : ''}`
   // If the data status is 'completed' and the toDate is earlier than the currentDate, the table row will be highlighted.
   const highlightTableRow: string =
     data.status === 'completed' && toDate < currentDate ? 'highlight' : ''
-  // Check if any of the control button props are passed in
+
+  // The function handles toggling the completion status of a task
+  const handleToggleCompletion = () => {
+    if (onToggleCompletion) {
+      onToggleCompletion(data.id, data.memberId, data.bookId)
+    }
+  }
+
+  // The function handles opening the Modal Edit
+  const handleOpenModalEdit = () => {
+    if (onOpenModalEdit) {
+      onOpenModalEdit(data.id)
+    }
+  }
+
+  // The function handles opening the Modal Delete
+  const handleOpenModalDelete = () => {
+    if (onOpenModalDelete) {
+      onOpenModalDelete(data.id)
+    }
+  }
 
   return (
     <tr className={`table-row ${highlightTableRow}`} key={data.id}>
@@ -66,9 +76,7 @@ const TableRow: React.FC<TableRowProps> = props => {
                 variant="primary"
                 className={`toggle-completion-btn ${hideButton}`}
                 ariaLabel="Toggle completion button"
-                onClick={() => {
-                  onToggleCompletion(data.id, data.memberId, data.bookId)
-                }}
+                onClick={handleToggleCompletion}
               >
                 <BsCheckAll size={20} />
               </Button>
@@ -80,9 +88,7 @@ const TableRow: React.FC<TableRowProps> = props => {
                 variant="primary"
                 className="edit-btn"
                 ariaLabel="Edit button"
-                onClick={() => {
-                  onOpenModalEdit(data.id)
-                }}
+                onClick={handleOpenModalEdit}
               >
                 <HiOutlinePencilSquare size={20} />
               </Button>
@@ -94,9 +100,7 @@ const TableRow: React.FC<TableRowProps> = props => {
                 variant="primary"
                 className="delete-btn"
                 ariaLabel="Delete button"
-                onClick={() => {
-                  onOpenModalDelete(data.id)
-                }}
+                onClick={handleOpenModalDelete}
               >
                 <BsTrash3 size={20} />
               </Button>

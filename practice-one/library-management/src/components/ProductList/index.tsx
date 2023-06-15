@@ -57,13 +57,6 @@ const ProductList: React.FC<ProductListProps> = props => {
     onRent(id)
   }
 
-  // Function to handle close the modal
-  const handleCloseModal = useCallback(() => {
-    setIsOpenModal(false)
-    window.scrollTo({top: previousScrollPosition, behavior: 'smooth'})
-    setModalId('')
-  }, [isOpenModal])
-
   // Calculate the total number of pages
   const totalPages: number = Math.ceil(bookList.length / itemsPerPage)
   const hasMorePages = currentPage < totalPages
@@ -110,10 +103,30 @@ const ProductList: React.FC<ProductListProps> = props => {
     []
   )
 
+  // Function to handle close the modal
+  const handleCloseModal = useCallback(() => {
+    setIsOpenModal(false)
+    window.scrollTo({top: previousScrollPosition, behavior: 'smooth'})
+    setModalId('')
+  }, [isOpenModal])
+
+  // Function to handle opening the modal add
+  const handleOpenModalAdd = () => {
+    handleOpenModal(MODAL.ADD)
+  }
+
+  // Function to handle opening the modal edit
+  const handleOpenModalEdit = (id: string) => {
+    handleOpenModal(MODAL.EDIT, id)
+  }
+
+  // Function to handle opening the modal delete
+  const handleOpenModalDelete = (id: string) => {
+    handleOpenModal(MODAL.DELETE, id)
+  }
+
   // Function to handle add a new book
   const handleAdd = async (formData: IBook): Promise<void> => {
-    // Calls handleOpenModal with ADD type to open the modal
-    handleOpenModal(MODAL.ADD)
     try {
       const result: IBook = await addNewBookAPI(formData)
       if (result) {
@@ -129,8 +142,6 @@ const ProductList: React.FC<ProductListProps> = props => {
 
   // Function to handle edit the book
   const handleEdit = async (id: string, formData: IBook): Promise<void> => {
-    // Calls handleOpenModal with EDIT type to open the modal
-    handleOpenModal(MODAL.EDIT, id)
     try {
       const result: IBook = await editBookAPI(id, formData)
       if (result) {
@@ -146,8 +157,6 @@ const ProductList: React.FC<ProductListProps> = props => {
 
   // Function to handle confirm (delete)
   const handleDelete = async (id: string): Promise<void> => {
-    // Calls handleOpenModal with DELETE type to open the modal
-    handleOpenModal(MODAL.DELETE, id)
     try {
       const result: IBook = await deleteBookAPI(id)
       if (result) {
@@ -178,7 +187,7 @@ const ProductList: React.FC<ProductListProps> = props => {
                   variant="primary"
                   className="add-new-btn"
                   ariaLabel="Add new book button"
-                  onClick={() => handleOpenModal(MODAL.ADD)}
+                  onClick={handleOpenModalAdd}
                 >
                   Add new book <AiOutlineFileAdd size={30} />
                 </Button>
@@ -192,8 +201,8 @@ const ProductList: React.FC<ProductListProps> = props => {
                   key={`book-${book.id}`}
                   book={book}
                   onRent={handleRentBook}
-                  onEdit={() => handleOpenModal(MODAL.EDIT, book.id)}
-                  onDelete={() => handleOpenModal(MODAL.DELETE, book.id)}
+                  onEdit={handleOpenModalEdit}
+                  onDelete={handleOpenModalDelete}
                 />
               ))}
             </ul>
@@ -238,6 +247,7 @@ const ProductList: React.FC<ProductListProps> = props => {
                   formType={modalType === MODAL.ADD ? MODAL.ADD : MODAL.EDIT}
                   onAdd={handleAdd}
                   onEdit={handleEdit}
+                  onHandleToast={onHandleToast}
                 />
               ) : (
                 <ConfirmModal

@@ -1,20 +1,11 @@
 import React, {memo} from 'react'
-
-// Importing the Typography, and Button components
-import Typography from '@components/Typography'
-import Button from '@components/Button'
-
-// Importing the Icons form the React-icons library
+import Typography from '@components/commons/Typography'
+import Button from '@components/commons/Button'
 import {HiOutlinePencilSquare} from 'react-icons/hi2'
 import {BsTrash3} from 'react-icons/bs'
-
-// Importing the Book type
 import {IBook} from '@types'
-
-// Importing the CSS file for styling
 import './card.css'
 
-// Define the props for the Card component
 interface CardProps {
   book: IBook
   onRent: (id: string) => void
@@ -23,7 +14,6 @@ interface CardProps {
   isAdmin: boolean
 }
 
-// Define the Card component
 const Card: React.FC<CardProps> = props => {
   // Destructure the props
   const {book, onRent, onEdit, onDelete, isAdmin} = props
@@ -39,7 +29,18 @@ const Card: React.FC<CardProps> = props => {
     totalQuantity = 0,
   } = book
 
-  // Render the Card component
+  const handleRentBook = () => {
+    onRent(book.id)
+  }
+
+  const handleEditBook = () => {
+    onEdit(book.id)
+  }
+
+  const handleDeleteBook = () => {
+    onDelete(book.id)
+  }
+
   return (
     <li className="card-wrapper">
       {/* Display the card image */}
@@ -89,9 +90,7 @@ const Card: React.FC<CardProps> = props => {
               variant="primary"
               className="card-rent-btn"
               ariaLabel="Card rent button"
-              onClick={() => {
-                onRent(book.id)
-              }}
+              onClick={handleRentBook}
             >
               Rent
             </Button>
@@ -105,9 +104,7 @@ const Card: React.FC<CardProps> = props => {
                 variant="primary"
                 className="edit-btn"
                 ariaLabel="Edit button"
-                onClick={() => {
-                  onEdit(book.id)
-                }}
+                onClick={handleEditBook}
               >
                 <HiOutlinePencilSquare size={25} />
               </Button>
@@ -116,9 +113,7 @@ const Card: React.FC<CardProps> = props => {
                 variant="primary"
                 className="delete-btn"
                 ariaLabel="Delete button"
-                onClick={() => {
-                  onDelete(book.id)
-                }}
+                onClick={handleDeleteBook}
               >
                 <BsTrash3 size={25} />
               </Button>

@@ -1,28 +1,14 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useCallback} from 'react'
 import {useNavigate, Link} from 'react-router-dom'
-
-// Importing the images
 import loginPageImage from '@assets/images/login-page-image.jpg'
-
-// Importing the Button, Input, Loading and Typography components
-import Button from '@components/Button'
-import Input from '@components/Input'
-import Loading from '@components/LoadingIndicator'
-import Typography from '@components/Typography'
-
-// Importing the constants
+import Button from '@components/commons/Button'
+import Input from '@components/commons/Input'
+import Loading from '@components/commons/LoadingIndicator'
+import Typography from '@components/commons/Typography'
 import {ERROR_MESSAGES, VALIDATION_REGEX} from '@constants'
-
-// Importing the helper functions
 import {setItemInLocalStorage} from '@helpers'
-
-// Importing the Member context
 import MembersContext from '@stores/members/MemberContext'
-
-// Importing the Member type
 import {IMember} from '@types'
-
-// Importing the CSS file for styling
 import './login-page.css'
 
 const LoginPage: React.FC = (): JSX.Element => {
@@ -40,19 +26,20 @@ const LoginPage: React.FC = (): JSX.Element => {
   const navigate = useNavigate()
 
   // Function to handle the input change event
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    const {name, value} = event.target
-    setSignInForm(prev => ({
-      ...prev,
-      [name]: value,
-    }))
-    setSignInError(prev => ({
-      ...prev,
-      [`${name}Error`]: '',
-    }))
-  }
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>): void => {
+      const {name, value} = event.target
+      setSignInForm(prev => ({
+        ...prev,
+        [name]: value,
+      }))
+      setSignInError(prev => ({
+        ...prev,
+        [`${name}Error`]: '',
+      }))
+    },
+    [setSignInForm, setSignInError]
+  )
 
   // Function to handle login
   const handleLogin = (): void => {
@@ -158,7 +145,7 @@ const LoginPage: React.FC = (): JSX.Element => {
               errorMessage={signInError.passwordError}
             />
             <div className="login-form-action">
-              <Link to="/" className="reset-password-link">
+              <Link to="/login" className="reset-password-link">
                 Forgot password?
               </Link>
             </div>
@@ -172,7 +159,7 @@ const LoginPage: React.FC = (): JSX.Element => {
             </Button>
             <Typography variant={'p'} className="login-form-question">
               Don&apos;t have an account?
-              <Link to="/" className="register-link">
+              <Link to="/login" className="register-link">
                 Sign up
               </Link>
             </Typography>
