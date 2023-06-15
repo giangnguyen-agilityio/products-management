@@ -1,19 +1,10 @@
 import React, {useEffect, useMemo, useReducer} from 'react'
-
-// Importing the constants
 import {ACTION} from '@constants'
-
-// Importing the custom hook
 import {useBooks} from '@hooks/fetch'
-
-// Importing the type
-import {BooksState} from '@types'
-
-// Importing the Book context
+import {BooksState, IBook} from '@types'
 import BookContext from './BookContext'
-
-// Importing the reducer
 import reducer from './reducer'
+import {addNewBook, deleteBook, editBook} from './actions'
 
 interface ProviderProps {
   children: JSX.Element
@@ -36,7 +27,14 @@ const BookProvider = ({children}: ProviderProps): JSX.Element => {
     }
   }, [allBooks])
 
-  const contextValue = useMemo(() => ({bookState, bookDispatch}), [bookState])
+  const addNewBookState = (payload: IBook) => bookDispatch(addNewBook(payload))
+  const editBookState = (payload: IBook) => bookDispatch(editBook(payload))
+  const deleteBookState = (payload: string) => bookDispatch(deleteBook(payload))
+
+  const contextValue = useMemo(
+    () => ({bookState, addNewBookState, editBookState, deleteBookState}),
+    [bookState]
+  )
 
   return (
     <BookContext.Provider value={contextValue}>{children}</BookContext.Provider>

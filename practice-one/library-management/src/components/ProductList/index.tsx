@@ -1,37 +1,18 @@
 import React, {useState, useCallback, useRef, useContext} from 'react'
-
-// Importing the EmptyProductList, Pagination, Typography, Card, Button, Modal, AddAndEditForm, and ConfirmModal components
-import EmptyProductList from '@components/EmptyProductList'
-import Pagination from '@components/Pagination'
-import Typography from '@components/Typography'
+import EmptyProductList from '@components/commons/EmptyProductList'
+import Pagination from '@components/commons/Pagination'
+import Typography from '@components/commons/Typography'
 import Card from '@components/Card'
-import Button from '@components/Button'
+import Button from '@components/commons/Button'
 import Modal from '@components/Modal'
 import AddAndEditForm from '@components/Form/AddAndEditBookForm'
 import ConfirmModal from '@components/ConfirmModal'
-
-// Importing the Icon from the React-icons library
 import {AiOutlineFileAdd} from 'react-icons/ai'
-
-// Importing the helper functions
 import {getItemInLocalStorage} from '@helpers'
-
-// Importing the Book type
 import {IBook} from '@types'
-
-// Importing the Book context
 import BookContext from '@stores/books/BookContext'
-
-// Importing the API methods
 import {addNewBookAPI, deleteBookAPI, editBookAPI} from '@services/api-actions'
-
-// Importing the actions
-import {addNewBook, deleteBook, editBook} from '@stores/books/actions'
-
-// Importing the constants
-import {MODAL, MODAL_TITLE, NOTIFICATIONS} from '@constants'
-
-// Importing the CSS file for styling
+import {MODAL, LIST, MODAL_TITLE, NOTIFICATIONS, ROLE} from '@constants'
 import './product-list.css'
 
 interface ProductListProps {
@@ -40,17 +21,16 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = props => {
-  // Destructuring props object into three variables: onRent, toastMessage, and toastStatus
   const {onRent, onHandleToast} = props
 
   // Getting bookState from BookContext using useContext hook
-  const {bookState, bookDispatch} = useContext(BookContext)
-
-  // Extracting bookList array from bookState object
+  const {bookState, addNewBookState, editBookState, deleteBookState} =
+    useContext(BookContext)
   const bookList: IBook[] = bookState.books
+  const isBookListNotEmpty = bookList.length > 0
 
   // Setting maximum number of items to display on each page
-  const itemsPerPage = 4
+  const itemsPerPage = LIST.ITEMS_PER_PAGE
 
   // Setting currentPage to initially be the first page
   const [currentPage, setCurrentPage] = useState<number>(1)
@@ -70,7 +50,7 @@ const ProductList: React.FC<ProductListProps> = props => {
   const productSectionRef = useRef<HTMLDivElement>(null)
 
   // Checking if user is an admin
-  const isAdmin = getItemInLocalStorage('memberRole') === 'admin'
+  const isAdmin: boolean = getItemInLocalStorage('memberRole') === ROLE.ADMIN
 
   // Function to handle renting a book by calling onRent function from props
   const handleRentBook = (id: string) => {
@@ -86,6 +66,7 @@ const ProductList: React.FC<ProductListProps> = props => {
 
   // Calculate the total number of pages
   const totalPages: number = Math.ceil(bookList.length / itemsPerPage)
+  const hasMorePages = currentPage < totalPages
 
   // Function to get the current books and pagination range based on the current page
   const getBooksAndPaginationRange = useCallback((): {
@@ -111,7 +92,6 @@ const ProductList: React.FC<ProductListProps> = props => {
   const handleOpenModal = useCallback(
     (type: MODAL.ADD | MODAL.EDIT | MODAL.DELETE, id?: string) => {
       setIsOpenModal(true)
-      // Sets the modal type and ID based on the parameters passed in
       setModalType(type)
       setModalId(id || '')
 
@@ -136,16 +116,13 @@ const ProductList: React.FC<ProductListProps> = props => {
     handleOpenModal(MODAL.ADD)
     try {
       const result: IBook = await addNewBookAPI(formData)
-      // If add operation is successful, then dispatches the addNewBook action, shows toast notification and closes the modal
       if (result) {
-        bookDispatch(addNewBook(formData))
+        addNewBookState(formData)
         onHandleToast(NOTIFICATIONS.BOOK_ADDED_SUCCESSFULLY, true)
       }
     } catch (error) {
-      // Shows failed toast notification if an error occurs during add operation
       onHandleToast(NOTIFICATIONS.BOOK_ADDED_FAILED, false)
     } finally {
-      // Closes the modal
       handleCloseModal()
     }
   }
@@ -156,17 +133,13 @@ const ProductList: React.FC<ProductListProps> = props => {
     handleOpenModal(MODAL.EDIT, id)
     try {
       const result: IBook = await editBookAPI(id, formData)
-      // If edit operation is successful, dispatch an event to update the state with the new book's details
       if (result) {
-        bookDispatch(editBook(formData))
-        // Display a success message to the user using a notification toast
+        editBookState(formData)
         onHandleToast(NOTIFICATIONS.BOOK_EDITED_SUCCESSFULLY, true)
       }
     } catch (error) {
-      // Shows failed toast notification if an error occurs during edit operation
       onHandleToast(NOTIFICATIONS.BOOK_EDITED_FAILED, false)
     } finally {
-      // Close the modal
       handleCloseModal()
     }
   }
@@ -177,25 +150,20 @@ const ProductList: React.FC<ProductListProps> = props => {
     handleOpenModal(MODAL.DELETE, id)
     try {
       const result: IBook = await deleteBookAPI(id)
-      // If delete operation is successful, dispatch an event to update the state with the new book's details
       if (result) {
-        bookDispatch(deleteBook(id))
-        // Display a success message to the user using a notification toast
+        deleteBookState(id)
         onHandleToast(NOTIFICATIONS.BOOK_DELETED_SUCCESSFULLY, true)
       }
     } catch (error) {
-      // Shows failed toast notification if an error occurs during delete operation
       onHandleToast(NOTIFICATIONS.BOOK_DELETED_FAILED, false)
     } finally {
-      // Close the modal
       handleCloseModal()
     }
   }
 
   return (
     <>
-      {/* Check if there are books in the list */}
-      {bookList.length > 0 ? (
+      {isBookListNotEmpty ? (
         <>
           <section className="product-list-section" ref={productSectionRef}>
             {/* The product list title */}
@@ -229,8 +197,7 @@ const ProductList: React.FC<ProductListProps> = props => {
                 />
               ))}
             </ul>
-            {/* Check if there are more pages to show */}
-            {currentPage < totalPages && (
+            {hasMorePages && (
               <>
                 {/* Pagination */}
                 <Pagination

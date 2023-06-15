@@ -1,19 +1,10 @@
 import React, {useEffect, useMemo, useReducer} from 'react'
-
-// Importing the constants
 import {ACTION} from '@constants'
-
-// Importing the custom hooks
 import {useHireRequests} from '@hooks/fetch'
-
-// Importing the types
-import {HireRequestsState} from '@types'
-
-// Importing the Hire requests context
+import {HireRequestsState, IHireRequest} from '@types'
 import HireRequestsContext from './HireRequestsContext'
-
-// Importing the reducer
 import reducer from './reducer'
+import {deleteHireRequest, editHireRequest} from './actions'
 
 interface ProviderProps {
   children: JSX.Element
@@ -39,8 +30,13 @@ const HireRequestsProvider = ({children}: ProviderProps): JSX.Element => {
     }
   }, [allHireRequests])
 
+  const editHireRequestState = (payload: IHireRequest) =>
+    hireRequestDispatch(editHireRequest(payload))
+  const deleteHireRequestState = (payload: string) =>
+    hireRequestDispatch(deleteHireRequest(payload))
+
   const contextValue = useMemo(
-    () => ({hireRequestState, hireRequestDispatch}),
+    () => ({hireRequestState, editHireRequestState, deleteHireRequestState}),
     [hireRequestState]
   )
 

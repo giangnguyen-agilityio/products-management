@@ -1,20 +1,12 @@
 import React, {useCallback, useContext, useMemo, useRef, useState} from 'react'
-
-// Importing the Table, Toast, Typography, Modal, EditHireRequestForm and ConfirmModal components
 import Table from '@components/Table'
-import Toast from '@components/Toast'
-import Typography from '@components/Typography'
+import Toast from '@components/commons/Toast'
+import Typography from '@components/commons/Typography'
 import Modal from '@components/Modal'
 import EditHireRequestForm from '@components/Form/EditHireRequestForm'
 import ConfirmModal from '@components/ConfirmModal'
-
-// Importing the constants
 import {NOTIFICATIONS, COLUMNS, MODAL, MODAL_TITLE} from '@constants'
-
-// Importing the helper function
 import {formatDate} from '@helpers'
-
-// Importing the API methods
 import {
   fetchHireRequestById,
   fetchMemberById,
@@ -22,25 +14,13 @@ import {
   editMemberAPI,
   deleteHireRequestAPI,
 } from '@services/api-actions'
-
-// Importing the Hire request context
 import HireRequestsContext from '@stores/hire-request/HireRequestsContext'
-
-// Importing the actions
-import {deleteHireRequest, editHireRequest} from '@stores/hire-request/actions'
-
-// Importing the Hire request type
 import {IHireRequest} from '@types'
-
-// Importing the CSS for styling
 import './hire-request.css'
 
 const HireRequestPage: React.FC = () => {
-  // Context hooks to retrieve hire request data and dispatch new hire requests
-  const {hireRequestState, hireRequestDispatch} =
+  const {hireRequestState, editHireRequestState, deleteHireRequestState} =
     useContext(HireRequestsContext)
-
-  // Array of all hire requests stored in state
   const allHireRequests: IHireRequest[] = hireRequestState.hireRequests
 
   // State variables for displaying toast messages to the user
@@ -109,22 +89,18 @@ const HireRequestPage: React.FC = () => {
       setToastMessage(toastMessage)
       setToastStatus(!!result)
 
-      // Dispatch an action to update the state with the deleted hire request's ID
-      hireRequestDispatch(editHireRequest(formData))
+      // Updated hire request data to the state
+      editHireRequestState(formData)
     } catch (error) {
-      // If there's an error, display a failure message and set the status to false.
       setToastMessage(NOTIFICATIONS.HIRE_REQUEST_EDITED_FAILED)
       setToastStatus(false)
     }
-
-    // Close the modal after handling the deletion, regardless of success/failure of the request
     handleCloseModal()
   }
 
   // Function to handle deleting the book hire request
   const handleDelete = async (id: string): Promise<void> => {
     try {
-      // Calls an API to delete the hire request with the given ID and waits for the response
       const result = await deleteHireRequestAPI(id)
 
       // If the API call is successful, display a success message. Otherwise, display a failure message.
@@ -136,15 +112,12 @@ const HireRequestPage: React.FC = () => {
       setToastMessage(toastMessage)
       setToastStatus(!!result)
 
-      // Dispatch an action to update the state with the deleted hire request's ID
-      hireRequestDispatch(deleteHireRequest(id))
+      // Delete the state with the hire request's ID
+      deleteHireRequestState(id)
     } catch (error) {
-      // If there's an error, display a failure message and set the status to false.
       setToastMessage(NOTIFICATIONS.HIRE_REQUEST_DELETED_FAILED)
       setToastStatus(false)
     }
-
-    // Close the modal after handling the deletion, regardless of success/failure of the request
     handleCloseModal()
   }
 
@@ -187,8 +160,8 @@ const HireRequestPage: React.FC = () => {
       )
       setToastStatus(!!result)
 
-      // Dispatch the updated hire request data to the state
-      hireRequestDispatch(editHireRequest(updatedHireRequestData))
+      // Updated hire request data to the state
+      editHireRequestState(updatedHireRequestData)
     },
     []
   )
