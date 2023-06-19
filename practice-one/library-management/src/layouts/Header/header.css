@@ -9,7 +9,6 @@
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 250px;
-  gap: 100px;
 }
 
 .site-actions {
@@ -41,23 +40,43 @@
   .site-navigation {
     gap: 0;
   }
+
+  .logo {
+    height: 145px;
+  }
+
+  .site-actions {
+    gap: 20px;
+  }
 }
 
 /* Media Query for Tablets and Smaller Screens */
 @media only screen and (max-width: 768px) {
+  .site-header-content {
+    flex-direction: column;
+  }
+
+  .logo {
+    height: 100px;
+  }
+
   .site-actions {
-    gap: 25px;
+    gap: 15px;
   }
 
   .sign-up,
   .sign-in {
-    padding: 15px 20px;
+    padding: 10px 20px;
     font-size: 14px;
     border-radius: 15px;
+    width: 100px;
   }
 
   .site-navigation {
-    grid-template-columns: 1fr 150px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 15px 0;
   }
 }
 
@@ -69,21 +88,39 @@
 
   .sign-up,
   .sign-in {
-    padding: 5px 20px;
-    font-size: 14px;
-  }
-
-  .logo {
-    height: 100px;
-  }
-
-  .site-header-content {
-    flex-direction: column;
+    padding: 9px;
+    font-size: 11px;
+    width: 60px;
   }
 
   .site-navigation {
-    display: flex;
     margin-bottom: 15px;
-    width: 100%;
+  }
+}
+
+/* Media Query for Old Mobile Devices */
+@media only screen and (max-width: 320px) {
+  .site-actions {
+    gap: 8px;
+  }
+
+  .sign-up,
+  .sign-in {
+    font-size: 10px;
+    width: 60px;
+  }
+}
+
+/* Media Query for Galaxy Fold Devices */
+@media only screen and (max-width: 280px) {
+  .site-actions {
+    gap: 5px;
+  }
+
+  .sign-up,
+  .sign-in {
+    padding: 8px;
+    font-size: 10px;
+    width: 60px;
   }
 }
