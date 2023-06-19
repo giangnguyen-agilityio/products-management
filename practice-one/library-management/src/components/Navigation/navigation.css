@@ -4,13 +4,14 @@
   justify-content: center;
   align-items: center;
   font-family: var(--secondary-font);
-  gap: 50px;
+  gap: 30px;
+  margin-right: 50px;
   padding: 20px;
   cursor: pointer;
 }
 
 .link-label {
-  font-size: 26px;
+  font-size: 23px;
   color: var(--primary-color);
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
@@ -25,41 +26,55 @@
 /* Media Query for Laptop Devices */
 @media only screen and (max-width: 1024px) {
   .navigation {
-    gap: 30px;
+    gap: 15px;
+    padding: 15px;
+    margin-right: 0;
+  }
+
+  .link-label {
+    font-size: 18px;
   }
 }
 
 /* Media Query for Tablets and Smaller Screens */
 @media only screen and (max-width: 768px) {
   .navigation {
-    gap: 20px;
+    justify-content: start;
+    padding: 0 15px 0 0;
   }
 
   .link-label {
-    font-size: 24px;
+    font-size: 14px;
   }
 }
 
 /* Media Query for Mobile Devices */
 @media only screen and (max-width: 480px) {
   .navigation {
+    justify-content: start;
+    padding: 0 5px 0 0;
     gap: 10px;
   }
 
   .link-label {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
 /* Media Query for Old Mobile Devices */
 @media only screen and (max-width: 320px) {
   .navigation {
-    justify-content: start;
-
-    padding: 0 20px 0 0;
+    gap: 5px;
   }
 
   .link-label {
-    font-size: 14px;
+    font-size: 11px;
+  }
+}
+
+/* Media Query for Galaxy Fold Devices */
+@media only screen and (max-width: 280px) {
+  .link-label {
+    font-size: 10px;
   }
 }
