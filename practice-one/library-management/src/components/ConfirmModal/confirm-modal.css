@@ -24,7 +24,7 @@
 
 .confirm-modal-control {
   display: flex;
-  gap: 60px;
+  gap: 10%;
 }
 
 .confirm-modal-button,
