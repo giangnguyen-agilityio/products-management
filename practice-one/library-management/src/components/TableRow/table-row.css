@@ -36,7 +36,7 @@
 .table-controls .delete-btn {
   padding: 10px;
   border-radius: 50%;
-  border: 1.5px solid var(--bg-btn-color) !important;
+  border: 1.5px solid var(--bg-btn-color);
   background: unset;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
@@ -47,15 +47,15 @@
 }
 
 .table-controls .toggle-completion-btn:hover {
-  border-color: var(--primary-color) !important;
+  border-color: var(--primary-color);
 }
 
 .table-controls .edit-btn {
-  color: var(--tertiary-color) !important;
+  color: var(--tertiary-color);
 }
 
 .table-controls .edit-btn:hover {
-  border-color: var(--tertiary-color) !important;
+  border-color: var(--tertiary-color);
 }
 
 .table-controls .delete-btn {
@@ -63,11 +63,11 @@
 }
 
 .table-controls .delete-btn:hover {
-  border-color: var(--danger-color) !important;
+  border-color: var(--danger-color);
 }
 
 /* Media Query for Mobile Devices */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
   .table-row-cell {
     border-bottom: 1px solid var(--bg-btn-color);
     display: block;
