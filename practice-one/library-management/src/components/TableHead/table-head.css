@@ -18,13 +18,6 @@
 
 /* Media Query for Tablets and Smaller Screens */
 @media only screen and (max-width: 768px) {
-  .table-header-cell {
-    padding: 15px 0px;
-  }
-}
-
-/* Media Query for Mobile Devices */
-@media only screen and (max-width: 480px) {
   .table-header {
     display: none;
   }
