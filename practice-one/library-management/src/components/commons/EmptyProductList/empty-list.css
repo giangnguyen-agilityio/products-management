@@ -16,6 +16,14 @@
   padding-bottom: 25px;
 }
 
+.error-list-image {
+  width: 100vw;
+}
+
+.error-list-image img {
+  width: 100%;
+}
+
 /* Media Query for Laptop Devices */
 @media only screen and (max-width: 1024px) {
   .error-list-image {
@@ -36,11 +44,15 @@
 
 /* Media Query for Mobile Devices */
 @media only screen and (max-width: 480px) {
-  .error-list-image img {
-    width: 350px;
-  }
   .error-list-title {
     padding-top: 25px;
     font-size: 20px;
+  }
+}
+
+/* Media Query for Old Mobile Devices */
+@media only screen and (max-width: 320px) {
+  .error-list-title {
+    font-size: 14px;
   }
 }
