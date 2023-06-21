@@ -1,71 +1,68 @@
+.banner-wrapper {
+  position: relative;
+}
+
 .banner {
   display: grid;
-  grid-template-columns: 1fr 35%;
+  grid-template-columns: 60% 400px;
   align-items: center;
   justify-content: center;
   justify-items: center;
-  height: 750px;
-  padding: 30px 150px;
-  gap: 55px;
-  position: relative;
+  gap: 40px;
+  margin: 50px 0;
+  padding: 1px 70px;
 }
 
 .banner-info {
   position: relative;
+  height: 100%;
 }
 
 .book-title {
-  font-size: 55px;
+  font-size: 30px;
+  line-height: 35px;
   letter-spacing: -0.02em;
   text-transform: capitalize;
-  margin: 5px 0;
   color: var(--primary-color);
   text-shadow: var(--text-shadow-primary);
 }
 
 .book-author,
 .book-price {
-  font-size: 24px;
-  line-height: 220%;
+  font-size: 22px;
   letter-spacing: 0.04em;
-  margin: 5px 0;
+  margin: 10px 0;
   color: var(--primary-color);
 }
 
 .book-description {
-  height: 180px;
-  line-height: 220%;
+  font-size: 20px;
+  line-height: 28px;
   letter-spacing: 0.04em;
   color: var(--secondary-color);
+  margin: 15px 0;
 }
 
 .banner-image-wrapper {
-  position: relative;
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/images/bg-pattern.svg);
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 100px -50px;
 }
 
 .banner-image {
-  position: absolute;
-  width: 395px;
-  height: 572px;
-  object-fit: cover;
+  object-fit: fill;
   filter: drop-shadow(var(--drop-shadow-color));
-  bottom: 0;
-  left: 30px;
   border-radius: 10px;
+  width: 100%;
+  height: 600px;
 }
 
 .banner-controls {
-  position: absolute;
   width: 100%;
+  position: absolute;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  top: 35%;
+  align-items: center;
 }
 
 .previous-btn,
@@ -111,9 +108,11 @@
 }
 
 .pagination {
-  margin: 10px;
-  font-size: 14px;
+  position: absolute;
   color: var(--secondary-color);
+  bottom: 0;
+  margin: 20px 0;
+  width: 100%;
 }
 
 .introduction {
@@ -122,13 +121,41 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 50px 450px;
-  margin: 50px 0;
+  padding: 25px;
+  margin: 30px 0;
 }
 
 .introduction-text {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 24px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .banner {
+    grid-template-columns: 60% 38%;
+    gap: 2%;
+  }
+
+  .book-description {
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  .previous-btn,
+  .next-btn {
+    height: 35px;
+    padding: 12px;
+  }
+
+  .rent-btn {
+    font-size: 16px;
+    margin: 10px 0 20px;
+  }
+
+  .pagination {
+    margin: 10px 0;
+  }
 }
 
 /* Media Query for Laptop Devices */
@@ -138,25 +165,34 @@
     height: 100%;
     padding: 30px;
     gap: 0 30px;
+    margin: 0;
+  }
+
+  .banner-info {
+    height: 920px;
+    padding: 0;
   }
 
   .book-title {
-    font-size: 45px;
+    font-size: 28px;
+    margin: 0 0 5px;
   }
 
   .book-author {
     line-height: unset;
     margin: 20px 0 5px;
+    font-size: 22px;
   }
 
   .book-price {
     line-height: unset;
+    font-size: 22px;
     margin: 15px 0;
   }
 
   .book-description {
-    height: 100%;
-    font-size: 24px;
+    height: unset;
+    font-size: 18px;
     line-height: 30px;
     letter-spacing: unset;
   }
@@ -165,17 +201,13 @@
     display: flex;
     justify-content: center;
     margin: 0;
-    position: unset;
-    background: unset;
     grid-row: 1 / -3;
+    padding: 0;
   }
 
   .banner-image {
-    display: grid;
-    position: unset;
-    width: 450px;
-    height: 100%;
-    grid-row: 2 / -2;
+    width: 400px;
+    height: 950px;
   }
 
   .pagination {
@@ -189,17 +221,17 @@
   }
 
   .rent-btn {
-    margin: 20px auto;
-    font-size: 24px;
+    margin: 15px auto;
+    font-size: 16px;
   }
 
   .introduction {
     padding: 15px;
-    margin: 20px 0;
+    margin: 15px 0;
   }
 
   .introduction-text {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 26px;
   }
 }
@@ -208,16 +240,30 @@
 @media only screen and (max-width: 768px) {
   .banner {
     grid-template-columns: 1fr;
-    gap: 0;
+    padding: 0;
+    margin: 0;
   }
 
   .banner-image-wrapper {
-    display: grid;
-    padding: 25px;
-    background-position: 140px 70px;
-    background-size: contain;
+    padding: 0 25px 25px;
     grid-row-start: unset;
     grid-row-end: unset;
+  }
+
+  .banner-info {
+    height: 100%;
+    padding: 0 30px;
+  }
+
+  .book-title {
+    font-size: 24px;
+    height: unset;
+    line-height: 28px;
+  }
+
+  .book-author,
+  .book-price {
+    font-size: 20px;
   }
 
   .banner-image {
@@ -227,36 +273,63 @@
     grid-row-end: unset;
   }
 
+  .banner-controls {
+    margin: 0;
+  }
+
   .pagination {
     display: none;
   }
 
   .rent-btn {
-    margin: 30px auto;
+    margin: 20px auto;
+    font-size: 18px;
+  }
+
+  .introduction-text {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .book-description {
+    font-size: 16px;
+    line-height: 22px;
+    height: 255px;
   }
 }
 
 /* Media Query for Mobile Devices */
 @media only screen and (max-width: 480px) {
   .banner {
-    padding: 20px;
+    margin: 0;
+  }
+
+  .banner-info {
+    padding: 0 20px;
   }
 
   .book-title {
-    font-size: 35px;
+    font-size: 20px;
+    height: 56px;
+  }
+
+  .book-author {
+    font-size: 18px;
+    margin: 15px 0 0;
   }
 
   .book-price {
-    font-size: 20px;
+    font-size: 18px;
+    margin: 10px 0;
   }
 
   .book-description {
-    font-size: 18px;
-    line-height: 24px;
+    height: 460px;
   }
 
   .banner-image-wrapper {
     background: unset;
+    padding: 10px;
   }
 
   .banner-image {
@@ -266,23 +339,29 @@
 
   .rent-btn {
     margin: 10px auto;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .introduction {
     margin: 15px 0;
   }
 
-  .introduction-text {
-    font-size: 18px;
-    line-height: 25px;
+  .previous-btn,
+  .next-btn {
+    height: 40px;
+    padding: 15px;
   }
 }
 
 /* Media Query for Old Mobile Devices */
 @media only screen and (max-width: 320px) {
+  .banner-info {
+    height: 100%;
+    padding: 0 10px;
+  }
+
   .book-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .book-author,
@@ -293,18 +372,37 @@
 
   .book-description {
     font-size: 14px;
+    height: 415px;
   }
 
   .banner-image-wrapper {
     padding: 10px 0;
   }
 
+  .banner-image {
+    width: 270px;
+  }
+
   .rent-btn {
     font-size: 14px;
+    padding: 10px;
   }
 
   .introduction-text {
     font-size: 14px;
     line-height: 25px;
+  }
+}
+
+/* Media Query for Galaxy Fold Devices */
+@media only screen and (max-width: 280px) {
+  .previous-btn,
+  .next-btn {
+    height: 35px;
+    padding: 10px;
+  }
+
+  .introduction {
+    padding: 10px;
   }
 }
