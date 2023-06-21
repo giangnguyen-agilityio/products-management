@@ -3,7 +3,7 @@
   height: 100%;
   background-color: var(--bg-overlay-color);
   position: absolute;
-  padding: 10% 0;
+  padding: 3%;
   top: 0;
   right: 0;
 }
@@ -58,11 +58,41 @@
   .modal-container {
     width: 100%;
   }
+
+  .modal-overlay {
+    padding: 5%;
+  }
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media only screen and (max-width: 768px) {
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .close-modal-btn {
+    padding: 7px;
+  }
 }
 
 /* Media Query for Mobile Devices */
 @media only screen and (max-width: 480px) {
-  .modal-overlay {
-    padding: 0;
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .close-modal-btn {
+    padding: 6px;
+  }
+}
+
+/* Media Query for Old Mobile Devices */
+@media only screen and (max-width: 320px) {
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .close-modal-btn {
+    padding: 2px;
   }
 }
