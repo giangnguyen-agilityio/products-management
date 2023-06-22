@@ -1,19 +1,10 @@
-import React, {memo} from 'react'
-
-// Importing the Typography and Button components
-import Typography from '@components/Typography'
-import Button from '@components/Button'
-
-// Importing the Icon from the React-icons library
+import React, {memo, useCallback, useEffect} from 'react'
+import Typography from '@components/commons/Typography'
+import Button from '@components/commons/Button'
 import {IoClose} from 'react-icons/io5'
-
-// Importing the constants
 import {MODAL} from '@constants'
-
-// Importing the CSS file for styling
 import './modal.css'
 
-// Define the props for the Modal component
 interface ModalProps {
   closeModal: () => void
   showModal: boolean
@@ -26,29 +17,35 @@ const Modal: React.FC<ModalProps> = props => {
   const {modalType, showModal, modalTitle, children, closeModal} = props
 
   // Function to handle close the modal
-  const handleCloseModal = (): void => {
+  const handleCloseModal = useCallback((): void => {
     closeModal()
     document.removeEventListener('keydown', handleKeyDown)
-    // Check if the toast should be shown
-  }
+  }, [closeModal])
 
   // Function to handle keydown events
-  const handleKeyDown = (event: KeyboardEvent): void => {
-    if (event.key === 'Escape') {
-      handleCloseModal()
-    }
-  }
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent): void => {
+      if (event.key === 'Escape') {
+        handleCloseModal()
+      }
+    },
+    [handleCloseModal]
+  )
 
   // Function to handle button close modal clicked
-  const handleCloseModalButtonClick = (): void => {
+  const handleCloseModalButtonClick = useCallback((): void => {
     handleCloseModal()
-  }
+  }, [handleCloseModal])
 
-  if (showModal) {
-    document.addEventListener('keydown', handleKeyDown)
-  }
+  useEffect(() => {
+    if (showModal) {
+      document.addEventListener('keydown', handleKeyDown)
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [showModal, handleKeyDown])
 
-  // Render the modal if showModal is true
   return showModal ? (
     <>
       <div className="modal-overlay">

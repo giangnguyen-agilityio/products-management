@@ -1,10 +1,9 @@
 import React, {useState, useCallback, useEffect, memo} from 'react'
 import Input from '@components/commons/Input'
 import Button from '@components/commons/Button'
-import {fetchBookById} from '../../../services/api-actions'
-import {NOTIFICATIONS, ERROR_MESSAGES, MODAL} from '@constants'
+import {ERROR_MESSAGES, MODAL} from '@constants'
 import {v4 as uuidv4} from 'uuid'
-import {IBook} from 'types/book'
+import {BookData, IBook} from 'types/book'
 import '../form.css'
 
 interface AddAndEditFormProps {
@@ -13,10 +12,11 @@ interface AddAndEditFormProps {
   onAdd: (formData: IBook) => void
   onEdit: (id: string, formData: IBook) => void
   onHandleToast: (message: string, status: boolean) => void
+  bookData: BookData | undefined
 }
 
 const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
-  const {id, formType, onAdd, onEdit, onHandleToast} = props
+  const {id, formType, onAdd, onEdit, bookData} = props
 
   const [disableButton, setDisableButton] = useState(false)
   const [formData, setFormData] = useState({
@@ -28,27 +28,23 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
     totalQuantity: 0,
     image: '',
   })
+
   const [isFieldEmpty, setIsFieldEmpty] = useState(false)
 
   // Fetches book data when the component mounts or when formType or id changes
   useEffect(() => {
-    const fetchData = async (): Promise<void> => {
-      try {
-        if (formType === MODAL.EDIT && id !== '') {
-          const book: IBook = await fetchBookById(id)
-          const {image, ...rest} = book
-          const updatedBook = {
-            ...rest,
-            image: image ?? '',
-          }
-          setFormData(updatedBook)
-        }
-      } catch (error) {
-        onHandleToast(NOTIFICATIONS.FAILED_TO_GET_BOOK, false)
-      }
+    if (formType === MODAL.EDIT && id !== '' && bookData) {
+      setFormData({
+        title: bookData.title,
+        author: bookData.author,
+        price: bookData.price,
+        description: bookData.description,
+        availableQuantity: bookData.availableQuantity,
+        totalQuantity: bookData.totalQuantity,
+        image: bookData.image ?? '',
+      })
     }
-    fetchData()
-  }, [formType, id])
+  }, [formType, id, bookData])
 
   // Function to handles changes in input fields
   const handleChange = useCallback(
@@ -120,7 +116,11 @@ const AddAndEditForm: React.FC<AddAndEditFormProps> = props => {
     setIsFieldEmpty(!isValid)
 
     // Combine book ID, altImagePath and formData into newBookData
-    const newBookData = {id: bookId, alt: altImagePath, ...formData}
+    const newBookData = {
+      id: formType === MODAL.ADD ? bookId : id,
+      alt: altImagePath,
+      ...formData,
+    }
 
     // Disable the submit button to prevent multiple submissions before the request is complete
     setDisableButton(true)
