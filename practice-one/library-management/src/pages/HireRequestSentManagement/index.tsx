@@ -1,28 +1,16 @@
 import React, {useContext, useMemo} from 'react'
-
-// Importing the Table and Typography components
 import Table from '@components/Table'
-import Typography from '@components/Typography'
-
-// Importing the constants
+import Typography from '@components/commons/Typography'
 import {COLUMNS} from '@constants'
-
-// Importing the Hire request context
 import HireRequestsContext from '@stores/hire-request/HireRequestsContext'
-
-// Importing the Hire request type
 import {IHireRequest} from '@types'
-
-// Importing the helper function
 import {formatDate, getItemInLocalStorage} from '@helpers'
 
+import '../HireRequestManagement/hire-request.css'
+
 const HireRequestSent: React.FC = () => {
-  // Context hooks to retrieve hire request data and dispatch new hire requests
   const {hireRequestState} = useContext(HireRequestsContext)
-
-  const memberId = getItemInLocalStorage('memberId')
-
-  // Array of all hire requests stored in state
+  const memberId: string = getItemInLocalStorage('memberId')
   const allHireRequests: IHireRequest[] = hireRequestState.hireRequests
 
   // Map over the hire requests and format the fromDate and toDate fields

@@ -1,29 +1,21 @@
 import React from 'react'
-
-// Importing the Link component from 'react-router-dom'
 import {NavLink} from 'react-router-dom'
-
-// Importing the helper functions
 import {getItemInLocalStorage} from '@helpers'
-
-// Importing the CSS file for styling
 import './navigation.css'
 
-// Define the type for a single navigation link
 interface Link {
   id: string
   label: string
   url: string
 }
 
-// Define the props for the Navigation component
 interface NavigationProps {
-  links: Link[] // An array of navigation links
+  links: Link[]
 }
 
 const Navigation: React.FC<NavigationProps> = props => {
   const {links} = props
-  const isMember = getItemInLocalStorage('memberId')
+  const isMember: string = getItemInLocalStorage('memberId')
 
   return (
     <ul className="navigation">

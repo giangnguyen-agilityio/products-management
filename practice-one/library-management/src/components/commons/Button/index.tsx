@@ -12,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     | 'danger'
   className?: string
   ariaLabel?: string
-  onClick: () => void
+  onClick?: () => void
   disabled?: boolean
   children: React.ReactNode | undefined
 }

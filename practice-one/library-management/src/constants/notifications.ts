@@ -10,6 +10,7 @@ export const NOTIFICATIONS = {
   BOOK_DELETED_SUCCESSFULLY: 'Book has been deleted successfully',
   BOOK_DELETED_FAILED: 'Failure to delete the book',
   FAILED_TO_GET_BOOK: 'Failed to get the book data',
+  FAILED_TO_GET_BOOK_LIST: 'We couldn\'t find any books at the moment',
 
   HIRE_REQUEST_SENT_SUCCESSFULLY:
     'Sending a request to rent the book successfully',
@@ -25,4 +26,6 @@ export const NOTIFICATIONS = {
   TOGGLE_COMPLETION_SUCCESSFUL:
     'The hire request has been marked as completed successfully',
   TOGGLE_COMPLETION_FAILED: 'Failure to mark the request as completed',
+
+  PAGE_IS_CURRENTLY_BEING_UPDATED: 'This page is currently being updated',
 }

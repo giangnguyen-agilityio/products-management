@@ -1,18 +1,17 @@
 import React, {lazy} from 'react'
 import {type RouteObject} from 'react-router-dom'
-
-// Importing the layouts
 import MainLayout from '@layouts/MainLayout'
-
-// Importing the providers
 import HireRequestsProvider from '@stores/hire-request/HireRequestsProvider'
 import MembersProvider from '@stores/members/MemberProvider'
+import {NOTIFICATIONS} from '@constants'
 
 // Importing the pages
 const BookManagement = lazy(() => import('@pages/BookManagement'))
 const HireRequestPage = lazy(() => import('@pages/HireRequestManagement'))
 const HireRequestSent = lazy(() => import('@pages/HireRequestSentManagement'))
-const EmptyProductList = lazy(() => import('@components/EmptyProductList'))
+const EmptyProductList = lazy(
+  () => import('@components/commons/EmptyProductList')
+)
 const LoginPage = lazy(() => import('@pages/LoginPage'))
 
 // Router configuration
@@ -45,7 +44,9 @@ export const routerConfig: RouteObject[] = [
         path: 'members',
         element: (
           <MembersProvider>
-            <EmptyProductList errorMessage="This page is currently being updated" />
+            <EmptyProductList
+              errorMessage={NOTIFICATIONS.PAGE_IS_CURRENTLY_BEING_UPDATED}
+            />
           </MembersProvider>
         ),
       },

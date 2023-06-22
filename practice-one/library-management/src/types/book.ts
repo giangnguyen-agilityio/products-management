@@ -9,3 +9,15 @@ export interface IBook {
   availableQuantity: number
   totalQuantity: number
 }
+
+export interface BookData
+  extends Pick<
+    IBook,
+    | 'title'
+    | 'author'
+    | 'price'
+    | 'description'
+    | 'availableQuantity'
+    | 'totalQuantity'
+    | 'image'
+  > {}

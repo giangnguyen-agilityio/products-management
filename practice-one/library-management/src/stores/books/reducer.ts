@@ -1,7 +1,4 @@
-// Importing the constants
 import {ACTION} from '@constants'
-
-// Importing the types
 import {BooksState, ActionTypes, IBook} from '@types'
 
 // Defining the reducer function responsible for updating state based on dispatched actions
@@ -31,7 +28,6 @@ const reducer = (state: BooksState, action: ActionTypes): BooksState => {
     case ACTION.DELETE_BOOK: {
       const deletedBookId = action.payload // Extracting payload from action object
       const updatedBooks = state.books.filter(book => book.id !== deletedBookId) // Filtering out deleted book from existing books array
-
       return {
         ...state,
         books: updatedBooks,

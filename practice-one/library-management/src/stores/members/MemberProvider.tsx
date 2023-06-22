@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo, useReducer} from 'react'
-import {ACTION} from '@constants'
+import {setMembers} from './actions'
 import {useMembers} from '@hooks/fetch'
 import {MembersState} from '@types'
 import MemberContext from './MemberContext'
@@ -19,9 +19,10 @@ const MembersProvider = ({children}: ProviderProps): JSX.Element => {
     ...initialState,
     members: allMembers ?? [],
   })
+
   useEffect(() => {
     if (allMembers) {
-      memberDispatch({type: ACTION.SET_MEMBERS, payload: allMembers})
+      memberDispatch(setMembers(allMembers))
     }
   }, [allMembers])
 

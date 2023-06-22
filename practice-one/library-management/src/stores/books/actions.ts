@@ -1,7 +1,4 @@
-// Importing the constants
 import {ACTION} from '@constants'
-
-// Importing the types
 import {
   IBook,
   SetBookAction,

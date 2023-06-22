@@ -1,9 +1,5 @@
 import axios from 'axios'
-
-// Importing the constants
 import {API_URL, ENDPOINT} from '@constants'
-
-// Importing the types
 import {IBook, IHireRequest, IMember} from '@types'
 
 // API method for fetching all products

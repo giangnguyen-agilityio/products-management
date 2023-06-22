@@ -1,10 +1,9 @@
 import React, {useEffect, useMemo, useReducer} from 'react'
-import {ACTION} from '@constants'
 import {useBooks} from '@hooks/fetch'
 import {BooksState, IBook} from '@types'
 import BookContext from './BookContext'
 import reducer from './reducer'
-import {addNewBook, deleteBook, editBook} from './actions'
+import {addNewBook, deleteBook, editBook, setBook} from './actions'
 
 interface ProviderProps {
   children: JSX.Element
@@ -23,7 +22,7 @@ const BookProvider = ({children}: ProviderProps): JSX.Element => {
 
   useEffect(() => {
     if (allBooks) {
-      bookDispatch({type: ACTION.SET_BOOK, payload: allBooks})
+      bookDispatch(setBook(allBooks))
     }
   }, [allBooks])
 

@@ -1,15 +1,9 @@
-import React, {Suspense, useEffect, useRef, useState} from 'react'
+import React, {Suspense, useEffect, useState} from 'react'
 import {Outlet, useNavigate} from 'react-router-dom'
-
-// Importing the layouts
 import Header from '@layouts/Header'
 import LoadingPage from '@pages/LoadingPage'
 import Footer from '@layouts/Footer'
-
-// Importing the Book provider
 import BookProvider from '@stores/books/BookProvider'
-
-// Importing the helper functions
 import {getItemInLocalStorage, clearLocalStorage} from '@helpers'
 
 const MainLayout = (): JSX.Element => {

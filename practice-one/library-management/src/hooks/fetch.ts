@@ -1,20 +1,12 @@
 import useSWR from 'swr'
 import {type AxiosError} from 'axios'
-
-// Importing the API methods
 import {
   fetchAllBooks,
   fetchAllHireRequest,
   fetchAllMember,
 } from '@services/api-actions'
-
-// Importing the types
 import {IBook, IHireRequest, IMember} from '@types'
-
-// Importing the helper functions
 import {handleServerError} from '@helpers'
-
-// Importing the constants
 import {API_URL, ENDPOINT} from '@constants'
 
 interface IFetch {

@@ -1,27 +1,20 @@
 import React, {useCallback, useState} from 'react'
-
-// Importing the Banner, Toast and ProductList components
 import Banner from '@components/Banner'
-import Toast from '@components/Toast'
+import Toast from '@components/commons/Toast'
 import ProductList from '@components/ProductList'
-
-// Importing the helper function
 import {getItemInLocalStorage} from '@helpers'
-
-// Importing the Hire Request type
 import {IHireRequest} from '@types'
-
-// Importing the constants
-import {ERROR_MESSAGES, NOTIFICATIONS} from '@constants'
-
-// Importing the API methods
+import {
+  BOOK_HIRE_REQUESTS_LIMIT,
+  ERROR_MESSAGES,
+  HIRED_BOOK_LIMIT,
+  NOTIFICATIONS,
+} from '@constants'
 import {
   fetchMemberById,
   fetchAllHireRequest,
   addNewHireRequestAPI,
 } from '@services/api-actions'
-
-// Importing the uuid library
 import {v4 as uuidv4} from 'uuid'
 
 const BookManagement = (): JSX.Element => {
@@ -49,8 +42,11 @@ const BookManagement = (): JSX.Element => {
     // Calculate the number of book hire requests sent
     const hireRequestsSentQuantity: number = hireRequestMatchMemberId.length
 
-    // Checking the limit of rented books
-    if (hireRequestsSentQuantity >= 5 || hiredBooksQuantity >= 5) {
+    // Checking the limit of rented books and book hire requests has been sent
+    if (
+      hireRequestsSentQuantity >= BOOK_HIRE_REQUESTS_LIMIT ||
+      hiredBooksQuantity >= HIRED_BOOK_LIMIT
+    ) {
       window.alert(ERROR_MESSAGES.REQUEST_RENT_BOOK_OVER_LIMIT)
       return
     }
@@ -85,10 +81,10 @@ const BookManagement = (): JSX.Element => {
   }, [])
 
   // Function to handle showing or hiding the toast
-  const handleToast = (message: string, status: boolean): void => {
+  const handleToast = useCallback((message: string, status: boolean): void => {
     setToastMessage(message)
     setToastStatus(status)
-  }
+  }, [])
 
   return (
     <>

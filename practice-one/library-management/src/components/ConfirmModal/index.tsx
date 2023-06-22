@@ -1,16 +1,9 @@
 import React from 'react'
-
-// Importing the Typography, and Button components
-import Typography from '@components/Typography'
-import Button from '@components/Button'
-
-// Import the Delete image
+import Typography from '@components/commons/Typography'
+import Button from '@components/commons/Button'
 import deleteImage from '@assets/images/delete-icon.gif'
-
-// Importing the CSS file for styling
 import './confirm-modal.css'
 
-// Define the props for the Confirm modal component
 interface ConfirmModalProps {
   id: string
   text: string

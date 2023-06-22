@@ -1,7 +1,4 @@
-// Importing the constants
 import {ACTION} from '@constants'
-
-// Importing the types
 import {MembersState, ActionTypes, IMember} from '@types'
 
 // Defining the reducer function responsible for updating members state based on dispatched actions

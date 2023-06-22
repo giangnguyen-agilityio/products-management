@@ -1,50 +1,32 @@
-import React, {useState, useCallback, useMemo, useContext} from 'react'
-
-// Importing the Button, EmptyProductList, Pagination and Typography components
-import Button from '@components/Button'
-import EmptyProductList from '@components/EmptyProductList'
-import Pagination from '@components/Pagination'
-import Typography from '@components/Typography'
-
-// Importing the Icon from the React-icons library
+import React, {useState, useCallback, useContext} from 'react'
+import Button from '@components/commons/Button'
+import EmptyProductList from '@components/commons/EmptyProductList'
+import Pagination from '@components/commons/Pagination'
+import Typography from '@components/commons/Typography'
 import {FaArrowRight, FaArrowLeft, FaRegHandPointRight} from 'react-icons/fa'
-
-// Importing the Book context
 import BookContext from '@stores/books/BookContext'
-
-// Importing the Book type
+import {ROLE} from '@constants'
 import {IBook} from '@types'
-
-// Importing the helper functions
 import {getItemInLocalStorage} from '@helpers'
-
-// Importing the CSS file for styling
 import './banner.css'
 
-// Define the props for Banner component
 interface BannerProps {
   onRent: (id: string) => void
 }
 
 const Banner: React.FC<BannerProps> = props => {
-  // Destructure props to obtain onRent, toastMessage and toastStatus
   const {onRent} = props
 
   // Retrieve book state from the BookContext
   const {bookState} = useContext(BookContext)
-  console.log(bookState)
-  // Obtain the array of books from the book state
   const bookList: IBook[] = bookState.books
+  const isAdmin: boolean = getItemInLocalStorage('memberRole') === ROLE.ADMIN
 
   // State hook to keep track of the active book index
   const [activeIndex, setActiveIndex] = useState<number>(0)
 
-  // Check if the current user is an admin
-  const isAdmin: boolean = getItemInLocalStorage('memberRole') === 'admin'
-
   // Callback function to handle the previous button click
   const handlePreviousBtnClick = useCallback(() => {
-    // Check if bookList exists
     if (bookList) {
       setActiveIndex(prevIndex =>
         prevIndex === 0 ? bookList.length - 1 : prevIndex - 1
@@ -54,7 +36,6 @@ const Banner: React.FC<BannerProps> = props => {
 
   // Callback function to handle the next button click
   const handleNextBtnClick = useCallback(() => {
-    // Check if bookList exists
     if (bookList) {
       setActiveIndex(prevIndex =>
         prevIndex === bookList.length - 1 ? 0 : prevIndex + 1
@@ -158,7 +139,6 @@ const Banner: React.FC<BannerProps> = props => {
           }
         />
       )}
-
       <article className="introduction">
         {/* Introduction text */}
         <Typography variant="p" className="introduction-text">

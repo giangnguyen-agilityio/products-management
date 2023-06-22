@@ -1,10 +1,9 @@
 import React, {useEffect, useMemo, useReducer} from 'react'
-import {ACTION} from '@constants'
+import {deleteHireRequest, editHireRequest, setHireRequests} from './actions'
 import {useHireRequests} from '@hooks/fetch'
 import {HireRequestsState, IHireRequest} from '@types'
 import HireRequestsContext from './HireRequestsContext'
 import reducer from './reducer'
-import {deleteHireRequest, editHireRequest} from './actions'
 
 interface ProviderProps {
   children: JSX.Element
@@ -23,10 +22,7 @@ const HireRequestsProvider = ({children}: ProviderProps): JSX.Element => {
 
   useEffect(() => {
     if (allHireRequests) {
-      hireRequestDispatch({
-        type: ACTION.SET_HIRE_REQUESTS,
-        payload: allHireRequests,
-      })
+      hireRequestDispatch(setHireRequests(allHireRequests))
     }
   }, [allHireRequests])
 

@@ -1,13 +1,7 @@
 import React, {memo} from 'react'
-
-// Importing the TableHead and TableRow components
 import TableHead from '@components/TableHead'
 import TableRow from '@components/TableRow'
-
-// Importing the HireRequest and Table column types
-import {IHireRequest, IMember, TableColumn} from '@types'
-
-// Importing the CSS file for styling
+import {IHireRequest, TableColumn} from '@types'
 import './table.css'
 
 // Define the props for the Table component

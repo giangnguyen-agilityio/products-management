@@ -1,7 +1,4 @@
-// Importing the constants
 import {ACTION} from '@constants'
-
-// Importing the types
 import {HireRequestsState, ActionTypes, IHireRequest} from '@types'
 
 // Defining a reducer function that handles state changes based on actions dispatched by the store

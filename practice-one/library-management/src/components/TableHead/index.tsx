@@ -1,13 +1,9 @@
 import React from 'react'
-
-// Importing the Table column type
 import {TableColumn} from '@types'
-
-// Importing the CSS file for styling
-import './table-head.css'
+import {ROLE} from '@constants'
 import {getItemInLocalStorage} from '@helpers'
+import './table-head.css'
 
-// Define the props for the Table Head component
 interface TableHeadProps {
   columns: TableColumn[]
 }
@@ -15,7 +11,7 @@ interface TableHeadProps {
 const TableHead: React.FC<TableHeadProps> = props => {
   const {columns} = props
 
-  const isAdmin = getItemInLocalStorage('memberRole') === 'admin'
+  const isAdmin: boolean = getItemInLocalStorage('memberRole') === ROLE.ADMIN
 
   return (
     <thead className="table-header">

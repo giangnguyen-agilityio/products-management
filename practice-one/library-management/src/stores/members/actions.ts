@@ -1,7 +1,4 @@
-// Importing the constants
 import {ACTION} from '@constants'
-
-// Importing the types
 import {IMember, SetMemberAction, EditMemberAction} from '@types'
 
 // This function creates an action to set the Members data in the store

@@ -1,19 +1,12 @@
 import React from 'react'
-
-// Importing the Button component
-import Button from '@components/Button'
-
-// Importing the Icon from the React-icons library
+import Button from '@components/commons/Button'
 import {FaSignOutAlt} from 'react-icons/fa'
-
-// Importing the CSS file for styling
 import './user-profile.css'
 
-// Define the props for the UserProfile component
 interface UserProfileProps {
-  avatarUrl?: string // URL of the user's avatar image
-  email?: string // User's email address
-  onLogout?: () => void // Callback function for logout action
+  avatarUrl?: string
+  email?: string
+  onLogout: () => void
 }
 
 const UserProfile: React.FC<UserProfileProps> = props => {

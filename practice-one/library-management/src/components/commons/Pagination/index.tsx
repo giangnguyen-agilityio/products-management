@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import './pagination.css'
 
 interface PaginationProps {
@@ -33,4 +33,4 @@ const Pagination: React.FC<PaginationProps> = props => {
   )
 }
 
-export default Pagination
+export default memo(Pagination)

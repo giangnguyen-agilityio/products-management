@@ -1,24 +1,14 @@
 import React from 'react'
-
-// Importing the image URL as the variable
 import logo from '@assets/images/logo-website.png'
-
-// Importing the Logo, Navigation, UserProfile, and Button components
-import Logo from '@components/Logo'
+import Logo from '@components/commons/Logo'
 import Navigation from '@components/Navigation'
 import UserProfile from '@components/UserProfile'
-import Button from '@components/Button'
-
-// Importing the links to navigation
+import Button from '@components/commons/Button'
 import {linksForAdmin, linksForUser} from '@constants/navigationLinks'
-
-// Importing the helper functions
 import {getItemInLocalStorage} from '@helpers'
-
-// Importing the CSS file for styling
+import {ROLE} from '@constants'
 import './header.css'
 
-// Define the props for the Header component
 interface HeaderProps {
   isLogin: boolean
   onSignIn: () => void
@@ -26,11 +16,9 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = props => {
-  // Destructuring props to get specific variables ('isLogin', 'onSignIn', and 'onLogout') from an object passed as props.
   const {isLogin, onSignIn, onLogout} = props
+  const isAdmin: boolean = getItemInLocalStorage('memberRole') === ROLE.ADMIN
 
-  // Checking if the value of 'memberRole' in local storage is equal to 'admin', then storing a boolean result in the 'isAdmin' variable.
-  const isAdmin = getItemInLocalStorage('memberRole') === 'admin'
   return (
     <header className="site-header">
       <div className="site-header-content">

@@ -1,14 +1,14 @@
 import React from 'react'
-
-// Importing the Loading and Typography components
-import Loading from '@components/LoadingIndicator'
-import Typography from '@components/Typography'
+import Loading from '@components/commons/LoadingIndicator'
+import Typography from '@components/commons/Typography'
 
 const LoadingPage = (): JSX.Element => {
   return (
     <div className="page-loading">
       <Loading isLoading={true} />
-      <Typography variant={'h2'}>The website is loading ...</Typography>
+      <Typography className="loading-text" variant={'h2'}>
+        The website is loading ...
+      </Typography>
     </div>
   )
 }
