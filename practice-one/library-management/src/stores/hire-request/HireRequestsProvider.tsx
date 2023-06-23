@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useReducer} from 'react'
+import React, {useMemo, useReducer} from 'react'
 import {deleteHireRequest, editHireRequest, setHireRequests} from './actions'
 import {useHireRequests} from '@hooks/fetch'
 import {HireRequestsState, IHireRequest} from '@types'
@@ -15,16 +15,15 @@ export const initialState: HireRequestsState = {
 
 const HireRequestsProvider = ({children}: ProviderProps): JSX.Element => {
   const {allHireRequests} = useHireRequests()
-  const [hireRequestState, hireRequestDispatch] = useReducer(reducer, {
-    ...initialState,
-    hireRequests: allHireRequests ?? [],
-  })
+  const [hireRequestState, hireRequestDispatch] = useReducer(
+    reducer,
+    initialState
+  )
 
-  useEffect(() => {
-    if (allHireRequests) {
-      hireRequestDispatch(setHireRequests(allHireRequests))
-    }
-  }, [allHireRequests])
+  // Dispatch the setHireRequests action to update the state once the data is fetched.
+  if (allHireRequests && !hireRequestState.hireRequests.length) {
+    hireRequestDispatch(setHireRequests(allHireRequests))
+  }
 
   const editHireRequestState = (payload: IHireRequest) =>
     hireRequestDispatch(editHireRequest(payload))
