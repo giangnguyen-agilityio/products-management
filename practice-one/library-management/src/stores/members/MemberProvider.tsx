@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useReducer} from 'react'
+import React, {useMemo, useReducer} from 'react'
 import {setMembers} from './actions'
 import {useMembers} from '@hooks/fetch'
 import {MembersState} from '@types'
@@ -15,16 +15,12 @@ export const initialState: MembersState = {
 
 const MembersProvider = ({children}: ProviderProps): JSX.Element => {
   const {allMembers} = useMembers()
-  const [memberState, memberDispatch] = useReducer(reducer, {
-    ...initialState,
-    members: allMembers ?? [],
-  })
+  const [memberState, memberDispatch] = useReducer(reducer, initialState)
 
-  useEffect(() => {
-    if (allMembers) {
-      memberDispatch(setMembers(allMembers))
-    }
-  }, [allMembers])
+  // Dispatch the setMembers action to update the state once the data is fetched.
+  if (allMembers && !memberState.members.length) {
+    memberDispatch(setMembers(allMembers))
+  }
 
   const contextValue = useMemo(
     () => ({memberState, memberDispatch}),
