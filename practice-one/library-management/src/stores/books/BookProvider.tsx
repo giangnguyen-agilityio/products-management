@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useReducer} from 'react'
+import React, {useMemo, useReducer} from 'react'
 import {useBooks} from '@hooks/fetch'
 import {BooksState, IBook} from '@types'
 import BookContext from './BookContext'
@@ -15,16 +15,12 @@ export const initialState: BooksState = {
 
 const BookProvider = ({children}: ProviderProps): JSX.Element => {
   const {allBooks} = useBooks()
-  const [bookState, bookDispatch] = useReducer(reducer, {
-    ...initialState,
-    books: allBooks ?? [],
-  })
+  const [bookState, bookDispatch] = useReducer(reducer, initialState)
 
-  useEffect(() => {
-    if (allBooks) {
-      bookDispatch(setBook(allBooks))
-    }
-  }, [allBooks])
+  // Dispatch the setBook action to update the state once the data is fetched.
+  if (allBooks && !bookState.books.length) {
+    bookDispatch(setBook(allBooks))
+  }
 
   const addNewBookState = (payload: IBook) => bookDispatch(addNewBook(payload))
   const editBookState = (payload: IBook) => bookDispatch(editBook(payload))
