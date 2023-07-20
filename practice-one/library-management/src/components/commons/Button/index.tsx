@@ -14,7 +14,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   ariaLabel?: string
   onClick?: () => void
   disabled?: boolean
-  children: React.ReactNode | undefined
+  children?: React.ReactNode | undefined
 }
 
 const Button: React.FC<ButtonProps> = props => {

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component renders a button with correct default variant and size 1`] = `
+<button
+  class="btn btn-primary btn-medium "
+  type="button"
+/>
+`;
+
+exports[`Button Component renders a button with custom variant and size 1`] = `
+<button
+  class="btn btn-secondary btn-large "
+  type="button"
+/>
+`;
