@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography component renders correctly with the provided props 1`] = `
+<h1
+  class="text-h1 text-primary "
+>
+  This is text!
+</h1>
+`;
