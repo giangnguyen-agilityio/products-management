@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading component should not render the loading indicator when isLoading is false 1`] = `<div />`;
+
+exports[`Loading component should render the loading indicator when isLoading is true 1`] = `
+<div>
+  <div
+    class="loading-indicator"
+  >
+    <ul
+      class="loading-icon"
+    >
+      <li
+        class="wave"
+      />
+      <li
+        class="wave"
+      />
+      <li
+        class="wave"
+      />
+      <li
+        class="wave"
+      />
+      <li
+        class="wave"
+      />
+      <li
+        class="wave"
+      />
+    </ul>
+  </div>
+</div>
+`;
