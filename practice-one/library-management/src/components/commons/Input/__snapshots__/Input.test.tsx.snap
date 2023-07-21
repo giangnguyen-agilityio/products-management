@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component should fire onChange event when input value changes 1`] = `
+<div>
+  <div
+    class="input-wrapper"
+  >
+    <label
+      class="label "
+    >
+      Password
+    </label>
+    <input
+      class="input "
+      min="0"
+      name="password"
+      type="password"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Input Component should render Input component with a custom className for the label 1`] = `
+<label
+  class="label custom-label"
+>
+  Email
+</label>
+`;
+
+exports[`Input Component should render Input component with an error message 1`] = `
+<p
+  class="error-message"
+>
+  Age must be a number
+</p>
+`;
+
+exports[`Input Component should render Input component with basic props 1`] = `
+<input
+  class="input "
+  min="0"
+  name="username"
+  placeholder="Enter your username"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input Component should render Input component with type, min, and accept attributes 1`] = `
+<input
+  accept=".jpg,.png"
+  class="input "
+  min="1"
+  name="file"
+  type="file"
+  value=""
+/>
+`;

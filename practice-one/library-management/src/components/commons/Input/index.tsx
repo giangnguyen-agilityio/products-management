@@ -31,8 +31,11 @@ const Input: React.FC<InputProps> = (props): JSX.Element => {
   } = props
   return (
     <div className="input-wrapper">
-      <label className={`label ${classNameLabel ?? ''}`}>{label}</label>
+      <label htmlFor={className} className={`label ${classNameLabel ?? ''}`}>
+        {label}
+      </label>
       <input
+        id={className}
         className={`input ${className ?? ''}`}
         name={name}
         type={type ?? 'text'}
