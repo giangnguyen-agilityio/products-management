@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyProductList component should renders correctly with error message prop and the error image 1`] = `
+<div>
+  <div
+    class="empty-product-list"
+  >
+    <div
+      class="error-list-image"
+    >
+      <img
+        alt="This is the error image"
+        src="mocked-error-image"
+      />
+    </div>
+    <p
+      class="text-p text-default error-list-title"
+    >
+      This is an error message
+    </p>
+  </div>
+</div>
+`;

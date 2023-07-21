@@ -12,6 +12,9 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '@helpers': '<rootDir>/src/helpers/index.ts',
+    '@components/commons/(.*)$': '<rootDir>/src/components/commons/$1',
+    '@assets/images/error-image.png$':
+      '<rootDir>/src/assets/images/error-image.png',
   },
   transform: {
     '^.+\\.css$': 'jest-transform-stub',
