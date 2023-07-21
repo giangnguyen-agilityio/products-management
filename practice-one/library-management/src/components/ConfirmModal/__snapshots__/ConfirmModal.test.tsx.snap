@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmModal should renders the component with the correct props 1`] = `
+<div>
+  <div
+    class="confirm-modal-content"
+  >
+    <img
+      alt="Image for delete action"
+      class="confirm-modal-image"
+      src="delete-icon.gif"
+    />
+    <p
+      class="text-p text-default confirm-modal-title"
+    >
+      Do you really want to delete this 
+      item
+       ?
+      <br />
+      This process
+       
+      <strong
+        class="highlight-text"
+      >
+         cannot be undone.
+      </strong>
+    </p>
+    <div
+      class="confirm-modal-control"
+    >
+      <button
+        class="btn btn-primary btn-medium confirm-modal-button"
+        type="button"
+      >
+        Delete
+      </button>
+      <button
+        class="btn btn-primary btn-medium cancel-modal-button"
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+`;

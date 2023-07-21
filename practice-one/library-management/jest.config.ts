@@ -13,8 +13,10 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
     '@helpers': '<rootDir>/src/helpers/index.ts',
     '@components/commons/(.*)$': '<rootDir>/src/components/commons/$1',
-    '@assets/images/error-image.png$':
+    '@assets/images/error-image.png':
       '<rootDir>/src/assets/images/error-image.png',
+    '@assets/images/delete-icon.gif':
+      '<rootDir>/src/assets/images/delete-icon.gif',
   },
   transform: {
     '^.+\\.css$': 'jest-transform-stub',
