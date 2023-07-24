@@ -19,7 +19,7 @@ const UserProfile: React.FC<UserProfileProps> = props => {
         <img
           className="user-avatar"
           id="user-avatar"
-          src={typeof avatarUrl === 'string' ? avatarUrl : undefined}
+          src={avatarUrl}
           alt="The avatar of the user"
         />
         {/* Render the user's email */}
