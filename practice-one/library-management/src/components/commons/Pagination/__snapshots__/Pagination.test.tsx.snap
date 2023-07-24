@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should does not mark any item as active when activeIndex is out of range 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should marks the active item correctly 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border active"
+    >
+      <div
+        class="pagination-item active"
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should renders correct number of pagination items 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border active"
+    >
+      <div
+        class="pagination-item active"
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+    <div
+      class="pagination-item-border "
+    >
+      <div
+        class="pagination-item "
+      />
+    </div>
+  </div>
+</div>
+`;
