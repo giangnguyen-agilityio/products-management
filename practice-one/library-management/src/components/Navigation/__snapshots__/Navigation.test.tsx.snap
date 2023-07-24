@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation component should renders navigation links as span for non-member 1`] = `
+<div>
+  <ul
+    class="navigation"
+  >
+    <li
+      id="link1-page"
+    >
+      <span
+        class="link-label"
+      >
+        Link 1
+      </span>
+    </li>
+    <li
+      id="link2-page"
+    >
+      <span
+        class="link-label"
+      >
+        Link 2
+      </span>
+    </li>
+    <li
+      id="link3-page"
+    >
+      <span
+        class="link-label"
+      >
+        Link 3
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Navigation component should renders navigation links for a member 1`] = `
+<div>
+  <ul
+    class="navigation"
+  >
+    <li
+      id="link1-page"
+    >
+      <a
+        class="link-label"
+        href="/link1"
+      >
+        Link 1
+      </a>
+    </li>
+    <li
+      id="link2-page"
+    >
+      <a
+        class="link-label"
+        href="/link2"
+      >
+        Link 2
+      </a>
+    </li>
+    <li
+      id="link3-page"
+    >
+      <a
+        class="link-label"
+        href="/link3"
+      >
+        Link 3
+      </a>
+    </li>
+  </ul>
+</div>
+`;
