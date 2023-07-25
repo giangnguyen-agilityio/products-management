@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component should not render the modal when \`showModal\` is false 1`] = `<div />`;
+
+exports[`Modal component should render the correct modal type based on \`modalType\` prop 1`] = `
+<div>
+  <div
+    class="modal-overlay"
+  >
+    <div
+      class="modal-container modal-delete"
+    >
+      <div
+        class="modal-header"
+      >
+        <h2
+          class="text-h2 text-default modal-title"
+        >
+          Test Modal
+        </h2>
+        <button
+          class="btn btn-primary btn-large close-modal-btn"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="20"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="modal-content"
+      >
+        Modal Content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should render the modal when \`showModal\` is true 1`] = `
+<div>
+  <div
+    class="modal-overlay"
+  >
+    <div
+      class="modal-container "
+    >
+      <div
+        class="modal-header"
+      >
+        <h2
+          class="text-h2 text-default modal-title"
+        >
+          Test Modal
+        </h2>
+        <button
+          class="btn btn-primary btn-large close-modal-btn"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="20"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="modal-content"
+      >
+        Modal Content
+      </div>
+    </div>
+  </div>
+</div>
+`;

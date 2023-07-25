@@ -2,7 +2,7 @@ import React, {memo, useCallback, useEffect} from 'react'
 import Typography from '@components/commons/Typography'
 import Button from '@components/commons/Button'
 import {IoClose} from 'react-icons/io5'
-import {MODAL} from '@constants'
+import {MODAL} from '@constants/modal'
 import './modal.css'
 
 interface ModalProps {
