@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHead component should does not render the "Action" header cell when user is not an Admin 1`] = `
+<table>
+  <thead
+    class="table-header"
+  >
+    <tr
+      class="table-header-row"
+    >
+      <th
+        class="table-header-cell"
+      >
+        Column 1
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 2
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 3
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 4
+      </th>
+    </tr>
+  </thead>
+</table>
+`;
+
+exports[`TableHead component should renders table header cells correctly 1`] = `
+<table>
+  <thead
+    class="table-header"
+  >
+    <tr
+      class="table-header-row"
+    >
+      <th
+        class="table-header-cell"
+      >
+        Column 1
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 2
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 3
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 4
+      </th>
+    </tr>
+  </thead>
+</table>
+`;
+
+exports[`TableHead component should renders the "Action" header cell when user is an Admin 1`] = `
+<table>
+  <thead
+    class="table-header"
+  >
+    <tr
+      class="table-header-row"
+    >
+      <th
+        class="table-header-cell"
+      >
+        Column 1
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 2
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 3
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Column 4
+      </th>
+      <th
+        class="table-header-cell"
+      >
+        Action
+      </th>
+    </tr>
+  </thead>
+</table>
+`;

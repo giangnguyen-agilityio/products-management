@@ -18,6 +18,9 @@ module.exports = {
     '@assets/images/delete-icon.gif':
       '<rootDir>/src/assets/images/delete-icon.gif',
     '@constants/modal': '<rootDir>/src/constants/modal.ts',
+    '@constants/role': '<rootDir>/src/constants/role.ts',
+    '@types': '<rootDir>/src/types/index.ts',
+    '@components': '<rootDir>/src/components',
   },
   transform: {
     '^.+\\.css$': 'jest-transform-stub',

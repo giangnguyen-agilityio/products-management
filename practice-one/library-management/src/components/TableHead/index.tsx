@@ -1,6 +1,6 @@
 import React from 'react'
 import {TableColumn} from '@types'
-import {ROLE} from '@constants'
+import {ROLE} from '@constants/role'
 import {getItemInLocalStorage} from '@helpers'
 import './table-head.css'
 
