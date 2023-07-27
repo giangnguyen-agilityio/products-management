@@ -161,6 +161,28 @@ describe('TableRow component', () => {
     expect(container).toMatchSnapshot()
   })
 
+  it('should not apply the "hide" class for the data that has status "incomplete"', () => {
+    const {container} = render(
+      <TableRow
+        data={{...dataMock, status: 'incomplete'}}
+        columns={columnsMock}
+        onToggleCompletion={() => {}}
+        onOpenModalEdit={() => {}}
+        onOpenModalDelete={() => {}}
+      />,
+      {
+        container: document.body.appendChild(tableBodyElement),
+      }
+    )
+
+    const toggleCompletionButton = container.querySelector(
+      '.toggle-completion-btn'
+    )
+
+    expect(toggleCompletionButton).not.toHaveClass('hide')
+    expect(container).toMatchSnapshot()
+  })
+
   it('should apply the "highlight" class for the table row that has data containing the status "completed" and the toDate earlier than the current date', () => {
     const {container} = render(
       <TableRow data={dataMock} columns={columnsMock} />,
