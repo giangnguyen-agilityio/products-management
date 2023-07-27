@@ -2,14 +2,21 @@
 
 exports[`Button Component renders a button with correct default variant and size 1`] = `
 <button
-  class="btn btn-primary btn-medium "
+  class="btn btn-primary btn-medium test-button"
   type="button"
 />
 `;
 
 exports[`Button Component renders a button with custom variant and size 1`] = `
 <button
-  class="btn btn-secondary btn-large "
+  class="btn btn-secondary btn-large test-button"
+  type="button"
+/>
+`;
+
+exports[`Button Component renders button with default props 1`] = `
+<button
+  class="btn btn-primary btn-medium test-button"
   type="button"
 />
 `;
