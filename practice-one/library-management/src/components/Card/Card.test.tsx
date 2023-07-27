@@ -33,6 +33,19 @@ describe('Card component', () => {
     expect(container).toMatchSnapshot()
   })
 
+  it('should renders the default data when book data is not provided', () => {
+    const {container} = render(
+      <Card
+        book={null}
+        onRent={mockOnRent}
+        onEdit={mockOnEdit}
+        onDelete={mockOnDelete}
+        isAdmin={true}
+      />
+    )
+    expect(container).toMatchSnapshot()
+  })
+
   it('should render "Rent" button if not an admin', () => {
     const {container} = render(
       <Card
@@ -109,5 +122,19 @@ describe('Card component', () => {
 
     fireEvent.click(screen.getByLabelText(/Delete button/i))
     expect(mockOnDelete).toHaveBeenCalledWith(mockBook.id)
+  })
+
+  it('should renders image alt attribute correctly with book title', () => {
+    const {getByAltText} = render(
+      <Card
+        book={mockBook}
+        onRent={mockOnRent}
+        onEdit={mockOnEdit}
+        onDelete={mockOnDelete}
+        isAdmin={true}
+      />
+    )
+    const image = getByAltText(mockBook.title)
+    expect(image).toBeInTheDocument()
   })
 })
