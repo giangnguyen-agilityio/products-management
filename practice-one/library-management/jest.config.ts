@@ -19,8 +19,10 @@ module.exports = {
       '<rootDir>/src/assets/images/delete-icon.gif',
     '@constants/modal': '<rootDir>/src/constants/modal.ts',
     '@constants/role': '<rootDir>/src/constants/role.ts',
-    '@types': '<rootDir>/src/types/index.ts',
+    '@components/TableHead': '<rootDir>/src/components/TableHead',
+    '@components/TableRow': '<rootDir>/src/components/TableRow',
     '@components': '<rootDir>/src/components',
+    '@types': '<rootDir>/src/types/index.ts',
   },
   transform: {
     '^.+\\.css$': 'jest-transform-stub',
