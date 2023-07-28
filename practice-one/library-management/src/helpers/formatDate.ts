@@ -1,5 +1,10 @@
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
+
+  if (isNaN(date.getTime())) {
+    return 'Invalid Date'
+  }
+
   const day = date.getDate()
   const month = date.getMonth() + 1
   const year = date.getFullYear()
@@ -13,9 +18,9 @@ const formatDate = (dateString: string): string => {
 }
 
 // Helper function to parse date string in the format "21/3/2023 15:52:13"
-const parseDateString = (dateString: string): Date => {
+const parseDateString = (dateString: string): Date | string => {
   const [day, month, year, hour, minute, second] = dateString.split(/[/ :]/)
-  return new Date(
+  const parsedDate = new Date(
     Number(year),
     Number(month) - 1,
     Number(day),
@@ -23,12 +28,22 @@ const parseDateString = (dateString: string): Date => {
     Number(minute),
     Number(second)
   )
+
+  if (isNaN(parsedDate.getTime())) {
+    return 'Invalid Date'
+  }
+
+  return parsedDate
 }
 
 // This function takes in a string representing a date and time and formats it into a localized string, based on the user's preferences
 const formatDatetimeLocal = (dateString: string) => {
   // Create a new JavaScript Date object based on the input date string
   const date = new Date(dateString)
+
+  if (isNaN(date.getTime())) {
+    return 'Invalid Date'
+  }
 
   // Get the year from the date object
   const year = date.getFullYear()
