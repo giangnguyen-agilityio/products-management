@@ -33,7 +33,7 @@ const Toast: React.FC<ToastProps> = props => {
   return (
     <div
       className={`toast ${status ? 'success' : 'failure'} ${
-        isVisible ? 'slide-in' : 'slide-out'
+        isVisible && 'slide-in'
       }`}
     >
       <div className="toast-content">

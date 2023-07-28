@@ -33,11 +33,6 @@
   animation: slideIn 0.5s ease-in-out;
 }
 
-.slide-out {
-  opacity: 0;
-  animation: slideOut 0.5s ease-in-out;
-}
-
 @keyframes slideIn {
   from {
     transform: translateX(100%);
