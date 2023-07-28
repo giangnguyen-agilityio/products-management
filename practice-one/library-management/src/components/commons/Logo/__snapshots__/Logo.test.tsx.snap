@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Logo component should render the image in the Link with the default width and height when not provided 1`] = `
+<div>
+  <a
+    href="/"
+  >
+    <div
+      class="logo"
+    >
+      <h1>
+        Test Logo
+      </h1>
+      <img
+        alt="Test Alt Text"
+        src="test-image.png"
+        style="width: 50px; height: 50px;"
+      />
+    </div>
+  </a>
+</div>
+`;
+
 exports[`Logo component should render the image with the default width and height when not provided 1`] = `
 <div>
   <div

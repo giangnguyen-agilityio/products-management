@@ -51,7 +51,10 @@ describe('Logo component', () => {
     expect(container).toMatchSnapshot()
   })
 
-  it('should render the image with the default width and height when not provided', () => {
+  it('should render the image in the Link with the default width and height when not provided', () => {
+    // Mocking getItemInLocalStorage to return a falsy value
+    jest.spyOn(helpers, 'getItemInLocalStorage').mockReturnValue('M01')
+
     const {container} = render(
       <MemoryRouter>
         <Logo
@@ -63,9 +66,34 @@ describe('Logo component', () => {
     )
 
     // The component should render with default width and height of 50px
-    const logoImage = container.querySelector('img')
+    const imgElement = container.querySelector('img')
+
     expect(container).toMatchSnapshot()
-    expect(logoImage?.style.width).toBe('50px')
-    expect(logoImage?.style.height).toBe('50px')
+    expect(imgElement).toBeInTheDocument()
+    expect(imgElement).toHaveStyle('width: 50px')
+    expect(imgElement).toHaveStyle('height: 50px')
+  })
+
+  it('should render the image with the default width and height when not provided', () => {
+    // Mocking getItemInLocalStorage to return a falsy value
+    jest.spyOn(helpers, 'getItemInLocalStorage').mockReturnValue(null)
+
+    const {container} = render(
+      <MemoryRouter>
+        <Logo
+          text="Test Logo"
+          imageSrc="test-image.png"
+          altText="Test Alt Text"
+        />
+      </MemoryRouter>
+    )
+
+    // The component should render with default width and height of 50px
+    const imgElement = container.querySelector('img')
+
+    expect(container).toMatchSnapshot()
+    expect(imgElement).toBeInTheDocument()
+    expect(imgElement).toHaveStyle('width: 50px')
+    expect(imgElement).toHaveStyle('height: 50px')
   })
 })

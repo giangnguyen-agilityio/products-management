@@ -26,8 +26,8 @@ const Logo: React.FC<LogoProps> = props => {
             src={imageSrc}
             alt={altText}
             style={{
-              width: `${widthSize ?? 50}px`,
-              height: `${heightSize ?? 50}px`,
+              width: `${widthSize || 50}px`,
+              height: `${heightSize || 50}px`,
             }}
           />
         )}
@@ -43,8 +43,8 @@ const Logo: React.FC<LogoProps> = props => {
           src={imageSrc}
           alt={altText}
           style={{
-            width: `${widthSize ?? 50}px`,
-            height: `${heightSize ?? 50}px`,
+            width: `${widthSize || 50}px`,
+            height: `${heightSize || 50}px`,
           }}
         />
       )}
