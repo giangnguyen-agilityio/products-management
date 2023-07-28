@@ -27,7 +27,7 @@ const TableRow: React.FC<TableRowProps> = props => {
     onToggleCompletion || onOpenModalEdit || onOpenModalDelete
 
   // Convert and calculate date differences
-  const toDate: Date = parseDateString(data.toDate)
+  const toDate: Date | string = parseDateString(data.toDate)
   const currentDate: Date = new Date()
   // If the data status is 'completed', the button will be hidden.
   const hideButton: string = `${data.status === 'completed' ? 'hide' : ''}`
