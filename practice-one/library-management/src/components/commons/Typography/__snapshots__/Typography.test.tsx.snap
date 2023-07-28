@@ -1,9 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Typography component renders correctly with the provided props 1`] = `
-<h1
-  class="text-h1 text-primary "
->
-  This is text!
-</h1>
+exports[`Typography component should renders a paragraph with default styles when variant is not specified 1`] = `
+<div>
+  <p
+    class="text-p text-default "
+  >
+    Test Typography
+  </p>
+</div>
+`;
+
+exports[`Typography component should renders different heading elements when variant is specified 1`] = `
+<div>
+  <h1
+    class="text-h1 text-default "
+  >
+    Test Typography
+  </h1>
+</div>
+`;
+
+exports[`Typography component should renders different heading elements when variant is specified 2`] = `
+<div>
+  <h2
+    class="text-h2 text-default "
+  >
+    Test Typography
+  </h2>
+</div>
+`;
+
+exports[`Typography component should renders different heading elements when variant is specified 3`] = `
+<div>
+  <h3
+    class="text-h3 text-default "
+  >
+    Test Typography
+  </h3>
+</div>
+`;
+
+exports[`Typography component should renders different heading elements when variant is specified 4`] = `
+<div>
+  <h4
+    class="text-h4 text-default "
+  >
+    Test Typography
+  </h4>
+</div>
+`;
+
+exports[`Typography component should renders different heading elements when variant is specified 5`] = `
+<div>
+  <h5
+    class="text-h5 text-default "
+  >
+    Test Typography
+  </h5>
+</div>
+`;
+
+exports[`Typography component should renders different heading elements when variant is specified 6`] = `
+<div>
+  <h6
+    class="text-h6 text-default "
+  >
+    Test Typography
+  </h6>
+</div>
 `;
