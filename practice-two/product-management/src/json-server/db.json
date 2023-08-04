@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "id": "p001",
+      "name": "Smart TV Model A",
+      "price": 800,
+      "rate": 4.5,
+      "image_url": "https://example.com/images/smart_tv_model_a.jpg",
+      "discount": 10
+    },
+    {
+      "id": "p002",
+      "name": "Laptop Model B",
+      "price": 1200,
+      "rate": 4.8,
+      "image_url": "https://example.com/images/laptop_model_b.jpg",
+      "discount": 15
+    },
+    {
+      "id": "p003",
+      "name": "Refrigerator Model C",
+      "price": 600,
+      "rate": 4.2,
+      "image_url": "https://example.com/images/refrigerator_model_c.jpg",
+      "discount": 5
+    },
+    {
+      "id": "p004",
+      "name": "Smartphone Model D",
+      "price": 450,
+      "rate": 4.6,
+      "image_url": "https://example.com/images/smartphone_model_d.jpg",
+      "discount": 20
+    },
+    {
+      "id": "p005",
+      "name": "Tablet Model E",
+      "price": 300,
+      "rate": 4.3,
+      "image_url": "https://example.com/images/tablet_model_e.jpg",
+      "discount": 12
+    },
+    {
+      "id": "p006",
+      "name": "Air Conditioner Model F",
+      "price": 900,
+      "rate": 4.0,
+      "image_url": "https://example.com/images/air_conditioner_model_f.jpg",
+      "discount": 8
+    },
+    {
+      "id": "p007",
+      "name": "Washing Machine Model G",
+      "price": 700,
+      "rate": 4.4,
+      "image_url": "https://example.com/images/washing_machine_model_g.jpg",
+      "discount": 10
+    },
+    {
+      "id": "p008",
+      "name": "Gaming Console Model H",
+      "price": 400,
+      "rate": 4.7,
+      "image_url": "https://example.com/images/gaming_console_model_h.jpg",
+      "discount": 25
+    },
+    {
+      "id": "p009",
+      "name": "Blender Model I",
+      "price": 50,
+      "rate": 4.1,
+      "image_url": "https://example.com/images/blender_model_i.jpg",
+      "discount": 0
+    },
+    {
+      "id": "p010",
+      "name": "Camera Model J",
+      "price": 650,
+      "rate": 4.9,
+      "image_url": "https://example.com/images/camera_model_j.jpg",
+      "discount": 18
+    },
+    {
+      "id": "p011",
+      "name": "Smartwatch Model K",
+      "price": 180,
+      "rate": 4.2,
+      "image_url": "https://example.com/images/smartwatch_model_k.jpg",
+      "discount": 30
+    },
+    {
+      "id": "p012",
+      "name": "Vacuum Cleaner Model L",
+      "price": 120,
+      "rate": 3.9,
+      "image_url": "https://example.com/images/vacuum_cleaner_model_l.jpg",
+      "discount": 15
+    },
+    {
+      "id": "p013",
+      "name": "Headphones Model M",
+      "price": 70,
+      "rate": 4.5,
+      "image_url": "https://example.com/images/headphones_model_m.jpg",
+      "discount": 10
+    },
+    {
+      "id": "p014",
+      "name": "Microwave Model N",
+      "price": 85,
+      "rate": 4.0,
+      "image_url": "https://example.com/images/microwave_model_n.jpg",
+      "discount": 5
+    },
+    {
+      "id": "p015",
+      "name": "Monitor Model O",
+      "price": 250,
+      "rate": 4.6,
+      "image_url": "https://example.com/images/monitor_model_o.jpg",
+      "discount": 10
+    },
+    {
+      "id": "p016",
+      "name": "Printer Model P",
+      "price": 130,
+      "rate": 4.3,
+      "image_url": "https://example.com/images/printer_model_p.jpg",
+      "discount": 20
+    },
+    {
+      "id": "p017",
+      "name": "Fitness Tracker Model Q",
+      "price": 90,
+      "rate": 4.8,
+      "image_url": "https://example.com/images/fitness_tracker_model_q.jpg",
+      "discount": 10
+    },
+    {
+      "id": "p018",
+      "name": "Rice Cooker Model R",
+      "price": 40,
+      "rate": 4.2,
+      "image_url": "https://example.com/images/rice_cooker_model_r.jpg",
+      "discount": 5
+    },
+    {
+      "id": "p019",
+      "name": "Toaster Model S",
+      "price": 25,
+      "rate": 4.5,
+      "image_url": "https://example.com/images/toaster_model_s.jpg",
+      "discount": 0
+    },
+    {
+      "id": "p020",
+      "name": "Hair Dryer Model T",
+      "price": 20,
+      "rate": 4.1,
+      "image_url": "https://example.com/images/hair_dryer_model_t.jpg",
+      "discount": 10
+    }
+  ]
+}
