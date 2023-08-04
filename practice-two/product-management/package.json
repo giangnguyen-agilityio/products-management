@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "format": "prettier --write \"**/*.+(ts|tsx|json|css)\"",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -40,5 +44,11 @@
     "prettier": "^3.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "pnpm lint:fix",
+      "pnpm format"
+    ]
   }
 }
