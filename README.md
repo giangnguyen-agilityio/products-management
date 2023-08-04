@@ -1,92 +1,173 @@
-# reactjs-training
+# React Training Plan
 
+## OVERVIEW
 
+A revision of React training plan which focuses on the latest version of [React(v18.2.0)](https://reactjs.org/docs/getting-started.html). It will help trainees learn React fundamentals step by step following the instructions and hands-on practices.
 
-## Getting started
+### Timeline
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- Main Concepts (Overview)
+  - 1 day (Mar 08, 2023)
+- Advanced Guides (Overview)
+  - 2 days (from Mar 09, 2023, to Mar 10, 2023)
+- Hooks API (Overview)
+  - 2 days (from Mar 13, 2023, to Mar 14, 2023)
+- ES6
+  - 1 day (Mar 15, 2023)
+- Storybook
+  - 2 days (Mar 16,2023, to Mar 17,2023)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## PREREQUISITE
 
-## Add your files
+- [ES6](https://www.javascripttutorial.net/es6/)
+- [TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html)
+- Install [nvm](https://github.com/nvm-sh/nvm#install--update-script) and [Node.js](https://nodejs.org/en/download/) v18.x
+- Install [pnpm](https://pnpm.io/) v7.x
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## GETTING STARTED
 
-```
-cd existing_repo
-git remote add origin https://gitlab.asoft-python.com/giang.nguyen/reactjs-training.git
-git branch -M main
-git push -uf origin main
-```
+### Build tool
 
-## Integrate with your tools
+We use [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) which is a build tool that aims to provide a faster and leaner development experience for modern web projects.
 
-- [ ] [Set up project integrations](https://gitlab.asoft-python.com/giang.nguyen/reactjs-training/-/settings/integrations)
+## MAIN CONCEPT
 
-## Collaborate with your team
+Step by step learning the main concepts. For any examples you found in the documentation, you can try it in your first React app created above.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+While reading Main Concepts, you can also do [hands-on practice](https://gitlab.asoft-python.com/bgh/javascript/react/-/wikis/home#practice) at the same time.
 
-## Test and Deploy
+- [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
+- [Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
+- [Components and Props](https://reactjs.org/docs/components-and-props.html)
+- [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Handling Events](https://reactjs.org/docs/handling-events.html)
+- [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
+- [Lists and Keys](https://reactjs.org/docs/lists-and-keys.html)
+- [Forms](https://reactjs.org/docs/forms.html)
+- [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
+- [Composition vs Inheritance](https://reactjs.org/docs/composition-vs-inheritance.html)
+- [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 
-Use the built-in continuous integration in GitLab.
+### Storybook
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+[Story book](https://storybook.js.org/) is an open source tool for building UI components and pages in isolation. It streamlines UI development, testing and documentation.
+Init storybook into your first React app:
 
-***
+- init storybook
+  > pnpx sb init -s
+- install dependencies
+  > pnpm install
+- run it
+  > pnpm storybook
 
-# Editing this README
+Try to create a Storybook for your example components
+https://storybook.js.org/tutorials/intro-to-storybook/react/en/simple-component/
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Practice
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Apply what you have read to rewrite your previous HTML/CSS practice into React components.
 
-## Name
-Choose a self-explaining name for your project.
+- Apply Storybook into your practice.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## ADVANCE GUIDES
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+All the topics in the [Advanced Guides](https://reactjs.org/docs/accessibility.html#:~:text=MAIN%20CONCEPTS-,ADVANCED%20GUIDES,-Accessibility) need to be read. Some highlight topics need more focus:
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+- [Code-Splitting](https://reactjs.org/docs/code-splitting.html)
+- [Context](https://reactjs.org/docs/context.html)
+- [Error Boundaries](https://reactjs.org/docs/error-boundaries.html)
+- [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html)
+- [Optimizing Performance](https://reactjs.org/docs/optimizing-performance.html)
+- [Profiler](https://reactjs.org/docs/profiler.html)
+- [Uncontrolled Components](https://reactjs.org/docs/uncontrolled-components.html)
+- [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## REACT HOOKS
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Hooks let you use state and other React features without writing a class.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+- [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
+- [useState Hook](https://reactjs.org/docs/hooks-state.html)
+- [useEffect Hook](https://reactjs.org/docs/hooks-effect.html)
+- [useContext Hook](https://reactjs.org/docs/hooks-reference.html#usecontext)
+- [useRef Hook](https://reactjs.org/docs/hooks-reference.html#useref)
+- [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html)
+- [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html)
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Debugging
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+- Debug tools: React DevTools. Supporters have to present how this tool works.
+- Install the extension and use it to debug your practices.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### Practice
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+This practice will let you understand about simple flow in React:
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+- Using React hooks
+- Filter and editing list of products
+  - Create mocking data: write a JSON file and import it into your JSX
+  - User filters by column values
+  - User edits/deletes product item
+    At the end of this step, trainees should be able to join projects for hot training and doing React Components.
 
-## License
-For open source projects, say how it is licensed.
+### Data fetching
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+[SWR](https://swr.vercel.app/)- React Hooks for Data Fetching
+
+- [Getting Started](https://swr.vercel.app/docs/getting-started) - use pnpm to install instead of npm/yarn
+- [Global Configuration](https://swr.vercel.app/docs/global-configuration)
+- [Data Fetching](https://swr.vercel.app/docs/data-fetching)
+- [Error Handling](https://swr.vercel.app/docs/error-handling)
+- [Auto Revalidation](https://swr.vercel.app/docs/revalidation)
+- [Pagination](https://swr.vercel.app/docs/pagination)
+
+### Unit testing
+
+Supporters should give a brief introduction for unit testing and how to set it up.
+
+- [Testing Overview](https://reactjs.org/docs/testing.html)
+  - [Jest](https://jestjs.io/)
+  - [React Test Library](https://testing-library.com/docs/react-testing-library/intro/)
+  - [Test Utilities](https://reactjs.org/docs/test-utils.html)
+- [Testing Recipes](https://reactjs.org/docs/testing-recipes.html)
+- [Testing environments](https://reactjs.org/docs/testing-environments.html)
+
+### Practice
+
+- Adding more features for practice 2
+  - User adds & deletes a product
+  - User deletes a product
+  - User opens product detail page
+  - User edits product information in product detail page
+  - Product data will be kept when refresh the page
+  - Apply [useContext](https://reactjs.org/docs/hooks-reference.html#usecontext) and [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer) for state management
+  - Apply SWR for fetching data - from a simple [json-server](https://github.com/typicode/json-server)
+- Unit test coverage should greater than 80%
+
+## REFERENCES
+
+This is not in the plan, trainees may want to read more about debugging tools, state management, etc.
+
+### Debugging Tools
+
+- [React perf](https://facebook.github.io/react/docs/perf.html)
+- [Reactotron](https://github.com/infinitered/reactotron)
+
+### State Management
+
+- [Redux](https://redux.js.org/)
+  - [Redux logger](https://github.com/evgenyrodionov/redux-logger)
+  - [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+- [Mobx](https://mobx.js.org/)
+
+### React Component libraries
+
+- [Chakra UI](https://chakra-ui.com/)
+- [Material UI](https://mui.com/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Ant Design](https://ant.design/)
+
+### React Router
+
+- [React Router v6](https://reactrouter.com/)
