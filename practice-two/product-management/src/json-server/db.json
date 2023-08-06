@@ -1,164 +1,224 @@
 {
   "products": [
     {
-      "id": "p001",
-      "name": "Smart TV Model A",
-      "price": 800,
+      "id": "P01",
+      "name": "iPhone 14 Pro Max",
+      "image": "src/assets/images/product_1.webp",
+      "discount": 11,
+      "oldPrice": 1263.80,
+      "newPrice": 1116.31,
       "rate": 4.5,
-      "image_url": "https://example.com/images/smart_tv_model_a.jpg",
-      "discount": 10
+      "description": "The iPhone 14 Pro Max is Apple's flagship smartphone, featuring a Super Retina XDR display, A16 Bionic chip for powerful performance, and an advanced triple-camera system for exceptional photography. With premium design, Face ID, and MagSafe technology, it offers a top-tier user experience.",
+      "category": "Phone"
     },
     {
-      "id": "p002",
-      "name": "Laptop Model B",
-      "price": 1200,
-      "rate": 4.8,
-      "image_url": "https://example.com/images/laptop_model_b.jpg",
-      "discount": 15
+      "id": "P02",
+      "name": "iPhone 14 Pro",
+      "image": "src/assets/images/product_2.webp",
+      "discount": 12,
+      "oldPrice": 1179.52,
+      "newPrice": 1032.03,
+      "rate": 5,
+      "description": "The iPhone 14 Pro is Apple's latest flagship, featuring a Super Retina XDR display, A16 Bionic chip, and advanced triple-camera system. With 5G capabilities and impressive battery life, it offers a top-tier smartphone experience.",
+      "category": "Phone"
     },
     {
-      "id": "p003",
-      "name": "Refrigerator Model C",
-      "price": 600,
-      "rate": 4.2,
-      "image_url": "https://example.com/images/refrigerator_model_c.jpg",
-      "discount": 5
+      "id": "P03",
+      "name": "iPhone 14",
+      "image": "src/assets/images/product_3.webp",
+      "discount": 12,
+      "oldPrice": 926.67,
+      "newPrice": 808.68,
+      "rate": 5,
+      "description": "The iPhone 14 looks identical to the iPhone 13, but there's a new 6.7-inch model called the iPhone 14 Plus. Under-the-hood improvements include 6GB of RAM, a 5-core GPU, Bluetooth 5.3, and multiple camera updates. Color options have been updated with (PRODUCT)RED, blue, purple, midnight, and starlight.",
+      "category": "Phone"
     },
     {
-      "id": "p004",
-      "name": "Smartphone Model D",
-      "price": 450,
+      "id": "P04",
+      "name": "Samsung Galaxy Z Fold5 5G",
+      "image": "src/assets/images/product_4.webp",
+      "discount": 0,
+      "oldPrice": 1727.35,
+      "newPrice": 1727.35,
+      "rate": 5,
+      "description": "The Samsung Galaxy Z Fold5 is the company's new big foldable phone for 2023, featuring a speedy Snapdragon 8 Gen 2 chip, 12GB RAM, and superfast UFS 4.0 storage. The new Flex Hinge allows the phone to close fully flat, addressing a previous issue with dust settling on the inner screen.",
+      "category": "Phone"
+    },
+    {
+      "id": "P05",
+      "name": "Samsung Galaxy Z Fold4 5G",
+      "image": "src/assets/images/product_5.webp",
+      "discount": 26,
+      "oldPrice": 1727.35,
+      "newPrice": 1263.80,
+      "rate": 5,
+      "description": "The Galaxy Z Fold 4 is the fourth version of Samsung's phone that folds open into a small tablet. It costs $1,800. Yes, that's a lot of gravy. Most of that price comes from the Z Fold 4's 7.6-inch foldable display. That same folding screen has a high refresh rate for playing video games, a clever camera hidden behind it for video calls and S Pen support for writing and drawing.",
+      "category": "Phone"
+    },
+    {
+      "id": "P06",
+      "name": "Samsung Galaxy S23 Ultra 5G",
+      "image": "src/assets/images/product_6.webp",
+      "discount": 18,
+      "oldPrice": 1348.08,
+      "newPrice": 1095.24,
       "rate": 4.6,
-      "image_url": "https://example.com/images/smartphone_model_d.jpg",
-      "discount": 20
+      "description": "The Samsung Galaxy S23 Ultra is the headliner of the S23 series. Specifications are top-notch including 6.8-inch Dynamic AMOLED display with 120Hz refresh rate, Snapdragon 8 Gen 2 processor, 5000mAh battery, up to 12gigs of RAM, and 1TB of storage. In the camera department, a quad-camera setup is presented with two telephoto sensors.",
+      "category": "Phone"
     },
     {
-      "id": "p005",
-      "name": "Tablet Model E",
-      "price": 300,
-      "rate": 4.3,
-      "image_url": "https://example.com/images/tablet_model_e.jpg",
-      "discount": 12
+      "id": "P07",
+      "name": "Samsung Galaxy Z Flip5 5G",
+      "image": "src/assets/images/product_7.webp",
+      "discount": 0,
+      "oldPrice": 1095.24,
+      "newPrice": 1095.24,
+      "rate": 5,
+      "description": "The Samsung Galaxy Z Flip 5G offers a minimal upgrade over the 4G only model. The most significant change is the Snapdragon 865+ processor which includes 5G support. Other specs remain unchanged, including the 6.7-inch foldable display, 8GB RAM, 256GB storage, and 3300mAh battery. The camera department is also unchanged.",
+      "category": "Phone"
     },
     {
-      "id": "p006",
-      "name": "Air Conditioner Model F",
-      "price": 900,
-      "rate": 4.0,
-      "image_url": "https://example.com/images/air_conditioner_model_f.jpg",
-      "discount": 8
-    },
-    {
-      "id": "p007",
-      "name": "Washing Machine Model G",
-      "price": 700,
+      "id": "P08",
+      "name": "Samsung Smart TV Crystal UHD UA55AU8100",
+      "image": "src/assets/images/product_8.webp",
+      "discount": 11,
+      "oldPrice": 564.26,
+      "newPrice": 501.05,
       "rate": 4.4,
-      "image_url": "https://example.com/images/washing_machine_model_g.jpg",
-      "discount": 10
+      "description": "The new Samsung 55AU8100 Smart TV features a 55 inch, UHD 4K display with powerful upscaling for enhanced resolution. It employs a Motion Xcelerator processor for clear picture, and its color mapping technology delivers lifelike colors. The TV also includes features like Ambient Mode, Adaptive Sound, and HDR for vibrant visuals. The design is sleek with a slim bezel and TITAN GRAY color.",
+      "category": "TV"
     },
     {
-      "id": "p008",
-      "name": "Gaming Console Model H",
-      "price": 400,
+      "id": "P09",
+      "name": "TCL Google TV 58P635",
+      "image": "src/assets/images/product_9.webp",
+      "discount": 19,
+      "oldPrice": 442.05,
+      "newPrice": 357.77,
+      "rate": 4.1,
+      "description": "The TCL 58P635 58 Inch 4K Google TV supports HDMI 2.1 with an increased bandwidth capacity of up to 48Gps to deliver an 8K resolution view and audiophile-quality sound. The 58 inch TV comes with a voice control remote with Google Assistant and Alexa support that lets you use a variety of voice commands for convenience.",
+      "category": "TV"
+    },
+    {
+      "id": "P10",
+      "name": "Sony Google TV KD-43X75K",
+      "image": "src/assets/images/product_10.webp",
+      "discount": 8,
+      "oldPrice": 479.98,
+      "newPrice": 437.84,
+      "rate": 4.2,
+      "description": "The Sony KD-43X75K television runs on Android TV 11 with the Google TV user interface, and has support for HDR10 and HLG formats. This Ultra-HD TV is positioned at a premium as compared to similarly specified 43-inch televisions. Performance is good, and the software and feature set also makes this a good television to consider if you're looking for a small secondary TV",
+      "category": "TV"
+    },
+    {
+      "id": "P11",
+      "name": "LG Smart TV 65UQ8000PSC",
+      "image": "src/assets/images/product_11.webp",
+      "discount": 49,
+      "oldPrice": 1070.37,
+      "newPrice": 538.98,
       "rate": 4.7,
-      "image_url": "https://example.com/images/gaming_console_model_h.jpg",
-      "discount": 25
+      "description": "The LG Smart TV 65UQ8000PSC is an entry-level TV in LG's 2022 lineup. It sits between the LG UQ9000 and the LG UQ75, and like their other entry-level models, it's limited in extra features. It comes with the same user-friendly LG webOS smart platform and the intuitive Magic Remote, whose point-and-press feature you can use to easily navigate the interface. It's available in several sizes, from 43 to 86 inches, and while most have basic features, the 86-inch version comes with extra gaming perks that the smaller sizes don't have, like HDMI 2.1 bandwidth and variable refresh rate (VRR)",
+      "category": "TV"
     },
     {
-      "id": "p009",
-      "name": "Blender Model I",
-      "price": 50,
-      "rate": 4.1,
-      "image_url": "https://example.com/images/blender_model_i.jpg",
-      "discount": 0
-    },
-    {
-      "id": "p010",
-      "name": "Camera Model J",
-      "price": 650,
-      "rate": 4.9,
-      "image_url": "https://example.com/images/camera_model_j.jpg",
-      "discount": 18
-    },
-    {
-      "id": "p011",
-      "name": "Smartwatch Model K",
-      "price": 180,
+      "id": "P12",
+      "name": "Samsung Inverter 236 liter RT22M4032BY/SV",
+      "image": "src/assets/images/product_12.webp",
+      "discount": 38,
+      "oldPrice": 395.70,
+      "newPrice": 244.41,
       "rate": 4.2,
-      "image_url": "https://example.com/images/smartwatch_model_k.jpg",
-      "discount": 30
+      "description": "The Samsung Inverter 236L Refrigerator RT22M4032BY/SV, perfect for 2-3 people. With 236L total capacity, including a 53L freezer and 183L fridge, it uses efficient Inverter and Digital Inverter tech for around 0.97 kW/day energy consumption. The multi-directional cooling system maintains food freshness, while the Deodorizer and Optimal Fresh Zone ensure hygiene and food preservation. Its elegant design features a mirrored metal door, durable glass shelves, and compact dimensions: H 154.5cm x W 55.5cm x D 63.7cm, weighing 46.5kg. Made in Vietnam in 2020, it comes with a 24-month warranty, exemplifying Samsung's reliability.",
+      "category": "Refrigerator"
     },
     {
-      "id": "p012",
-      "name": "Vacuum Cleaner Model L",
-      "price": 120,
-      "rate": 3.9,
-      "image_url": "https://example.com/images/vacuum_cleaner_model_l.jpg",
-      "discount": 15
+      "id": "P13",
+      "name": "Toshiba Inverter 325 liter GR-RB410WE-PMV(37)-SG",
+      "image": "src/assets/images/product_13.webp",
+      "discount": 39,
+      "oldPrice": 618.62,
+      "newPrice": 374.21,
+      "rate": 4,
+      "description": "The Toshiba Inverter 355L Refrigerator GR-RB410WE-PMV(37)-SG: A stylish bottom-freezer design with 325L usable capacity, perfect for 3-4 people. Crafted with durable metal and glass materials, it features Origin Inverter tech for energy efficiency (0.84 kW/day). Multi Air Flow system ensures uniform cooling, and special compartments like Origin Fresh and Flex-zone cater to diverse needs. PureBio tech combats odors and bacteria. Additional conveniences include rapid cooling, soft-freezing for meat and fish, and cosmetics storage. Dimensions: H 171.7 cm, W 59.3 cm, D 67.8 cm, weighing 58.5 kg",
+      "category": "Refrigerator"
     },
     {
-      "id": "p013",
-      "name": "Headphones Model M",
-      "price": 70,
-      "rate": 4.5,
-      "image_url": "https://example.com/images/headphones_model_m.jpg",
-      "discount": 10
-    },
-    {
-      "id": "p014",
-      "name": "Microwave Model N",
-      "price": 85,
-      "rate": 4.0,
-      "image_url": "https://example.com/images/microwave_model_n.jpg",
-      "discount": 5
-    },
-    {
-      "id": "p015",
-      "name": "Monitor Model O",
-      "price": 250,
-      "rate": 4.6,
-      "image_url": "https://example.com/images/monitor_model_o.jpg",
-      "discount": 10
-    },
-    {
-      "id": "p016",
-      "name": "Printer Model P",
-      "price": 130,
-      "rate": 4.3,
-      "image_url": "https://example.com/images/printer_model_p.jpg",
-      "discount": 20
-    },
-    {
-      "id": "p017",
-      "name": "Fitness Tracker Model Q",
-      "price": 90,
+      "id": "P14",
+      "name": "LG Inverter 217 liter GV-B212WB",
+      "image": "src/assets/images/product_14.webp",
+      "discount": 38,
+      "oldPrice": 378.84,
+      "newPrice": 231.35,
       "rate": 4.8,
-      "image_url": "https://example.com/images/fitness_tracker_model_q.jpg",
-      "discount": 10
+      "description": "The LG Inverter 217L Refrigerator GV-B212WB: A top-freezer design with 217L usable capacity, perfect for 2-3 people. It features stainless steel doors, sturdy glass shelves, and efficient Linear Cooling technology for consistent temperature control. The activated charcoal filter ensures hygiene and freshness. Released in 2022 and made in Vietnam, it consumes approximately 0.92 kW/day. Dimensions: H 144.5 cm, W 55.5 cm, D 63.7 cm, weighing 46 kg. This fridge combines efficiency, durability, and style.",
+      "category": "Refrigerator"
     },
     {
-      "id": "p018",
-      "name": "Rice Cooker Model R",
-      "price": 40,
-      "rate": 4.2,
-      "image_url": "https://example.com/images/rice_cooker_model_r.jpg",
-      "discount": 5
-    },
-    {
-      "id": "p019",
-      "name": "Toaster Model S",
-      "price": 25,
-      "rate": 4.5,
-      "image_url": "https://example.com/images/toaster_model_s.jpg",
-      "discount": 0
-    },
-    {
-      "id": "p020",
-      "name": "Hair Dryer Model T",
-      "price": 20,
+      "id": "P15",
+      "name": "Aqua Inverter 320 liter AQR-B399MA(WHB)",
+      "image": "src/assets/images/product_15.webp",
+      "discount": 6,
+      "oldPrice": 673.83,
+      "newPrice": 631.69,
       "rate": 4.1,
-      "image_url": "https://example.com/images/hair_dryer_model_t.jpg",
-      "discount": 10
+      "description": "The Aqua Inverter 320L Refrigerator AQR-B399MA(WHB): A bottom-freezer design with 350L total capacity. With 320L usable capacity, it's ideal for 3-4 people. Features include a 91L freezer, 195L fridge, and 34L convertible compartment. The stylish opaque mirror door is matched with robust glass shelves. It consumes around 1.07 kW/day (TCVN) and offers energy-saving features like vacation mode and Twin Inverter tech. The cooling system is 360-degree, with versatile storage zones. DEO Fresh tech ensures freshness. External controls, rapid cooling, and an external water dispenser add convenience. Dimensions: H 177 cm, W 60 cm, D 64.5 cm, weighing 70 kg.",
+      "category": "Refrigerator"
+    },
+    {
+      "id": "P16",
+      "name": "Daikin Inverter 2 HP FTKF50XVMV",
+      "image": "src/assets/images/product_16.webp",
+      "discount": 14,
+      "oldPrice": 888.75,
+      "newPrice": 762.32,
+      "rate": 4.3,
+      "description": "The Daikin Inverter 2 HP FTKF50XVMV is a powerful and efficient air conditioner designed to provide 2 HP (Horsepower) cooling capacity. With advanced inverter technology, it ensures energy-efficient cooling while maintaining comfortable temperatures. Perfect for medium-sized spaces, this Daikin air conditioner offers reliable and effective cooling performance.",
+      "category": "Air Conditioner"
+    },
+    {
+      "id": "P17",
+      "name": "Toshiba Inverter 1 HP RAS-H10Z1KCVG-V",
+      "image": "fsrc/assets/images/product_17.webp",
+      "discount": 7,
+      "oldPrice": 446.27,
+      "newPrice": 412.55,
+      "rate": 3.5,
+      "description": "The Toshiba Inverter 1 HP RAS-H10Z1KCVG-V is a compact and efficient air conditioner with a 1 HP (Horsepower) cooling capacity. Featuring advanced inverter technology, it delivers energy-efficient cooling and precise temperature control. This Toshiba air conditioner is ideal for smaller spaces, providing effective cooling performance while consuming minimal energy.",
+      "category": "Air Conditioner"
+    },
+    {
+      "id": "P18",
+      "name": "MacBook Pro 13 inch M2 2022 10-core GPU",
+      "image": "src/assets/images/product_18.webp",
+      "discount": 0,
+      "oldPrice": 1693.64,
+      "newPrice": 1693.64,
+      "rate": 4.9,
+      "description": "The MacBook Pro 13,3-inch M2 2022 with a 10-core GPU is a high-performance laptop. Powered by Apple's M2 chip, it offers impressive processing power and graphics capabilities. With a compact 13-inch display, this MacBook Pro delivers a blend of portability and performance, making it suitable for a range of tasks, from productivity to creative work and more.",
+      "category": "Laptop"
+    },
+    {
+      "id": "P19",
+      "name": "MSI Gaming GS66 Stealth 11UG i7 11800H (219VN)",
+      "image": "src/assets/images/product_19.webp",
+      "discount": 23,
+      "oldPrice": 2738.73,
+      "newPrice": 2108.73,
+      "rate": 4.5,
+      "description": "The MSI Gaming GS66 Stealth 11UG (i7-11800H, 219VN) is a powerhouse laptop designed for gaming and high-performance tasks. Equipped with an Intel Core i7-11800H processor, it offers exceptional processing power. The 'Stealth' design ensures a sleek and portable form factor, while the laptop's gaming-oriented features make it ideal for demanding users seeking top-tier gaming experiences and productivity capabilities.",
+      "category": "Laptop"
+    },
+    {
+      "id": "P20",
+      "name": "Asus Zenbook 14 Flip OLED UP3404VA i7 1360P (KN039W)",
+      "image": "src/assets/images/product_20.webp",
+      "discount": 11,
+      "oldPrice": 1432.36,
+      "newPrice": 1263.80,
+      "rate": 4.7,
+      "description": "The Asus Zenbook 14 Flip OLED UP3404VA (i7-1360P, KN039W) is a versatile laptop that combines sleek design with impressive performance. Featuring an Intel Core i7-1360P processor and a vibrant OLED display, it offers powerful computing and stunning visuals. The 2-in-1 design allows you to use it as a traditional laptop or flip it into tablet mode for added flexibility. With its compact size and high-resolution screen, this Zenbook is perfect for both work and entertainment on the go.",
+      "category": "Laptop"
     }
   ]
 }
