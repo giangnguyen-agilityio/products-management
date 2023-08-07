@@ -11,6 +11,8 @@ module.exports = {
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '@assets/images/delete_Action.gif':
+      '<rootDir>/src/assets/images/delete_Action.gif',
   },
   transform: {
     '^.+\\.css$': 'jest-transform-stub',

@@ -33,7 +33,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
       onClose()
       showSuccessToast(id)
     } catch (error) {
-      console.error('Error deleting item:', error)
       showErrorToast(id)
     }
   }, [id, onDelete, onClose])
@@ -72,7 +71,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader>Confirmation</AlertDialogHeader>
-          <AlertDialogCloseButton />
+          <AlertDialogCloseButton className="close-dialog-button" />
           <AlertDialogBody
             flexDirection="column"
             alignItems="center"
@@ -94,10 +93,15 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
             </Text>
           </AlertDialogBody>
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
+            <Button className="cancel-button" ref={cancelRef} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="red" onClick={handleDelete} ml={3}>
+            <Button
+              className="delete-button"
+              colorScheme="red"
+              onClick={handleDelete}
+              ml={3}
+            >
               Delete
             </Button>
           </AlertDialogFooter>
