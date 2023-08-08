@@ -5,6 +5,13 @@ jest.mock('@assets/images/delete_Action.gif', () => ({
   default: 'deleteAction',
 }))
 
+jest.mock('@chakra-ui/react', () => {
+  return {
+    ...jest.requireActual('@chakra-ui/react'),
+    useToast: () => jest.fn(),
+  }
+})
+
 describe('ConfirmDialog component', () => {
   it('renders ConfirmDialog component', () => {
     const { container } = render(
@@ -49,6 +56,21 @@ describe('ConfirmDialog component', () => {
 
     await waitFor(() => {
       expect(mockDeleteFn).toHaveBeenCalledWith('ID01')
+    })
+  })
+
+  it('shows the toast when delete the item', async () => {
+    const mockDeleteFnReject = jest.fn().mockRejectedValue('ID02')
+
+    const { getByLabelText, getByText } = render(
+      <ConfirmDialog id="ID01" onDelete={mockDeleteFnReject} />
+    )
+
+    fireEvent.click(getByLabelText('Delete Item'))
+    fireEvent.click(getByText('Delete'))
+
+    await waitFor(() => {
+      expect(mockDeleteFnReject).toHaveBeenCalledWith('ID01')
     })
   })
 })
