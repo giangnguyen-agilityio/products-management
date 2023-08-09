@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders DesktopNavigation component with links 1`] = `
+<div>
+  <nav
+    class="navigation css-1cd4dnj"
+  >
+    <ul
+      class="nav-list css-ffmerx"
+    >
+      <li
+        class="nav-item css-k008qs"
+      >
+        <a
+          aria-label="Home"
+          class="chakra-button css-1pbf9v6"
+          href="/home"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        class="nav-item css-k008qs"
+      >
+        <a
+          aria-label="About"
+          class="chakra-button css-1pbf9v6"
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li
+        class="nav-item css-k008qs"
+      >
+        <a
+          aria-label="Contact"
+          class="chakra-button css-1pbf9v6"
+          href="/contact"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
