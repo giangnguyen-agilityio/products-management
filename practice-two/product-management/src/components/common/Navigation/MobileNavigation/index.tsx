@@ -75,4 +75,4 @@ const MobileNavigationLinks: React.FC<{ links: Link[] }> = ({ links }) => (
   </Flex>
 )
 
-export { MobileContent }
+export default MobileContent
