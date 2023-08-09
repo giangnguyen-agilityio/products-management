@@ -3,12 +3,12 @@
 exports[`Logo component renders image when imageSrc prop is provided 1`] = `
 <div>
   <div
-    class="logo css-70qvj9"
+    class="logo css-759u60"
   >
     <img
       alt="The logo website"
       class="logo-image css-1x2q8y0"
-      loading="lazy"
+      loading="eager"
       src="logo.png"
       srcset="logo.png"
     />
@@ -19,7 +19,7 @@ exports[`Logo component renders image when imageSrc prop is provided 1`] = `
 exports[`Logo component renders text when text prop is provided 1`] = `
 <div>
   <div
-    class="logo css-70qvj9"
+    class="logo css-759u60"
   >
     <h1
       class="chakra-heading css-1xu3tth"
@@ -33,7 +33,7 @@ exports[`Logo component renders text when text prop is provided 1`] = `
 exports[`Logo component renders without crashing 1`] = `
 <div>
   <div
-    class="logo css-70qvj9"
+    class="logo css-759u60"
   />
 </div>
 `;
