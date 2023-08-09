@@ -4,6 +4,18 @@ import Logo from './index'
 const meta = {
   title: 'Practice Two/Logo Component',
   component: Logo,
+  decorators: [
+    Story => (
+      <div
+        style={{
+          backgroundColor: '#532EE7',
+          padding: '10px',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'centered',
   },
