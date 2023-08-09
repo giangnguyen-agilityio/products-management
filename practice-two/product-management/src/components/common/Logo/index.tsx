@@ -19,7 +19,7 @@ const Logo: React.FC<LogoProps> = ({
   heightSize = '40px',
 }) => {
   return (
-    <Flex align="center" className="logo">
+    <Flex align="center" className="logo" cursor="pointer">
       {/* Render the text if provided */}
       {text && (
         <Heading as="h1" size={textSize} color={textColor}>
@@ -30,7 +30,7 @@ const Logo: React.FC<LogoProps> = ({
       {imageSrc && (
         <Image
           className="logo-image"
-          loading="lazy"
+          loading="eager"
           srcSet={imageSrc}
           src={imageSrc}
           alt="The logo website"
