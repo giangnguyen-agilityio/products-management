@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { useDisclosure, Show, Hide, IconButton } from '@chakra-ui/react'
 import { Link } from '@types'
 import DesktopNavigation from './DesktopNavigation'
-import { MobileContent } from './MobileNavigation'
+import MobileContent from './MobileNavigation'
 import { HamburgerIcon } from '@chakra-ui/icons'
 
 // Interfaces
