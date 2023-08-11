@@ -7,6 +7,7 @@ import Fonts from '@themes/fonts'
 import Footer from '@layouts/Footer'
 import Hero from '@components/common/Hero'
 import { heroSectionContent } from '@constants'
+import ProductList from '@components/ProductList'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Box
         className="container"
         padding={{ base: '22px 10px', md: '22px 50px' }}
+        overflowY={{ base: 'hidden', xs: 'scroll' }}
       >
         <Header />
         <Hero
@@ -23,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           title={heroSectionContent.title}
           description={heroSectionContent.description}
         />
+        <ProductList />
         <Footer />
       </Box>
     </ChakraProvider>
