@@ -10,12 +10,16 @@ const Header = () => {
     <Flex
       as="header"
       className="header"
-      width="full"
       justifyContent="space-between"
+      maxWidth={{
+        sm: '340px',
+        md: '720px',
+        lg: '940px',
+        xl: '1140px',
+      }}
+      margin="0 auto"
     >
-      <Flex className="logo-website">
-        <Logo imageSrc={logoWebsite} />
-      </Flex>
+      <Logo imageSrc={logoWebsite} />
 
       <Navigation links={navigationLinks} />
     </Flex>
