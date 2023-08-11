@@ -179,7 +179,7 @@
     {
       "id": "P17",
       "name": "Toshiba Inverter 1 HP RAS-H10Z1KCVG-V",
-      "image": "fsrc/assets/images/product_17.webp",
+      "image": "src/assets/images/product_17.webp",
       "discount": 7,
       "oldPrice": 446.27,
       "newPrice": 412.55,
