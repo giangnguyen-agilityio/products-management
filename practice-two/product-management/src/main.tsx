@@ -8,6 +8,7 @@ import Footer from '@layouts/Footer'
 import Hero from '@components/common/Hero'
 import { heroSectionContent } from '@constants'
 import ProductList from '@components/ProductList'
+import Contact from '@components/Contact'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           description={heroSectionContent.description}
         />
         <ProductList />
+        <Contact />
         <Footer />
       </Box>
     </ChakraProvider>
