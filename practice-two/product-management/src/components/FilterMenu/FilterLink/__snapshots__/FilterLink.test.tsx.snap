@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterLink Component matches snapshot 1`] = `
+<div>
+  <a
+    class="chakra-link filter-item css-zkti8d"
+    href="/test"
+  >
+    <img
+      alt="The Test Label icon"
+      class="chakra-image css-1q11q9i"
+      loading="eager"
+      src="/test-icon.png"
+    />
+    <span
+      class="chakra-text css-1l4w6pd"
+    >
+      Test Label
+    </span>
+  </a>
+</div>
+`;
