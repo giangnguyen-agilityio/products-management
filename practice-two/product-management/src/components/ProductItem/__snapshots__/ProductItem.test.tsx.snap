@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductItem Component matches snapshot 1`] = `
+<div>
+  <li
+    class="product-item css-gon1ka"
+  >
+    <div
+      class="product-item-content css-8ptibi"
+    >
+      <div
+        class="image-container css-0"
+      >
+        <img
+          alt="Sample Product"
+          class="chakra-image css-qzwr75"
+          loading="lazy"
+          src="sample-image.jpg"
+        />
+      </div>
+      <p
+        class="chakra-text css-1lcl2yy"
+      >
+        Sample Product
+      </p>
+      <a
+        class="chakra-link css-ofgajc"
+      >
+        detail
+      </a>
+    </div>
+  </li>
+</div>
+`;
+
+exports[`ProductItem Component renders default image if product image is not available 1`] = `
+<div>
+  <li
+    class="product-item css-gon1ka"
+  >
+    <div
+      class="product-item-content css-8ptibi"
+    >
+      <div
+        class="image-container css-0"
+      >
+        <img
+          alt="Sample Product"
+          class="chakra-image css-qzwr75"
+          loading="lazy"
+          src="[object Object]"
+        />
+      </div>
+      <p
+        class="chakra-text css-1lcl2yy"
+      >
+        Sample Product
+      </p>
+      <a
+        class="chakra-link css-ofgajc"
+      >
+        detail
+      </a>
+    </div>
+  </li>
+</div>
+`;
