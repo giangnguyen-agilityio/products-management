@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactInfo component renders contact information 1`] = `
+<div>
+  <div
+    class="contact-information css-k9eruj"
+  >
+    <div
+      class="css-cv1ihh"
+    >
+      <img
+        alt="our main office icon"
+        class="chakra-image css-1wsuzl7"
+        src="[object Object]"
+      />
+      <p
+        class="chakra-text css-gcw0vf"
+      >
+        our main office
+      </p>
+      SoHo 94 Broadway St New York, NY 1001
+    </div>
+    <div
+      class="css-cv1ihh"
+    >
+      <img
+        alt="phone number icon"
+        class="chakra-image css-1wsuzl7"
+        src="[object Object]"
+      />
+      <p
+        class="chakra-text css-gcw0vf"
+      >
+        phone number
+      </p>
+      <p
+        class="chakra-text css-0"
+      >
+        234-9876-5400
+      </p>
+      <p
+        class="chakra-text css-0"
+      >
+        888-0123-4567 (Toll Free)
+      </p>
+    </div>
+    <div
+      class="css-cv1ihh"
+    >
+      <img
+        alt="fax icon"
+        class="chakra-image css-1wsuzl7"
+        src="[object Object]"
+      />
+      <p
+        class="chakra-text css-gcw0vf"
+      >
+        fax
+      </p>
+      1-234-567-8900
+    </div>
+    <div
+      class="css-cv1ihh"
+    >
+      <img
+        alt="email icon"
+        class="chakra-image css-1wsuzl7"
+        src="[object Object]"
+      />
+      <p
+        class="chakra-text css-gcw0vf"
+      >
+        email
+      </p>
+      <a
+        class="chakra-link css-1puecoh"
+        href="#"
+      >
+        hello@theme.com
+      </a>
+    </div>
+  </div>
+</div>
+`;
