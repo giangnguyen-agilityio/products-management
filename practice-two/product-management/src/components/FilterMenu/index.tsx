@@ -52,7 +52,7 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
       textAlign="center"
       gap={{ base: '10px', lg: '20px' }}
       padding={{ base: '5px', md: '15px' }}
-      boxShadow="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"
+      boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 20px 20px 12px"
     >
       <FilterLink href="/tv" icon={tvIcon} label="TV" />
       <FilterLink href="/laptop" icon={laptopIcon} label="Laptop" />

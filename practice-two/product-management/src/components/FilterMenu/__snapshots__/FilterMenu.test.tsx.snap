@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterMenu Component matches snapshot when closed 1`] = `
+<div>
+  <div
+    class="filter-menu css-flzwrc"
+  >
+    <svg
+      class="chakra-icon arrow-filter css-cglv4x"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        fill="currentColor"
+      />
+    </svg>
+    <div
+      class="filter-list css-7d6vbr"
+    >
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/tv"
+      >
+        <img
+          alt="The TV icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          TV
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/laptop"
+      >
+        <img
+          alt="The Laptop icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Laptop
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/phone"
+      >
+        <img
+          alt="The Phone icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Phone
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/refrigerator"
+      >
+        <img
+          alt="The Refrigerator icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Refrigerator
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/air_conditioner"
+      >
+        <img
+          alt="The Air Conditioner icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Air Conditioner
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FilterMenu Component matches snapshot when open 1`] = `
+<div>
+  <div
+    class="filter-menu css-1lpgmk6"
+  >
+    <svg
+      class="chakra-icon arrow-filter css-cglv4x"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        fill="currentColor"
+      />
+    </svg>
+    <div
+      class="filter-list css-7d6vbr"
+    >
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/tv"
+      >
+        <img
+          alt="The TV icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          TV
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/laptop"
+      >
+        <img
+          alt="The Laptop icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Laptop
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/phone"
+      >
+        <img
+          alt="The Phone icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Phone
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/refrigerator"
+      >
+        <img
+          alt="The Refrigerator icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Refrigerator
+        </span>
+      </a>
+      <a
+        class="chakra-link filter-item css-zkti8d"
+        href="/air_conditioner"
+      >
+        <img
+          alt="The Air Conditioner icon"
+          class="chakra-image css-1q11q9i"
+          loading="eager"
+          src="[object Object]"
+        />
+        <span
+          class="chakra-text css-1l4w6pd"
+        >
+          Air Conditioner
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;
