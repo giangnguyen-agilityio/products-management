@@ -52,7 +52,7 @@ const ProductList = () => {
       as="section"
       className="product-list-section"
       width="full"
-      mb={6}
+      mb={32}
       padding={{ base: '0 50px', md: '0' }}
     >
       <ProductListHeader />
@@ -121,6 +121,8 @@ const ProductList = () => {
           margin="50px auto"
           borderColor="secondary"
           border="1px solid"
+          color="textSecondary"
+          backgroundColor="transparent"
           _hover={{
             backgroundColor: 'secondary',
           }}

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductListHeader Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-cxazlp"
+  >
+    <h2
+      class="chakra-heading product-list-title css-1rcmjjf"
+    >
+      All Products
+    </h2>
+    <div
+      class="css-lxhvv8"
+    >
+      <span
+        class="chakra-text css-fimz8h"
+      />
+      <span
+        class="chakra-text maxim css-268hzw"
+      >
+        Complete range of products for all your needs
+      </span>
+      <span
+        class="chakra-text css-fimz8h"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
