@@ -2,38 +2,50 @@
 
 exports[`Logo component renders image when imageSrc prop is provided 1`] = `
 <div>
-  <div
-    class="logo css-759u60"
+  <a
+    href="/"
   >
-    <img
-      alt="The logo website"
-      class="logo-image css-1x2q8y0"
-      loading="eager"
-      src="logo.png"
-      srcset="logo.png"
-    />
-  </div>
+    <div
+      class="logo css-759u60"
+    >
+      <img
+        alt="The logo website"
+        class="logo-image css-1x2q8y0"
+        loading="eager"
+        src="logo.png"
+        srcset="logo.png"
+      />
+    </div>
+  </a>
 </div>
 `;
 
 exports[`Logo component renders text when text prop is provided 1`] = `
 <div>
-  <div
-    class="logo css-759u60"
+  <a
+    href="/"
   >
-    <h1
-      class="chakra-heading css-1xu3tth"
+    <div
+      class="logo css-759u60"
     >
-      My Logo
-    </h1>
-  </div>
+      <h1
+        class="chakra-heading css-1xu3tth"
+      >
+        My Logo
+      </h1>
+    </div>
+  </a>
 </div>
 `;
 
 exports[`Logo component renders without crashing 1`] = `
 <div>
-  <div
-    class="logo css-759u60"
-  />
+  <a
+    href="/"
+  >
+    <div
+      class="logo css-759u60"
+    />
+  </a>
 </div>
 `;
