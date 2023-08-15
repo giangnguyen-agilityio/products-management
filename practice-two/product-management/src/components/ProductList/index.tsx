@@ -1,6 +1,4 @@
-import { useRef } from 'react'
-import useSWR, { SWRResponse } from 'swr'
-import axios from 'axios'
+import { useContext, useRef } from 'react'
 import {
   Box,
   Text,
@@ -16,11 +14,14 @@ import { SmallAddIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import arrowDownIcon from '@assets/icons/Arrow_down.svg'
 import ProductListHeader from './ProductListHeader'
 import ProductItem from '@components/ProductItem'
-import { ProductsItemProps } from '@constants'
 import FilterMenu from '@components/FilterMenu'
+import ProductContext from '@stores/products/ProductContext'
+import { IProduct } from '@types'
 
 const ProductList = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { productState } = useContext(ProductContext)
+  const productList: IProduct[] = productState.products
   const ref = useRef(null)
 
   useOutsideClick({
@@ -28,25 +29,6 @@ const ProductList = () => {
     handler: () => onClose(),
   })
 
-  const fetcher = async (url: string) => {
-    const response = await axios.get(url)
-    return response.data
-  }
-
-  const { data, error }: SWRResponse<ProductsItemProps[], any> = useSWR(
-    'http://localhost:3000/products',
-    fetcher
-  )
-
-  if (error) {
-    return <div>Error loading products</div>
-  }
-
-  if (!data) {
-    return <div>Loading...</div>
-  }
-
-  const products: ProductsItemProps[] = data
   return (
     <Box
       as="section"
@@ -106,7 +88,7 @@ const ProductList = () => {
         margin={{ base: '0 -50px', sm: '0 auto' }}
         rowGap={{ md: '0' }}
       >
-        {products.map(product => (
+        {productList.map(product => (
           <ProductItem key={product.id} product={product} />
         ))}
       </Grid>
