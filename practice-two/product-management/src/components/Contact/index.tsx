@@ -171,10 +171,10 @@ const Contact: React.FC = () => (
           alignItems="center"
           gap="20px"
         >
-          <SocialLink href="#" icon={facebookLink} alt="The facebook icon" />
-          <SocialLink href="#" icon={twitterLink} alt="The twitter icon" />
-          <SocialLink href="#" icon={instagramLink} alt="The instagram icon" />
-          <SocialLink href="#" icon={linkedinLink} alt="The linkedin icon" />
+          <SocialLink href="/" icon={facebookLink} alt="The facebook icon" />
+          <SocialLink href="/" icon={twitterLink} alt="The twitter icon" />
+          <SocialLink href="/" icon={instagramLink} alt="The instagram icon" />
+          <SocialLink href="/" icon={linkedinLink} alt="The linkedin icon" />
         </Flex>
       </Box>
     </Flex>
