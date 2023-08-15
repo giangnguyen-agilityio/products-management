@@ -1,4 +1,4 @@
-export interface Link {
+export interface NavigationLink {
   label: string
   href: string
 }
