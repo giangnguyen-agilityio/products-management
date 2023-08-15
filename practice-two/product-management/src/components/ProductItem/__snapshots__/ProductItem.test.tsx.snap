@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductItem Component matches snapshot 1`] = `
+exports[`ProductItem Component matches the snapshot 1`] = `
 <div>
   <li
     class="product-item css-gon1ka"
@@ -25,6 +25,7 @@ exports[`ProductItem Component matches snapshot 1`] = `
       </p>
       <a
         class="chakra-link css-ofgajc"
+        href="/products/P01"
       >
         detail
       </a>
@@ -33,7 +34,7 @@ exports[`ProductItem Component matches snapshot 1`] = `
 </div>
 `;
 
-exports[`ProductItem Component renders default image if product image is not available 1`] = `
+exports[`ProductItem Component renders imageNotAvailable when product image is not available 1`] = `
 <div>
   <li
     class="product-item css-gon1ka"
@@ -58,10 +59,12 @@ exports[`ProductItem Component renders default image if product image is not ava
       </p>
       <a
         class="chakra-link css-ofgajc"
+        href="/products/P01"
       >
         detail
       </a>
     </div>
   </li>
+  ,
 </div>
 `;

@@ -1,4 +1,5 @@
 import type { Meta, Story } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 import ProductItem from './index'
 import { ProductsItemProps } from '@constants'
 
@@ -7,14 +8,16 @@ const meta = {
   component: ProductItem,
   decorators: [
     Story => (
-      <div
-        style={{
-          backgroundColor: '#532EE7',
-          padding: '20px',
-        }}
-      >
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div
+          style={{
+            backgroundColor: '#532EE7',
+            padding: '20px',
+          }}
+        >
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
   parameters: {
