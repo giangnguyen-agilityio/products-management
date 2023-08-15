@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import ContactInfo from '.'
 
 jest.mock('@assets/icons/Location_Icon.svg', () => ({
@@ -19,7 +20,11 @@ jest.mock('@assets/icons/Email_Icon.svg', () => ({
 
 describe('ContactInfo component', () => {
   it('renders contact information', () => {
-    const { container, getByText } = render(<ContactInfo />)
+    const { container, getByText } = render(
+      <MemoryRouter>
+        <ContactInfo />
+      </MemoryRouter>
+    )
 
     expect(getByText('our main office')).toBeInTheDocument()
     expect(getByText('phone number')).toBeInTheDocument()

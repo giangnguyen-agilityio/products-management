@@ -6,77 +6,96 @@ exports[`ContactInfo component renders contact information 1`] = `
     class="contact-information css-k9eruj"
   >
     <div
-      class="css-cv1ihh"
+      class="css-1gfsowa"
     >
-      <img
-        alt="our main office icon"
-        class="chakra-image css-1wsuzl7"
-        src="[object Object]"
-      />
-      <p
-        class="chakra-text css-gcw0vf"
+      <div
+        class="css-wkpw2c"
       >
-        our main office
-      </p>
+        <img
+          alt="our main office icon"
+          class="chakra-image css-1wsuzl7"
+          src="[object Object]"
+        />
+        <p
+          class="chakra-text css-1hjuipy"
+        >
+          our main office
+        </p>
+      </div>
       SoHo 94 Broadway St New York, NY 1001
     </div>
     <div
-      class="css-cv1ihh"
+      class="css-1gfsowa"
     >
-      <img
-        alt="phone number icon"
-        class="chakra-image css-1wsuzl7"
-        src="[object Object]"
-      />
-      <p
-        class="chakra-text css-gcw0vf"
+      <div
+        class="css-wkpw2c"
       >
-        phone number
-      </p>
+        <img
+          alt="phone number icon"
+          class="chakra-image css-1wsuzl7"
+          src="[object Object]"
+        />
+        <p
+          class="chakra-text css-1hjuipy"
+        >
+          phone number
+        </p>
+      </div>
       <p
         class="chakra-text css-0"
       >
         234-9876-5400
       </p>
       <p
-        class="chakra-text css-0"
+        class="chakra-text css-1xaekgw"
       >
         888-0123-4567 (Toll Free)
       </p>
     </div>
     <div
-      class="css-cv1ihh"
+      class="css-1gfsowa"
     >
-      <img
-        alt="fax icon"
-        class="chakra-image css-1wsuzl7"
-        src="[object Object]"
-      />
-      <p
-        class="chakra-text css-gcw0vf"
+      <div
+        class="css-wkpw2c"
       >
-        fax
-      </p>
+        <img
+          alt="fax icon"
+          class="chakra-image css-1wsuzl7"
+          src="[object Object]"
+        />
+        <p
+          class="chakra-text css-1hjuipy"
+        >
+          fax
+        </p>
+      </div>
       1-234-567-8900
     </div>
     <div
-      class="css-cv1ihh"
+      class="css-1gfsowa"
     >
-      <img
-        alt="email icon"
-        class="chakra-image css-1wsuzl7"
-        src="[object Object]"
-      />
-      <p
-        class="chakra-text css-gcw0vf"
+      <div
+        class="css-wkpw2c"
       >
-        email
-      </p>
+        <img
+          alt="email icon"
+          class="chakra-image css-1wsuzl7"
+          src="[object Object]"
+        />
+        <p
+          class="chakra-text css-1hjuipy"
+        >
+          email
+        </p>
+      </div>
       <a
-        class="chakra-link css-1puecoh"
-        href="#"
+        href="/"
       >
-        hello@theme.com
+        <span
+          class="chakra-text css-1puecoh"
+        >
+          hello@theme.com
+        </span>
       </a>
     </div>
   </div>
