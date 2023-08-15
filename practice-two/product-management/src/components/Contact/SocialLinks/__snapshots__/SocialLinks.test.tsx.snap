@@ -3,14 +3,11 @@
 exports[`SocialLink component renders link with correct attributes 1`] = `
 <div>
   <a
-    class="chakra-link css-eqjwk7"
-    href="#"
-    rel="noopener"
-    target="_blank"
+    href="/"
   >
     <img
       alt="Social Icon"
-      class="chakra-image css-s6bwai"
+      class="chakra-image css-eqjwk7"
       src="icon-url"
     />
   </a>

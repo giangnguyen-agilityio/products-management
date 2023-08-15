@@ -1,16 +1,20 @@
 import { render } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
+import { MemoryRouter } from 'react-router-dom'
 import SocialLink from '.'
 
 describe('SocialLink component', () => {
   const props = {
-    href: '#',
+    href: '/',
     icon: 'icon-url',
     alt: 'Social Icon',
   }
 
   it('renders link with correct attributes', () => {
-    const { container, getByRole } = render(<SocialLink {...props} />)
+    const { container, getByRole } = render(
+      <MemoryRouter>
+        <SocialLink {...props} />
+      </MemoryRouter>
+    )
 
     const linkElement = getByRole('link', { name: props.alt })
 
@@ -20,19 +24,15 @@ describe('SocialLink component', () => {
   })
 
   it('renders image with correct attributes', () => {
-    const { getByAltText } = render(<SocialLink {...props} />)
+    const { getByAltText } = render(
+      <MemoryRouter>
+        <SocialLink {...props} />
+      </MemoryRouter>
+    )
 
     const imageElement = getByAltText(props.alt)
 
     expect(imageElement).toBeInTheDocument()
     expect(imageElement).toHaveAttribute('src', props.icon)
-  })
-
-  it('renders external link', () => {
-    const { getByRole } = render(<SocialLink {...props} />)
-
-    const linkElement = getByRole('link', { name: props.alt })
-
-    expect(linkElement).toHaveAttribute('target', '_blank')
   })
 })
