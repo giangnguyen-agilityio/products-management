@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import DesktopNavigation from '.'
 
 Object.defineProperty(window, 'matchMedia', {
@@ -23,7 +24,9 @@ const mockLinks = [
 
 test('renders DesktopNavigation component with links', () => {
   const { getByText, container } = render(
-    <DesktopNavigation links={mockLinks} />
+    <MemoryRouter>
+      <DesktopNavigation links={mockLinks} />
+    </MemoryRouter>
   )
 
   // Check if navigation element is rendered
