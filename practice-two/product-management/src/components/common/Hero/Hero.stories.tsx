@@ -1,4 +1,5 @@
 import type { Meta } from '@storybook/react'
+import { MemoryRouter } from 'react-router-dom'
 import Hero from './index'
 
 const meta: Meta = {
@@ -6,13 +7,15 @@ const meta: Meta = {
   component: Hero,
   decorators: [
     Story => (
-      <div
-        style={{
-          backgroundColor: '#532EE7',
-        }}
-      >
-        <Story />
-      </div>
+      <MemoryRouter>
+        <div
+          style={{
+            backgroundColor: '#532EE7',
+          }}
+        >
+          <Story />
+        </div>
+      </MemoryRouter>
     ),
   ],
   parameters: {

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Component matches snapshot 1`] = `
+<div>
+  <section
+    class="hero-section css-1i968st"
+  >
+    <div
+      class="css-1t0sl2q"
+    >
+      <div
+        class="css-wc2o4l"
+      />
+    </div>
+    <div
+      class="css-1b25ukq"
+    >
+      <div
+        class="css-h5qkms"
+      />
+    </div>
+    <div
+      class="hero-content css-1n8ugxz"
+    >
+      <div
+        class="hero-image-wrapper css-s8jnda"
+      >
+        <img
+          alt="This is the image of hero section"
+          class="hero-image css-1xuawgx"
+          src="test-image-url"
+        />
+      </div>
+      <div
+        class="hero-detail css-1w2bpi"
+      >
+        <h2
+          class="chakra-heading hero-title css-wgs5kc"
+        >
+          Test Title
+        </h2>
+        <p
+          class="chakra-text hero-description css-slxfkz"
+        >
+          Test Description
+        </p>
+        <a
+          class="chakra-button hero-button css-18yvqgz"
+          href="/test-link"
+        >
+          Learn more
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+`;
