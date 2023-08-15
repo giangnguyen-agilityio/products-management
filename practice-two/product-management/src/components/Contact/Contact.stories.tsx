@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 import Contact from './index'
 
 const meta = {
@@ -6,15 +7,17 @@ const meta = {
   component: Contact,
   decorators: [
     Story => (
-      <div
-        style={{
-          backgroundColor: '#ECB203',
-          width: '100vw',
-          height: '100%',
-        }}
-      >
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div
+          style={{
+            backgroundColor: '#ECB203',
+            width: '100vw',
+            height: '100%',
+          }}
+        >
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
   parameters: {
