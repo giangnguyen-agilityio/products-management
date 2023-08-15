@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { Box, Flex, Image, Text, Button, Heading } from '@chakra-ui/react'
 import { HeroImageProps, HeroDetailProps, HeroProps } from '@types'
+import { Link } from 'react-router-dom'
 
 const HeroImage: React.FC<HeroImageProps> = ({ imageUrl }) => {
   return (
@@ -53,8 +54,8 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
         {description}
       </Text>
       <Button
-        as="a"
-        href={buttonHref}
+        as={Link}
+        to={buttonHref}
         className="hero-button"
         letterSpacing={1}
         padding={{ base: '18px 57px 19px', md: '21px 55px 21px' }}
