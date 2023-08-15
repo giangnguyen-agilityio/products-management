@@ -1,5 +1,6 @@
-import { Grid, Link, Text } from '@chakra-ui/react'
 import { memo } from 'react'
+import { Grid, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import ContactInfoItem from '../ContactInfoItem'
 
 // Import icons and assets
@@ -46,16 +47,18 @@ const ContactInfo = () => {
         icon={emailIcon}
         title="email"
         content={
-          <Link
-            href="#"
-            color="primary"
-            fontFamily="OpenSans-Bold"
-            textDecoration="unset"
-            _hover={{
-              textDecoration: 'underline',
-            }}
-          >
-            hello@theme.com
+          <Link to="/">
+            <Text
+              as="span"
+              color="primary"
+              fontFamily="OpenSans-Bold"
+              textDecoration="unset"
+              _hover={{
+                textDecoration: 'underline',
+              }}
+            >
+              hello@theme.com
+            </Text>
           </Link>
         }
       />
