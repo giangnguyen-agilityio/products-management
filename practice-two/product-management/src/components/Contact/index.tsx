@@ -24,6 +24,7 @@ const Contact: React.FC = () => (
   <Box
     className="contact-section"
     backgroundColor="secondary"
+    color="textPrimary"
     padding="30px 0"
     margin={{ base: '0 -10px 30px', md: '0 -50px 30px' }}
   >
