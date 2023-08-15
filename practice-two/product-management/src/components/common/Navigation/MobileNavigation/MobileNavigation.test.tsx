@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import MobileContent from './'
 
 Object.defineProperty(window, 'matchMedia', {
@@ -24,11 +25,13 @@ const mockLinks = [
 test('renders MobileContent component with navigation links', () => {
   const toggleDrawer = jest.fn()
   const { container } = render(
-    <MobileContent
-      isOpen={true}
-      toggleDrawer={toggleDrawer}
-      links={mockLinks}
-    />
+    <MemoryRouter>
+      <MobileContent
+        isOpen={true}
+        toggleDrawer={toggleDrawer}
+        links={mockLinks}
+      />
+    </MemoryRouter>
   )
 
   // Ensure Drawer is open

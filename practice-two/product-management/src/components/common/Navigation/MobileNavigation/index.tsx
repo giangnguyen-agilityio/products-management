@@ -8,13 +8,14 @@ import {
   DrawerOverlay,
   Flex,
 } from '@chakra-ui/react'
-import { Link } from '@types'
+import { NavigationLink } from '@types'
+import { Link } from 'react-router-dom'
 
 // Mobile Content Component
 const MobileContent: React.FC<{
   isOpen: boolean
   toggleDrawer: () => void
-  links: Link[]
+  links: NavigationLink[]
 }> = ({ isOpen, toggleDrawer, links }) => (
   <Drawer
     isOpen={isOpen}
@@ -42,7 +43,9 @@ const MobileContent: React.FC<{
 )
 
 // Mobile Navigation Links Component
-const MobileNavigationLinks: React.FC<{ links: Link[] }> = ({ links }) => (
+const MobileNavigationLinks: React.FC<{ links: NavigationLink[] }> = ({
+  links,
+}) => (
   <Flex
     as="ul"
     className="nav-list-mobile"
@@ -53,10 +56,10 @@ const MobileNavigationLinks: React.FC<{ links: Link[] }> = ({ links }) => (
     {links.map(({ label, href }) => (
       <Flex as="li" className="nav-item-mobile" key={label}>
         <Button
+          as={Link}
+          to={href}
           display="flex"
           alignItems="center"
-          as="a"
-          href={href}
           variant="unstyled"
           aria-label={label}
           width="full"
