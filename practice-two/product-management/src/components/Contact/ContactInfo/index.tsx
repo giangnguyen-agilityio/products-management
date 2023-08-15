@@ -37,7 +37,7 @@ const ContactInfo = () => {
         content={
           <>
             <Text>234-9876-5400</Text>
-            <Text>888-0123-4567 (Toll Free)</Text>
+            <Text marginTop="20px">888-0123-4567 (Toll Free)</Text>
           </>
         }
       />
