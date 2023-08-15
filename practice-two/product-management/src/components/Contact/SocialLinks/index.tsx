@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
-import { Link, Image } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 interface SocialLinkProps {
   href: string
@@ -8,8 +9,8 @@ interface SocialLinkProps {
 }
 
 const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, alt }) => (
-  <Link href={href} isExternal width="41px" height="41px">
-    <Image src={icon} alt={alt} width="38px" height="38px" />
+  <Link to={href}>
+    <Image src={icon} alt={alt} width="41px" height="41px" />
   </Link>
 )
 
