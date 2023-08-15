@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { Box, Image, Text } from '@chakra-ui/react'
+import { Flex, Box, Image, Text } from '@chakra-ui/react'
 
 interface ContactInfoItemProps {
   icon: string
@@ -26,18 +26,20 @@ const ContactInfoItem: React.FC<ContactInfoItemProps> = ({
     }}
     margin="0 auto"
     textAlign="center"
-    justifyContent="center"
+    justifyContent="flex-start"
     alignItems="center"
   >
-    <Image src={icon} alt={`${title} icon`} boxSize="64px" />
-    <Text
-      textTransform="uppercase"
-      margin={5}
-      fontFamily="OpenSans-Bold"
-      fontSize="20px"
-    >
-      {title}
-    </Text>
+    <Flex flexDirection="column" justifyContent="center" alignItems="center">
+      <Image src={icon} alt={`${title} icon`} boxSize="64px" />
+      <Text
+        textTransform="uppercase"
+        margin={5}
+        fontFamily="OpenSans-Bold"
+        fontSize="18px"
+      >
+        {title}
+      </Text>
+    </Flex>
     {content}
   </Box>
 )
