@@ -1,9 +1,14 @@
-import { memo } from 'react'
+import React, { memo } from 'react'
 import { GridItem, Box, Image, Text, Link } from '@chakra-ui/react'
-import { ProductsItemProps } from '@constants'
 import imageNotAvailable from '@assets/images/Image_not_available.webp'
+import { Link as RouterLink } from 'react-router-dom'
+import { IProduct } from '@types'
 
-const ProductItem = ({ product }: { product: ProductsItemProps }) => (
+interface ProductItemProps {
+  product: Pick<IProduct, 'id' | 'name' | 'image'>
+}
+
+const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
   <GridItem
     className="product-item"
     margin="0 auto"
@@ -60,6 +65,8 @@ const ProductItem = ({ product }: { product: ProductsItemProps }) => (
         {product.name}
       </Text>
       <Link
+        as={RouterLink}
+        to={`/products/${product.id}`}
         color="textPrimary"
         position="absolute"
         bottom={{ base: '3%', lg: '3%', xl: '20%' }}
