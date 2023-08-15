@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import Navigation from './'
 
 Object.defineProperty(window, 'matchMedia', {
@@ -21,6 +22,10 @@ const mockLinks = [
 ]
 
 test('renders correctly when props are provided.', () => {
-  const { container } = render(<Navigation links={mockLinks} />)
+  const { container } = render(
+    <MemoryRouter>
+      <Navigation links={mockLinks} />
+    </MemoryRouter>
+  )
   expect(container).toMatchSnapshot()
 })
