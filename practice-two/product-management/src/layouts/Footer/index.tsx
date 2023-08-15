@@ -1,37 +1,42 @@
 import React from 'react'
-import { Flex, Text, Link, Image } from '@chakra-ui/react'
+import { Flex, Text, Image, Box } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+
 import Logo from '@components/common/Logo'
 import logoWebsite from '@assets/images/logo_website.webp'
 import { aboutUsLinks, footerLinks, helpLinks, socialLinks } from '@constants'
 import { FooterButtonProps, FooterLinkProps, FooterColumnProps } from '@types'
 
 const FooterButton: React.FC<FooterButtonProps> = ({ icon, href }) => (
-  <Link
-    href={href}
-    marginRight={1}
-    opacity={0.5}
-    _hover={{
-      opacity: '1',
-    }}
-  >
-    <Image src={icon} alt="The social icon" width={8} height={8} />
+  <Link to={href}>
+    <Box
+      marginRight={1}
+      opacity={0.5}
+      _hover={{
+        opacity: '1',
+      }}
+    >
+      <Image src={icon} alt="The social icon" width={8} height={8} />
+    </Box>
   </Link>
 )
 
 const FooterLink: React.FC<FooterLinkProps> = ({ href, label }) => (
   <Flex as="li" my={1}>
-    <Link
-      href={href}
-      fontSize={{ base: 'sm', md: 'md' }}
-      className="footer-link"
-      fontFamily="OpenSans-Medium"
-      color="textSecondary"
-      opacity="0.5"
-      _hover={{
-        opacity: '1',
-      }}
-    >
-      {label}
+    <Link to={href}>
+      <Text
+        as="span"
+        fontSize={{ base: 'sm', md: 'md' }}
+        className="footer-link"
+        fontFamily="OpenSans-Medium"
+        color="textSecondary"
+        opacity="0.5"
+        _hover={{
+          opacity: '1',
+        }}
+      >
+        {label}
+      </Text>
     </Link>
   </Flex>
 )
