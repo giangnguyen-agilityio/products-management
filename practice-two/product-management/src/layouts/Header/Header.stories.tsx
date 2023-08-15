@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 import Header from './index'
 
 const meta = {
@@ -6,14 +7,16 @@ const meta = {
   component: Header,
   decorators: [
     Story => (
-      <div
-        style={{
-          backgroundColor: '#532EE7',
-          color: '#FFF',
-        }}
-      >
-        <Story />
-      </div>
+      <BrowserRouter>
+        <div
+          style={{
+            backgroundColor: '#532EE7',
+            color: '#FFF',
+          }}
+        >
+          <Story />
+        </div>
+      </BrowserRouter>
     ),
   ],
   parameters: {
