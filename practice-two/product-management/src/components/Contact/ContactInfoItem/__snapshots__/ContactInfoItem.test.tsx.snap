@@ -3,18 +3,22 @@
 exports[`ContactInfoItem component renders correctly 1`] = `
 <div>
   <div
-    class="css-cv1ihh"
+    class="css-1gfsowa"
   >
-    <img
-      alt="Contact Title icon"
-      class="chakra-image css-1wsuzl7"
-      src="icon-url"
-    />
-    <p
-      class="chakra-text css-gcw0vf"
+    <div
+      class="css-wkpw2c"
     >
-      Contact Title
-    </p>
+      <img
+        alt="Contact Title icon"
+        class="chakra-image css-1wsuzl7"
+        src="icon-url"
+      />
+      <p
+        class="chakra-text css-1hjuipy"
+      >
+        Contact Title
+      </p>
+    </div>
     Contact Content
   </div>
 </div>
