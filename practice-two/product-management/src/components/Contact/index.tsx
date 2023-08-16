@@ -22,6 +22,7 @@ import linkedinLink from '@assets/icons/linkedin_link_icon.svg'
 
 const Contact: React.FC = () => (
   <Box
+    as="section"
     className="contact-section"
     backgroundColor="secondary"
     color="textPrimary"
