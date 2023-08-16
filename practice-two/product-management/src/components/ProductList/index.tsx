@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react'
+import { useContext, useRef, useState } from 'react'
 import {
   Box,
   Text,
@@ -18,16 +18,35 @@ import FilterMenu from '@components/FilterMenu'
 import ProductContext from '@stores/products/ProductContext'
 import { IProduct } from '@types'
 
+import Modal from '@components/common/Modal'
+import { useParams } from 'react-router-dom'
+import { MODAL } from '@constants'
+
 const ProductList = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const { productState } = useContext(ProductContext)
   const productList: IProduct[] = productState.products
   const ref = useRef(null)
+  const { id } = useParams()
+
+  const [modalType, setModalType] = useState<
+    MODAL.ADD | MODAL.EDIT | MODAL.DELETE
+  >(MODAL.ADD)
 
   useOutsideClick({
     ref: ref,
     handler: () => onClose(),
   })
+
+  const openModal = () => {
+    setIsModalOpen(true)
+    setModalType(MODAL.ADD)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
 
   return (
     <Box
@@ -64,9 +83,16 @@ const ProductList = () => {
         >
           Select category <ChevronDownIcon w={8} h={8} />
         </Button>
-        <Button w={8} h={8} aria-label="Add Product">
+        <Button w={8} h={8} aria-label="Add Product" onClick={openModal}>
           <SmallAddIcon w={8} h={8} />
         </Button>
+
+        <Modal
+          isOpen={isModalOpen}
+          closeModal={closeModal}
+          id={id}
+          modalType={modalType}
+        />
       </Flex>
 
       <FilterMenu isOpen={isOpen} customRef={ref} />
