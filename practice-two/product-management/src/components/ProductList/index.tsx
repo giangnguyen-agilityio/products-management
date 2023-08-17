@@ -8,6 +8,7 @@ import {
   Image,
   useDisclosure,
   useOutsideClick,
+  Container,
 } from '@chakra-ui/react'
 import { SmallAddIcon, ChevronDownIcon } from '@chakra-ui/icons'
 
@@ -17,37 +18,38 @@ import ProductItem from '@components/ProductItem'
 import FilterMenu from '@components/FilterMenu'
 import ProductContext from '@stores/products/ProductContext'
 import { IProduct } from '@types'
-
 import Modal from '@components/common/Modal'
-import { useParams } from 'react-router-dom'
 import { MODAL } from '@constants'
+import { memo } from 'react'
 
+// Define the ProductList component
 const ProductList = () => {
+  // State and context initialization
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalType, setModalType] = useState<MODAL.ADD | MODAL.EDIT>(MODAL.ADD)
   const { productState } = useContext(ProductContext)
   const productList: IProduct[] = productState.products
-  const ref = useRef(null)
-  const { id } = useParams()
+  const filterMenuRef = useRef(null)
 
-  const [modalType, setModalType] = useState<
-    MODAL.ADD | MODAL.EDIT | MODAL.DELETE
-  >(MODAL.ADD)
-
+  // Handle clicks outside the FilterMenu to close it
   useOutsideClick({
-    ref: ref,
+    ref: filterMenuRef,
     handler: () => onClose(),
   })
 
+  // Function to open the modal for adding a product
   const openModal = () => {
     setIsModalOpen(true)
     setModalType(MODAL.ADD)
   }
 
+  // Function to close the modal
   const closeModal = () => {
     setIsModalOpen(false)
   }
 
+  // Render the ProductList component
   return (
     <Box
       as="section"
@@ -56,8 +58,12 @@ const ProductList = () => {
       mb={32}
       padding={{ base: '0 50px', md: '0' }}
     >
+      {/* Render the header */}
       <ProductListHeader />
-      <Flex
+
+      {/* Control buttons section */}
+      <Container
+        display="flex"
         className="product-list-control"
         alignItems="center"
         justifyContent="space-between"
@@ -70,6 +76,7 @@ const ProductList = () => {
         }}
         margin="0 auto"
       >
+        {/* Button to open the FilterMenu */}
         <Button
           h={10}
           onClick={onOpen}
@@ -83,19 +90,24 @@ const ProductList = () => {
         >
           Select category <ChevronDownIcon w={8} h={8} />
         </Button>
+
+        {/* Button to open the modal */}
         <Button w={8} h={8} aria-label="Add Product" onClick={openModal}>
           <SmallAddIcon w={8} h={8} />
         </Button>
 
+        {/* Modal component */}
         <Modal
           isOpen={isModalOpen}
           closeModal={closeModal}
-          id={id}
           modalType={modalType}
         />
-      </Flex>
+      </Container>
 
-      <FilterMenu isOpen={isOpen} customRef={ref} />
+      {/* FilterMenu section */}
+      <FilterMenu isOpen={isOpen} customRef={filterMenuRef} />
+
+      {/* Product list section */}
       <Grid
         as="ul"
         className="product-list"
@@ -114,11 +126,13 @@ const ProductList = () => {
         margin={{ base: '0 -50px', sm: '0 auto' }}
         rowGap={{ md: '0' }}
       >
+        {/* Render each product */}
         {productList.map(product => (
           <ProductItem key={product.id} product={product} />
         ))}
       </Grid>
 
+      {/* Load more button */}
       <Flex>
         <Button
           aria-label="Load More"
@@ -158,4 +172,4 @@ const ProductList = () => {
   )
 }
 
-export default ProductList
+export default memo(ProductList)
