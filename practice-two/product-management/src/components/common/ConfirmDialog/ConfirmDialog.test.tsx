@@ -15,27 +15,36 @@ jest.mock('@chakra-ui/react', () => {
 describe('ConfirmDialog component', () => {
   it('renders ConfirmDialog component', () => {
     const { container } = render(
-      <ConfirmDialog id="ID01" onDelete={() => {}} />
+      <ConfirmDialog
+        id="ID01"
+        isConfirmDialogOpen
+        closeConfirmDialog={() => {}}
+      />
     )
     expect(container).toMatchSnapshot()
   })
 
   it('opens the dialog on button click', () => {
     const { getByLabelText } = render(
-      <ConfirmDialog id="ID01" onDelete={() => {}} />
+      <ConfirmDialog
+        id="ID01"
+        isConfirmDialogOpen
+        closeConfirmDialog={() => {}}
+      />
     )
-    const deleteButton = getByLabelText('Delete Item')
-    fireEvent.click(deleteButton)
+
     const dialog = getByLabelText('Confirmation')
     expect(dialog).toBeInTheDocument()
   })
 
   it('displays dialog content correctly', () => {
-    const { getByLabelText, getByText } = render(
-      <ConfirmDialog id="ID01" onDelete={() => {}} />
+    const { getByText } = render(
+      <ConfirmDialog
+        id="ID01"
+        isConfirmDialogOpen
+        closeConfirmDialog={() => {}}
+      />
     )
-    const deleteButton = getByLabelText('Delete Item')
-    fireEvent.click(deleteButton)
 
     const dialogTitle = getByText('Confirmation')
     const dialogText = getByText(/Do you really want to delete this item?/i)
@@ -46,7 +55,11 @@ describe('ConfirmDialog component', () => {
   it('triggers delete action on "Delete" button click', async () => {
     const mockDeleteFn = jest.fn()
     const { getByText, queryByLabelText } = render(
-      <ConfirmDialog id="ID01" onDelete={mockDeleteFn} />
+      <ConfirmDialog
+        id="ID01"
+        isConfirmDialogOpen
+        closeConfirmDialog={mockDeleteFn}
+      />
     )
     const deleteButton = queryByLabelText('Delete Item')!
     fireEvent.click(deleteButton)
@@ -63,7 +76,11 @@ describe('ConfirmDialog component', () => {
     const mockDeleteFnReject = jest.fn().mockRejectedValue('ID02')
 
     const { getByLabelText, getByText } = render(
-      <ConfirmDialog id="ID01" onDelete={mockDeleteFnReject} />
+      <ConfirmDialog
+        id="ID01"
+        isConfirmDialogOpen
+        closeConfirmDialog={mockDeleteFnReject}
+      />
     )
 
     fireEvent.click(getByLabelText('Delete Item'))

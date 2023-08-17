@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState } from 'react'
+import React, { useRef, useCallback, useContext } from 'react'
 import {
   AlertDialog,
   AlertDialogBody,
@@ -14,36 +14,29 @@ import {
   Text,
 } from '@chakra-ui/react'
 import deleteAction from '@assets/images/delete_Action.gif'
+import { deleteProductAPI } from '@services/api-actions'
+import ProductContext from '@stores/products/ProductContext'
+import { useNavigate } from 'react-router-dom'
 
+// Define the props interface for the ConfirmDialog component
 interface ConfirmDialogProps {
-  id: string | undefined
-  onDelete: (id: string) => void
+  id: string
+  isConfirmDialogOpen: boolean
+  closeConfirmDialog: () => void
 }
 
-const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
+const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
+  id,
+  isConfirmDialogOpen,
+  closeConfirmDialog,
+}) => {
+  // Initialize necessary hooks and context
   const toast = useToast()
-  const [isOpen, setIsOpen] = useState(true)
   const cancelRef = useRef<HTMLButtonElement | null>(null)
+  const navigate = useNavigate()
+  const { deleteProductState } = useContext(ProductContext)
 
-  const handleDelete = useCallback(async () => {
-    try {
-      if (id !== undefined) {
-        await onDelete(id)
-        setIsOpen(false)
-        showSuccessToast(id)
-      } else {
-        showErrorToast(id)
-        setIsOpen(false)
-      }
-    } catch (error) {
-      showErrorToast(id)
-    }
-  }, [id, onDelete, setIsOpen])
-
-  const handleCloseModal = () => {
-    setIsOpen(false)
-  }
-
+  // Function to show a success toast message
   const showSuccessToast = (itemId: string) => {
     toast({
       title: 'Success',
@@ -54,21 +47,39 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
     })
   }
 
+  // Function to show an error toast message
   const showErrorToast = (itemId: string | undefined) => {
     toast({
       title: 'Error',
       description: `An error occurred while deleting item with ID ${itemId}.`,
       status: 'error',
-      duration: 5000,
+      duration: 3000,
       isClosable: true,
     })
   }
 
+  // Function to handle the delete action
+  const handleDelete = useCallback(async () => {
+    try {
+      await deleteProductAPI(id)
+      deleteProductState(id)
+      closeConfirmDialog()
+      navigate('/')
+      showSuccessToast(id)
+    } catch (error) {
+      console.error(error)
+      showErrorToast(id)
+    } finally {
+      closeConfirmDialog()
+    }
+  }, [deleteProductState, closeConfirmDialog])
+
+  // Render the ConfirmDialog component
   return (
     <AlertDialog
-      isOpen={isOpen}
+      isOpen={isConfirmDialogOpen}
       leastDestructiveRef={cancelRef}
-      onClose={handleCloseModal}
+      onClose={closeConfirmDialog}
       isCentered
     >
       <AlertDialogOverlay />
@@ -82,13 +93,14 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
           _hover={{
             borderColor: 'primary',
           }}
-          onClick={handleCloseModal}
+          onClick={closeConfirmDialog}
         />
         <AlertDialogBody
           flexDirection="column"
           alignItems="center"
           textAlign="center"
         >
+          {/* Display image and text to confirm deletion */}
           <Center>
             <Image
               loading="eager"
@@ -105,10 +117,11 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
           </Text>
         </AlertDialogBody>
         <AlertDialogFooter>
+          {/* Cancel button */}
           <Button
             className="cancel-button"
             ref={cancelRef}
-            onClick={handleCloseModal}
+            onClick={closeConfirmDialog}
             backgroundColor="gray.100"
             color="textPrimary"
             _hover={{
@@ -117,6 +130,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ id, onDelete }) => {
           >
             Cancel
           </Button>
+          {/* Delete button */}
           <Button
             className="delete-button"
             backgroundColor="red.300"

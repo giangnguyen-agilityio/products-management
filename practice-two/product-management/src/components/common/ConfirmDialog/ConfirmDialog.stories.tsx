@@ -9,7 +9,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    onDelete: { action: 'The Delete button clicked' },
+    closeConfirmDialog: { action: 'The close confirm dialog button clicked' },
   },
 } satisfies Meta<typeof ConfirmDialog>
 
@@ -19,5 +19,6 @@ type Story = StoryObj<typeof meta>
 export const TheConfirmDialog: Story = {
   args: {
     id: 'id_123',
+    isConfirmDialogOpen: true,
   },
 }
