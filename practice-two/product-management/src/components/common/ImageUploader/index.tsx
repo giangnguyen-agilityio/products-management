@@ -1,13 +1,5 @@
 import React, { memo } from 'react'
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Input,
-  Image,
-} from '@chakra-ui/react'
-
-import { ERROR_MESSAGES } from '@constants/messages'
+import { FormControl, FormLabel, Input, Image, Text } from '@chakra-ui/react'
 
 // Define the prop types for the ImageUploader component
 interface ImageUploaderProps {
@@ -16,11 +8,13 @@ interface ImageUploaderProps {
     name: string
   }
   handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void
+  errorMessage: string
 }
 
 const ImageUploader: React.FC<ImageUploaderProps> = ({
   formData,
   handleImageUpload,
+  errorMessage,
 }) => (
   <FormControl className="input-field image-uploaded" isRequired>
     {/* Label for the image input */}
@@ -62,9 +56,8 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       />
     )}
     {/* Display an error message if the image is missing */}
-    <FormErrorMessage>
-      {ERROR_MESSAGES.PRODUCT_IMAGE_IS_MISSING}
-    </FormErrorMessage>
+    {/* Error message */}
+    {errorMessage != null && <Text color="red">{errorMessage}</Text>}
   </FormControl>
 )
 

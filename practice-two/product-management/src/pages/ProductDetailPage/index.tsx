@@ -6,6 +6,9 @@ import ProductDesc from '@components/ProductDetail/ProductDesc'
 import EmptyProduct from '@components/common/EmptyProduct'
 import { useParams } from 'react-router-dom'
 import { useProductById } from '@hooks/fetch'
+import { handleServerError } from '@helpers'
+import { AxiosError } from 'axios'
+import Loading from '@components/common/Loading'
 
 const ProductDetailPage = () => {
   const { id } = useParams()
@@ -16,13 +19,14 @@ const ProductDetailPage = () => {
   }
 
   // Fetch product data using custom hook 'useProductById'
-  const { data, error, mutate } = useProductById(id)
+  const { data, error, mutate, isLoading } = useProductById(id)
 
   // Handle errors during data fetching
   if (error) {
+    const message = handleServerError(error as AxiosError)
     return (
       <EmptyProduct
-        errorMessage={`An error occurred while fetching product data`}
+        errorMessage={`An error occurred while fetching product data: ${message}`}
       />
     )
   }
@@ -34,6 +38,10 @@ const ProductDetailPage = () => {
         errorMessage={`We couldn't find any product with ID ${id}`}
       />
     )
+  }
+
+  if (isLoading) {
+    return <Loading />
   }
 
   return (
@@ -48,14 +56,20 @@ const ProductDetailPage = () => {
       borderRadius={10}
       fontFamily="Oswald-Regular"
     >
-      {/* Display the product image */}
-      <ProductImage src={data.image} />
-
-      {/* Display the product information */}
-      <ProductInfo productData={data} mutate={mutate} />
-
-      {/* Display the product description */}
-      <ProductDesc productDesc={data.description} />
+      <>
+        {/* Display the product image */}
+        <div>
+          <ProductImage src={data.image} />
+        </div>
+        {/* Display the product information */}
+        <div>
+          <ProductInfo productData={data} mutate={mutate} />
+        </div>
+        {/* Display the product description */}
+        <div>
+          <ProductDesc productDesc={data.description} />
+        </div>
+      </>
     </Grid>
   )
 }

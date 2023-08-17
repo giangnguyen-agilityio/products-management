@@ -1,10 +1,5 @@
 import React, { InputHTMLAttributes, memo } from 'react'
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Input,
-} from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, Text } from '@chakra-ui/react'
 
 // Define the props interface for the InputField component
 interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -15,7 +10,7 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   type?: string
   errorMessage?: string
-  isInvalid: boolean
+  isReadOnly?: boolean
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -25,10 +20,10 @@ const InputField: React.FC<InputFieldProps> = ({
   value,
   onChange,
   type = 'text',
-  isInvalid = false,
   errorMessage,
+  isReadOnly,
 }) => (
-  <FormControl className="input-field" isInvalid={isInvalid} isRequired>
+  <FormControl className="input-field" isRequired>
     {/* Form Label */}
     <FormLabel
       className="form-label"
@@ -41,8 +36,9 @@ const InputField: React.FC<InputFieldProps> = ({
 
     {/* Input field */}
     <Input
+      readOnly={isReadOnly}
       as={variant}
-      border="2px solid"
+      border="1px solid"
       _hover={{ borderColor: 'gray.300' }}
       _focus={{ borderColor: 'primary' }}
       borderColor="gray.300"
@@ -57,7 +53,11 @@ const InputField: React.FC<InputFieldProps> = ({
     />
 
     {/* Error message */}
-    <FormErrorMessage>{errorMessage}</FormErrorMessage>
+    {errorMessage != null && (
+      <Text color="red" fontFamily="OpenSans-Regular">
+        {errorMessage}
+      </Text>
+    )}
   </FormControl>
 )
 

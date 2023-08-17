@@ -46,6 +46,7 @@ const Modal: React.FC<ModalProps> = ({
       description: itemId
         ? `Product with ID ${itemId} has been updated.`
         : 'A new product has been added successfully',
+      duration: 2000,
       status: 'success',
       isClosable: true,
     })
@@ -58,6 +59,7 @@ const Modal: React.FC<ModalProps> = ({
       description: itemId
         ? `An error occurred while editing the product with ID ${itemId}`
         : 'An error occurred while adding a new product',
+      duration: 2000,
       status: 'error',
       isClosable: true,
     })

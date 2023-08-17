@@ -42,7 +42,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
       title: 'Success',
       description: `Item with ID ${itemId} has been deleted.`,
       status: 'success',
-      duration: 3000,
+      duration: 2000,
       isClosable: true,
     })
   }
@@ -53,7 +53,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
       title: 'Error',
       description: `An error occurred while deleting item with ID ${itemId}.`,
       status: 'error',
-      duration: 3000,
+      duration: 2000,
       isClosable: true,
     })
   }

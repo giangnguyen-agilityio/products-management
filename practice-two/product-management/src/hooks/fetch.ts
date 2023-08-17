@@ -6,7 +6,6 @@ import { API_URL, ENDPOINT } from '@constants'
 import { fetchAllProducts, fetchProductById } from '@services/api-actions'
 
 interface IFetch {
-  isLoading: boolean
   error: AxiosError
   errorMessage: null | string
 }
@@ -21,7 +20,7 @@ interface IProductById<T> extends SWRResponse<T> {
 
 // Using SWR to fetch all products
 export const useProducts = (): IProducts => {
-  const { data, error } = useSWR<IProduct[]>(
+  const { data, error, ...rest } = useSWR<IProduct[]>(
     `${API_URL}/${ENDPOINT.PRODUCTS}`,
     fetchAllProducts
   )
@@ -30,15 +29,15 @@ export const useProducts = (): IProducts => {
 
   return {
     allProducts: data,
-    isLoading: error === null && data === undefined,
     error,
     errorMessage,
+    ...rest,
   }
 }
 
 // Using SWR to fetch the product by id
 export const useProductById = (id: string): IProductById<IProduct> => {
-  const { error, ...rest } = useSWR<IProduct>(
+  const { data, error, isLoading, ...rest } = useSWR<IProduct>(
     `${API_URL}/${ENDPOINT.PRODUCTS}/${id}`,
     fetchProductById
   )
@@ -46,6 +45,8 @@ export const useProductById = (id: string): IProductById<IProduct> => {
   const errorMessage = error ? handleServerError(error) : null
 
   return {
+    data,
+    isLoading,
     error,
     errorMessage,
     ...rest,
