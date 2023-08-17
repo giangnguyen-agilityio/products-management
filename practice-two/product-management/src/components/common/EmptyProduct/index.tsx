@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { memo } from 'react'
 import errorImage from '@assets/images/error-image.webp'
 import { Flex, Text, Box, Image } from '@chakra-ui/react'
 
+// Define the props interface for the EmptyProduct component
 interface EmptyProductProps {
   errorMessage?: string
 }
 
 const EmptyProduct: React.FC<EmptyProductProps> = props => {
   const { errorMessage } = props
+
   return (
+    // Container for the empty product message
     <Flex
       className="empty-product"
       flexDirection="column"
@@ -22,10 +25,14 @@ const EmptyProduct: React.FC<EmptyProductProps> = props => {
         xl: '1140px',
       }}
       margin="40px auto"
+      borderRadius={6}
     >
+      {/* Box containing the error image */}
       <Box className="error-image">
+        {/* Display the error image */}
         <Image width="full" src={errorImage} alt="This is the error image" />
       </Box>
+      {/* Text displaying the error message */}
       <Text
         className="error-title"
         color="secondary"
@@ -33,10 +40,11 @@ const EmptyProduct: React.FC<EmptyProductProps> = props => {
         fontFamily="Oswald-Regular"
         paddingBottom={{ base: 2, md: 4, lg: 6 }}
       >
+        {/* Display the error message passed as prop */}
         {errorMessage}
       </Text>
     </Flex>
   )
 }
 
-export default EmptyProduct
+export default memo(EmptyProduct)
