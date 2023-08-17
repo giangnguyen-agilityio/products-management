@@ -8,5 +8,3 @@ export interface IProduct {
   description: string
   rate: number
 }
-
-export interface IProductData extends Omit<IProduct, 'description'> {}
