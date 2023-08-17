@@ -7,8 +7,6 @@ interface ProductImageProps {
 }
 
 const ProductImage: React.FC<ProductImageProps> = ({ src }) => {
-  console.log(src)
-
   const imageUrl = src || imageNotAvailable
 
   return (
