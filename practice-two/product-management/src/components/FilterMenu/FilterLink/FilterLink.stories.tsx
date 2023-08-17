@@ -5,6 +5,7 @@ import laptopIcon from '@assets/icons/Laptop_Icon.svg'
 import refrigeratorIcon from '@assets/icons/Refrigerator_Icon.svg'
 import tvIcon from '@assets/icons/TV_Icon.svg'
 import airConditionerIcon from '@assets/icons/Air_Conditioner_Icon.svg'
+import { MemoryRouter } from 'react-router-dom'
 
 export default {
   title: 'Practice Two/FilterLink Component',
@@ -16,7 +17,9 @@ export default {
 } as Meta
 
 const Template: Story = args => (
-  <FilterLink href={''} icon={''} label={''} {...args} />
+  <MemoryRouter>
+    <FilterLink href={''} icon={''} label={''} {...args} />
+  </MemoryRouter>
 )
 
 export const PhoneFilter = Template.bind({})
