@@ -6,8 +6,10 @@ import {
   Input,
   Image,
 } from '@chakra-ui/react'
+
 import { ERROR_MESSAGES } from '@constants/messages'
 
+// Define the prop types for the ImageUploader component
 interface ImageUploaderProps {
   formData: {
     image: string
@@ -21,6 +23,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
   handleImageUpload,
 }) => (
   <FormControl className="input-field image-uploaded" isRequired>
+    {/* Label for the image input */}
     <FormLabel
       className="form-label"
       fontFamily="Oswald-Regular"
@@ -29,6 +32,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
     >
       Image:
     </FormLabel>
+    {/* Input field for uploading an image */}
     <Input
       _hover={{ borderColor: 'primary' }}
       _focus={{ borderColor: 'primary' }}
@@ -42,6 +46,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       accept="image/*"
       onChange={handleImageUpload}
     />
+    {/* Display the uploaded image */}
     {formData.image && (
       <Image
         margin="10px 0"
@@ -56,6 +61,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
         alt={`The ${formData.name} image`}
       />
     )}
+    {/* Display an error message if the image is missing */}
     <FormErrorMessage>
       {ERROR_MESSAGES.PRODUCT_IMAGE_IS_MISSING}
     </FormErrorMessage>
