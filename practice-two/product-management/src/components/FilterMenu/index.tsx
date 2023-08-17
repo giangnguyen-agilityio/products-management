@@ -8,12 +8,14 @@ import airConditionerIcon from '@assets/icons/Air_Conditioner_Icon.svg'
 import FilterLink from '@components/FilterMenu/FilterLink'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
+// Define the props interface for the FilterMenu component
 interface FilterMenuProps {
   isOpen: boolean
   customRef: LegacyRef<HTMLDivElement> | undefined
 }
 
 const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
+  // Outer container with filter menu content
   <Flex
     className="filter-menu"
     display={isOpen ? 'block' : 'none'}
@@ -27,6 +29,7 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
     }}
     margin="0 auto"
   >
+    {/* Arrow icon */}
     <ChevronDownIcon
       className="arrow-filter"
       w="27px"
@@ -39,6 +42,7 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
       bgColor="white"
       pos="absolute"
     />
+    {/* Grid containing filter options */}
     <Grid
       className="filter-list"
       gridTemplateColumns={{ base: 'repeat(2, 1fr)', sm: 'repeat(5, 1fr)' }}
@@ -54,19 +58,12 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
       padding={{ base: '5px', md: '15px' }}
       boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 20px 20px 12px"
     >
-      <FilterLink href="/tv" icon={tvIcon} label="TV" />
-      <FilterLink href="/laptop" icon={laptopIcon} label="Laptop" />
-      <FilterLink href="/phone" icon={phoneIcon} label="Phone" />
-      <FilterLink
-        href="/refrigerator"
-        icon={refrigeratorIcon}
-        label="Refrigerator"
-      />
-      <FilterLink
-        href="/air_conditioner"
-        icon={airConditionerIcon}
-        label="Air Conditioner"
-      />
+      {/* Filter links */}
+      <FilterLink href="/" icon={tvIcon} label="TV" />
+      <FilterLink href="/" icon={laptopIcon} label="Laptop" />
+      <FilterLink href="/" icon={phoneIcon} label="Phone" />
+      <FilterLink href="/" icon={refrigeratorIcon} label="Refrigerator" />
+      <FilterLink href="/" icon={airConditionerIcon} label="Air Conditioner" />
     </Grid>
   </Flex>
 )
