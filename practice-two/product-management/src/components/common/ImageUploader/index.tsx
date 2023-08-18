@@ -28,12 +28,8 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
     </FormLabel>
     {/* Input field for uploading an image */}
     <Input
-      _hover={{ borderColor: 'primary' }}
-      _focus={{ borderColor: 'primary' }}
-      borderColor="gray.300"
-      backgroundColor="background"
+      variant="primary"
       padding={2}
-      borderRadius="6px"
       height="45px"
       name="image"
       type="file"
@@ -57,7 +53,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
     )}
     {/* Display an error message if the image is missing */}
     {/* Error message */}
-    {errorMessage != null && <Text color="red">{errorMessage}</Text>}
+    {errorMessage != null && <Text variant="danger">{errorMessage}</Text>}
   </FormControl>
 )
 

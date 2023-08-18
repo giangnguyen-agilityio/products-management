@@ -59,16 +59,8 @@ const Contact: React.FC = () => (
               <Input
                 placeholder="Enter a valid email address"
                 height="47px"
-                border="none"
-                borderBottom="2px solid"
-                borderColor="textPrimary"
                 padding="10px 12px"
-                outline="none"
-                backgroundColor="background"
-                borderRadius="none"
-                _hover={{
-                  borderBottomColor: 'textPrimary',
-                }}
+                variant="secondary"
               />
             </FormControl>
 
@@ -78,16 +70,8 @@ const Contact: React.FC = () => (
               <Input
                 placeholder="Enter your name"
                 height="47px"
-                border="none"
-                borderBottom="2px solid"
-                borderColor="textPrimary"
                 padding="10px 12px"
-                outline="none"
-                backgroundColor="background"
-                borderRadius="none"
-                _hover={{
-                  borderBottomColor: 'textPrimary',
-                }}
+                variant="secondary"
               />
             </FormControl>
           </Flex>
@@ -98,16 +82,8 @@ const Contact: React.FC = () => (
             <Textarea
               placeholder="Enter your message"
               height="124px"
-              border="none"
-              borderBottom="2px solid"
-              borderColor="textPrimary"
               padding="10px 12px"
-              outline="none"
-              backgroundColor="background"
-              borderRadius="none"
-              _hover={{
-                borderBottomColor: 'textPrimary',
-              }}
+              variant="primary"
             />
           </FormControl>
 
@@ -134,7 +110,7 @@ const Contact: React.FC = () => (
         <Text
           className="content-title"
           color="primary"
-          fontFamily="Oswald-Regular"
+          variant="fontSecondary"
           fontWeight="600"
           fontSize="24px"
         >
@@ -144,7 +120,7 @@ const Contact: React.FC = () => (
         {/* The content maxim */}
         <Text
           className="maxim"
-          fontFamily="OpenSans-Bold"
+          variant="fontPrimaryBold"
           fontSize="18px"
           lineHeight="1.8"
           fontStyle="italic"

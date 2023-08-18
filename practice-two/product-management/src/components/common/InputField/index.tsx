@@ -37,14 +37,9 @@ const InputField: React.FC<InputFieldProps> = ({
     {/* Input field */}
     <Input
       readOnly={isReadOnly}
+      variant="primary"
       as={variant}
-      border="1px solid"
-      _hover={{ borderColor: 'gray.300' }}
-      _focus={{ borderColor: 'primary' }}
-      borderColor="gray.300"
-      backgroundColor="background"
       padding={2}
-      borderRadius="6px"
       height={variant === 'textarea' ? '100px' : '45px'}
       type={type}
       name={name}
@@ -53,11 +48,7 @@ const InputField: React.FC<InputFieldProps> = ({
     />
 
     {/* Error message */}
-    {errorMessage != null && (
-      <Text color="red" fontFamily="OpenSans-Regular">
-        {errorMessage}
-      </Text>
-    )}
+    {errorMessage != null && <Text variant="danger">{errorMessage}</Text>}
   </FormControl>
 )
 
