@@ -51,7 +51,7 @@ const ContactInfo = () => {
             <Text
               as="span"
               color="primary"
-              fontFamily="OpenSans-Bold"
+              variant="fontPrimaryBold"
               textDecoration="unset"
               _hover={{
                 textDecoration: 'underline',

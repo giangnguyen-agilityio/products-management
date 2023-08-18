@@ -23,7 +23,8 @@ const ProductListHeader = () => (
         width="block"
         px={{ base: 1, md: 6 }}
         my={{ base: 4, lg: 6 }}
-        fontSize={{ base: '16px', lg: '24px' }}
+        size="tertiary"
+        color="textSecondary"
       >
         Complete range of products for all your needs
       </Text>

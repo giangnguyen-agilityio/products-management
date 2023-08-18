@@ -26,9 +26,9 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, label }) => (
     <Link to={href}>
       <Text
         as="span"
-        fontSize={{ base: 'sm', md: 'md' }}
+        size="secondary"
         className="footer-link"
-        fontFamily="OpenSans-Medium"
+        variant="fontPrimaryMedium"
         color="textSecondary"
         opacity="0.5"
         _hover={{
@@ -45,11 +45,11 @@ const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => (
   <Flex className="footer-column" flexDirection="column">
     <Text
       as="span"
-      fontSize={{ base: 'xs', md: 'xl' }}
+      size="primary"
       mb={2}
       color="textSecondary"
       textTransform="uppercase"
-      fontFamily="OpenSans-Medium"
+      variant="fontPrimaryMedium"
     >
       {title}
     </Text>
@@ -81,13 +81,7 @@ const Footer: React.FC = () => {
       {/* Footer left */}
       <Flex className="footer-left" flexDirection="column">
         <Logo imageSrc={logoWebsite} />
-        <Text
-          as="span"
-          pt={2}
-          pl={4}
-          color="textSecondary"
-          fontSize={{ base: 'sm', md: 'md' }}
-        >
+        <Text as="span" pt={2} pl={4} color="textSecondary" size="secondary">
           Copyright &copy; 2023, Giang Nguyen
           <br />
           All rights reserved.

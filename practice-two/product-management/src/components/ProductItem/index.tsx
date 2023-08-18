@@ -60,7 +60,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
         noOfLines={2}
         width={{ xs: '300px', sm: 'full' }}
         margin="0 auto"
-        fontFamily="RobotoCondensed-Regular"
+        variant="fontTertiary"
       >
         {product.name}
       </Text>

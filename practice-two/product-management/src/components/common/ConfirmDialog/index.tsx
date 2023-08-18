@@ -81,6 +81,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
       leastDestructiveRef={cancelRef}
       onClose={closeConfirmDialog}
       isCentered
+      motionPreset="slideInBottom"
     >
       <AlertDialogOverlay />
       <AlertDialogContent background="background" color="primary">

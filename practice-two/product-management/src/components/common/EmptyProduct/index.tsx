@@ -36,8 +36,8 @@ const EmptyProduct: React.FC<EmptyProductProps> = props => {
       <Text
         className="error-title"
         color="secondary"
-        fontSize={{ base: '16px', md: '20px', lg: '24px', xl: '30px' }}
-        fontFamily="Oswald-Regular"
+        fontSize="quinary"
+        fontFamily="fontSecondary"
         paddingBottom={{ base: 2, md: 4, lg: 6 }}
       >
         {/* Display the error message passed as prop */}

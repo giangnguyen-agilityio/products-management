@@ -13,7 +13,7 @@ const ProductDesc: React.FC<ProductDescProp> = props => {
       <Text fontSize="lg" fontWeight="bold" color="secondary">
         Overview
       </Text>
-      <Text marginTop={2} color="textTertiary" fontFamily="OpenSans-Regular">
+      <Text marginTop={2} color="textTertiary" variant="fontPrimary">
         {productDesc}
       </Text>
     </Box>

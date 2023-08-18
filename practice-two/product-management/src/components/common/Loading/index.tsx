@@ -22,7 +22,7 @@ const Loading = () => {
         size="xl"
       />
       <Text
-        fontFamily="Oswald-Regular"
+        variant="fontSecondary"
         fontSize="lg"
         color="secondary"
         marginTop={2}
