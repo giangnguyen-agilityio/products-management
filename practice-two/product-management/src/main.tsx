@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ChakraProvider } from '@chakra-ui/react'
 import customThemeConfig from '@themes/custom-theme'
-import Fonts from '@themes/fonts'
+import Fonts from '@themes/fonts.tsx'
 import { RouterProvider } from 'react-router-dom'
 import { routes } from './routes/index'
 
