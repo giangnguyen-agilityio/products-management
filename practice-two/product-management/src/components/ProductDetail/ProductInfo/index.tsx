@@ -67,18 +67,12 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
       </Flex>
 
       {/* Prices */}
-      <Flex flexDirection="column" gap={4} color="textPrimary">
+      <Flex flexDirection="column" gap={2} marginTop={2} color="textPrimary">
         <Flex gap={2}>
-          <Text className="new-price" marginTop={2} fontSize="lg">
+          <Text className="new-price" fontSize="lg">
             {productData.newPrice}
           </Text>
-          <Badge
-            className="discount"
-            mt="2"
-            border="2px solid"
-            color="secondary"
-            background="background"
-          >
+          <Badge className="discount" variant="primary">
             {productData.discount}% Off
           </Badge>
         </Flex>
