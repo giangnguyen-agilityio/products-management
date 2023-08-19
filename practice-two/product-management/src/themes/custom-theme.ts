@@ -6,6 +6,7 @@ import { Badge } from './components/badge'
 import { Text } from './components/text'
 import { Textarea } from './components/textarea'
 import { Input } from './components/input'
+import { Button } from './components/button'
 
 const customThemeConfig = extendTheme({
   styles: {
@@ -26,6 +27,7 @@ const customThemeConfig = extendTheme({
     Text,
     Input,
     Textarea,
+    Button,
   },
 })
 

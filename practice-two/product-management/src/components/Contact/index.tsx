@@ -89,16 +89,11 @@ const Contact: React.FC = () => (
 
           {/* Submit button */}
           <Button
-            colorScheme="primary"
-            color="textSecondary"
-            backgroundColor="primary"
+            aria-label="Submit button"
             padding="15px 30px"
             height="56px"
             borderRadius="10px"
-            _hover={{
-              backgroundColor: 'background',
-              textColor: 'primary',
-            }}
+            variant="default"
           >
             Submit
           </Button>

@@ -258,15 +258,11 @@ const Form: React.FC<FormProps> = ({
         <Button
           onClick={submitForm}
           size="lg"
-          colorScheme="blue"
           className="submit-form-btn"
+          aria-label="Submit form button"
           isLoading={disableButton}
           isDisabled={disableButton}
-          color="textSecondary"
-          backgroundColor="blue.300"
-          _hover={{
-            backgroundColor: 'blue.600',
-          }}
+          variant="secondary"
         >
           {formType === MODAL.ADD ? 'ADD' : 'EDIT'}
         </Button>

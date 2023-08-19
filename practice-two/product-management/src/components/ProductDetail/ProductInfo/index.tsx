@@ -85,16 +85,12 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
       <Flex className="button-control" margin="10px 0" gap={2}>
         {/* Edit button */}
         <Button
-          color="textSecondary"
+          aria-label="Edit button"
           borderRadius="full"
-          colorScheme="green"
-          backgroundColor="green.300"
           width="40px"
           height="40px"
           onClick={openModal}
-          _hover={{
-            backgroundColor: 'green.500',
-          }}
+          variant="success"
         >
           <EditIcon />
         </Button>
@@ -111,15 +107,11 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
 
         {/* Delete button */}
         <Button
-          color="textSecondary"
+          className="delete-btn"
           borderRadius="full"
-          colorScheme="red"
-          backgroundColor="red.300"
           width="40px"
           height="40px"
-          _hover={{
-            backgroundColor: 'red.500',
-          }}
+          variant="danger"
           onClick={openConfirmDialog}
         >
           <DeleteIcon />

@@ -1,4 +1,6 @@
-export const Badge = {
+import { ComponentStyleConfig } from '@chakra-ui/react'
+
+export const Badge: ComponentStyleConfig = {
   baseStyle: {
     fontSize: '12px',
   },

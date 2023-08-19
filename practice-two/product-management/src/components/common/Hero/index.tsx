@@ -9,6 +9,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ imageUrl }) => {
       className="hero-image-wrapper"
       paddingTop={{ base: '60px', xl: '0' }}
       height={{ base: '436px', md: '915px', xl: '600px' }}
+      paddingRight={{ base: 0, xl: '30px' }}
     >
       <Image
         src={imageUrl}
@@ -29,25 +30,27 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
   buttonHref,
 }) => {
   return (
-    <Box
+    <Flex
       className="hero-detail"
       color="textPrimary"
       width={{ xl: '470px' }}
-      padding={{ xl: '0 50px' }}
+      padding={{ base: 0, xl: '50px 0 50px 50px' }}
+      flexDirection="column"
+      justifyContent={{ xl: 'center' }}
     >
       <Heading
         as="h2"
         className="hero-title"
         fontFamily="Oswald-Regular"
         fontWeight="600"
-        fontSize={{ base: '34px', md: '60px' }}
+        fontSize={{ base: '34px', md: '60px', xl: '50px' }}
       >
         {title}
       </Heading>
       <Text
         className="hero-description"
         margin="30px 0"
-        fontSize="17px"
+        fontSize={{ base: '17px', xl: '15px' }}
         fontStyle="italic"
         lineHeight="1.8"
       >
@@ -56,22 +59,19 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
       <Button
         as={Link}
         to={buttonHref}
-        className="hero-button"
+        className="hero-btn"
+        aria-label="Learn more button"
+        width={{ base: '210px', xl: '200px' }}
         letterSpacing={1}
         padding={{ base: '18px 57px 19px', md: '21px 55px 21px' }}
         borderRadius="10px"
-        backgroundColor="secondary"
-        color="textSecondary"
         fontFamily="OpenSans-Semibold"
         height={{ base: 'full', xl: '62px' }}
-        transition="all 0.3s ease-in-out"
-        _hover={{
-          backgroundColor: 'primary',
-        }}
+        variant="primary"
       >
         Learn more
       </Button>
-    </Box>
+    </Flex>
   )
 }
 

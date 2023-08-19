@@ -14,20 +14,12 @@ const DesktopNavigation: React.FC<{ links: NavigationLink[] }> = ({
           <Button
             as={Link}
             to={href}
-            variant="ghost"
             aria-label={label}
             width="full"
             fontSize="md"
             textTransform="uppercase"
             color="textSecondary"
-            border="1px"
-            borderColor="transparent"
-            borderRadius="full"
-            transition="all 0.4s ease-in-out"
-            _hover={{
-              bgColor: 'transparent',
-              borderColor: 'textSecondary',
-            }}
+            variant="contract"
           >
             {label}
           </Button>

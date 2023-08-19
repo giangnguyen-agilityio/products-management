@@ -59,17 +59,11 @@ const MobileNavigationLinks: React.FC<{ links: NavigationLink[] }> = ({
           as={Link}
           to={href}
           display="flex"
-          alignItems="center"
-          variant="unstyled"
           aria-label={label}
           width="full"
+          height="40px"
           fontSize="md"
-          textTransform="uppercase"
-          color="textTertiary"
-          transition="all 0.4s ease-in-out"
-          _hover={{
-            color: 'textSecondary',
-          }}
+          variant="navigate"
         >
           {label}
         </Button>

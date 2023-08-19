@@ -79,21 +79,22 @@ const ProductList = () => {
         {/* Button to open the FilterMenu */}
         <Button
           h={10}
+          aria-label="Select category"
           onClick={onOpen}
           backgroundColor="primary"
           border="1px solid"
           borderColor="background"
-          color="textSecondary"
           opacity="0.7"
           fontFamily="Oswald-Regular"
+          color="textSecondary"
           _hover={{ opacity: '1' }}
         >
-          Select category <ChevronDownIcon w={8} h={8} />
+          Select category <ChevronDownIcon w={8} h={8} color="background" />
         </Button>
 
         {/* Button to open the modal */}
         <Button w={8} h={8} aria-label="Add Product" onClick={openModal}>
-          <SmallAddIcon w={8} h={8} />
+          <SmallAddIcon w={8} h={8} color="primary" />
         </Button>
 
         {/* Modal component */}
@@ -139,15 +140,8 @@ const ProductList = () => {
           className="load-more"
           fontFamily="Oswald-Regular"
           padding={{ base: '15px 84px', xl: '20px 60px' }}
-          borderRadius="full"
           margin="50px auto"
-          borderColor="secondary"
-          border="1px solid"
-          color="textSecondary"
-          backgroundColor="transparent"
-          _hover={{
-            backgroundColor: 'secondary',
-          }}
+          variant="tertiary"
         >
           <Image
             src={arrowDownIcon}
@@ -159,6 +153,7 @@ const ProductList = () => {
           <Text
             as="span"
             display="flex"
+            color="textSecondary"
             justifyContent="center"
             fontSize="18px"
             textTransform="uppercase"

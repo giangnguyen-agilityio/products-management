@@ -111,7 +111,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
               h="150px"
             />
           </Center>
-          <Text mt={5} fontWeight="semibold">
+          <Text mt={5} fontWeight="semibold" color="primary">
             Do you really want to delete this item?
             <br />
             This process cannot be undone.
@@ -120,26 +120,21 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
         <AlertDialogFooter>
           {/* Cancel button */}
           <Button
-            className="cancel-button"
+            className="cancel-btn"
+            aria-label="Cancel button"
             ref={cancelRef}
             onClick={closeConfirmDialog}
-            backgroundColor="gray.100"
             color="textPrimary"
-            _hover={{
-              backgroundColor: 'gray.300',
-            }}
+            variant="minimal"
           >
             Cancel
           </Button>
           {/* Delete button */}
           <Button
-            className="delete-button"
-            backgroundColor="red.300"
-            color="textSecondary"
-            _hover={{
-              backgroundColor: 'red.500',
-            }}
+            className="delete-btn"
+            aria-label="Delete button"
             onClick={handleDelete}
+            variant="danger"
             ml={3}
           >
             Delete
