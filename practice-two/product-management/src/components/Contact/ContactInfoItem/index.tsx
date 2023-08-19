@@ -15,7 +15,7 @@ const ContactInfoItem: React.FC<ContactInfoItemProps> = ({
   <Box
     display="flex"
     flexDirection="column"
-    backgroundColor="background"
+    bgColor="background"
     padding="30px"
     width={{
       base: '300px',

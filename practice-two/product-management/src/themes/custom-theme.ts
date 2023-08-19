@@ -7,6 +7,7 @@ import { Text } from './components/text'
 import { Textarea } from './components/textarea'
 import { Input } from './components/input'
 import { Button } from './components/button'
+import { Container } from './components/container'
 
 const customThemeConfig = extendTheme({
   styles: {
@@ -28,6 +29,7 @@ const customThemeConfig = extendTheme({
     Input,
     Textarea,
     Button,
+    Container,
   },
 })
 

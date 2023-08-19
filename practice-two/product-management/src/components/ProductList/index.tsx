@@ -68,28 +68,22 @@ const ProductList = () => {
         alignItems="center"
         justifyContent="space-between"
         gap={{ sm: 8 }}
-        maxWidth={{
-          sm: '340px',
-          md: '720px',
-          lg: '940px',
-          xl: '1140px',
-        }}
-        margin="0 auto"
       >
         {/* Button to open the FilterMenu */}
         <Button
           h={10}
           aria-label="Select category"
           onClick={onOpen}
-          backgroundColor="primary"
+          bgColor="primary"
           border="1px solid"
           borderColor="background"
           opacity="0.7"
           fontFamily="Oswald-Regular"
           color="textSecondary"
           _hover={{ opacity: '1' }}
+          marginRight="10px"
         >
-          Select category <ChevronDownIcon w={8} h={8} color="background" />
+          Select category <ChevronDownIcon w={8} h={8} />
         </Button>
 
         {/* Button to open the modal */}
@@ -109,29 +103,25 @@ const ProductList = () => {
       <FilterMenu isOpen={isOpen} customRef={filterMenuRef} />
 
       {/* Product list section */}
-      <Grid
-        as="ul"
-        className="product-list"
-        templateColumns={{
-          base: '1fr',
-          md: 'repeat(2, 1fr)',
-          lg: 'repeat(4,1fr)',
-        }}
-        gap={{ base: '4', md: '8' }}
-        maxWidth={{
-          sm: '340px',
-          md: '720px',
-          lg: '940px',
-          xl: '1140px',
-        }}
-        margin={{ base: '0 -50px', sm: '0 auto' }}
-        rowGap={{ md: '0' }}
-      >
-        {/* Render each product */}
-        {productList.map(product => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      </Grid>
+      <Container padding={0}>
+        <Grid
+          as="ul"
+          className="product-list"
+          templateColumns={{
+            base: '1fr',
+            md: 'repeat(2, 1fr)',
+            lg: 'repeat(4,1fr)',
+          }}
+          gap={{ base: '4', md: '8' }}
+          margin={{ base: '0 -50px', sm: '0 auto' }}
+          rowGap={{ md: '0' }}
+        >
+          {/* Render each product */}
+          {productList.map(product => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        </Grid>
+      </Container>
 
       {/* Load more button */}
       <Flex>

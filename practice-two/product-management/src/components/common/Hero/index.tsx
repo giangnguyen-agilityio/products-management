@@ -98,7 +98,7 @@ const Hero: React.FC<HeroProps> = ({
       >
         {/* Background element */}
         <Box
-          backgroundColor="secondary"
+          bgColor="secondary"
           height={{ base: '197px', md: '220px' }}
           width={{
             base: 'calc(((100% - 340px) / 2) + 318px)',
@@ -113,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({
       >
         {/* Background element */}
         <Box
-          backgroundColor="secondary"
+          bgColor="secondary"
           height="197px"
           width={{
             base: 'calc(((100% - 340px) / 2) + 318px)',
@@ -135,7 +135,7 @@ const Hero: React.FC<HeroProps> = ({
         flexDirection={{ base: 'column-reverse', xl: 'row' }}
         padding="30px"
         borderWidth="1px"
-        backgroundColor="textSecondary"
+        bgColor="textSecondary"
         marginTop="48px"
       >
         <HeroImage imageUrl={imageUrl} />

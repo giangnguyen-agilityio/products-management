@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Grid } from '@chakra-ui/react'
+import { Container, Grid } from '@chakra-ui/react'
 import ProductImage from '@components/ProductDetail/ProductImage'
 import ProductInfo from '@components/ProductDetail/ProductInfo'
 import ProductDesc from '@components/ProductDetail/ProductDesc'
@@ -45,18 +45,15 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <Grid
-      as="section"
-      className="product-detail-section"
-      padding={4}
-      gridTemplateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
-      maxWidth={{ sm: '340px', md: '720px', lg: '940px', xl: '1140px' }}
-      margin="30px auto"
-      background="background"
-      borderRadius={10}
-      fontFamily="Oswald-Regular"
-    >
-      <>
+    <Container as="section" className="product-detail-section">
+      <Grid
+        padding={4}
+        gridTemplateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
+        margin="30px auto"
+        background="background"
+        borderRadius={10}
+        fontFamily="Oswald-Regular"
+      >
         {/* Display the product image */}
         <div>
           <ProductImage src={data.image} />
@@ -69,8 +66,8 @@ const ProductDetailPage = () => {
         <div>
           <ProductDesc productDesc={data.description} />
         </div>
-      </>
-    </Grid>
+      </Grid>
+    </Container>
   )
 }
 

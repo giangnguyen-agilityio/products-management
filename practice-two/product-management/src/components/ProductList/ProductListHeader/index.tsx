@@ -16,7 +16,7 @@ const ProductListHeader = () => (
       All Products
     </Heading>
     <Grid gridTemplateColumns={'1fr auto 1fr'} alignItems="center">
-      <Text as="span" height={1} backgroundColor="secondary" />
+      <Text as="span" height={1} bgColor="secondary" />
       <Text
         as="span"
         className="maxim"
@@ -28,7 +28,7 @@ const ProductListHeader = () => (
       >
         Complete range of products for all your needs
       </Text>
-      <Text as="span" height={1} backgroundColor="secondary" />
+      <Text as="span" height={1} bgColor="secondary" />
     </Grid>
   </Box>
 )

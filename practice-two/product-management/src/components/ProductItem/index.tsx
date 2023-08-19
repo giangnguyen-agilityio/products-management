@@ -20,7 +20,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
     <Box
       className="product-item-content"
       marginTop="50px"
-      backgroundColor="background"
+      bgColor="background"
       borderTop="8px solid"
       borderColor="secondary"
       borderRadius="0 0 20px 20px"

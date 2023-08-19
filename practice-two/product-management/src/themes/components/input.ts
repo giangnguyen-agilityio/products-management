@@ -3,7 +3,7 @@ import { ComponentStyleConfig } from '@chakra-ui/react'
 export const Input: ComponentStyleConfig = {
   baseStyle: {
     field: {
-      backgroundColor: 'background',
+      bgColor: 'background',
       _placeholder: {
         color: 'gray.500',
       },

@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Grid, Text } from '@chakra-ui/react'
+import { Container, Grid, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import ContactInfoItem from '../ContactInfoItem'
 
@@ -11,58 +11,53 @@ import emailIcon from '@assets/icons/Email_Icon.svg'
 
 const ContactInfo = () => {
   return (
-    <Grid
-      className="contact-information"
-      gap="20px"
-      margin="-150px auto 0"
-      gridTemplateColumns={{
-        base: '1fr',
-        md: 'repeat(2, 1fr)',
-        lg: 'repeat(4, 1fr)',
-      }}
-      maxWidth={{
-        sm: '340px',
-        md: '720px',
-        lg: '940px',
-        xl: '1140px',
-      }}
-    >
-      <ContactInfoItem
-        icon={locationIcon}
-        title="our main office"
-        content="SoHo 94 Broadway St New York, NY 1001"
-      />
-      <ContactInfoItem
-        icon={telephoneIcon}
-        title="phone number"
-        content={
-          <>
-            <Text>234-9876-5400</Text>
-            <Text marginTop="20px">888-0123-4567 (Toll Free)</Text>
-          </>
-        }
-      />
-      <ContactInfoItem icon={faxIcon} title="fax" content="1-234-567-8900" />
-      <ContactInfoItem
-        icon={emailIcon}
-        title="email"
-        content={
-          <Link to="/">
-            <Text
-              as="span"
-              color="primary"
-              variant="fontPrimaryBold"
-              textDecoration="unset"
-              _hover={{
-                textDecoration: 'underline',
-              }}
-            >
-              hello@theme.com
-            </Text>
-          </Link>
-        }
-      />
-    </Grid>
+    <Container as="section" className="contact-information" padding={0}>
+      <Grid
+        gap="15px"
+        margin="-150px auto 0"
+        gridTemplateColumns={{
+          base: '1fr',
+          md: 'repeat(2, 1fr)',
+          lg: 'repeat(4, 1fr)',
+        }}
+      >
+        <ContactInfoItem
+          icon={locationIcon}
+          title="our main office"
+          content="SoHo 94 Broadway St New York, NY 1001"
+        />
+        <ContactInfoItem
+          icon={telephoneIcon}
+          title="phone number"
+          content={
+            <>
+              <Text>234-9876-5400</Text>
+              <Text marginTop="20px">888-0123-4567 (Toll Free)</Text>
+            </>
+          }
+        />
+        <ContactInfoItem icon={faxIcon} title="fax" content="1-234-567-8900" />
+        <ContactInfoItem
+          icon={emailIcon}
+          title="email"
+          content={
+            <Link to="/">
+              <Text
+                as="span"
+                color="primary"
+                variant="fontPrimaryBold"
+                textDecoration="unset"
+                _hover={{
+                  textDecoration: 'underline',
+                }}
+              >
+                hello@theme.com
+              </Text>
+            </Link>
+          }
+        />
+      </Grid>
+    </Container>
   )
 }
 
