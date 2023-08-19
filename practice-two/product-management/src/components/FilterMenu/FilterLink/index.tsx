@@ -21,7 +21,7 @@ const FilterLink = ({ href, icon, label }: FilterLinkProps) => (
     {/* Display the icon */}
     <Image
       src={icon}
-      w="68px"
+      width="68px"
       alt={`The ${label} icon`}
       margin="0 auto"
       loading="eager"

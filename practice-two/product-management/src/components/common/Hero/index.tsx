@@ -3,6 +3,7 @@ import { Box, Flex, Image, Text, Button, Heading } from '@chakra-ui/react'
 import { HeroImageProps, HeroDetailProps, HeroProps } from '@types'
 import { Link } from 'react-router-dom'
 
+// HeroImage Component
 const HeroImage: React.FC<HeroImageProps> = ({ imageUrl }) => {
   return (
     <Box
@@ -13,17 +14,18 @@ const HeroImage: React.FC<HeroImageProps> = ({ imageUrl }) => {
     >
       <Image
         src={imageUrl}
-        alt="This is the image of hero section"
+        alt="This is the image of the hero section"
         className="hero-image"
         width={{ xl: '410px' }}
         height={{ base: '452px', md: '931px', xl: '606px' }}
         objectFit="cover"
-        boxShadow="5px -6px 20px 0 rgba(0,0,0,0.25)"
+        boxShadow="default"
       />
     </Box>
   )
 }
 
+// HeroDetail Component
 const HeroDetail: React.FC<HeroDetailProps> = ({
   title,
   description,
@@ -38,6 +40,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
       flexDirection="column"
       justifyContent={{ xl: 'center' }}
     >
+      {/* Hero section title */}
       <Heading
         as="h2"
         className="hero-title"
@@ -47,6 +50,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
       >
         {title}
       </Heading>
+      {/* Hero section description */}
       <Text
         className="hero-description"
         margin="30px 0"
@@ -56,6 +60,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
       >
         {description}
       </Text>
+      {/* Learn more button */}
       <Button
         as={Link}
         to={buttonHref}
@@ -75,6 +80,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
   )
 }
 
+// Hero Component
 const Hero: React.FC<HeroProps> = ({
   imageUrl,
   title,
@@ -88,6 +94,7 @@ const Hero: React.FC<HeroProps> = ({
       flexDirection="column"
       position="relative"
       paddingTop="68px"
+      // The data for this width is calculated entirely from design.
       minHeight={{ base: '1120px', md: '1568px', xl: '834px' }}
       marginBottom="20px"
     >
@@ -100,6 +107,7 @@ const Hero: React.FC<HeroProps> = ({
         <Box
           bgColor="secondary"
           height={{ base: '197px', md: '220px' }}
+          // The data for this width is calculated entirely from design.
           width={{
             base: 'calc(((100% - 340px) / 2) + 318px)',
             md: 'calc(((100% - 720px) / 2) + 520px)',
@@ -115,6 +123,7 @@ const Hero: React.FC<HeroProps> = ({
         <Box
           bgColor="secondary"
           height="197px"
+          // The data for this width is calculated entirely from design.
           width={{
             base: 'calc(((100% - 340px) / 2) + 318px)',
             md: 'calc(((100% - 720px) / 2) + 520px)',
@@ -127,6 +136,7 @@ const Hero: React.FC<HeroProps> = ({
         width={{ base: '340px', md: '720px', xl: '940px' }}
         height={{ xl: '600px' }}
         position="absolute"
+        // The data for this width is calculated entirely from design.
         left={{
           base: 'calc(((100% - 340px) / 2))',
           md: 'calc(((100% - 720px) / 2))',
@@ -138,7 +148,9 @@ const Hero: React.FC<HeroProps> = ({
         bgColor="textSecondary"
         marginTop="48px"
       >
+        {/* The HeroImage component */}
         <HeroImage imageUrl={imageUrl} />
+        {/* The HeroDetail component */}
         <HeroDetail
           title={title}
           description={description}

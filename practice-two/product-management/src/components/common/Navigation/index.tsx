@@ -5,21 +5,21 @@ import DesktopNavigation from './DesktopNavigation'
 import MobileContent from './MobileNavigation'
 import { HamburgerIcon } from '@chakra-ui/icons'
 
-// Interfaces
 interface NavigationProps {
   links: NavigationLink[]
 }
 
-// Main Navigation Component
 const Navigation: React.FC<NavigationProps> = ({ links }) => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
     <>
+      {/* Render the Desktop Navigation above medium screen size */}
       <Show above="md">
         <DesktopNavigation links={links} />
       </Show>
 
+      {/* Render the Hamburger Menu button for smaller screens */}
       <Hide above="md">
         <IconButton
           className="hamburger-menu"
@@ -33,6 +33,7 @@ const Navigation: React.FC<NavigationProps> = ({ links }) => {
         />
       </Hide>
 
+      {/* Render the Mobile Navigation content */}
       <MobileContent isOpen={isOpen} toggleDrawer={onToggle} links={links} />
     </>
   )

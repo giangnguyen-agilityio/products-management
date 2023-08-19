@@ -24,13 +24,13 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
       borderTop="8px solid"
       borderColor="secondary"
       borderRadius="0 0 20px 20px"
-      p={{ base: 2, sm: 4 }}
-      boxShadow="5px 5px 29px 0 rgba(0,0,0,0.15)"
-      w="full"
+      boxShadow="tertiary"
+      width="full"
       h={{ base: '516px', md: '482px', lg: '318px', xl: '482px' }}
       padding={{ base: '30px 0', sm: '30px 20px' }}
       position="relative"
     >
+      {/* Image Container */}
       <Box className="image-container">
         <Image
           src={product.image || imageNotAvailable}
@@ -52,6 +52,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
           loading="lazy"
         />
       </Box>
+      {/* Product Name */}
       <Text
         fontWeight="semibold"
         padding="15px 0 0"
@@ -64,6 +65,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
       >
         {product.name}
       </Text>
+      {/* Detail Link */}
       <Link
         as={RouterLink}
         to={`/products/${product.id}`}

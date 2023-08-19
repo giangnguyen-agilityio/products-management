@@ -9,6 +9,7 @@ import telephoneIcon from '@assets/icons/Telephone_Icon.svg'
 import faxIcon from '@assets/icons/Fax_Icon.svg'
 import emailIcon from '@assets/icons/Email_Icon.svg'
 
+// ContactInfo component
 const ContactInfo = () => {
   return (
     <Container as="section" className="contact-information" padding={0}>
@@ -21,11 +22,13 @@ const ContactInfo = () => {
           lg: 'repeat(4, 1fr)',
         }}
       >
+        {/* ContactInfoItem for main office location */}
         <ContactInfoItem
           icon={locationIcon}
           title="our main office"
           content="SoHo 94 Broadway St New York, NY 1001"
         />
+        {/* ContactInfoItem for phone numbers */}
         <ContactInfoItem
           icon={telephoneIcon}
           title="phone number"
@@ -36,7 +39,9 @@ const ContactInfo = () => {
             </>
           }
         />
+        {/* ContactInfoItem for fax */}
         <ContactInfoItem icon={faxIcon} title="fax" content="1-234-567-8900" />
+        {/* ContactInfoItem for email */}
         <ContactInfoItem
           icon={emailIcon}
           title="email"

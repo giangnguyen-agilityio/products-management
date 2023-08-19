@@ -46,7 +46,7 @@ const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => (
     <Text
       as="span"
       size="primary"
-      mb={2}
+      marginBottom={2}
       color="textSecondary"
       textTransform="uppercase"
       variant="fontPrimaryMedium"

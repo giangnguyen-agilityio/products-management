@@ -7,6 +7,7 @@ interface ContactInfoItemProps {
   content: JSX.Element | string
 }
 
+// ContactInfoItem component
 const ContactInfoItem: React.FC<ContactInfoItemProps> = ({
   icon,
   title,
@@ -40,6 +41,7 @@ const ContactInfoItem: React.FC<ContactInfoItemProps> = ({
         {title}
       </Text>
     </Flex>
+    {/* Display the content of the contact information */}
     {content}
   </Box>
 )

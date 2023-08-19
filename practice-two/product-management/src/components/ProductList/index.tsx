@@ -55,7 +55,7 @@ const ProductList = () => {
       as="section"
       className="product-list-section"
       width="full"
-      mb={32}
+      marginBottom={32}
       padding={{ base: '0 50px', md: '0' }}
     >
       {/* Render the header */}
@@ -135,7 +135,7 @@ const ProductList = () => {
         >
           <Image
             src={arrowDownIcon}
-            w="20px"
+            width="20px"
             alt="The arrow down icon"
             margin="0 auto"
             loading="eager"

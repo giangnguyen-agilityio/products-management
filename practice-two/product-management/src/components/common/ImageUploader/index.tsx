@@ -52,7 +52,6 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       />
     )}
     {/* Display an error message if the image is missing */}
-    {/* Error message */}
     {errorMessage != null && <Text variant="danger">{errorMessage}</Text>}
   </FormControl>
 )

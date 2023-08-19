@@ -139,7 +139,7 @@ const Contact: React.FC = () => (
         <Flex
           as="ul"
           className="social-link"
-          mt="40px"
+          marginTop="40px"
           alignItems="center"
           gap="20px"
         >

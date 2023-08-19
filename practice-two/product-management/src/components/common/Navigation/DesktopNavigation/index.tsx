@@ -8,6 +8,7 @@ const DesktopNavigation: React.FC<{ links: NavigationLink[] }> = ({
   links,
 }) => (
   <Flex as="nav" className="navigation" paddingTop={1.5}>
+    {/* List of navigation items */}
     <Flex as="ul" className="nav-list" gap={6}>
       {links.map(({ label, href }) => (
         <Flex as="li" className="nav-item" key={label}>

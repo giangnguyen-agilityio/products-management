@@ -26,13 +26,13 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
       {/* Arrow icon */}
       <ChevronDownIcon
         className="arrow-filter"
-        w="27px"
-        h="27px"
+        width="27px"
+        height="27px"
         top="0"
         left="25px"
         overflow="hidden"
         transform="rotate(45deg)"
-        boxShadow="-2px -2px 5px -4px"
+        boxShadow="primary"
         bgColor="white"
         pos="absolute"
       />
@@ -50,7 +50,7 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
         textAlign="center"
         gap={{ base: '10px', lg: '20px' }}
         padding={{ base: '5px', md: '15px' }}
-        boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 20px 20px 12px"
+        boxShadow="secondary"
       >
         {/* Filter links */}
         <FilterLink href="/" icon={tvIcon} label="TV" />

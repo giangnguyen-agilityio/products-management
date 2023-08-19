@@ -24,8 +24,8 @@ const MobileContent: React.FC<{
     size={{ base: 'full', sm: 'xs' }}
   >
     <DrawerOverlay />
-
     <DrawerContent className="sidebar" bgColor="black" opacity="0.95">
+      {/* Close button for the mobile drawer */}
       <DrawerCloseButton
         width="40px"
         height="40px"
@@ -35,7 +35,9 @@ const MobileContent: React.FC<{
           color: 'textSecondary',
         }}
       />
+      {/* Content of the mobile drawer */}
       <DrawerBody className="navigation-mobile">
+        {/* Render mobile navigation links */}
         <MobileNavigationLinks links={links} />
       </DrawerBody>
     </DrawerContent>
@@ -53,6 +55,7 @@ const MobileNavigationLinks: React.FC<{ links: NavigationLink[] }> = ({
     marginTop={8}
     alignItems="center"
   >
+    {/* Map through navigation links and render buttons */}
     {links.map(({ label, href }) => (
       <Flex as="li" className="nav-item-mobile" key={label}>
         <Button

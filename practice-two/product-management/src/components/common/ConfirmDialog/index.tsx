@@ -107,11 +107,11 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
               loading="eager"
               src={deleteAction}
               alt="The image for delete action"
-              w="200px"
-              h="150px"
+              width="200px"
+              height="150px"
             />
           </Center>
-          <Text mt={5} fontWeight="semibold" color="primary">
+          <Text marginTop={5} fontWeight="semibold" color="primary">
             Do you really want to delete this item?
             <br />
             This process cannot be undone.
@@ -135,7 +135,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
             aria-label="Delete button"
             onClick={handleDelete}
             variant="danger"
-            ml={3}
+            marginLeft={3}
           >
             Delete
           </Button>

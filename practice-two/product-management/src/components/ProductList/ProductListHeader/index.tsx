@@ -8,6 +8,7 @@ const ProductListHeader = () => (
     color="textSecondary"
     margin={{ base: '0 -50px 16px' }}
   >
+    {/* Main title */}
     <Heading
       as="h2"
       className="product-list-title"
@@ -16,7 +17,9 @@ const ProductListHeader = () => (
       All Products
     </Heading>
     <Grid gridTemplateColumns={'1fr auto 1fr'} alignItems="center">
+      {/* Visual element - left line */}
       <Text as="span" height={1} bgColor="secondary" />
+      {/* The maxim */}
       <Text
         as="span"
         className="maxim"
@@ -28,6 +31,7 @@ const ProductListHeader = () => (
       >
         Complete range of products for all your needs
       </Text>
+      {/* Visual element - right line */}
       <Text as="span" height={1} bgColor="secondary" />
     </Grid>
   </Box>
