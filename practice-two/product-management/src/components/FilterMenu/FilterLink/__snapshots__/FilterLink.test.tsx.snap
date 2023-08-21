@@ -4,7 +4,7 @@ exports[`FilterLink Component matches snapshot 1`] = `
 <div>
   <a
     class="chakra-link filter-item css-zkti8d"
-    href="/test"
+    href="/"
   >
     <img
       alt="The Test Label icon"

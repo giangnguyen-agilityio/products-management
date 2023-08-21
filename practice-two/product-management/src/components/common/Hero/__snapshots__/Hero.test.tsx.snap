@@ -23,29 +23,30 @@ exports[`Hero Component matches snapshot 1`] = `
       class="hero-content css-1n8ugxz"
     >
       <div
-        class="hero-image-wrapper css-s8jnda"
+        class="hero-image-wrapper css-uvtw02"
       >
         <img
-          alt="This is the image of hero section"
-          class="hero-image css-1xuawgx"
+          alt="This is the image of the hero section"
+          class="hero-image css-1p5ww44"
           src="test-image-url"
         />
       </div>
       <div
-        class="hero-detail css-1w2bpi"
+        class="hero-detail css-1fw5if8"
       >
         <h2
-          class="chakra-heading hero-title css-wgs5kc"
+          class="chakra-heading hero-title css-yjbb1g"
         >
           Test Title
         </h2>
         <p
-          class="chakra-text hero-description css-slxfkz"
+          class="chakra-text hero-description css-8urhta"
         >
           Test Description
         </p>
         <a
-          class="chakra-button hero-button css-18yvqgz"
+          aria-label="Learn more button"
+          class="chakra-button hero-btn css-paa06n"
           href="/test-link"
         >
           Learn more

@@ -4,7 +4,7 @@ import FilterLink from '.'
 
 describe('FilterLink Component', () => {
   const testProps = {
-    href: '/test',
+    href: '/',
     icon: '/test-icon.png',
     label: 'Test Label',
   }
@@ -16,7 +16,7 @@ describe('FilterLink Component', () => {
       </MemoryRouter>
     )
     const linkElement = screen.getByRole('link')
-    expect(linkElement).toHaveAttribute('href', '/test')
+    expect(linkElement).toHaveAttribute('href', '/')
   })
 
   it('renders the icon with correct alt text', () => {

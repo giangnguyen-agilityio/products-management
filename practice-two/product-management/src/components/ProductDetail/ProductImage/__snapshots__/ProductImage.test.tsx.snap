@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductImage Component renders with the correct height based on screen size 1`] = `
+<div>
+  <div
+    class="css-1al0hrz"
+  >
+    <img
+      alt="The product image"
+      class="product-image css-1wuytdk"
+      src="valid-image-url.jpg"
+    />
+  </div>
+</div>
+`;

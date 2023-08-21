@@ -1,5 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import FilterMenu from './index'
+import ProductContext from '@stores/products/ProductContext'
+import { MemoryRouter } from 'react-router-dom'
 
 const meta: Meta = {
   title: 'Practice Two/FilterMenu Component',
@@ -22,7 +24,29 @@ const meta: Meta = {
 
 export default meta
 
-const Template: Story<any> = args => <FilterMenu {...args} />
+const mockProductData = {
+  productData: [
+    {
+      id: 'P01',
+      name: 'iPhone 14 Pro Max',
+      image: 'https://assets.nicepagecdn.com/d2cc3eaa/3159880/images/yttyy.jpg',
+      discount: 11,
+      oldPrice: 1263.8,
+      newPrice: 1116.31,
+      rate: 4.5,
+      description:
+        "The iPhone 14 Pro Max is Apple's flagship smartphone, featuring a Super Retina XDR display, A16 Bionic chip for powerful performance, and an advanced triple-camera system for exceptional photography. With premium design, Face ID, and MagSafe technology, it offers a top-tier user experience.",
+    },
+  ],
+}
+
+const Template: Story<any> = args => (
+  <MemoryRouter>
+    <ProductContext.Provider value={mockProductData}>
+      <FilterMenu {...args} />
+    </ProductContext.Provider>
+  </MemoryRouter>
+)
 
 export const Primary = Template.bind({})
 Primary.args = {

@@ -28,6 +28,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
     </FormLabel>
     {/* Input field for uploading an image */}
     <Input
+      aria-label="Upload Image"
       variant="primary"
       padding={2}
       height="45px"

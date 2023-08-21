@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageUploader component renders without errors 1`] = `
+<div>
+  <div
+    class="chakra-form-control input-field image-uploaded css-0"
+    role="group"
+  >
+    <label
+      class="chakra-form__label form-label css-16hu8s6"
+      for="field-:r0:"
+      id="field-:r0:-label"
+    >
+      Image:
+      <span
+        aria-hidden="true"
+        class="chakra-form__required-indicator css-0"
+        role="presentation"
+      >
+        *
+      </span>
+    </label>
+    <input
+      accept="image/*"
+      aria-label="Upload Image"
+      aria-required="true"
+      class="chakra-input css-16crra2"
+      id="field-:r0:"
+      name="image"
+      required=""
+      type="file"
+    />
+    <img
+      alt="The Test Image image"
+      class="image-uploaded css-754yvm"
+      src="test-image-url"
+    />
+    <p
+      class="chakra-text css-0"
+    />
+  </div>
+</div>
+`;

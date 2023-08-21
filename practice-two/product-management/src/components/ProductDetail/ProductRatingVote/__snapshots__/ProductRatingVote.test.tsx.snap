@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductRatingVote Component renders correct number of stars for a given rating 1`] = `
+<div>
+  <div
+    class="rating-vote css-losko6"
+  >
+    <div
+      aria-label="Full star"
+      class="star css-0"
+    >
+      <img
+        alt="The full star icon"
+        class="chakra-image css-1fjwirh"
+        src=""
+      />
+    </div>
+    <div
+      aria-label="Full star"
+      class="star css-0"
+    >
+      <img
+        alt="The full star icon"
+        class="chakra-image css-1fjwirh"
+        src=""
+      />
+    </div>
+    <div
+      aria-label="Full star"
+      class="star css-0"
+    >
+      <img
+        alt="The full star icon"
+        class="chakra-image css-1fjwirh"
+        src=""
+      />
+    </div>
+    <div
+      aria-label="Half star"
+      class="star css-0"
+    >
+      <img
+        alt="The half star icon"
+        class="chakra-image css-1fjwirh"
+        src="[object Object]"
+      />
+    </div>
+    <div
+      aria-label="Empty star"
+      class="star css-0"
+    >
+      <img
+        alt="The empty star icon"
+        class="chakra-image css-1fjwirh"
+        src="[object Object]"
+      />
+    </div>
+  </div>
+</div>
+`;

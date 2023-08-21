@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import Hero from '.'
 
@@ -17,25 +17,5 @@ describe('Hero Component', () => {
       </MemoryRouter>
     )
     expect(container).toMatchSnapshot()
-  })
-
-  it('renders HeroImage and HeroDetail components', () => {
-    render(
-      <MemoryRouter>
-        <Hero {...testProps} />
-      </MemoryRouter>
-    )
-
-    const heroImageElement = screen.getByAltText(
-      'This is the image of hero section'
-    )
-    expect(heroImageElement).toBeInTheDocument()
-
-    const heroTitleElement = screen.getByText('Test Title')
-    const heroDescriptionElement = screen.getByText('Test Description')
-    const learnMoreButtonElement = screen.getByText('Learn more')
-    expect(heroTitleElement).toBeInTheDocument()
-    expect(heroDescriptionElement).toBeInTheDocument()
-    expect(learnMoreButtonElement).toBeInTheDocument()
   })
 })

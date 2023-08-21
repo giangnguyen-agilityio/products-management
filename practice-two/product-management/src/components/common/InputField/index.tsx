@@ -51,6 +51,7 @@ const InputField: React.FC<InputFieldProps> = ({
       onChange={onChange}
       min={min}
       max={max}
+      aria-label="Input Field"
     />
 
     {/* Error message */}

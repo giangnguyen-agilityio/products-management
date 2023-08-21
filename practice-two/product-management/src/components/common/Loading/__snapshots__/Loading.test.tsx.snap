@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Component should render the loading spinner 1`] = `
+<div>
+  <div
+    class="chakra-container css-0"
+  >
+    <div
+      class="css-xfahp0"
+    >
+      <div
+        class="chakra-spinner css-mb5q2b"
+      >
+        <span
+          class="css-8b45rq"
+        >
+          Loading...
+        </span>
+      </div>
+      <p
+        class="chakra-text css-edrbut"
+      >
+        Loading....
+      </p>
+    </div>
+  </div>
+</div>
+`;

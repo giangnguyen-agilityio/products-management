@@ -13,7 +13,7 @@ exports[`renders DesktopNavigation component with links 1`] = `
       >
         <a
           aria-label="Home"
-          class="chakra-button css-1pbf9v6"
+          class="chakra-button css-13jvr54"
           href="/home"
         >
           Home
@@ -24,7 +24,7 @@ exports[`renders DesktopNavigation component with links 1`] = `
       >
         <a
           aria-label="About"
-          class="chakra-button css-1pbf9v6"
+          class="chakra-button css-13jvr54"
           href="/about"
         >
           About
@@ -35,7 +35,7 @@ exports[`renders DesktopNavigation component with links 1`] = `
       >
         <a
           aria-label="Contact"
-          class="chakra-button css-1pbf9v6"
+          class="chakra-button css-13jvr54"
           href="/contact"
         >
           Contact
