@@ -1,9 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { MemoryRouter } from 'react-router-dom'
 import ConfirmDialog from './index'
 
 const meta = {
   title: 'Practice Two/ConfirmDialog Component',
   component: ConfirmDialog,
+  decorators: [
+    Story => (
+      <MemoryRouter>
+        <div
+          style={{
+            backgroundColor: '#ECB203',
+            width: '100vw',
+            height: '100%',
+          }}
+        >
+          <Story />
+        </div>
+      </MemoryRouter>
+    ),
+  ],
   parameters: {
     layout: 'centered',
   },
