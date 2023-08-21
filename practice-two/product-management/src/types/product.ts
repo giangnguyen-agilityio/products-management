@@ -8,3 +8,5 @@ export interface IProduct {
   description: string
   rate: number
 }
+
+export interface IProductItem extends Pick<IProduct, 'id' | 'name' | 'image'> {}

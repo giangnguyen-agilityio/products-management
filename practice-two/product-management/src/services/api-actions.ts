@@ -3,8 +3,12 @@ import { API_URL, ENDPOINT } from '@constants'
 import { IProduct } from '@types'
 
 // API method for fetching all products
-export const fetchAllProducts = async (): Promise<IProduct[]> => {
-  const res = await axios.get(`${API_URL}/${ENDPOINT.PRODUCTS}`)
+export const fetchAllProducts = async (
+  currentPage: number
+): Promise<IProduct[]> => {
+  const res = await axios.get(
+    `${API_URL}/${ENDPOINT.PRODUCTS}?_page=${currentPage}&_limit=8`
+  )
   return res.data
 }
 

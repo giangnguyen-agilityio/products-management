@@ -6,11 +6,13 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: 'input' | 'textarea'
   name: string
   label: string
-  value: string | number
+  value?: string | number
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   type?: string
   errorMessage?: string
   isReadOnly?: boolean
+  min?: number
+  max?: number
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -22,6 +24,8 @@ const InputField: React.FC<InputFieldProps> = ({
   type = 'text',
   errorMessage,
   isReadOnly,
+  min,
+  max,
 }) => (
   <FormControl className="input-field" isRequired>
     {/* Form Label */}
@@ -45,6 +49,8 @@ const InputField: React.FC<InputFieldProps> = ({
       name={name}
       value={value}
       onChange={onChange}
+      min={min}
+      max={max}
     />
 
     {/* Error message */}

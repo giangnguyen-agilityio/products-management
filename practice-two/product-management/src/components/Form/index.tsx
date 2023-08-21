@@ -197,6 +197,7 @@ const Form: React.FC<FormProps> = ({
           value={formData.oldPrice.toString()}
           onChange={handleChange}
           type="number"
+          min={0}
           errorMessage={renderErrorMessage(
             'oldPrice',
             ERROR_MESSAGES.VALUE_IS_NOT_VALID
@@ -210,6 +211,7 @@ const Form: React.FC<FormProps> = ({
           value={formData.newPrice.toString()}
           onChange={handleChange}
           type="number"
+          min={0}
           errorMessage={renderErrorMessage(
             'newPrice',
             ERROR_MESSAGES.VALUE_IS_NOT_VALID
@@ -223,6 +225,8 @@ const Form: React.FC<FormProps> = ({
           value={formData.rate.toString()}
           onChange={handleChange}
           type="number"
+          min={0}
+          max={5}
           errorMessage={renderErrorMessage(
             'rate',
             ERROR_MESSAGES.RATE_NUMBER_IS_NOT_VALID

@@ -2,10 +2,10 @@ import React, { memo } from 'react'
 import { GridItem, Box, Image, Text, Link } from '@chakra-ui/react'
 import imageNotAvailable from '@assets/images/Image_not_available.webp'
 import { Link as RouterLink } from 'react-router-dom'
-import { IProduct } from '@types'
+import { IProductItem } from '@types'
 
 interface ProductItemProps {
-  product: Pick<IProduct, 'id' | 'name' | 'image'>
+  product: IProductItem
 }
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => (

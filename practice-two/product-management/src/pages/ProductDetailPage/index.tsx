@@ -9,13 +9,16 @@ import { useProductById } from '@hooks/fetch'
 import { handleServerError } from '@helpers'
 import { AxiosError } from 'axios'
 import Loading from '@components/common/Loading'
+import { NOTIFICATIONS } from '@constants'
 
 const ProductDetailPage = () => {
   const { id } = useParams()
 
   // Check if the 'id' parameter is missing
   if (!id) {
-    return <EmptyProduct errorMessage={`Product ID is missing`} />
+    return (
+      <EmptyProduct errorMessage={`${NOTIFICATIONS.PRODUCT_ID_IS_MISSING}`} />
+    )
   }
 
   // Fetch product data using custom hook 'useProductById'
@@ -26,7 +29,7 @@ const ProductDetailPage = () => {
     const message = handleServerError(error as AxiosError)
     return (
       <EmptyProduct
-        errorMessage={`An error occurred while fetching product data: ${message}`}
+        errorMessage={`${NOTIFICATIONS.ERROR_WHILE_FETCHING} ${message}`}
       />
     )
   }
@@ -35,7 +38,7 @@ const ProductDetailPage = () => {
   if (!data) {
     return (
       <EmptyProduct
-        errorMessage={`We couldn't find any product with ID ${id}`}
+        errorMessage={`${NOTIFICATIONS.FAILED_TO_GET_PRODUCT} ${id}`}
       />
     )
   }

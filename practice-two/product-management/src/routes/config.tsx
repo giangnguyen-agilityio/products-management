@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 import { Outlet, RouteObject } from 'react-router-dom'
-import { ENDPOINT } from '@constants'
+import { ENDPOINT, NOTIFICATIONS } from '@constants'
+import EmptyProduct from '@components/common/EmptyProduct'
 
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -12,6 +13,7 @@ export const routerConfig: RouteObject[] = [
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />,
     children: [
       {
         index: true,
@@ -24,6 +26,9 @@ export const routerConfig: RouteObject[] = [
           {
             path: ':id',
             element: <ProductDetailPage />,
+            errorElement: (
+              <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />
+            ),
           },
         ],
       },

@@ -18,8 +18,9 @@ const EmptyProduct: React.FC<EmptyProductProps> = props => {
         alignItems="center"
         justifyContent="center"
         background="background"
-        margin="40px auto"
+        margin="40px auto 150px"
         borderRadius={6}
+        height="100vh"
       >
         {/* Box containing the error image */}
         <Box className="error-image">
@@ -30,9 +31,10 @@ const EmptyProduct: React.FC<EmptyProductProps> = props => {
         <Text
           className="error-title"
           color="secondary"
-          fontSize="quinary"
+          size="quinary"
           fontFamily="fontSecondary"
           paddingBottom={{ base: 2, md: 4, lg: 6 }}
+          textAlign="center"
         >
           {/* Display the error message passed as prop */}
           {errorMessage}

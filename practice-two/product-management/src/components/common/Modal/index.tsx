@@ -8,7 +8,7 @@ import {
   ModalBody,
   useToast,
 } from '@chakra-ui/react'
-import { MODAL } from '@constants'
+import { MODAL, NOTIFICATIONS } from '@constants'
 import Form from '@components/Form'
 import { IProduct } from '@types'
 import ProductContext from '@stores/products/ProductContext'
@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({
       title: 'Success',
       description: itemId
         ? `Product with ID ${itemId} has been updated.`
-        : 'A new product has been added successfully',
+        : `${NOTIFICATIONS.PRODUCT_ADDED_SUCCESSFULLY}`,
       duration: 2000,
       status: 'success',
       isClosable: true,
@@ -57,8 +57,8 @@ const Modal: React.FC<ModalProps> = ({
     toast({
       title: 'Error',
       description: itemId
-        ? `An error occurred while editing the product with ID ${itemId}`
-        : 'An error occurred while adding a new product',
+        ? `${NOTIFICATIONS.PRODUCT_EDITED_FAILED} ${itemId}`
+        : `${NOTIFICATIONS.PRODUCT_ADDED_FAILED}`,
       duration: 2000,
       status: 'error',
       isClosable: true,

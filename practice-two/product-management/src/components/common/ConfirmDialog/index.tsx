@@ -17,6 +17,7 @@ import deleteAction from '@assets/images/delete_Action.gif'
 import { deleteProductAPI } from '@services/api-actions'
 import ProductContext from '@stores/products/ProductContext'
 import { useNavigate } from 'react-router-dom'
+import { NOTIFICATIONS } from '@constants'
 
 // Define the props interface for the ConfirmDialog component
 interface ConfirmDialogProps {
@@ -51,7 +52,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   const showErrorToast = (itemId: string | undefined) => {
     toast({
       title: 'Error',
-      description: `An error occurred while deleting item with ID ${itemId}.`,
+      description: `${NOTIFICATIONS.PRODUCT_DELETED_FAILED} ${itemId}`,
       status: 'error',
       duration: 2000,
       isClosable: true,

@@ -1,14 +1,16 @@
-import { useMemo, useReducer } from 'react'
+import { useEffect, useMemo, useReducer, useState } from 'react'
 import { ProductsState, IProduct } from '@types'
 import { useProducts } from '@hooks/fetch'
 import ProductContext from './ProductContext'
 import reducer from './reducer'
 import {
-  setProduct,
   addNewProduct,
   editProduct,
   deleteProduct,
+  setProduct,
 } from './actions'
+import EmptyProduct from '@components/common/EmptyProduct'
+import { NOTIFICATIONS } from '@constants'
 
 interface ProviderProps {
   children: JSX.Element
@@ -19,21 +21,38 @@ export const initialState: ProductsState = {
 }
 
 const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
-  const { allProducts } = useProducts()
-
+  const [currentPage, setCurrentPage] = useState(1)
+  const { allProducts, error, mutate } = useProducts(currentPage)
   const [productState, productDispatch] = useReducer(reducer, initialState)
 
-  // Dispatch the setProduct action to update the state once the data is fetched.
-  if (allProducts && !productState.products.length) {
-    productDispatch(setProduct(allProducts))
+  if (error) {
+    return <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />
   }
 
-  const addNewProductState = (payload: IProduct) =>
+  useEffect(() => {
+    if (allProducts) {
+      productDispatch(setProduct(allProducts))
+    }
+  }, [allProducts])
+
+  const addNewProductState = (payload: IProduct) => {
     productDispatch(addNewProduct(payload))
-  const editProductState = (payload: IProduct) =>
+    mutate() // Update the SWR cache after adding a new product
+  }
+
+  const editProductState = (payload: IProduct) => {
     productDispatch(editProduct(payload))
-  const deleteProductState = (payload: string) =>
+    mutate() // Update the SWR cache after editing a product
+  }
+
+  const deleteProductState = (payload: string) => {
     productDispatch(deleteProduct(payload))
+    mutate() // Update the SWR cache after deleting a product
+  }
+
+  const handleLoadMoreClick = () => {
+    setCurrentPage(prevCurrentPage => prevCurrentPage + 1)
+  }
 
   const contextValue = useMemo(
     () => ({
@@ -41,6 +60,7 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
       addNewProductState,
       editProductState,
       deleteProductState,
+      handleLoadMoreClick,
     }),
     [productState]
   )
