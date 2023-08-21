@@ -32,26 +32,27 @@
 
 📅 **Timeline**
 
-  - Estimate time: 5 days (Aug 03, 2023 - Aug 09, 2023)
-  - Actual time: ... days
+- Estimate time: 5 days (Aug 04, 2023 - Aug 10, 2023)
+- Actual time: 10 days (Aug 04, 2023 - Aug 18, 2023)
 
 💻 **Techniques**
 
-  - HTML5/CSS3 [Latest]
-  - TypeScript [ver 5.1.6](https://www.typescriptlang.org/)
-  - JSON Server [ver 0.17.3](https://github.com/typicode/json-server)
-  - React [ver 18.2.0](https://react.dev)
-  - Storybook [ver 7.2](https://storybook.js.org/)
-  - Eslint [ver 8.46.0](https://eslint.org/docs/latest/use/getting-started#quick-start)
-  - Prettier [ver 3.0](https://prettier.io/)
-  - Husky [ver 8.0.3](https://typicode.github.io/husky/#/)
-  - CommitLint [ver 17.6.7](https://commitlint.js.org/#/)
-  - SWR [ver 2.2.0](https://swr.vercel.app/)
-  - Jest [ver 29.6.2](https://jestjs.io/docs/getting-started)
-  - React Testing Library [ver 14.0.0](https://testing-library.com/docs/)
-  - Chakra UI [ver 2.7.1](https://chakra-ui.com/)
+- HTML5/CSS3 [Latest]
+- TypeScript [ver 5.1.6](https://www.typescriptlang.org/)
+- JSON Server [ver 0.17.3](https://github.com/typicode/json-server)
+- React [ver 18.2.0](https://react.dev)
+- Storybook [ver 7.2](https://storybook.js.org/)
+- Eslint [ver 8.46.0](https://eslint.org/docs/latest/use/getting-started#quick-start)
+- Prettier [ver 3.0](https://prettier.io/)
+- Husky [ver 8.0.3](https://typicode.github.io/husky/#/)
+- CommitLint [ver 17.6.7](https://commitlint.js.org/#/)
+- SWR [ver 2.2.0](https://swr.vercel.app/)
+- Jest [ver 29.6.2](https://jestjs.io/docs/getting-started)
+- React Testing Library [ver 14.0.0](https://testing-library.com/docs/)
+- Chakra UI [ver 2.7.1](https://chakra-ui.com/)
 
-📝 **Editor** 
+📝 **Editor**
+
 - Visual Studio Code.
 
 📄 **Estimate file** [here](https://docs.google.com/document/d/1YMRJC0DoUG6ZQj0bdinKrH3H6vbA145L5U7l8ZMuT8s/edit?usp=sharing)
@@ -59,6 +60,7 @@
 ## Development Environment
 
 - Certainly! To run this website, you will need to have the following tools installed:
+
   - Node [v20.2.0](https://nodejs.org/en/)
   - pnpm [v8.6.11](https://pnpm.io/installation)
 
@@ -73,6 +75,7 @@
 ![Main features](src\assets\images\UserFlow_Diagram.png)
 
 ## Getting Started
+
 - **Step 1:** Clone repository
 
 - With HTTPS :
@@ -126,6 +129,7 @@
 - View the Storybook on port: `http://localhost:6006`
 
 ## How to run the Unit Test
+
 - Start the Unit Test by Jest with this command
   ```
   pnpm run test
