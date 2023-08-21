@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import { Outlet, RouteObject } from 'react-router-dom'
+import { RouteObject } from 'react-router-dom'
 import { ENDPOINT, NOTIFICATIONS } from '@constants'
 import EmptyProduct from '@components/common/EmptyProduct'
 
@@ -21,7 +21,6 @@ export const routerConfig: RouteObject[] = [
       },
       {
         path: ENDPOINT.PRODUCTS,
-        element: <Outlet />,
         children: [
           {
             path: ':id',

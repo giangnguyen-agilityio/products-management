@@ -1,9 +1,8 @@
-import { Suspense, memo } from 'react'
+import { memo } from 'react'
 import Hero from '@components/common/Hero'
 import { heroSectionContent } from '@constants'
 import ProductList from '@components/ProductList'
 import Contact from '@components/Contact'
-import Loading from '@components/common/Loading'
 
 const Homepage = () => {
   return (
@@ -14,9 +13,7 @@ const Homepage = () => {
         title={heroSectionContent.title}
         description={heroSectionContent.description}
       />
-      <Suspense fallback={<Loading />}>
-        <ProductList />
-      </Suspense>
+      <ProductList />
       <Contact />
     </>
   )

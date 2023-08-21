@@ -51,7 +51,7 @@ const ProductList = () => {
       as="section"
       className="product-list-section"
       width="full"
-      marginBottom={32}
+      marginBottom="-100px auto 150px"
       padding={{ base: '0 50px', md: '0' }}
     >
       <ProductListHeader />
