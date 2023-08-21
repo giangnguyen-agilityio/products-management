@@ -22,7 +22,7 @@ interface IProductById<T> extends SWRResponse<T> {
 // Using SWR to fetch all products
 export const useProducts = (currentPage: number): IProducts => {
   const { data, error, ...rest } = useSWR<IProduct[]>(
-    `${API_URL}/${ENDPOINT.PRODUCTS}?_page=${currentPage}&_limit=8`,
+    `${API_URL}/${ENDPOINT.PRODUCTS}?page=${currentPage}&limit=8`,
     () => fetchAllProducts(currentPage)
   )
 

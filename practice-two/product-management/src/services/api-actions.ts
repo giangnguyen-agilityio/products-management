@@ -7,7 +7,7 @@ export const fetchAllProducts = async (
   currentPage: number
 ): Promise<IProduct[]> => {
   const res = await axios.get(
-    `${API_URL}/${ENDPOINT.PRODUCTS}?_page=${currentPage}&_limit=8`
+    `${API_URL}/${ENDPOINT.PRODUCTS}?page=${currentPage}&limit=8`
   )
   return res.data
 }

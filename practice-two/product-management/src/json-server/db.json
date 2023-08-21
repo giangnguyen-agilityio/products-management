@@ -3,7 +3,7 @@
     {
       "id": "P01",
       "name": "iPhone 14 Pro Max",
-      "image": "/src/assets/images/product_1.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_1.webp",
       "discount": 11,
       "oldPrice": 1263.8,
       "newPrice": 1116.31,
@@ -14,7 +14,7 @@
     {
       "id": "P02",
       "name": "iPhone 14 Pro",
-      "image": "/src/assets/images/product_2.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_2.webp",
       "discount": 12,
       "oldPrice": 1179.52,
       "newPrice": 1032.03,
@@ -25,7 +25,7 @@
     {
       "id": "P03",
       "name": "iPhone 14",
-      "image": "/src/assets/images/product_3.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_3.webp",
       "discount": 12,
       "oldPrice": 926.67,
       "newPrice": 808.68,
@@ -36,7 +36,7 @@
     {
       "id": "P04",
       "name": "Samsung Galaxy Z Fold5 5G",
-      "image": "/src/assets/images/product_4.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_4.webp",
       "discount": 0,
       "oldPrice": 1727.35,
       "newPrice": 1727.35,
@@ -47,7 +47,7 @@
     {
       "id": "P05",
       "name": "Samsung Galaxy Z Fold4 5G",
-      "image": "/src/assets/images/product_5.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_5.webp",
       "discount": 26,
       "oldPrice": 1727.35,
       "newPrice": 1263.8,
@@ -58,7 +58,7 @@
     {
       "id": "P06",
       "name": "Samsung Galaxy S23 Ultra 5G",
-      "image": "/src/assets/images/product_6.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_6.webp",
       "discount": 18,
       "oldPrice": 1348.08,
       "newPrice": 1095.24,
@@ -69,7 +69,7 @@
     {
       "id": "P07",
       "name": "Samsung Galaxy Z Flip5 5G",
-      "image": "/src/assets/images/product_7.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_7.webp",
       "discount": 0,
       "oldPrice": 1095.24,
       "newPrice": 1095.24,
@@ -80,7 +80,7 @@
     {
       "id": "P08",
       "name": "Samsung Smart TV Crystal UHD UA55AU8100",
-      "image": "/src/assets/images/product_8.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_8.webp",
       "discount": 11,
       "oldPrice": 564.26,
       "newPrice": 501.05,
@@ -91,7 +91,7 @@
     {
       "id": "P09",
       "name": "TCL Google TV 58P635",
-      "image": "/src/assets/images/product_9.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_9.webp",
       "discount": 19,
       "oldPrice": 442.05,
       "newPrice": 357.77,
@@ -102,7 +102,7 @@
     {
       "id": "P10",
       "name": "Sony Google TV KD-43X75K",
-      "image": "/src/assets/images/product_10.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_10.webp",
       "discount": 8,
       "oldPrice": 479.98,
       "newPrice": 437.84,
@@ -113,7 +113,7 @@
     {
       "id": "P11",
       "name": "LG Smart TV 65UQ8000PSC",
-      "image": "/src/assets/images/product_11.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_11.webp",
       "discount": 49,
       "oldPrice": 1070.37,
       "newPrice": 538.98,
@@ -124,7 +124,7 @@
     {
       "id": "P12",
       "name": "Samsung Inverter 236 liter RT22M4032BY/SV",
-      "image": "/src/assets/images/product_12.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_12.webp",
       "discount": 38,
       "oldPrice": 395.7,
       "newPrice": 244.41,
@@ -135,7 +135,7 @@
     {
       "id": "P13",
       "name": "Toshiba Inverter 325 liter GR-RB410WE-PMV(37)-SG",
-      "image": "/src/assets/images/product_13.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_13.webp",
       "discount": 39,
       "oldPrice": 618.62,
       "newPrice": 374.21,
@@ -146,7 +146,7 @@
     {
       "id": "P14",
       "name": "LG Inverter 217 liter GV-B212WB",
-      "image": "/src/assets/images/product_14.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_14.webp",
       "discount": 38,
       "oldPrice": 378.84,
       "newPrice": 231.35,
@@ -157,7 +157,7 @@
     {
       "id": "P15",
       "name": "Aqua Inverter 320 liter AQR-B399MA(WHB)",
-      "image": "/src/assets/images/product_15.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_15.webp",
       "discount": 6,
       "oldPrice": 673.83,
       "newPrice": 631.69,
@@ -168,7 +168,7 @@
     {
       "id": "P16",
       "name": "Daikin Inverter 2 HP FTKF50XVMV",
-      "image": "/src/assets/images/product_16.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_16.webp",
       "discount": 14,
       "oldPrice": 888.75,
       "newPrice": 762.32,
@@ -179,7 +179,7 @@
     {
       "id": "P17",
       "name": "Toshiba Inverter 1 HP RAS-H10Z1KCVG-V",
-      "image": "/src/assets/images/product_17.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_17.webp",
       "discount": 7,
       "oldPrice": 446.27,
       "newPrice": 412.55,
@@ -190,7 +190,7 @@
     {
       "id": "P18",
       "name": "MacBook Pro 13 inch M2 2022 10-core GPU",
-      "image": "/src/assets/images/product_18.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_18.webp",
       "discount": 0,
       "oldPrice": 1693.64,
       "newPrice": 1693.64,
@@ -201,7 +201,7 @@
     {
       "id": "P19",
       "name": "MSI Gaming GS66 Stealth 11UG i7 11800H (219VN)",
-      "image": "/src/assets/images/product_19.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_19.webp",
       "discount": 23,
       "oldPrice": 2738.73,
       "newPrice": 2108.73,
@@ -212,7 +212,7 @@
     {
       "id": "P20",
       "name": "Asus Zenbook 14 Flip OLED UP3404VA i7 1360P (KN039W)",
-      "image": "/src/assets/images/product_20.webp",
+      "image": "https://react-practice-two.s3.ap-southeast-1.amazonaws.com/product_20.webp",
       "discount": 11,
       "oldPrice": 1432.36,
       "newPrice": 1263.8,
