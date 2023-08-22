@@ -58,17 +58,13 @@ const ProductDetailPage = () => {
         fontFamily="Oswald-Regular"
       >
         {/* Display the product image */}
-        <div>
-          <ProductImage src={data.image} />
-        </div>
+        <ProductImage src={data.image} />
+
         {/* Display the product information */}
-        <div>
-          <ProductInfo productData={data} mutate={mutate} />
-        </div>
+        <ProductInfo productData={data} mutate={mutate} />
+
         {/* Display the product description */}
-        <div>
-          <ProductDesc productDesc={data.description} />
-        </div>
+        <ProductDesc productDesc={data.description} />
       </Grid>
     </Container>
   )
