@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputField components renders the component with default props 1`] = `
+exports[`InputField Component renders the component with default props 1`] = `
 <div>
   <div
     class="chakra-form-control input-field css-0"
@@ -8,10 +8,11 @@ exports[`InputField components renders the component with default props 1`] = `
   >
     <label
       class="chakra-form__label form-label css-16hu8s6"
+      data-invalid=""
       for="field-:r0:"
       id="field-:r0:-label"
     >
-      Test Field
+      Test Label
       :
       <span
         aria-hidden="true"
@@ -22,15 +23,26 @@ exports[`InputField components renders the component with default props 1`] = `
       </span>
     </label>
     <input
+      aria-describedby="field-:r0:-feedback"
+      aria-invalid="true"
       aria-label="Input Field"
       aria-required="true"
       class="chakra-input css-16crra2"
       id="field-:r0:"
-      name="testField"
+      max="10"
+      min="0"
+      name="test"
       required=""
       type="text"
-      value=""
+      value="initial value"
     />
+    <div
+      aria-live="polite"
+      class="chakra-form__error-message css-c80spl"
+      id="field-:r0:-feedback"
+    >
+      Error message
+    </div>
   </div>
 </div>
 `;
