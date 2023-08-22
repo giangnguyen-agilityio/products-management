@@ -11,6 +11,18 @@ interface ImageUploaderProps {
   errorMessage: string
 }
 
+// Custom deep comparison function for props
+export function arePropsEqual(
+  prevProps: ImageUploaderProps,
+  nextProps: ImageUploaderProps
+) {
+  return (
+    prevProps.formData.image === nextProps.formData.image &&
+    prevProps.formData.name === nextProps.formData.name &&
+    prevProps.errorMessage === nextProps.errorMessage
+  )
+}
+
 const ImageUploader: React.FC<ImageUploaderProps> = ({
   formData,
   handleImageUpload,
@@ -34,7 +46,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       height="45px"
       name="image"
       type="file"
-      accept="image/*"
+      accept=".png, .jpg, .jpeg, .webp"
       onChange={handleImageUpload}
     />
     {/* Display the uploaded image */}

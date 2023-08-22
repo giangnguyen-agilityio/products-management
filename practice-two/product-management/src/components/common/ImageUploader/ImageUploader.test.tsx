@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import ImageUploader from './'
+import ImageUploader, { arePropsEqual } from './'
 
 describe('ImageUploader component', () => {
   const formData = {
@@ -59,5 +59,51 @@ describe('ImageUploader component', () => {
     })
 
     expect(handleImageUploadMock).toHaveBeenCalled()
+  })
+
+  it('should return true for equal props', () => {
+    const prevProps = {
+      formData: {
+        image: 'image-url',
+        name: 'Image Name',
+      },
+      errorMessage: 'Error message',
+      handleImageUpload: () => {},
+    }
+
+    const nextProps = {
+      formData: {
+        image: 'image-url',
+        name: 'Image Name',
+      },
+      errorMessage: 'Error message',
+      handleImageUpload: () => {},
+    }
+
+    const result = arePropsEqual(prevProps, nextProps)
+    expect(result).toBe(true)
+  })
+
+  it('should return false for different props', () => {
+    const prevProps = {
+      formData: {
+        image: 'image-url',
+        name: 'Image Name',
+      },
+      errorMessage: 'Error message',
+      handleImageUpload: () => {},
+    }
+
+    const nextProps = {
+      formData: {
+        image: 'different-image-url',
+        name: 'Image Name',
+      },
+      errorMessage: 'Different error message',
+      handleImageUpload: () => {},
+    }
+
+    const result = arePropsEqual(prevProps, nextProps)
+    expect(result).toBe(false)
   })
 })

@@ -21,7 +21,7 @@ exports[`ImageUploader component renders without errors 1`] = `
       </span>
     </label>
     <input
-      accept="image/*"
+      accept=".png, .jpg, .jpeg, .webp"
       aria-label="Upload Image"
       aria-required="true"
       class="chakra-input css-16crra2"
