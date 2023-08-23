@@ -8,7 +8,8 @@ const reducer = (state: ProductsState, action: ActionTypes): ProductsState => {
     case ACTION.SET_PRODUCT:
       return {
         ...state,
-        products: [...state.products, ...(action.payload as IProduct[])],
+        // products: [...state.products, ...(action.payload as IProduct[])]
+        products: action.payload as IProduct[],
       }
     case ACTION.ADD_NEW_PRODUCT:
       return {
