@@ -27,6 +27,8 @@ module.exports = {
     '@assets/images/Image_not_available.webp':
       '<rootDir>/src/assets/images/Image_not_available.webp',
     '@assets/images/hero_img.webp': '<rootDir>/src/assets/images/hero_img.webp',
+    '@assets/images/error-image.webp':
+      '<rootDir>/src/assets/images/error-image.webp',
 
     // Mock icons
     '@assets/icons/Location_Icon.svg':
@@ -68,6 +70,7 @@ module.exports = {
     '^.+\\.css$': 'jest-transform-stub',
     '^.+\\.svg$': 'jest-transform-stub',
     '^.+\\.webp$': 'jest-transform-stub',
+    '^.+\\.gif$': 'jest-transform-stub',
   },
   coverageThreshold: {
     global: {

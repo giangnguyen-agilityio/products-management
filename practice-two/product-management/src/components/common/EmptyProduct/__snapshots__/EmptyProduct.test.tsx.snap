@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyProduct Component renders with error message 1`] = `
+<div>
+  <section
+    class="chakra-container empty-product css-0"
+  >
+    <div
+      class="css-1axsfj3"
+    >
+      <div
+        class="error-image css-0"
+      >
+        <img
+          alt="This is the error image"
+          class="chakra-image css-13rbvqk"
+          src=""
+        />
+      </div>
+      <p
+        class="chakra-text error-title css-1u3xqgt"
+      >
+        Sample Error Message
+      </p>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`EmptyProduct Component renders without error message 1`] = `
+<div>
+  <section
+    class="chakra-container empty-product css-0"
+  >
+    <div
+      class="css-1axsfj3"
+    >
+      <div
+        class="error-image css-0"
+      >
+        <img
+          alt="This is the error image"
+          class="chakra-image css-13rbvqk"
+          src=""
+        />
+      </div>
+      <p
+        class="chakra-text error-title css-1u3xqgt"
+      />
+    </div>
+  </section>
+</div>
+`;
