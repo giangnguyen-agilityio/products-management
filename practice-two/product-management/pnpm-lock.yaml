@@ -88,9 +88,6 @@ devDependencies:
   '@types/testing-library__jest-dom':
     specifier: ^5.14.9
     version: 5.14.9
-  '@types/uuid':
-    specifier: ^9.0.2
-    version: 9.0.2
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.62.0
     version: 5.62.0(@typescript-eslint/parser@6.0.0)(eslint@8.45.0)(typescript@5.0.2)
@@ -166,9 +163,6 @@ devDependencies:
   typescript:
     specifier: ^5.0.2
     version: 5.0.2
-  uuid:
-    specifier: ^9.0.0
-    version: 9.0.0
   vite:
     specifier: ^4.4.5
     version: 4.4.5(@types/node@20.4.7)
@@ -5288,10 +5282,6 @@ packages:
 
   /@types/unist@2.0.7:
     resolution: {integrity: sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==}
-    dev: true
-
-  /@types/uuid@9.0.2:
-    resolution: {integrity: sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==}
     dev: true
 
   /@types/yargs-parser@21.0.0:
