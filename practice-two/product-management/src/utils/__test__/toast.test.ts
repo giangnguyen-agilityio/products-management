@@ -12,7 +12,7 @@ describe('useCustomToasts', () => {
   it('should show success toast', () => {
     const { showSuccessToast } = useCustomToasts()
 
-    showSuccessToast('Custom Title', 'Custom Description', 'customItemId')
+    showSuccessToast('Custom Title', 'Custom Description')
 
     expect(mockUseToast).toHaveBeenCalledWith({
       title: 'Custom Title',
@@ -26,11 +26,7 @@ describe('useCustomToasts', () => {
   it('should show error toast', () => {
     const { showErrorToast } = useCustomToasts()
 
-    showErrorToast(
-      'Custom Error Title',
-      'Custom Error Description',
-      'errorItemId'
-    )
+    showErrorToast('Custom Error Title', 'Custom Error Description')
 
     expect(mockUseToast).toHaveBeenCalledWith({
       title: 'Custom Error Title',
@@ -44,7 +40,7 @@ describe('useCustomToasts', () => {
   it('should show success toast with default title', () => {
     const { showSuccessToast } = useCustomToasts()
 
-    showSuccessToast('', 'Custom Description', 'customItemId')
+    showSuccessToast('', 'Custom Description')
 
     expect(mockUseToast).toHaveBeenCalledWith({
       title: 'Success',
@@ -58,7 +54,7 @@ describe('useCustomToasts', () => {
   it('should show success toast with provided title', () => {
     const { showSuccessToast } = useCustomToasts()
 
-    showSuccessToast('Custom Title', 'Custom Description', 'customItemId')
+    showSuccessToast('Custom Title', 'Custom Description')
 
     expect(mockUseToast).toHaveBeenCalledWith({
       title: 'Custom Title',
@@ -72,7 +68,7 @@ describe('useCustomToasts', () => {
   it('should show error toast with default title', () => {
     const { showErrorToast } = useCustomToasts()
 
-    showErrorToast('', 'Custom Description', 'customItemId')
+    showErrorToast('', 'Custom Description')
 
     expect(mockUseToast).toHaveBeenCalledWith({
       title: 'Error',
@@ -86,7 +82,7 @@ describe('useCustomToasts', () => {
   it('should show error toast with provided title', () => {
     const { showErrorToast } = useCustomToasts()
 
-    showErrorToast('Custom Title', 'Custom Description', 'customItemId')
+    showErrorToast('Custom Title', 'Custom Description')
 
     expect(mockUseToast).toHaveBeenCalledWith({
       title: 'Custom Title',
