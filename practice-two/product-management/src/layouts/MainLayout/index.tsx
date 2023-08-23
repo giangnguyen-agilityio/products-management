@@ -4,12 +4,20 @@ import Footer from '@layouts/Footer'
 import { Box } from '@chakra-ui/react'
 import ProductProvider from '@stores/products/ProductProvider'
 import { ErrorBoundary } from '@components/ErrorBoundary'
+import Hero from '@components/common/Hero'
+import { heroSectionContent } from '@constants'
 
 const MainLayout = (): JSX.Element => {
   return (
     <ErrorBoundary>
       <Box padding={{ base: '22px 10px', md: '22px 50px' }} overflow="hidden">
         <Header />
+        <Hero
+          imageUrl={heroSectionContent.imageUrl}
+          buttonHref={heroSectionContent.link}
+          title={heroSectionContent.title}
+          description={heroSectionContent.description}
+        />
         <ProductProvider>
           <Outlet />
         </ProductProvider>
