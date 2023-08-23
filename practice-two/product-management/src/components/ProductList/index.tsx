@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import {
   Box,
   Text,
@@ -18,15 +18,17 @@ import ProductItem from '@components/ProductItem'
 import FilterMenu from '@components/FilterMenu'
 import ProductContext from '@stores/products/ProductContext'
 import { IProduct } from '@types'
-import Modal from '@components/common/Modal'
-import { MODAL, NOTIFICATIONS } from '@constants'
+import { NOTIFICATIONS } from '@constants'
 import EmptyProduct from '@components/common/EmptyProduct'
 import { memo } from 'react'
 
-const ProductList = () => {
+interface ProductListProps {
+  openModal: () => void
+}
+
+const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [modalType, setModalType] = useState<MODAL.ADD | MODAL.EDIT>(MODAL.ADD)
+
   const { productState, handleLoadMoreClick } = useContext(ProductContext)
   const productList: IProduct[] = productState.products
   const isProductListNotEmpty = productList.length > 0
@@ -37,21 +39,12 @@ const ProductList = () => {
     handler: () => onClose(),
   })
 
-  const openModal = () => {
-    setIsModalOpen(true)
-    setModalType(MODAL.ADD)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
-
   return (
     <Box
       as="section"
       className="product-list-section"
       width="full"
-      marginBottom="-100px auto 150px"
+      margin="0 auto 150px"
       padding={{ base: '0 50px', md: '0' }}
     >
       <ProductListHeader />
@@ -83,12 +76,6 @@ const ProductList = () => {
         <Button w={8} h={8} aria-label="Add Product" onClick={openModal}>
           <SmallAddIcon w={8} h={8} color="primary" />
         </Button>
-
-        <Modal
-          isOpen={isModalOpen}
-          closeModal={closeModal}
-          modalType={modalType}
-        />
       </Container>
 
       <FilterMenu isOpen={isOpen} customRef={filterMenuRef} />
