@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useRef } from 'react'
+import React, { useRef } from 'react'
 import {
   Modal as ChakraModal,
   ModalCloseButton,
@@ -6,22 +6,20 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  useToast,
 } from '@chakra-ui/react'
-import { MODAL, NOTIFICATIONS } from '@constants'
+import { MODAL } from '@constants'
 import Form from '@components/Form'
 import { IProduct } from '@types'
-import ProductContext from '@stores/products/ProductContext'
-import { addNewProductAPI, editProductAPI } from '@services/api-actions'
 
 // Interface for the props that the Modal component receives
 interface ModalProps {
   id?: string
   isOpen: boolean
   closeModal: () => void
-  modalType: MODAL.ADD | MODAL.EDIT | MODAL.DELETE
-  productData?: IProduct | undefined
-  mutate?: () => void
+  modalType: MODAL.ADD | MODAL.EDIT
+  productData?: IProduct
+  onAdd?: (formData: IProduct) => Promise<void>
+  onEdit?: (id: string, formData: IProduct) => Promise<void>
 }
 
 // The Modal component
@@ -31,78 +29,10 @@ const Modal: React.FC<ModalProps> = ({
   productData,
   closeModal,
   modalType,
-  mutate,
+  onAdd,
+  onEdit,
 }) => {
   const btnRef = useRef(null)
-  const toast = useToast()
-
-  // Getting productState from ProductContext using useContext hook
-  const { addNewProductState, editProductState } = useContext(ProductContext)
-
-  // Function to handle show the success toast
-  const showSuccessToast = (itemId?: string) => {
-    toast({
-      title: 'Success',
-      description: itemId
-        ? `Product with ID ${itemId} has been updated.`
-        : `${NOTIFICATIONS.PRODUCT_ADDED_SUCCESSFULLY}`,
-      duration: 2000,
-      status: 'success',
-      isClosable: true,
-    })
-  }
-
-  // Function to handle show the success toast
-  const showErrorToast = (itemId?: string) => {
-    toast({
-      title: 'Error',
-      description: itemId
-        ? `${NOTIFICATIONS.PRODUCT_EDITED_FAILED} ${itemId}`
-        : `${NOTIFICATIONS.PRODUCT_ADDED_FAILED}`,
-      duration: 2000,
-      status: 'error',
-      isClosable: true,
-    })
-  }
-
-  // Function to handle adding a new product
-  const handleAdd = useCallback(
-    async (formData: IProduct): Promise<void> => {
-      try {
-        const result: IProduct = await addNewProductAPI(formData)
-        if (result) {
-          addNewProductState(formData)
-          showSuccessToast(id)
-        }
-      } catch (error) {
-        showErrorToast(id)
-      } finally {
-        closeModal()
-      }
-    },
-    [addNewProductState, closeModal]
-  )
-
-  // Function to handle editing a product
-  const handleEdit = useCallback(
-    async (id: string, formData: IProduct): Promise<void> => {
-      try {
-        const result: IProduct = await editProductAPI(id, formData)
-        if (result) {
-          editProductState(formData)
-          showSuccessToast(id)
-          if (mutate) {
-            mutate()
-          }
-        }
-      } catch (error) {
-        showErrorToast(id)
-      } finally {
-        closeModal()
-      }
-    },
-    [editProductState, closeModal]
-  )
 
   return (
     <ChakraModal
@@ -134,8 +64,8 @@ const Modal: React.FC<ModalProps> = ({
             <Form
               id={id}
               formType={modalType === MODAL.ADD ? MODAL.ADD : MODAL.EDIT}
-              onAdd={handleAdd}
-              onEdit={handleEdit}
+              onAdd={onAdd}
+              onEdit={onEdit}
               productData={productData}
             />
           ) : null}
