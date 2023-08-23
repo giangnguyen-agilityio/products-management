@@ -137,15 +137,23 @@ const Form: React.FC<FormProps> = ({
       discount: calculatedDiscount,
       ...formData,
     }
-    setDisableButton(true)
 
     // If all fields have values, call the onAdd() function or onEdit() function depending on the formType
     if (isValid) {
-      formType === MODAL.ADD
-        ? onAdd && onAdd(newFormData)
-        : onEdit && onEdit(newId, newFormData)
+      switch (formType) {
+        case MODAL.ADD:
+          onAdd && onAdd(newFormData)
+          break
+        case MODAL.EDIT:
+          onEdit && onEdit(newId, newFormData)
+          break
+        default:
+          break
+      }
+
+      setDisableButton(true)
+      setTimeout(() => setDisableButton(false), 1000) // Re-enable the button after 1 second
     }
-    setDisableButton(false)
   }
 
   // Renders an error message if a field is empty
@@ -260,7 +268,6 @@ const Form: React.FC<FormProps> = ({
           className="submit-form-btn"
           aria-label="Submit form button"
           isLoading={disableButton}
-          isDisabled={disableButton}
           variant="secondary"
         >
           {formType === MODAL.ADD ? 'ADD' : 'EDIT'}

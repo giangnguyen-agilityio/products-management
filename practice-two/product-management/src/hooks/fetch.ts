@@ -30,7 +30,7 @@ export const useProducts = (): IProducts => {
 
   return {
     allProducts: data,
-    isLoading: isLoading,
+    isLoading,
     error,
     errorMessage,
     ...rest,

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   AlertDialog,
   AlertDialogBody,
@@ -29,6 +29,14 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   onDelete,
 }) => {
   const cancelRef = useRef<HTMLButtonElement | null>(null)
+  const [disableButton, setDisableButton] = useState(false)
+
+  // Function to handle delete
+  const handleDelete = () => {
+    setDisableButton(true)
+    onDelete(id)
+    setTimeout(() => setDisableButton(false), 1000)
+  }
 
   // Render the ConfirmDialog component
   return (
@@ -89,9 +97,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
           <Button
             className="delete-btn"
             aria-label="Delete button"
-            onClick={() => onDelete(id)}
+            onClick={handleDelete}
             variant="danger"
             marginLeft={3}
+            isLoading={disableButton}
           >
             Delete
           </Button>

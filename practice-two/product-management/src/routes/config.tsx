@@ -1,7 +1,8 @@
-import { lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { RouteObject } from 'react-router-dom'
 import { ENDPOINT, NOTIFICATIONS } from '@constants'
 import EmptyProduct from '@components/common/EmptyProduct'
+import Loading from '@components/common/Loading'
 
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -24,7 +25,11 @@ export const routerConfig: RouteObject[] = [
         children: [
           {
             path: ':id',
-            element: <ProductDetailPage />,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <ProductDetailPage />
+              </Suspense>
+            ),
             errorElement: (
               <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />
             ),

@@ -1,4 +1,11 @@
-import { memo, useCallback, useContext, useEffect, useState } from 'react'
+import {
+  Suspense,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import Hero from '@components/common/Hero'
 import ProductList from '@components/ProductList'
 import Contact from '@components/Contact'
@@ -10,8 +17,8 @@ import { useCustomToasts } from '@utils/toast'
 import ProductContext from '@stores/products/ProductContext'
 import { MODAL, NOTIFICATIONS, heroSectionContent } from '@constants'
 import { IProduct } from '@types'
+import Loading from '@components/common/Loading'
 
-// Main component - Homepage
 const Homepage = () => {
   const { setProductState, addNewProductState } = useContext(ProductContext)
 
@@ -25,12 +32,7 @@ const Homepage = () => {
   const { showSuccessToast, showErrorToast } = useCustomToasts()
 
   // Use custom hook to fetch product list and handle errors
-  const { allProducts, error } = useProducts()
-
-  // Handle case where fetching products resulted in an error
-  if (error) {
-    return <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />
-  }
+  const { allProducts, error, isLoading } = useProducts()
 
   // Update product state when there are changes in the product list
   useEffect(() => {
@@ -72,6 +74,15 @@ const Homepage = () => {
     [addNewProductState, closeModal]
   )
 
+  if (isLoading) {
+    return <Loading />
+  }
+
+  // Handle case where fetching products resulted in an error
+  if (error) {
+    return <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />
+  }
+
   return (
     <>
       <Hero
@@ -80,15 +91,17 @@ const Homepage = () => {
         title={heroSectionContent.title}
         description={heroSectionContent.description}
       />
-      <ProductList openModal={openModal} />
+      <Suspense fallback={<Loading />}>
+        <ProductList openModal={openModal} />
 
-      {/* Display the modal */}
-      <Modal
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-        modalType={modalType}
-        onAdd={handleAdd}
-      />
+        {/* Display the modal */}
+        <Modal
+          isOpen={isModalOpen}
+          closeModal={closeModal}
+          modalType={modalType}
+          onAdd={handleAdd}
+        />
+      </Suspense>
       <Contact />
     </>
   )

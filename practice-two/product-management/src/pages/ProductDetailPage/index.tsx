@@ -69,20 +69,12 @@ const ProductDetailPage = () => {
         const result: IProductData = await editProductAPI(id, formData)
         if (result) {
           editProductState(formData)
-          showSuccessToast(
-            'Success',
-            `Product with ID ${id} has been updated.`,
-            id
-          )
+          showSuccessToast('Success', `Product with ID ${id} has been updated.`)
           mutate()
           closeModal()
         }
       } catch (error) {
-        showErrorToast(
-          'Error',
-          `${NOTIFICATIONS.PRODUCT_EDITED_FAILED} ${id}`,
-          id
-        )
+        showErrorToast('Error', `${NOTIFICATIONS.PRODUCT_EDITED_FAILED} ${id}`)
       }
     },
     [editProductState, closeModal, showSuccessToast, showErrorToast]
@@ -96,16 +88,18 @@ const ProductDetailPage = () => {
         deleteProductState(id)
         closeConfirmDialog()
         navigate('/')
-        showSuccessToast('Success', `Item with ID ${id} has been deleted.`, id)
+        showSuccessToast('Success', `Item with ID ${id} has been deleted.`)
       } catch (error) {
-        showErrorToast(
-          'Error',
-          `${NOTIFICATIONS.PRODUCT_DELETED_FAILED} ${id}`,
-          id
-        )
+        showErrorToast('Error', `${NOTIFICATIONS.PRODUCT_DELETED_FAILED} ${id}`)
       }
     },
-    [deleteProductState, closeConfirmDialog, showSuccessToast, showErrorToast]
+    [
+      deleteProductState,
+      closeConfirmDialog,
+      navigate,
+      showSuccessToast,
+      showErrorToast,
+    ]
   )
 
   // Handle different scenarios based on data and loading status
