@@ -1,14 +1,10 @@
 import axios from 'axios'
 import { API_URL, ENDPOINT } from '@constants'
-import { IProduct } from '@types'
+import { IProduct, IProductData } from '@types'
 
 // API method for fetching all products
-export const fetchAllProducts = async (
-  currentPage: number
-): Promise<IProduct[]> => {
-  const res = await axios.get(
-    `${API_URL}/${ENDPOINT.PRODUCTS}?page=${currentPage}&limit=8`
-  )
+export const fetchAllProducts = async (): Promise<IProduct[]> => {
+  const res = await axios.get(`${API_URL}/${ENDPOINT.PRODUCTS}`)
   return res.data
 }
 
@@ -20,7 +16,7 @@ export const fetchProductById = async (id: string): Promise<IProduct> => {
 
 // API method for add a new product
 export const addNewProductAPI = async (
-  product: IProduct
+  product: IProductData
 ): Promise<IProduct> => {
   const res = await axios.post(`${API_URL}/${ENDPOINT.PRODUCTS}`, product)
   return res.data
@@ -29,7 +25,7 @@ export const addNewProductAPI = async (
 // API method for editing a product
 export const editProductAPI = async (
   id: string,
-  product: IProduct
+  product: IProductData
 ): Promise<IProduct> => {
   const res = await axios.put(`${API_URL}/${ENDPOINT.PRODUCTS}/${id}`, product)
   return res.data

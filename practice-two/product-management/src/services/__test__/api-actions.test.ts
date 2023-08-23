@@ -31,7 +31,7 @@ describe('Product Reducer', () => {
 
     let products
     await act(async () => {
-      products = await fetchAllProducts(1)
+      products = await fetchAllProducts()
     })
 
     expect(products).toEqual([mockProduct])

@@ -14,6 +14,7 @@ module.exports = {
     '@constants': '<rootDir>/src/constants',
     '@components/FilterMenu/FilterLink':
       '<rootDir>/src/components/FilterMenu/FilterLink',
+    '@components/Form': '<rootDir>/src/components/Form',
     '@services/api-actions': '<rootDir>/src/services/api-actions',
     '@stores/products/ProductContext.ts':
       '<rootDir>/src/stores/products/ProductContext.ts',
