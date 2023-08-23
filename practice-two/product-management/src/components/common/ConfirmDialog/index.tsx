@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useContext } from 'react'
+import React, { useRef } from 'react'
 import {
   AlertDialog,
   AlertDialogBody,
@@ -8,72 +8,27 @@ import {
   AlertDialogOverlay,
   AlertDialogCloseButton,
   Button,
-  useToast,
   Center,
   Image,
   Text,
 } from '@chakra-ui/react'
 import deleteAction from '@assets/images/delete_Action.gif'
-import { deleteProductAPI } from '@services/api-actions'
-import ProductContext from '@stores/products/ProductContext'
-import { useNavigate } from 'react-router-dom'
-import { NOTIFICATIONS } from '@constants'
 
 // Define the props interface for the ConfirmDialog component
 interface ConfirmDialogProps {
   id: string
   isConfirmDialogOpen: boolean
   closeConfirmDialog: () => void
+  onDelete: (id: string) => void
 }
 
 const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   id,
   isConfirmDialogOpen,
   closeConfirmDialog,
+  onDelete,
 }) => {
-  // Initialize necessary hooks and context
-  const toast = useToast()
   const cancelRef = useRef<HTMLButtonElement | null>(null)
-  const navigate = useNavigate()
-  const { deleteProductState } = useContext(ProductContext)
-
-  // Function to show a success toast message
-  const showSuccessToast = (itemId: string) => {
-    toast({
-      title: 'Success',
-      description: `Item with ID ${itemId} has been deleted.`,
-      status: 'success',
-      duration: 2000,
-      isClosable: true,
-    })
-  }
-
-  // Function to show an error toast message
-  const showErrorToast = (itemId: string | undefined) => {
-    toast({
-      title: 'Error',
-      description: `${NOTIFICATIONS.PRODUCT_DELETED_FAILED} ${itemId}`,
-      status: 'error',
-      duration: 2000,
-      isClosable: true,
-    })
-  }
-
-  // Function to handle the delete action
-  const handleDelete = useCallback(async () => {
-    try {
-      await deleteProductAPI(id)
-      deleteProductState(id)
-      closeConfirmDialog()
-      navigate('/')
-      showSuccessToast(id)
-    } catch (error) {
-      console.error(error)
-      showErrorToast(id)
-    } finally {
-      closeConfirmDialog()
-    }
-  }, [deleteProductState, closeConfirmDialog])
 
   // Render the ConfirmDialog component
   return (
@@ -134,7 +89,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
           <Button
             className="delete-btn"
             aria-label="Delete button"
-            onClick={handleDelete}
+            onClick={() => onDelete(id)}
             variant="danger"
             marginLeft={3}
           >
