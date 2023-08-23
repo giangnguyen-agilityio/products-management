@@ -7,7 +7,7 @@ import Navigation from '@components/common/Navigation'
 // Header Component
 const Header = () => {
   return (
-    <Container as="header" className="header">
+    <Container as="header" className="header" padding={4}>
       <Flex justifyContent="space-between">
         <Logo imageSrc={logoWebsite} />
         <Navigation links={navigationLinks} />
