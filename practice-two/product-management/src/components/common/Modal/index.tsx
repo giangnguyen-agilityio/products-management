@@ -12,11 +12,11 @@ import Form from '@components/Form'
 import { IProduct } from '@types'
 
 // Interface for the props that the Modal component receives
-interface ModalProps {
+export interface ModalProps {
   id?: string
   isOpen: boolean
   closeModal: () => void
-  modalType: MODAL.ADD | MODAL.EDIT
+  modalType: MODAL.ADD | MODAL.EDIT | MODAL.DELETE
   productData?: IProduct
   onAdd?: (formData: IProduct) => Promise<void>
   onEdit?: (id: string, formData: IProduct) => Promise<void>

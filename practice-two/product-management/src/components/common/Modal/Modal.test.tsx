@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import Modal from './'
 import { MODAL } from '@constants'
+import Modal, { ModalProps } from './'
 
 // Mock the dependencies and props
 jest.mock('@components/Form', () => {
@@ -13,12 +13,12 @@ const mockCloseModal = jest.fn()
 const mockHandleAdd = jest.fn()
 const mockHandleEdit = jest.fn()
 
-const defaultProps = {
+const defaultProps: ModalProps = {
   isOpen: true,
   closeModal: mockCloseModal,
   modalType: MODAL.ADD,
-  handleAdd: mockHandleAdd,
-  handleEdit: mockHandleEdit,
+  onAdd: mockHandleAdd,
+  onEdit: mockHandleEdit,
 }
 
 describe('Modal Component', () => {
@@ -42,15 +42,13 @@ describe('Modal Component', () => {
   })
 
   it('renders the form when modalType is edit', () => {
-    const props = { ...defaultProps, modalType: MODAL.EDIT }
-    render(<Modal {...props} />)
+    render(<Modal {...defaultProps} modalType={MODAL.EDIT} />)
     const form = screen.getByTestId('mocked-form')
     expect(form).toBeInTheDocument()
   })
 
   it('does not render the form when modalType is delete', () => {
-    const props = { ...defaultProps, modalType: MODAL.DELETE }
-    render(<Modal {...props} />)
+    render(<Modal {...defaultProps} modalType={MODAL.DELETE} />)
     const form = screen.queryByTestId('mocked-form')
     expect(form).toBeNull()
   })

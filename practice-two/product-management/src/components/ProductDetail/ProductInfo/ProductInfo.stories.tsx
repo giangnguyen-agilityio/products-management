@@ -11,7 +11,7 @@ export default {
   },
   tags: ['autodocs'],
   argTypes: {
-    mutate: { action: 'This is mutate function' },
+    openModal: { action: 'The openModal button clicked' },
   },
 } as Meta<typeof ProductInfo>
 
@@ -35,7 +35,10 @@ const Template: Story<typeof ProductInfo> = () => {
   return (
     <MemoryRouter>
       <ProductContext.Provider value={mockProductData}>
-        <ProductInfo productData={[mockProductData] as any} />
+        <ProductInfo
+          productData={[mockProductData] as any}
+          openModal={() => {}}
+        />
       </ProductContext.Provider>
     </MemoryRouter>
   )
