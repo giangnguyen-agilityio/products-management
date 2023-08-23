@@ -10,3 +10,4 @@ export interface IProduct {
 }
 
 export interface IProductItem extends Pick<IProduct, 'id' | 'name' | 'image'> {}
+export interface IProductData extends Omit<IProduct, 'id'> {}
