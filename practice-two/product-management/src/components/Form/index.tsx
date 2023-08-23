@@ -1,17 +1,17 @@
-import React, { memo, useState, useCallback, useEffect, useMemo } from 'react'
+import React, { memo, useState, useCallback, useEffect } from 'react'
 import { Box, Button } from '@chakra-ui/react'
-import { v4 as uuidv4 } from 'uuid'
 import { ERROR_MESSAGES, MODAL } from '@constants'
 import { IProduct } from '@types'
 import InputField from '@components/common/InputField'
 import ImageUploader from '@components/common/ImageUploader'
+import { calculateDiscount } from '@helpers'
 
 // Define props interface for the Form component
 interface FormProps {
   id?: string
   formType: MODAL.ADD | MODAL.EDIT
-  onAdd: (formData: IProduct) => void
-  onEdit: (id: string, formData: IProduct) => void
+  onAdd?: (formData: IProduct) => void
+  onEdit?: (id: string, formData: IProduct) => void
   productData?: IProduct
 }
 
@@ -23,18 +23,14 @@ const Form: React.FC<FormProps> = ({
   onEdit,
   productData,
 }) => {
-  // Define default form data using useMemo
-  const defaultFormData = useMemo(
-    () => ({
-      name: '',
-      image: '',
-      oldPrice: 0,
-      newPrice: 0,
-      description: '',
-      rate: 0,
-    }),
-    []
-  )
+  const defaultFormData = {
+    name: '',
+    image: '',
+    oldPrice: 0,
+    newPrice: 0,
+    description: '',
+    rate: 0,
+  }
 
   // State management
   const [disableButton, setDisableButton] = useState(false)
@@ -55,40 +51,41 @@ const Form: React.FC<FormProps> = ({
         rate: productData.rate,
       }))
     }
-  }, [formType, id, productData])
+  }, [])
 
-  // Handle form input changes
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target
 
-      // Update the form data
-      setFormData(prevFormData => ({
-        ...prevFormData,
-        [name]:
-          name === 'oldPrice' || name === 'newPrice' || name === 'rate'
-            ? Number(value)
-            : value,
-      }))
+      const updateFormValue = (fieldName: string, fieldValue: any) => {
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          [fieldName]: fieldValue,
+        }))
+      }
 
-      // Calculate and update the discount
-      if (name === 'oldPrice' || name === 'newPrice') {
-        const oldPriceValue =
-          name === 'oldPrice' ? Number(value) : formData.oldPrice
-        const newPriceValue =
-          name === 'newPrice' ? Number(value) : formData.newPrice
+      const updateDiscount = (oldPriceValue: number, newPriceValue: number) => {
+        const newDiscount = calculateDiscount(oldPriceValue, newPriceValue)
+        setCalculatedDiscount(newDiscount)
+      }
 
-        const calculatedDiscountValue =
-          oldPriceValue > 0
-            ? ((oldPriceValue - newPriceValue) / oldPriceValue) * 100
-            : 0
+      switch (name) {
+        case 'oldPrice':
+        case 'newPrice':
+          const oldPriceValue =
+            name === 'oldPrice' ? Number(value) : formData.oldPrice
+          const newPriceValue =
+            name === 'newPrice' ? Number(value) : formData.newPrice
 
-        // Ensure that the calculated discount is non-negative
-        const nonNegativeDiscount = Math.max(
-          Math.round(calculatedDiscountValue),
-          0
-        )
-        setCalculatedDiscount(nonNegativeDiscount)
+          updateFormValue(name, Number(value))
+          updateDiscount(oldPriceValue, newPriceValue)
+          break
+        case 'rate':
+          updateFormValue(name, Number(value))
+          break
+        default:
+          updateFormValue(name, value)
+          break
       }
     },
     [formData.oldPrice, formData.newPrice]
@@ -117,10 +114,6 @@ const Form: React.FC<FormProps> = ({
     []
   )
 
-  // Generate random product ID
-  const randomId: string = uuidv4()
-  const productId: string = `P${randomId}`
-
   // Handle form submission
   const submitForm = async (): Promise<void> => {
     const { name, image, oldPrice, newPrice, description, rate } = formData
@@ -137,7 +130,7 @@ const Form: React.FC<FormProps> = ({
     setIsFieldEmpty(!isValid)
 
     // Ensure a valid ID
-    const newId = formType === MODAL.ADD ? productId : id || ''
+    const newId = String(id)
 
     const newFormData = {
       id: newId,
@@ -148,7 +141,9 @@ const Form: React.FC<FormProps> = ({
 
     // If all fields have values, call the onAdd() function or onEdit() function depending on the formType
     if (isValid) {
-      formType === MODAL.ADD ? onAdd(newFormData) : onEdit(newId, newFormData)
+      formType === MODAL.ADD
+        ? onAdd && onAdd(newFormData)
+        : onEdit && onEdit(newId, newFormData)
     }
     setDisableButton(false)
   }

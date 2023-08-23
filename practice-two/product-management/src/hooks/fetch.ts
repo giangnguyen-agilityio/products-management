@@ -1,4 +1,4 @@
-import useSWR, { KeyedMutator, SWRResponse } from 'swr'
+import useSWR, { SWRResponse } from 'swr'
 import { AxiosError } from 'axios'
 import { IProduct } from '@types'
 import { handleServerError } from '@helpers'
@@ -8,7 +8,7 @@ import { fetchAllProducts, fetchProductById } from '@services/api-actions'
 interface IFetch {
   error: AxiosError
   errorMessage: null | string
-  mutate: KeyedMutator<IProduct[]>
+  isLoading: boolean
 }
 
 interface IProducts extends IFetch {
@@ -20,16 +20,17 @@ interface IProductById<T> extends SWRResponse<T> {
 }
 
 // Using SWR to fetch all products
-export const useProducts = (currentPage: number): IProducts => {
-  const { data, error, ...rest } = useSWR<IProduct[]>(
-    `${API_URL}/${ENDPOINT.PRODUCTS}?page=${currentPage}&limit=8`,
-    () => fetchAllProducts(currentPage)
+export const useProducts = (): IProducts => {
+  const { data, error, isLoading, ...rest } = useSWR<IProduct[]>(
+    `${API_URL}/${ENDPOINT.PRODUCTS}`,
+    fetchAllProducts
   )
 
   const errorMessage = error ? handleServerError(error) : null
 
   return {
     allProducts: data,
+    isLoading: isLoading,
     error,
     errorMessage,
     ...rest,
