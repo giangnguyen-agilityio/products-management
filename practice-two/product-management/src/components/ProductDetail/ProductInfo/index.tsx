@@ -1,46 +1,18 @@
-import React, { memo, useState } from 'react'
+import React, { memo } from 'react'
 import { Flex, Text, Badge, Button } from '@chakra-ui/react'
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
 import { IProduct } from '@types'
 import ProductRatingVote from '../ProductRatingVote'
-import { MODAL } from '@constants'
-import Modal from '@components/common/Modal'
-import ConfirmDialog from '@components/common/ConfirmDialog'
 
 // Define the interface for the props passed to the component
 interface ProductInfoProps {
   productData: IProduct
-  mutate?: () => void
+  openModal: () => void
+  openConfirmDialog?: () => void
 }
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
-  const { productData, mutate } = props
-
-  // State management
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false)
-  const [modalType, setModalType] = useState<MODAL.ADD | MODAL.EDIT>(MODAL.ADD)
-
-  // Function to open the modal for editing a product
-  const openModal = () => {
-    setIsModalOpen(true)
-    setModalType(MODAL.EDIT)
-  }
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
-
-  // Function to open the confirmation dialog for deleting a product
-  const openConfirmDialog = () => {
-    setIsConfirmDialogOpen(true)
-  }
-
-  // Function to close the confirmation dialog
-  const closeConfirmDialog = () => {
-    setIsConfirmDialogOpen(false)
-  }
+  const { productData, openModal, openConfirmDialog } = props
 
   return (
     <Flex
@@ -95,16 +67,6 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
           <EditIcon />
         </Button>
 
-        {/* Modal component */}
-        <Modal
-          id={productData.id}
-          isOpen={isModalOpen}
-          closeModal={closeModal}
-          modalType={modalType}
-          productData={productData}
-          mutate={mutate}
-        />
-
         {/* Delete button */}
         <Button
           className="delete-btn"
@@ -116,13 +78,6 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
         >
           <DeleteIcon />
         </Button>
-
-        {/* Confirmation dialog component */}
-        <ConfirmDialog
-          id={productData.id}
-          isConfirmDialogOpen={isConfirmDialogOpen}
-          closeConfirmDialog={closeConfirmDialog}
-        />
       </Flex>
     </Flex>
   )
