@@ -28,14 +28,16 @@ exports[`Hero Component matches snapshot 1`] = `
         <img
           alt="This is the image of the hero section"
           class="hero-image css-1p5ww44"
+          sizes="(max-width: 320px) 280px, (max-width: 480px) 440px, (max-width: 768px) 728px, (max-width: 992x) 952px, 1280px"
           src="test-image-url"
+          srcset="test-image-xs-url 320w, test-image-sm-url 480w, test-image-md-url 768w, test-image-lg-url 992w, test-image-url 1280w"
         />
       </div>
       <div
         class="hero-detail css-1fw5if8"
       >
         <h2
-          class="chakra-heading hero-title css-yjbb1g"
+          class="chakra-heading hero-title css-1f5f2y8"
         >
           Test Title
         </h2>

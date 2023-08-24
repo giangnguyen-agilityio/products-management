@@ -37,6 +37,7 @@ const Logo: React.FC<LogoProps> = ({
             alt="The logo website"
             width={widthSize}
             height={heightSize}
+            objectFit="contain"
           />
         )}
       </Flex>

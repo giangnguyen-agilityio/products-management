@@ -34,13 +34,13 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
         <Image
           src={product.image || imageNotAvailable}
           alt={product.name}
-          w={{
+          width={{
             base: '340px',
             md: '305px',
             lg: '173px',
             xl: '220px',
           }}
-          h={{
+          height={{
             base: '300px',
             md: '305px',
             lg: '173px',
@@ -75,11 +75,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
         fontSize="14px"
         fontFamily="RobotoCondensed-Bold"
         textTransform="uppercase"
-        opacity="0.5"
         textDecoration="underline"
         _hover={{
           color: 'secondary',
-          opacity: '1',
         }}
       >
         detail

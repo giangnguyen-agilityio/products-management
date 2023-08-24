@@ -4,7 +4,13 @@ import { HeroImageProps, HeroDetailProps, HeroProps } from '@types'
 import { Link } from 'react-router-dom'
 
 // HeroImage Component
-const HeroImage: React.FC<HeroImageProps> = ({ imageUrl }) => {
+const HeroImage: React.FC<HeroImageProps> = ({
+  imageUrl,
+  imageExtraSmallUrl,
+  imageSmallUrl,
+  imageMediumUrl,
+  imageLargeUrl,
+}) => {
   return (
     <Box
       className="hero-image-wrapper"
@@ -13,10 +19,12 @@ const HeroImage: React.FC<HeroImageProps> = ({ imageUrl }) => {
       paddingRight={{ base: 0, xl: '30px' }}
     >
       <Image
+        srcSet={`${imageExtraSmallUrl} 320w, ${imageSmallUrl} 480w, ${imageMediumUrl} 768w, ${imageLargeUrl} 992w, ${imageUrl} 1280w`}
+        sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 992px) 768px, (max-width: 1280px) 992px, 1280px"
         src={imageUrl}
         alt="This is the image of the hero section"
         className="hero-image"
-        width={{ xl: '410px' }}
+        width={{ base: 'full', xl: '410px' }}
         height={{ base: '452px', md: '931px', xl: '606px' }}
         objectFit="cover"
         boxShadow="default"
@@ -65,7 +73,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
         as={Link}
         to={buttonHref}
         className="hero-btn"
-        aria-label="Learn more button"
+        aria-label="Learn More Button"
         width={{ base: '210px', xl: '200px' }}
         letterSpacing={1}
         padding={{ base: '18px 57px 19px', md: '21px 55px 21px' }}
@@ -83,6 +91,10 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
 // Hero Component
 const Hero: React.FC<HeroProps> = ({
   imageUrl,
+  imageExtraSmallUrl,
+  imageSmallUrl,
+  imageMediumUrl,
+  imageLargeUrl,
   title,
   description,
   buttonHref,
@@ -149,7 +161,13 @@ const Hero: React.FC<HeroProps> = ({
         marginTop="48px"
       >
         {/* The HeroImage component */}
-        <HeroImage imageUrl={imageUrl} />
+        <HeroImage
+          imageUrl={imageUrl}
+          imageExtraSmallUrl={imageExtraSmallUrl}
+          imageSmallUrl={imageSmallUrl}
+          imageMediumUrl={imageMediumUrl}
+          imageLargeUrl={imageLargeUrl}
+        />
         {/* The HeroDetail component */}
         <HeroDetail
           title={title}

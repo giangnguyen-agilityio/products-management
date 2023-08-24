@@ -26,6 +26,14 @@ const meta: Meta = {
 
 const heroSectionContentSample = {
   imageUrl: 'https://assets.nicepagecdn.com/d2cc3eaa/3159880/images/yttyy.jpg',
+  imageExtraSmallUrl:
+    'https://assets.nicepagecdn.com/d2cc3eaa/3159880/images/yttyy.jpg',
+  imageSmallUrl:
+    'https://assets.nicepagecdn.com/d2cc3eaa/3159880/images/yttyy.jpg',
+  imageMediumUrl:
+    'https://assets.nicepagecdn.com/d2cc3eaa/3159880/images/yttyy.jpg',
+  imageLargeUrl:
+    'https://assets.nicepagecdn.com/d2cc3eaa/3159880/images/yttyy.jpg',
   link: '#',
   title: 'We help businesses and brands grow',
   description:
@@ -35,6 +43,10 @@ const heroSectionContentSample = {
 const Template = () => (
   <Hero
     imageUrl={heroSectionContentSample.imageUrl}
+    imageExtraSmallUrl={heroSectionContentSample.imageExtraSmallUrl}
+    imageSmallUrl={heroSectionContentSample.imageSmallUrl}
+    imageMediumUrl={heroSectionContentSample.imageMediumUrl}
+    imageLargeUrl={heroSectionContentSample.imageLargeUrl}
     buttonHref={heroSectionContentSample.link}
     title={heroSectionContentSample.title}
     description={heroSectionContentSample.description}

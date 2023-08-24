@@ -57,16 +57,16 @@ const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
         gap={{ sm: 8 }}
       >
         <Button
-          h={10}
-          aria-label="Open Filter Menu"
+          height={10}
+          name="button"
+          className="filter-menu-btn"
+          aria-label="Button for select category"
           onClick={onOpen}
           bgColor="primary"
           border="1px solid"
           borderColor="background"
-          opacity="0.7"
           fontFamily="Oswald-Regular"
           color="textSecondary"
-          _hover={{ opacity: '1' }}
           marginRight="10px"
           ref={filterMenuRef}
         >
@@ -102,8 +102,9 @@ const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
           <Flex justifyContent="center">
             <Button
               onClick={handleLoadMoreClick}
-              aria-label="Load More"
-              className="load-more"
+              className="load-more-btn"
+              name="button"
+              aria-label="Button for loading more products"
               fontFamily="Oswald-Regular"
               padding={{ base: '15px 84px', xl: '20px 60px' }}
               margin="50px auto"
@@ -112,6 +113,7 @@ const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
               <Image
                 src={arrowDownIcon}
                 width="20px"
+                height="20px"
                 alt="Arrow down icon"
                 margin="0 auto"
                 loading="eager"

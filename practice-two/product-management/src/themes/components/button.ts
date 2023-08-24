@@ -14,7 +14,8 @@ export const Button: ComponentStyleConfig = {
 
     primary: {
       bgColor: 'secondary',
-      _hover: { bgColor: 'primary' },
+      color: 'textPrimary',
+      _hover: { bgColor: 'primary', color: 'textSecondary' },
     },
 
     secondary: {
