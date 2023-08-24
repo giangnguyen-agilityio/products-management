@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { memo } from 'react'
 import {
   Modal as ChakraModal,
   ModalCloseButton,
@@ -32,18 +32,9 @@ const Modal: React.FC<ModalProps> = ({
   onAdd,
   onEdit,
 }) => {
-  const btnRef = useRef(null)
-
   return (
-    <ChakraModal
-      finalFocusRef={btnRef}
-      isOpen={isOpen}
-      onClose={closeModal}
-      scrollBehavior="inside"
-      size="lg"
-    >
+    <ChakraModal isOpen={isOpen} onClose={closeModal} size="lg">
       <ModalOverlay />
-
       <ModalContent background="background">
         <ModalHeader>
           {/* Close button */}
@@ -75,4 +66,4 @@ const Modal: React.FC<ModalProps> = ({
   )
 }
 
-export default React.memo(Modal)
+export default memo(Modal)

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext } from 'react'
 import {
   Box,
   Text,
@@ -6,38 +6,27 @@ import {
   Button,
   Grid,
   Image,
-  useDisclosure,
-  useOutsideClick,
   Container,
 } from '@chakra-ui/react'
-import { SmallAddIcon, ChevronDownIcon } from '@chakra-ui/icons'
 
 import arrowDownIcon from '@assets/icons/Arrow_down.svg'
 import ProductListHeader from './ProductListHeader'
 import ProductItem from '@components/ProductItem'
-import FilterMenu from '@components/FilterMenu'
 import ProductContext from '@stores/products/ProductContext'
 import { IProduct } from '@types'
 import { NOTIFICATIONS } from '@constants'
 import EmptyProduct from '@components/common/EmptyProduct'
 import { memo } from 'react'
+import ProductListControl from './ProductListControl'
 
 interface ProductListProps {
   openModal: () => void
 }
 
 const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
   const { productState, handleLoadMoreClick } = useContext(ProductContext)
   const productList: IProduct[] = productState.products
   const isProductListNotEmpty = productList.length > 0
-  const filterMenuRef = useRef(null)
-
-  useOutsideClick({
-    ref: filterMenuRef,
-    handler: () => onClose(),
-  })
 
   return (
     <Box
@@ -48,37 +37,7 @@ const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
       padding={{ base: '0 50px', md: '0' }}
     >
       <ProductListHeader />
-
-      <Container
-        display="flex"
-        className="product-list-control"
-        alignItems="center"
-        justifyContent="space-between"
-        gap={{ sm: 8 }}
-      >
-        <Button
-          height={10}
-          name="button"
-          className="filter-menu-btn"
-          aria-label="Button for select category"
-          onClick={onOpen}
-          bgColor="primary"
-          border="1px solid"
-          borderColor="background"
-          fontFamily="Oswald-Regular"
-          color="textSecondary"
-          marginRight="10px"
-          ref={filterMenuRef}
-        >
-          Select category <ChevronDownIcon w={8} h={8} />
-        </Button>
-
-        <Button w={8} h={8} aria-label="Add Product" onClick={openModal}>
-          <SmallAddIcon w={8} h={8} color="primary" />
-        </Button>
-      </Container>
-
-      <FilterMenu isOpen={isOpen} customRef={filterMenuRef} />
+      <ProductListControl onOpenModal={openModal} />
 
       {isProductListNotEmpty ? (
         <Container padding={0}>

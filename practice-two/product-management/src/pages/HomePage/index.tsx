@@ -1,11 +1,4 @@
-import {
-  Suspense,
-  memo,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import { memo, useCallback, useContext, useEffect, useState } from 'react'
 import ProductList from '@components/ProductList'
 import Contact from '@components/Contact'
 import Modal from '@components/common/Modal'
@@ -41,15 +34,15 @@ const Homepage = () => {
   }, [allProducts])
 
   // Function to open the modal for adding a new product
-  const openModal = () => {
+  const openModal = useCallback(() => {
     setIsModalOpen(true)
     setModalType(MODAL.ADD)
-  }
+  }, [])
 
   // Function to close the modal
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false)
-  }
+  }, [])
 
   // Handle the addition of a new product
   const handleAdd = useCallback(
@@ -70,7 +63,7 @@ const Homepage = () => {
         closeModal()
       }
     },
-    [addNewProductState, closeModal]
+    [addNewProductState, closeModal, showSuccessToast, showErrorToast]
   )
 
   if (isLoading) {
@@ -84,17 +77,15 @@ const Homepage = () => {
 
   return (
     <>
-      <Suspense fallback={<Loading />}>
-        <ProductList openModal={openModal} />
+      <ProductList openModal={openModal} />
 
-        {/* Display the modal */}
-        <Modal
-          isOpen={isModalOpen}
-          closeModal={closeModal}
-          modalType={modalType}
-          onAdd={handleAdd}
-        />
-      </Suspense>
+      {/* Display the modal */}
+      <Modal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        modalType={modalType}
+        onAdd={handleAdd}
+      />
       <Contact />
     </>
   )
