@@ -1,5 +1,11 @@
 import React, { memo } from 'react'
-import { FormControl, FormLabel, Input, Image, Text } from '@chakra-ui/react'
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Image,
+  FormErrorMessage,
+} from '@chakra-ui/react'
 
 // Define the prop types for the ImageUploader component
 interface ImageUploaderProps {
@@ -65,7 +71,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       />
     )}
     {/* Display an error message if the image is missing */}
-    {errorMessage != null && <Text variant="danger">{errorMessage}</Text>}
+    {errorMessage && (
+      <FormErrorMessage color="error">{errorMessage}</FormErrorMessage>
+    )}
   </FormControl>
 )
 
