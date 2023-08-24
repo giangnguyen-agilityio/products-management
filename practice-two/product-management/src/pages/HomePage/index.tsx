@@ -6,7 +6,6 @@ import {
   useEffect,
   useState,
 } from 'react'
-import Hero from '@components/common/Hero'
 import ProductList from '@components/ProductList'
 import Contact from '@components/Contact'
 import Modal from '@components/common/Modal'
@@ -15,7 +14,7 @@ import { useProducts } from '@hooks/fetch'
 import { addNewProductAPI } from '@services/api-actions'
 import { useCustomToasts } from '@utils/toast'
 import ProductContext from '@stores/products/ProductContext'
-import { MODAL, NOTIFICATIONS, heroSectionContent } from '@constants'
+import { MODAL, NOTIFICATIONS } from '@constants'
 import { IProduct } from '@types'
 import Loading from '@components/common/Loading'
 
@@ -85,12 +84,6 @@ const Homepage = () => {
 
   return (
     <>
-      <Hero
-        imageUrl={heroSectionContent.imageUrl}
-        buttonHref={heroSectionContent.link}
-        title={heroSectionContent.title}
-        description={heroSectionContent.description}
-      />
       <Suspense fallback={<Loading />}>
         <ProductList openModal={openModal} />
 

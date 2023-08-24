@@ -3,6 +3,7 @@ import { RouteObject } from 'react-router-dom'
 import { ENDPOINT, NOTIFICATIONS } from '@constants'
 import EmptyProduct from '@components/common/EmptyProduct'
 import Loading from '@components/common/Loading'
+import ProductProvider from '@stores/products/ProductProvider'
 
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -13,7 +14,11 @@ const ProductDetailPage = lazy(() => import('@pages/ProductDetailPage'))
 export const routerConfig: RouteObject[] = [
   {
     path: '/',
-    element: <MainLayout />,
+    element: (
+      <ProductProvider>
+        <MainLayout />
+      </ProductProvider>
+    ),
     errorElement: <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />,
     children: [
       {

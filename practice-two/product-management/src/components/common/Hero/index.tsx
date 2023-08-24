@@ -20,7 +20,6 @@ const HeroImage: React.FC<HeroImageProps> = ({ imageUrl }) => {
         height={{ base: '452px', md: '931px', xl: '606px' }}
         objectFit="cover"
         boxShadow="default"
-        loading="lazy"
       />
     </Box>
   )
