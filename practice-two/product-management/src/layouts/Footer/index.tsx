@@ -30,9 +30,8 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, label }) => (
         className="footer-link"
         variant="fontPrimaryMedium"
         color="textSecondary"
-        opacity="0.5"
         _hover={{
-          opacity: '1',
+          opacity: '0.5',
         }}
       >
         {label}
@@ -47,7 +46,7 @@ const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => (
       as="span"
       size="primary"
       marginBottom={2}
-      color="textSecondary"
+      color="secondary"
       textTransform="uppercase"
       variant="fontPrimaryMedium"
     >

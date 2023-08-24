@@ -118,7 +118,7 @@ const Form: React.FC<FormProps> = ({
   const submitForm = async (): Promise<void> => {
     const { name, image, oldPrice, newPrice, description, rate } = formData
 
-    // Check if all fields have a value using the every() method and store the result in isValid
+    // Check if all fields have a value
     const isValid: boolean = [
       name,
       image,
@@ -129,6 +129,10 @@ const Form: React.FC<FormProps> = ({
     ].every(Boolean)
     setIsFieldEmpty(!isValid)
 
+    if (!isValid) {
+      return
+    }
+
     // Ensure a valid ID
     const newId = String(id)
 
@@ -138,21 +142,20 @@ const Form: React.FC<FormProps> = ({
       ...formData,
     }
 
-    // If all fields have values, call the onAdd() function or onEdit() function depending on the formType
-    if (isValid) {
+    try {
+      setDisableButton(true)
       switch (formType) {
         case MODAL.ADD:
-          onAdd && onAdd(newFormData)
+          onAdd && (await onAdd(newFormData))
           break
         case MODAL.EDIT:
-          onEdit && onEdit(newId, newFormData)
+          onEdit && (await onEdit(newId, newFormData))
           break
         default:
           break
       }
-
-      setDisableButton(true)
-      setTimeout(() => setDisableButton(false), 1000) // Re-enable the button after 1 second
+    } finally {
+      setDisableButton(false)
     }
   }
 

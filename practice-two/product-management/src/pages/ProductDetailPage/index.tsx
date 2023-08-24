@@ -42,25 +42,25 @@ const ProductDetailPage = () => {
   const { data, error, isLoading, mutate } = useProductById(productId)
 
   // Function to open the edit modal
-  const openModal = () => {
+  const openModal = useCallback(() => {
     setIsModalOpen(true)
     setModalType(MODAL.EDIT)
-  }
+  }, [])
 
   // Function to close the modal
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false)
-  }
+  }, [])
 
   // Function to open the confirmation dialog
-  const openConfirmDialog = () => {
+  const openConfirmDialog = useCallback(() => {
     setIsConfirmDialogOpen(true)
-  }
+  }, [])
 
   // Function to close the confirmation dialog
-  const closeConfirmDialog = () => {
+  const closeConfirmDialog = useCallback(() => {
     setIsConfirmDialogOpen(false)
-  }
+  }, [])
 
   // Handle editing a product
   const handleEdit = useCallback(

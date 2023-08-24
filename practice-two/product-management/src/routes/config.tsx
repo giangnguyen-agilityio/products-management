@@ -1,10 +1,11 @@
 import { Suspense, lazy } from 'react'
 import { RouteObject } from 'react-router-dom'
 import { ENDPOINT, NOTIFICATIONS } from '@constants'
+import ProductProvider from '@stores/products/ProductProvider'
+import MainLayout from '@layouts/MainLayout'
 
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
-const MainLayout = lazy(() => import('@layouts/MainLayout'))
 const ProductDetailPage = lazy(() => import('@pages/ProductDetailPage'))
 const EmptyProduct = lazy(() => import('@components/common/EmptyProduct'))
 const Loading = lazy(() => import('@components/common/Loading'))
@@ -13,7 +14,11 @@ const Loading = lazy(() => import('@components/common/Loading'))
 export const routerConfig: RouteObject[] = [
   {
     path: '/',
-    element: <MainLayout />,
+    element: (
+      <ProductProvider>
+        <MainLayout />
+      </ProductProvider>
+    ),
     errorElement: <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />,
     children: [
       {

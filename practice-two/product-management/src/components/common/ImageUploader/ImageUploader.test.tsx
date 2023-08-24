@@ -27,7 +27,7 @@ describe('ImageUploader component', () => {
   })
 
   it('displays an error message', () => {
-    const { getByText } = render(
+    const { container } = render(
       <ImageUploader
         formData={formData}
         handleImageUpload={jest.fn()}
@@ -35,8 +35,7 @@ describe('ImageUploader component', () => {
       />
     )
 
-    const errorMessage = getByText('Image is required')
-    expect(errorMessage).toBeInTheDocument()
+    expect(container).toMatchSnapshot()
   })
 
   it('calls handleImageUpload when an image is selected', () => {

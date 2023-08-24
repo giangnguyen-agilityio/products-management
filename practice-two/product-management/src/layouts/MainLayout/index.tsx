@@ -14,6 +14,10 @@ const MainLayout = (): JSX.Element => {
         <Header />
         <Hero
           imageUrl={heroSectionContent.imageUrl}
+          imageExtraSmallUrl={heroSectionContent.imageExtraSmallUrl}
+          imageSmallUrl={heroSectionContent.imageSmallUrl}
+          imageMediumUrl={heroSectionContent.imageMediumUrl}
+          imageLargeUrl={heroSectionContent.imageLargeUrl}
           buttonHref={heroSectionContent.link}
           title={heroSectionContent.title}
           description={heroSectionContent.description}
