@@ -1,7 +1,6 @@
 import React, { memo } from 'react'
 import { GridItem, Box, Image, Text, Link } from '@chakra-ui/react'
 import imageNotAvailable from '@assets/images/Image_not_available.webp'
-import { Link as RouterLink } from 'react-router-dom'
 import { IProductItem } from '@types'
 
 interface ProductItemProps {
@@ -67,8 +66,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
       </Text>
       {/* Detail Link */}
       <Link
-        as={RouterLink}
-        to={`/products/${product.id}`}
+        href={`/products/${product.id}`}
         color="textPrimary"
         position="absolute"
         bottom={{ base: '3%', lg: '3%', xl: '20%' }}

@@ -4,10 +4,10 @@ import { ENDPOINT, NOTIFICATIONS } from '@constants'
 import EmptyProduct from '@components/common/EmptyProduct'
 import Loading from '@components/common/Loading'
 import ProductProvider from '@stores/products/ProductProvider'
+import MainLayout from '@layouts/MainLayout'
 
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
-const MainLayout = lazy(() => import('@layouts/MainLayout'))
 const ProductDetailPage = lazy(() => import('@pages/ProductDetailPage'))
 
 // Router configuration

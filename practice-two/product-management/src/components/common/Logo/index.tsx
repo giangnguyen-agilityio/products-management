@@ -1,6 +1,5 @@
 import React from 'react'
-import { Flex, Heading, Image } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Flex, Heading, Image, Link } from '@chakra-ui/react'
 
 interface LogoProps {
   text?: string
@@ -20,7 +19,7 @@ const Logo: React.FC<LogoProps> = ({
   heightSize = '40px',
 }) => {
   return (
-    <Link to="/">
+    <Link href="/">
       <Flex align="center" className="logo" cursor="pointer">
         {/* Render the text if provided */}
         {text && (
