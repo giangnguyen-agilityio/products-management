@@ -1,9 +1,10 @@
 import { useToast } from '@chakra-ui/react'
+import { useCallback } from 'react'
 
 export const useCustomToasts = () => {
   const toast = useToast()
 
-  const showSuccessToast = (title: string, description: string) => {
+  const showSuccessToast = useCallback((title: string, description: string) => {
     toast({
       title: title || 'Success',
       description: description,
@@ -11,9 +12,9 @@ export const useCustomToasts = () => {
       status: 'success',
       isClosable: true,
     })
-  }
+  }, [])
 
-  const showErrorToast = (title: string, description: string) => {
+  const showErrorToast = useCallback((title: string, description: string) => {
     toast({
       title: title || 'Error',
       description: description,
@@ -21,7 +22,7 @@ export const useCustomToasts = () => {
       status: 'error',
       isClosable: true,
     })
-  }
+  }, [])
 
   return { showSuccessToast, showErrorToast }
 }
