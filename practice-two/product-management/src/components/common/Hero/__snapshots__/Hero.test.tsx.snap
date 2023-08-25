@@ -27,8 +27,8 @@ exports[`Hero Component matches snapshot 1`] = `
       >
         <img
           alt="This is the image of the hero section"
-          class="hero-image css-1p5ww44"
-          sizes="(max-width: 320px) 280px, (max-width: 480px) 440px, (max-width: 768px) 728px, (max-width: 992x) 952px, 1280px"
+          class="hero-image css-1ld0lpo"
+          sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 992px) 768px, (max-width: 1280px) 992px, 1280px"
           src="test-image-url"
           srcset="test-image-xs-url 320w, test-image-sm-url 480w, test-image-md-url 768w, test-image-lg-url 992w, test-image-url 1280w"
         />
@@ -37,7 +37,7 @@ exports[`Hero Component matches snapshot 1`] = `
         class="hero-detail css-1fw5if8"
       >
         <h2
-          class="chakra-heading hero-title css-1f5f2y8"
+          class="chakra-heading hero-title css-yjbb1g"
         >
           Test Title
         </h2>
@@ -47,7 +47,7 @@ exports[`Hero Component matches snapshot 1`] = `
           Test Description
         </p>
         <a
-          aria-label="Learn more button"
+          aria-label="Learn More Button"
           class="chakra-button hero-btn css-paa06n"
           href="/test-link"
         >

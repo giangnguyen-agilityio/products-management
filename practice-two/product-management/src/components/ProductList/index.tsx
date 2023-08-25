@@ -21,10 +21,16 @@ import ProductListControl from './ProductListControl'
 
 interface ProductListProps {
   openModal: () => void
+  onClickShowMore: () => void
+  isVisible: boolean
 }
 
-const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
-  const { productState, handleLoadMoreClick } = useContext(ProductContext)
+const ProductList: React.FC<ProductListProps> = ({
+  openModal,
+  onClickShowMore,
+  isVisible,
+}) => {
+  const { productState } = useContext(ProductContext)
   const productList: IProduct[] = productState.products
   const isProductListNotEmpty = productList.length > 0
 
@@ -58,37 +64,38 @@ const ProductList: React.FC<ProductListProps> = ({ openModal }) => {
             ))}
           </Grid>
 
-          <Flex justifyContent="center">
-            <Button
-              onClick={handleLoadMoreClick}
-              className="load-more-btn"
-              name="button"
-              aria-label="Button for loading more products"
-              fontFamily="Oswald-Regular"
-              padding={{ base: '15px 84px', xl: '20px 60px' }}
-              margin="50px auto"
-              variant="tertiary"
-            >
-              <Image
-                src={arrowDownIcon}
-                width="20px"
-                height="20px"
-                alt="Arrow down icon"
-                margin="0 auto"
-                loading="eager"
-              />
-              <Text
-                as="span"
-                display="flex"
-                color="textSecondary"
-                justifyContent="center"
-                fontSize="18px"
-                textTransform="uppercase"
-                marginLeft={2}
+          <Flex justifyContent="center" margin="50px auto">
+            {isVisible && (
+              <Button
+                onClick={onClickShowMore}
+                className="load-more-btn"
+                name="button"
+                aria-label="Button for loading more products"
+                fontFamily="Oswald-Regular"
+                padding={{ base: '15px 84px', xl: '20px 60px' }}
+                variant="tertiary"
               >
-                load more
-              </Text>
-            </Button>
+                <Image
+                  src={arrowDownIcon}
+                  width="20px"
+                  height="20px"
+                  alt="Arrow down icon"
+                  margin="0 auto"
+                  loading="eager"
+                />
+                <Text
+                  as="span"
+                  display="flex"
+                  color="textSecondary"
+                  justifyContent="center"
+                  fontSize="18px"
+                  textTransform="uppercase"
+                  marginLeft={2}
+                >
+                  load more
+                </Text>
+              </Button>
+            )}
           </Flex>
         </Container>
       ) : (

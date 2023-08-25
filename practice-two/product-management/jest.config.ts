@@ -29,6 +29,14 @@ module.exports = {
     '@assets/images/hero_img.webp': '<rootDir>/src/assets/images/hero_img.webp',
     '@assets/images/error-image.webp':
       '<rootDir>/src/assets/images/error-image.webp',
+    '@assets/images/hero_img_320.webp':
+      '<rootDir>/src/assets/images/hero_img_320.webp',
+    '@assets/images/hero_img_480.webp':
+      '<rootDir>/src/assets/images/hero_img_480.webp',
+    '@assets/images/hero_img_768.webp':
+      '<rootDir>/src/assets/images/hero_img_768.webp',
+    '@assets/images/hero_img_992.webp':
+      '<rootDir>/src/assets/images/hero_img_992.webp',
 
     // Mock icons
     '@assets/icons/Location_Icon.svg':

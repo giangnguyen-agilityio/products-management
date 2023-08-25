@@ -23,15 +23,25 @@ const Homepage = () => {
   // Use custom toasts for displaying notifications
   const { showSuccessToast, showErrorToast } = useCustomToasts()
 
+  const [pageIndex, setPageIndex] = useState(1)
+  const [isVisible, setIsVisible] = useState(true)
+
   // Use custom hook to fetch product list and handle errors
-  const { allProducts, error, isLoading } = useProducts()
+  const { allProducts, error, isLoading } = useProducts(pageIndex)
 
   // Update product state when there are changes in the product list
   useEffect(() => {
     if (allProducts) {
       setProductState(allProducts)
     }
+    if (allProducts?.length === 0) {
+      setIsVisible(false)
+    }
   }, [allProducts])
+
+  const handleClickShowMore = useCallback(() => {
+    setPageIndex(pageIndex + 1)
+  }, [pageIndex])
 
   // Function to open the modal for adding a new product
   const openModal = useCallback(() => {
@@ -77,7 +87,11 @@ const Homepage = () => {
 
   return (
     <>
-      <ProductList openModal={openModal} />
+      <ProductList
+        openModal={openModal}
+        onClickShowMore={handleClickShowMore}
+        isVisible={isVisible}
+      />
 
       {/* Display the modal */}
       <Modal

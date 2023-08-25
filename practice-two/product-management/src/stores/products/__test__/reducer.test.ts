@@ -39,7 +39,7 @@ describe('reducer', () => {
 
     const newState = reducer(initialState, action)
 
-    expect(newState.products).toEqual([newProduct])
+    expect(newState.products).toEqual([...initialState.products, newProduct])
   })
 
   it('handles ACTION.ADD_NEW_PRODUCT correctly', () => {
