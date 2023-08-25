@@ -10,13 +10,14 @@ import EmptyProduct from '@components/common/EmptyProduct'
 import Loading from '@components/common/Loading'
 import Modal from '@components/common/Modal'
 import ConfirmDialog from '@components/common/ConfirmDialog'
-import ProductContext from '@stores/products/ProductContext'
+import ProductContext, {
+  IProductContext,
+} from '@stores/products/ProductContext'
 import { useProductById } from '@hooks/fetch'
-import { deleteProductAPI, editProductAPI } from '@services/api-actions'
 import { handleServerError } from '@helpers'
 import { AxiosError } from 'axios'
 import { MODAL, NOTIFICATIONS } from '@constants'
-import { IProductData } from '@types'
+import { IProduct } from '@types'
 import { useCustomToasts } from '@utils/toast'
 
 // Define the ProductDetailPage component
@@ -30,7 +31,9 @@ const ProductDetailPage = () => {
   const navigate = useNavigate()
 
   // Access product-related states using context
-  const { editProductState, deleteProductState } = useContext(ProductContext)
+  const { editProduct, deleteProduct } = useContext(
+    ProductContext
+  ) as IProductContext
 
   // Manage modal and dialog state
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -64,28 +67,24 @@ const ProductDetailPage = () => {
 
   // Handle editing a product
   const handleEdit = useCallback(
-    async (id: string, formData: IProductData): Promise<void> => {
+    async (id: string, formData: IProduct): Promise<void> => {
       try {
-        const result: IProductData = await editProductAPI(id, formData)
-        if (result) {
-          editProductState(formData)
-          showSuccessToast('Success', `Product with ID ${id} has been updated.`)
-          mutate()
-          closeModal()
-        }
+        editProduct(id, formData)
+        showSuccessToast('Success', `Product with ID ${id} has been updated.`)
+        mutate()
+        closeModal()
       } catch (error) {
         showErrorToast('Error', `${NOTIFICATIONS.PRODUCT_EDITED_FAILED} ${id}`)
       }
     },
-    [editProductState, closeModal, showSuccessToast, showErrorToast]
+    [editProduct, closeModal, showSuccessToast, showErrorToast]
   )
 
   // Handle deleting a product
   const handleDelete = useCallback(
     async (id: string) => {
       try {
-        await deleteProductAPI(id)
-        deleteProductState(id)
+        deleteProduct(id)
         closeConfirmDialog()
         navigate('/')
         showSuccessToast('Success', `Item with ID ${id} has been deleted.`)
@@ -94,7 +93,7 @@ const ProductDetailPage = () => {
       }
     },
     [
-      deleteProductState,
+      deleteProduct,
       closeConfirmDialog,
       navigate,
       showSuccessToast,
@@ -160,7 +159,7 @@ const ProductDetailPage = () => {
       <Modal
         id={productId}
         isOpen={isModalOpen}
-        closeModal={closeModal}
+        onCloseModal={closeModal}
         modalType={modalType}
         productData={data}
         onEdit={handleEdit}
