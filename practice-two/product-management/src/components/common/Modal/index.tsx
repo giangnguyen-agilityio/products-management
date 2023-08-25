@@ -15,7 +15,7 @@ import { IProduct } from '@types'
 export interface ModalProps {
   id?: string
   isOpen: boolean
-  closeModal: () => void
+  onCloseModal: () => void
   modalType: MODAL.ADD | MODAL.EDIT | MODAL.DELETE
   productData?: IProduct
   onAdd?: (formData: IProduct) => Promise<void>
@@ -27,13 +27,13 @@ const Modal: React.FC<ModalProps> = ({
   id,
   isOpen,
   productData,
-  closeModal,
+  onCloseModal,
   modalType,
   onAdd,
   onEdit,
 }) => {
   return (
-    <ChakraModal isOpen={isOpen} onClose={closeModal} size="lg">
+    <ChakraModal isOpen={isOpen} onClose={onCloseModal} size="lg">
       <ModalOverlay />
       <ModalContent background="background">
         <ModalHeader>
