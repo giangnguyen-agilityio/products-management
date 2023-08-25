@@ -72,8 +72,9 @@ const ProductList: React.FC<ProductListProps> = ({
                 name="button"
                 aria-label="Button for loading more products"
                 fontFamily="Oswald-Regular"
-                padding={{ base: '15px 84px', xl: '20px 60px' }}
+                padding="12px 40px"
                 variant="tertiary"
+                height="fit-content"
               >
                 <Image
                   src={arrowDownIcon}
