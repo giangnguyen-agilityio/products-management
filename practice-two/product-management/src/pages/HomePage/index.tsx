@@ -59,9 +59,6 @@ const Homepage = () => {
     },
     [addNewProduct, handleCloseModal, showSuccessToast, showErrorToast]
   )
-  if (isLoading) {
-    return <Loading />
-  }
 
   // Handle case where fetching products resulted in an error
   if (isError) {
@@ -82,7 +79,7 @@ const Homepage = () => {
         description={heroSectionContent.description}
       />
 
-      {/* Display the product list */}
+      {/* Display the product list section */}
       <Box
         as="section"
         className="product-list-section"
@@ -92,7 +89,10 @@ const Homepage = () => {
       >
         <ProductListHeader />
         <ProductListControl onOpenModal={handleOpenModal} />
-        <ProductList listProduct={listProduct} />
+
+        {/* Display the product list */}
+        {isLoading ? <Loading /> : <ProductList listProduct={listProduct} />}
+
         <Flex justifyContent="center" margin="50px auto">
           <Button
             onClick={handleLoadMore}

@@ -7,11 +7,10 @@ const Loading = () => {
       <Flex
         justifyContent="center"
         flexDirection="column"
-        margin="30px auto"
-        minHeight="300px"
+        margin="0 auto"
+        height="100vh"
         borderRadius={10}
         fontFamily="Oswald-Regular"
-        padding={4}
         alignItems="center"
       >
         {/* Display a spinning loading indicator */}
