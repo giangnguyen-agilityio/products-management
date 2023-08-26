@@ -13,7 +13,7 @@ exports[`ProductItem Component matches the snapshot 1`] = `
       >
         <img
           alt="Sample Product"
-          class="chakra-image css-qzwr75"
+          class="chakra-image css-1goliy0"
           loading="lazy"
           src="sample-image.jpg"
         />
@@ -24,7 +24,7 @@ exports[`ProductItem Component matches the snapshot 1`] = `
         Sample Product
       </p>
       <a
-        class="chakra-link css-ofgajc"
+        class="chakra-link css-204pox"
         href="/products/P01"
       >
         detail
@@ -47,7 +47,7 @@ exports[`ProductItem Component renders imageNotAvailable when product image is n
       >
         <img
           alt="Sample Product"
-          class="chakra-image css-qzwr75"
+          class="chakra-image css-1goliy0"
           loading="lazy"
           src="[object Object]"
         />
@@ -58,7 +58,7 @@ exports[`ProductItem Component renders imageNotAvailable when product image is n
         Sample Product
       </p>
       <a
-        class="chakra-link css-ofgajc"
+        class="chakra-link css-204pox"
         href="/products/P01"
       >
         detail

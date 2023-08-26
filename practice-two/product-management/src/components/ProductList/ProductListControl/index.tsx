@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import FilterMenu from '@components/FilterMenu'
 import { SmallAddIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import {
@@ -20,7 +20,7 @@ const ProductListControl: React.FC<ProductListControlProps> = ({
 
   useOutsideClick({
     ref: filterMenuRef,
-    handler: () => onClose(),
+    handler: useCallback(() => onClose(), [onClose]),
   })
 
   return (

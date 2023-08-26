@@ -2,15 +2,9 @@ import axios from 'axios'
 import { API_URL, ENDPOINT } from '@constants'
 import { IProduct, IProductData } from '@types'
 
-// API method for fetching all products
-export const fetchAllProducts = async (): Promise<IProduct[]> => {
-  const res = await axios.get(`${API_URL}/${ENDPOINT.PRODUCTS}`)
-  return res.data
-}
-
-// API method for fetching the product by id
-export const fetchProductById = async (id: string): Promise<IProduct> => {
-  const res = await axios.get(id)
+// API method for fetching
+export const swrFetcher = async (url: string) => {
+  const res = await axios.get(url)
   return res.data
 }
 

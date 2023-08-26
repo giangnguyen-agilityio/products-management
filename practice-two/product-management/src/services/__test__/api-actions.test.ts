@@ -1,8 +1,7 @@
 import axios from 'axios'
 import { act } from 'react-dom/test-utils'
 import {
-  fetchAllProducts,
-  fetchProductById,
+  swrFetcher,
   addNewProductAPI,
   editProductAPI,
   deleteProductAPI,
@@ -31,7 +30,7 @@ describe('Product Reducer', () => {
 
     let products
     await act(async () => {
-      products = await fetchAllProducts()
+      products = await swrFetcher('')
     })
 
     expect(products).toEqual([mockProduct])
@@ -44,7 +43,7 @@ describe('Product Reducer', () => {
 
     let product
     await act(async () => {
-      product = await fetchProductById('P01')
+      product = await swrFetcher('P01')
     })
 
     expect(product).toEqual(mockProduct)

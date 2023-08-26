@@ -32,14 +32,11 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   const [disableButton, setDisableButton] = useState(false)
 
   // Function to handle delete
-  const handleDelete = async () => {
-    try {
-      setDisableButton(true)
-      await onDelete(id)
-    } finally {
-      setDisableButton(false)
-      closeConfirmDialog()
-    }
+  const handleDelete = () => {
+    setDisableButton(true)
+    onDelete(id)
+    setDisableButton(false)
+    closeConfirmDialog()
   }
 
   // Render the ConfirmDialog component

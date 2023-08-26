@@ -1,54 +1,78 @@
-import { useMemo, useReducer } from 'react'
-import { ProductsState, IProduct } from '@types'
+import { ReactNode, useCallback, useMemo } from 'react'
+import { IProduct } from '@types'
 import ProductContext from './ProductContext'
-import reducer from './reducer'
+import { API_URL, ENDPOINT } from '@constants'
 import {
-  addNewProduct,
-  editProduct,
-  deleteProduct,
-  setProduct,
-} from './actions'
-import { mutate } from 'swr'
+  deleteProductAPI,
+  editProductAPI,
+  swrFetcher,
+} from '@services/api-actions'
+import { addNewProductAPI } from '../../services/api-actions'
+import useSWRInfinite from 'swr/infinite'
 
-interface ProviderProps {
-  children: JSX.Element
-}
-
-export const initialState: ProductsState = {
-  products: [],
+type ProviderProps = {
+  children: ReactNode | ReactNode[]
 }
 
 const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
-  const [productState, productDispatch] = useReducer(reducer, initialState)
+  const {
+    data: allProducts,
+    mutate,
+    isLoading,
+    error,
+    size,
+    setSize,
+  } = useSWRInfinite<IProduct[]>(
+    index => `${API_URL}/${ENDPOINT.PRODUCTS}?page=${index + 1}&limit=8`,
+    swrFetcher
+  )
 
-  const setProductState = (payload: IProduct[]) => {
-    productDispatch(setProduct(payload))
-  }
+  const addNewProduct = useCallback(
+    async (payload: IProduct) => {
+      await addNewProductAPI(payload)
+      mutate(allProducts) // Update the SWR cache after adding a new product
+    },
+    [allProducts, mutate]
+  )
 
-  const addNewProductState = (payload: IProduct) => {
-    productDispatch(addNewProduct(payload))
-    mutate // Update the SWR cache after adding a new product
-  }
+  const editProduct = useCallback(
+    async (id: string, payload: IProduct) => {
+      await editProductAPI(id, payload)
+      mutate(allProducts) // Update the SWR cache after editing a product
+    },
+    [allProducts, mutate]
+  )
 
-  const editProductState = (payload: IProduct) => {
-    productDispatch(editProduct(payload))
-    mutate // Update the SWR cache after editing a product
-  }
+  const deleteProduct = useCallback(
+    async (id: string) => {
+      await deleteProductAPI(id)
+      mutate(allProducts) // Update the SWR cache after deleting a product
+    },
+    [allProducts, mutate]
+  )
 
-  const deleteProductState = (payload: string) => {
-    productDispatch(deleteProduct(payload))
-    mutate // Update the SWR cache after deleting a product
+  const handleLoadMore = () => {
+    setSize(size + 1)
   }
 
   const contextValue = useMemo(
     () => ({
-      productState,
-      setProductState,
-      addNewProductState,
-      editProductState,
-      deleteProductState,
+      listProduct: allProducts?.flat() || [],
+      isLoading,
+      isError: error,
+      addNewProduct,
+      editProduct,
+      deleteProduct,
+      handleLoadMore,
     }),
-    [productState]
+    [
+      allProducts,
+      isLoading,
+      addNewProduct,
+      editProduct,
+      deleteProduct,
+      handleLoadMore,
+    ]
   )
 
   return (

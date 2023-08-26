@@ -3,6 +3,9 @@ import { RouteObject } from 'react-router-dom'
 import { ENDPOINT, NOTIFICATIONS } from '@constants'
 import ProductProvider from '@stores/products/ProductProvider'
 import MainLayout from '@layouts/MainLayout'
+import { ChakraProvider } from '@chakra-ui/react'
+import Fonts from '@themes/fonts.tsx'
+import customThemeConfig from '@themes/custom-theme'
 
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -15,9 +18,14 @@ export const routerConfig: RouteObject[] = [
   {
     path: '/',
     element: (
-      <ProductProvider>
-        <MainLayout />
-      </ProductProvider>
+      <ChakraProvider theme={customThemeConfig}>
+        <Fonts />
+        <Suspense fallback={<Loading />}>
+          <ProductProvider>
+            <MainLayout />
+          </ProductProvider>
+        </Suspense>
+      </ChakraProvider>
     ),
     errorElement: <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />,
     children: [
