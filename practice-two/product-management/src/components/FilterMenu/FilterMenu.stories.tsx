@@ -25,7 +25,7 @@ const meta: Meta = {
 export default meta
 
 const mockProductData = {
-  productData: [
+  listProduct: [
     {
       id: 'P01',
       name: 'iPhone 14 Pro Max',
@@ -38,6 +38,20 @@ const mockProductData = {
         "The iPhone 14 Pro Max is Apple's flagship smartphone, featuring a Super Retina XDR display, A16 Bionic chip for powerful performance, and an advanced triple-camera system for exceptional photography. With premium design, Face ID, and MagSafe technology, it offers a top-tier user experience.",
     },
   ],
+  isLoading: false,
+  isError: false,
+  addNewProduct: async () => {
+    console.log('Add new product')
+  },
+  editProduct: async () => {
+    console.log('Add new product')
+  },
+  deleteProduct: async () => {
+    console.log('Add new product')
+  },
+  handleLoadMore: () => {
+    console.log('Add new product')
+  },
 }
 
 const Template: Story<any> = args => (

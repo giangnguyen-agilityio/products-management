@@ -6,7 +6,7 @@ const meta = {
   title: 'Practice Two/Modal Component',
   component: Modal,
   argTypes: {
-    closeModal: { action: 'Close the modal button clicked' },
+    onCloseModal: { action: 'Close the modal button clicked' },
     onAdd: { action: 'Add a new product button clicked' },
     onEdit: { action: 'Edit a product button clicked' },
   },

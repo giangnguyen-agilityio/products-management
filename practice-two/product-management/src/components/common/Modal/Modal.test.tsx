@@ -15,7 +15,7 @@ const mockHandleEdit = jest.fn()
 
 const defaultProps: ModalProps = {
   isOpen: true,
-  closeModal: mockCloseModal,
+  onCloseModal: mockCloseModal,
   modalType: MODAL.ADD,
   onAdd: mockHandleAdd,
   onEdit: mockHandleEdit,
