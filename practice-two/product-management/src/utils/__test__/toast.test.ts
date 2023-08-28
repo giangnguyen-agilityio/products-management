@@ -1,5 +1,10 @@
 import { useCustomToasts } from '../toast'
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useCallback: jest.fn(callback => callback),
+}))
+
 const mockUseToast = jest.fn()
 
 // Mocking @chakra-ui/react module
