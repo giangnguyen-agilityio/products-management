@@ -1,21 +1,31 @@
-import React, { memo, useState, useCallback, useEffect } from 'react'
+// Libraries
+import React, { memo, useState, useCallback } from 'react'
 import { Box, Button } from '@chakra-ui/react'
-import { ERROR_MESSAGES, MODAL } from '@constants'
-import { IProduct } from '@types'
+
+// Components
 import InputField from '@components/common/InputField'
 import ImageUploader from '@components/common/ImageUploader'
+
+// Constants
+import { ERROR_MESSAGES, MODAL, NOTIFICATIONS } from '@constants'
+
+// Types
+import { IProduct } from '@types'
+
+// Function helpers
 import { calculateDiscount } from '@helpers'
 
-// Define props interface for the Form component
-interface FormProps {
+// Utils
+import { useCustomToasts } from '@utils/toast'
+
+export interface FormProps {
   id?: string
   formType: MODAL.ADD | MODAL.EDIT
-  onAdd?: (formData: IProduct) => void
-  onEdit?: (id: string, formData: IProduct) => void
+  onAdd?: (formData: IProduct) => Promise<void>
+  onEdit?: (id: string, formData: IProduct) => Promise<void>
   productData?: IProduct
 }
 
-// Define the Form component
 const Form: React.FC<FormProps> = ({
   id,
   formType,
@@ -32,50 +42,45 @@ const Form: React.FC<FormProps> = ({
     rate: 0,
   }
 
+  // Populate form data if editing an existing product
+  const initialFormData =
+    formType === MODAL.EDIT && id && productData
+      ? { ...defaultFormData, ...productData }
+      : defaultFormData
+
   // State management
   const [disableButton, setDisableButton] = useState(false)
-  const [formData, setFormData] = useState(defaultFormData)
+  const [formData, setFormData] = useState(initialFormData)
   const [isFieldEmpty, setIsFieldEmpty] = useState(false)
   const [calculatedDiscount, setCalculatedDiscount] = useState<number>(0)
+  const { showErrorToast } = useCustomToasts()
 
-  // Populate form data if editing an existing product
-  useEffect(() => {
-    if (formType === MODAL.EDIT && id !== '' && productData) {
-      setFormData(prevFormData => ({
-        ...prevFormData,
-        name: productData.name,
-        image: productData.image ?? '',
-        oldPrice: productData.oldPrice,
-        newPrice: productData.newPrice,
-        description: productData.description,
-        rate: productData.rate,
-      }))
-    }
-  }, [])
+  const { name, image, oldPrice, newPrice, description, rate } = formData
 
+  // Update a specific field in the form data
+  const updateFormValue = (fieldName: string, fieldValue: any) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [fieldName]: fieldValue,
+    }))
+  }
+
+  // Update the calculated discount based on old and new price values
+  const updateDiscount = (oldPriceValue: number, newPriceValue: number) => {
+    const newDiscount = calculateDiscount(oldPriceValue, newPriceValue)
+    setCalculatedDiscount(newDiscount)
+  }
+
+  // Handles the change event for input fields
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target
 
-      const updateFormValue = (fieldName: string, fieldValue: any) => {
-        setFormData(prevFormData => ({
-          ...prevFormData,
-          [fieldName]: fieldValue,
-        }))
-      }
-
-      const updateDiscount = (oldPriceValue: number, newPriceValue: number) => {
-        const newDiscount = calculateDiscount(oldPriceValue, newPriceValue)
-        setCalculatedDiscount(newDiscount)
-      }
-
       switch (name) {
         case 'oldPrice':
         case 'newPrice':
-          const oldPriceValue =
-            name === 'oldPrice' ? Number(value) : formData.oldPrice
-          const newPriceValue =
-            name === 'newPrice' ? Number(value) : formData.newPrice
+          const oldPriceValue = name === 'oldPrice' ? Number(value) : oldPrice
+          const newPriceValue = name === 'newPrice' ? Number(value) : newPrice
 
           updateFormValue(name, Number(value))
           updateDiscount(oldPriceValue, newPriceValue)
@@ -88,7 +93,7 @@ const Form: React.FC<FormProps> = ({
           break
       }
     },
-    [formData.oldPrice, formData.newPrice]
+    [oldPrice, newPrice]
   )
 
   // Handle image upload
@@ -115,9 +120,7 @@ const Form: React.FC<FormProps> = ({
   )
 
   // Handle form submission
-  const submitForm = async (): Promise<void> => {
-    const { name, image, oldPrice, newPrice, description, rate } = formData
-
+  const submitForm = useCallback(async () => {
     // Check if all fields have a value
     const isValid: boolean = [
       name,
@@ -135,7 +138,6 @@ const Form: React.FC<FormProps> = ({
 
     // Ensure a valid ID
     const newId = String(id)
-
     const newFormData = {
       id: newId,
       discount: calculatedDiscount,
@@ -154,24 +156,35 @@ const Form: React.FC<FormProps> = ({
         default:
           break
       }
+    } catch (error) {
+      showErrorToast('Error', `${NOTIFICATIONS.ERROR_WHILE_SUBMITTING}}`)
     } finally {
       setDisableButton(false)
     }
-  }
+  }, [
+    name,
+    image,
+    oldPrice,
+    newPrice,
+    description,
+    rate,
+    id,
+    calculatedDiscount,
+    formData,
+    formType,
+    onAdd,
+    onEdit,
+    showErrorToast,
+  ])
 
   // Renders an error message if a field is empty
   const renderErrorMessage = (
     fieldName: keyof typeof formData,
     message: string
   ): string => {
-    if (
-      isFieldEmpty &&
-      (formData[fieldName] === '' || formData[fieldName] === 0)
-    ) {
-      return message
-    } else {
-      return ''
-    }
+    const isError =
+      isFieldEmpty && (!formData[fieldName] || formData[fieldName] === 0)
+    return isError ? message : ''
   }
 
   return (
@@ -188,7 +201,7 @@ const Form: React.FC<FormProps> = ({
         <InputField
           name="name"
           label="Name of product"
-          value={formData.name}
+          value={name}
           onChange={handleChange}
           errorMessage={renderErrorMessage(
             'name',
@@ -200,7 +213,7 @@ const Form: React.FC<FormProps> = ({
         <InputField
           name="oldPrice"
           label="Old price"
-          value={formData.oldPrice.toString()}
+          value={oldPrice.toString()}
           onChange={handleChange}
           type="number"
           min={0}
@@ -214,7 +227,7 @@ const Form: React.FC<FormProps> = ({
         <InputField
           name="newPrice"
           label="New price"
-          value={formData.newPrice.toString()}
+          value={newPrice.toString()}
           onChange={handleChange}
           type="number"
           min={0}
@@ -228,7 +241,7 @@ const Form: React.FC<FormProps> = ({
         <InputField
           name="rate"
           label="Rate"
-          value={formData.rate.toString()}
+          value={rate.toString()}
           onChange={handleChange}
           type="number"
           min={0}
@@ -244,7 +257,7 @@ const Form: React.FC<FormProps> = ({
           variant="textarea"
           name="description"
           label="Description"
-          value={formData.description}
+          value={description}
           onChange={handleChange}
           errorMessage={renderErrorMessage(
             'description',
@@ -254,7 +267,7 @@ const Form: React.FC<FormProps> = ({
 
         {/* Image uploader */}
         <ImageUploader
-          formData={formData}
+          formData={{ image, name }}
           handleImageUpload={handleImageUpload}
           errorMessage={renderErrorMessage(
             'image',
@@ -271,7 +284,8 @@ const Form: React.FC<FormProps> = ({
           className="submit-form-btn"
           aria-label="Submit form button"
           isLoading={disableButton}
-          variant="secondary"
+          _hover={{ opacity: 1 }}
+          variant={'secondary'}
         >
           {formType === MODAL.ADD ? 'ADD' : 'EDIT'}
         </Button>
