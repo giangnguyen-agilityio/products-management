@@ -12,6 +12,8 @@ export const handleServerError = (error: AxiosError): string => {
       return 'Not have permission to access' // Return this message for a 403 status code
     case 404:
       return 'Not Found - the requested resource does not exist' // Return this message for a 404 status code
+    case 413:
+      return 'The image is too large' // Return this message for a 413 status code
     default:
       return 'Something went wrong' // Return this message for any other status code or if the error object is not defined
   }

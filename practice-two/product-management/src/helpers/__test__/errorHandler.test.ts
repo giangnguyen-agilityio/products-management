@@ -26,6 +26,11 @@ describe('handleServerError function', () => {
     )
   })
 
+  it('should return "The image is too large" for 413 status code', () => {
+    const error = { response: { status: 413 } } as AxiosError
+    expect(handleServerError(error)).toBe('The image is too large')
+  })
+
   it('should return "Something went wrong" for any other status code or if the error object is not defined', () => {
     const error = { response: { status: 500 } } as AxiosError
     expect(handleServerError(error)).toBe('Something went wrong')

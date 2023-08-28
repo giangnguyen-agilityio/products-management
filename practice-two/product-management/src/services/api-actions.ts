@@ -1,19 +1,17 @@
-import axios from 'axios'
-import { API_URL, ENDPOINT } from '@constants'
+// Constants
+import { ENDPOINT } from '@constants'
+
+// Types
 import { IProduct, IProductData } from '@types'
 
-// API method for fetching
-export const swrFetcher = async (url: string) => {
-  const res = await axios.get(url)
-  return res.data
-}
+// Utils
+import { axiosInstance } from '@utils/api'
 
 // API method for add a new product
 export const addNewProductAPI = async (
   product: IProductData
 ): Promise<IProduct> => {
-  const res = await axios.post(`${API_URL}/${ENDPOINT.PRODUCTS}`, product)
-  return res.data
+  return axiosInstance.post(`/${ENDPOINT.PRODUCTS}`, product)
 }
 
 // API method for editing a product
@@ -21,12 +19,10 @@ export const editProductAPI = async (
   id: string,
   product: IProductData
 ): Promise<IProduct> => {
-  const res = await axios.put(`${API_URL}/${ENDPOINT.PRODUCTS}/${id}`, product)
-  return res.data
+  return axiosInstance.put(`/${ENDPOINT.PRODUCTS}/${id}`, product)
 }
 
 // API method for deleting a product
 export const deleteProductAPI = async (id: string): Promise<IProduct> => {
-  const res = await axios.delete(`${API_URL}/${ENDPOINT.PRODUCTS}/${id}`)
-  return res.data
+  return axiosInstance.delete(`/${ENDPOINT.PRODUCTS}/${id}`)
 }
