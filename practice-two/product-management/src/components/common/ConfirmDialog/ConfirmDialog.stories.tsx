@@ -43,6 +43,8 @@ const mockProductData = {
     },
   ],
   isLoading: false,
+  isLoadingMore: false,
+  isReachingEnd: false,
   isError: false,
   addNewProduct: async () => {
     console.log('Add new product')
