@@ -14,12 +14,31 @@ module.exports = {
     '@constants': '<rootDir>/src/constants',
     '@components/FilterMenu/FilterLink':
       '<rootDir>/src/components/FilterMenu/FilterLink',
+    '@components/FilterMenu': '<rootDir>/src/components/FilterMenu',
     '@components/Form': '<rootDir>/src/components/Form',
+    '@components/common/InputField':
+      '<rootDir>/src/components/common/InputField',
+    '@components/common/ImageUploader':
+      '<rootDir>/src/components/common/ImageUploader',
+    '@components/common/Logo': '<rootDir>/src/components/common/Logo',
+    '@components/common/Navigation':
+      '<rootDir>/src/components/common/Navigation',
+    '@layouts/Header': '<rootDir>/src/layouts/Header',
+    '@layouts/Footer': '<rootDir>/src/layouts/Footer',
+    '@components/ErrorBoundary': '<rootDir>/src/components/ErrorBoundary',
+    '@components/ProductItem': '<rootDir>/src/components/ProductItem',
+    '@components/common/EmptyProduct':
+      '<rootDir>/src/components/common/EmptyProduct',
+
     '@services/api-actions': '<rootDir>/src/services/api-actions',
-    '@stores/products/ProductContext.ts':
-      '<rootDir>/src/stores/products/ProductContext.ts',
-    '@stores/products/ProductContext':
-      '<rootDir>/src/stores/products/ProductContext',
+    '@utils/api': '<rootDir>/src/utils/api',
+
+    '@context/ProductContext/ProductContext.ts':
+      '<rootDir>/src/context/ProductContext/ProductContext.ts',
+    '@context/ProductContext/ProductContext':
+      '<rootDir>/src/context/ProductContext/ProductContext',
+    '@context/ProductContext/ProductProvider':
+      '<rootDir>/src/context/ProductContext/ProductProvider',
 
     // Mock images
     '@assets/images/delete_Action.gif':
@@ -29,6 +48,8 @@ module.exports = {
     '@assets/images/hero_img.webp': '<rootDir>/src/assets/images/hero_img.webp',
     '@assets/images/error-image.webp':
       '<rootDir>/src/assets/images/error-image.webp',
+    '@assets/images/logo_website.webp':
+      '<rootDir>/src/assets/images/logo_website.webp',
     '@assets/images/hero_img_320.webp':
       '<rootDir>/src/assets/images/hero_img_320.webp',
     '@assets/images/hero_img_480.webp':
@@ -79,6 +100,26 @@ module.exports = {
     '^.+\\.svg$': 'jest-transform-stub',
     '^.+\\.webp$': 'jest-transform-stub',
     '^.+\\.gif$': 'jest-transform-stub',
+    // '^.+\\.tsx?$': [
+    //   'ts-jest',
+    //   {
+    //     diagnostics: {
+    //       ignoreCodes: [1343],
+    //     },
+    //     astTransformers: {
+    //       before: [
+    //         {
+    //           path: 'node_modules/ts-jest-mock-import-meta',
+    //           options: {
+    //             metaObjectReplacement: {
+    //               VITE_API_URL: 'https://64e2e996bac46e480e77e5a8.mockapi.io',
+    //             },
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   },
+    // ],
   },
   coverageThreshold: {
     global: {
