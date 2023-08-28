@@ -3,33 +3,251 @@
 exports[`MainLayout component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="css-1qg750"
+    class="css-zixof1"
   >
-    <div
-      class="css-wkpw2c"
+    <header
+      class="chakra-container header css-1mr40xt"
     >
       <div
-        class="error-image css-0"
+        class="css-gg4vpm"
       >
-        <img
-          alt="This is the error image"
-          class="chakra-image css-1ki54i"
-          src=""
-        />
+        <a
+          href="/"
+        >
+          <div
+            class="logo css-759u60"
+          />
+        </a>
+        <button
+          aria-label="Open Menu"
+          class="chakra-button hamburger-menu css-130cxkw"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="chakra-icon css-onkibi"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
       </div>
-      <h2
-        class="chakra-text css-iseo8x"
+    </header>
+    <footer
+      class="chakra-container footer css-vhc7ah"
+    >
+      <div
+        class="css-hv056j"
       >
-        Something went wrong ! Please try again
-      </h2>
-      <br />
-      <a
-        class="chakra-link css-spn4bz"
-        href="/"
-      >
-        Back to homepage
-      </a>
-    </div>
+        <ul
+          class="footer-left css-j7qwjs"
+        >
+          <li
+            class="css-k008qs"
+          >
+            <a
+              href="/"
+            >
+              <div
+                class="logo css-759u60"
+              />
+            </a>
+          </li>
+          <li
+            class="css-k008qs"
+          >
+            <span
+              class="chakra-text css-lsakg3"
+            >
+              Copyright © 2023, Giang Nguyen
+              <br />
+              All rights reserved.
+            </span>
+          </li>
+          <li
+            class="link-social css-1ov7iep"
+          >
+            <a
+              href="/"
+            >
+              <div
+                class="css-1wojifn"
+              >
+                <img
+                  alt="The social icon"
+                  class="chakra-image css-v67zxb"
+                  src=""
+                />
+              </div>
+            </a>
+            <a
+              href="/"
+            >
+              <div
+                class="css-1wojifn"
+              >
+                <img
+                  alt="The social icon"
+                  class="chakra-image css-v67zxb"
+                  src=""
+                />
+              </div>
+            </a>
+            <a
+              href="/"
+            >
+              <div
+                class="css-1wojifn"
+              >
+                <img
+                  alt="The social icon"
+                  class="chakra-image css-v67zxb"
+                  src=""
+                />
+              </div>
+            </a>
+          </li>
+        </ul>
+        <ul
+          class="footer-right css-1jnspk1"
+        >
+          <li
+            class="footer-column css-j7qwjs"
+          >
+            <span
+              class="chakra-text css-g1cs2b"
+            >
+              Discover
+            </span>
+            <ul
+              class="footer-column-items css-j7qwjs"
+            >
+              <li
+                class="css-1l0pjoz"
+              >
+                <a
+                  href="/"
+                >
+                  <span
+                    class="chakra-text footer-link css-14cj6ry"
+                  >
+                    Home
+                  </span>
+                </a>
+              </li>
+              <li
+                class="css-1l0pjoz"
+              >
+                <a
+                  href="/"
+                >
+                  <span
+                    class="chakra-text footer-link css-14cj6ry"
+                  >
+                    Products
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="footer-column css-j7qwjs"
+          >
+            <span
+              class="chakra-text css-g1cs2b"
+            >
+              About Us
+            </span>
+            <ul
+              class="footer-column-items css-j7qwjs"
+            >
+              <li
+                class="css-1l0pjoz"
+              >
+                <a
+                  href="/"
+                >
+                  <span
+                    class="chakra-text footer-link css-14cj6ry"
+                  >
+                    Privacy Policy
+                  </span>
+                </a>
+              </li>
+              <li
+                class="css-1l0pjoz"
+              >
+                <a
+                  href="/"
+                >
+                  <span
+                    class="chakra-text footer-link css-14cj6ry"
+                  >
+                    Service Terms
+                  </span>
+                </a>
+              </li>
+              <li
+                class="css-1l0pjoz"
+              >
+                <a
+                  href="/"
+                >
+                  <span
+                    class="chakra-text footer-link css-14cj6ry"
+                  >
+                    Contact
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="footer-column css-j7qwjs"
+          >
+            <span
+              class="chakra-text css-g1cs2b"
+            >
+              Help
+            </span>
+            <ul
+              class="footer-column-items css-j7qwjs"
+            >
+              <li
+                class="css-1l0pjoz"
+              >
+                <a
+                  href="/"
+                >
+                  <span
+                    class="chakra-text footer-link css-14cj6ry"
+                  >
+                    Help Center
+                  </span>
+                </a>
+              </li>
+              <li
+                class="css-1l0pjoz"
+              >
+                <a
+                  href="/"
+                >
+                  <span
+                    class="chakra-text footer-link css-14cj6ry"
+                  >
+                    Report a Problem
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </footer>
   </div>
   <span
     hidden=""

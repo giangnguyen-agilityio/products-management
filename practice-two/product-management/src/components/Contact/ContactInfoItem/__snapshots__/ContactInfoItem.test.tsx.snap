@@ -2,7 +2,7 @@
 
 exports[`ContactInfoItem component renders correctly 1`] = `
 <div>
-  <div
+  <address
     class="css-1gfsowa"
   >
     <div
@@ -20,6 +20,6 @@ exports[`ContactInfoItem component renders correctly 1`] = `
       </p>
     </div>
     Contact Content
-  </div>
+  </address>
 </div>
 `;

@@ -8,7 +8,7 @@ exports[`ContactInfo component renders contact information 1`] = `
     <div
       class="css-1w32bio"
     >
-      <div
+      <address
         class="css-1gfsowa"
       >
         <div
@@ -26,8 +26,8 @@ exports[`ContactInfo component renders contact information 1`] = `
           </p>
         </div>
         SoHo 94 Broadway St New York, NY 1001
-      </div>
-      <div
+      </address>
+      <address
         class="css-1gfsowa"
       >
         <div
@@ -54,8 +54,8 @@ exports[`ContactInfo component renders contact information 1`] = `
         >
           888-0123-4567 (Toll Free)
         </p>
-      </div>
-      <div
+      </address>
+      <address
         class="css-1gfsowa"
       >
         <div
@@ -73,8 +73,8 @@ exports[`ContactInfo component renders contact information 1`] = `
           </p>
         </div>
         1-234-567-8900
-      </div>
-      <div
+      </address>
+      <address
         class="css-1gfsowa"
       >
         <div
@@ -100,7 +100,7 @@ exports[`ContactInfo component renders contact information 1`] = `
             hello@theme.com
           </span>
         </a>
-      </div>
+      </address>
     </div>
   </section>
 </div>

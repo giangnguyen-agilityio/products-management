@@ -1,30 +1,31 @@
-// import { axiosInstance, swrFetcher } from '../api'
+import { axiosInstance, swrFetcher } from '../api'
 
-// // Mock axiosInstance.get to simulate successful and error responses
-// jest.mock('axios')
-// const mockedAxiosInstance = axiosInstance as jest.Mocked<typeof axiosInstance>
+describe('swrFetcher', () => {
+  it('fetches successfully data from an API', async () => {
+    // Mock axiosInstance.get to return a successful response
+    const mockResponse = { data: 'mocked data' }
+    axiosInstance.get = jest.fn().mockResolvedValue(mockResponse)
 
-// describe('swrFetcher function', () => {
-//   it('fetches successfully data from an API', async () => {
-//     const data = { key: 'value' }
-//     const url = '/test-url'
+    const url = '/some-url'
+    const result = await swrFetcher(url)
 
-//     // Mock successful axios response
-//     mockedAxiosInstance.get.mockResolvedValueOnce({ data })
+    expect(result).toEqual(mockResponse.data)
+    expect(axiosInstance.get).toHaveBeenCalledWith(url)
+  })
 
-//     const result = await swrFetcher(url)
+  it('throws an error when API call fails', async () => {
+    const errorMessage = 'Failed to fetch data'
+    axiosInstance.get = jest.fn().mockRejectedValue(new Error(errorMessage))
 
-//     expect(result).toEqual(data)
-//     expect(mockedAxiosInstance.get).toHaveBeenCalledWith(url)
-//   })
+    const url = '/some-url'
+    let error = null
+    try {
+      await swrFetcher(url)
+    } catch (e: any) {
+      error = e
+    }
 
-//   it('throws an error when fetching data from API', async () => {
-//     const url = '/test-url'
-
-//     // Mock axios response with an error
-//     mockedAxiosInstance.get.mockRejectedValueOnce(new Error('API Error'))
-
-//     await expect(swrFetcher(url)).rejects.toThrow('API Error')
-//     expect(mockedAxiosInstance.get).toHaveBeenCalledWith(url)
-//   })
-// })
+    expect(error).not.toBeNull()
+    expect(axiosInstance.get).toHaveBeenCalledWith(url)
+  })
+})

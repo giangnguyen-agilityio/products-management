@@ -12,6 +12,7 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '@constants': '<rootDir>/src/constants',
+    '@helpers': '<rootDir>/src/helpers',
     '@components/FilterMenu/FilterLink':
       '<rootDir>/src/components/FilterMenu/FilterLink',
     '@components/FilterMenu': '<rootDir>/src/components/FilterMenu',
@@ -29,9 +30,19 @@ module.exports = {
     '@components/ProductItem': '<rootDir>/src/components/ProductItem',
     '@components/common/EmptyProduct':
       '<rootDir>/src/components/common/EmptyProduct',
+    '@components/Contact': '<rootDir>/src/components/Contact',
+    '@components/ProductList': '<rootDir>/src/components/ProductList',
+    '@components/common/Hero': '<rootDir>/src/components/common/Hero',
+    '@components/common/Modal': '<rootDir>/src/components/common/Modal',
+    '@components/common/Loading': '<rootDir>/src/components/common/Loading',
+    '@components/ProductList/ProductListHeader':
+      '<rootDir>/src/components/ProductList/ProductListHeader',
+    '@components/ProductList/ProductListControl':
+      '<rootDir>/src/components/ProductList/ProductListControl',
 
     '@services/api-actions': '<rootDir>/src/services/api-actions',
     '@utils/api': '<rootDir>/src/utils/api',
+    '@utils/toast': '<rootDir>/src/utils/toast',
 
     '@context/ProductContext/ProductContext.ts':
       '<rootDir>/src/context/ProductContext/ProductContext.ts',
@@ -94,6 +105,7 @@ module.exports = {
       '<rootDir>/src/assets/icons/twitter_icon.svg',
     '@assets/icons/instagram_icon.svg':
       '<rootDir>/src/assets/icons/instagram_icon.svg',
+    '@assets/icons/Arrow_down.svg': '<rootDir>/src/assets/icons/Arrow_down.svg',
   },
   transform: {
     '^.+\\.css$': 'jest-transform-stub',

@@ -2,9 +2,9 @@ import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import DesktopNavigation from '.'
 
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: jest.fn().mockImplementation(query => ({
+// Mock matchMedia
+beforeAll(() => {
+  window.matchMedia = jest.fn().mockImplementation(query => ({
     matches: false,
     media: query,
     onchange: null,
@@ -13,7 +13,7 @@ Object.defineProperty(window, 'matchMedia', {
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
-  })),
+  }))
 })
 
 const mockLinks = [
@@ -33,12 +33,26 @@ test('renders DesktopNavigation component with links', () => {
   const navigationElement = container.querySelector('.navigation')
   expect(navigationElement).toBeInTheDocument()
 
-  // Check if links are rendered
+  // Check if links are rendered with correct text and href
   mockLinks.forEach(link => {
     const linkElement = getByText(link.label)
     expect(linkElement).toBeInTheDocument()
-    expect(linkElement).toHaveAttribute('href', link.href)
+    expect(linkElement.getAttribute('href')).toBe(link.href) // Use getAttribute to check the actual href value
   })
 
   expect(container).toMatchSnapshot()
+})
+
+test('each link has the correct attributes', () => {
+  const { getByText } = render(
+    <MemoryRouter>
+      <DesktopNavigation links={mockLinks} />
+    </MemoryRouter>
+  )
+
+  // Check each link's attributes
+  mockLinks.forEach(link => {
+    const linkElement = getByText(link.label)
+    expect(linkElement).toHaveAttribute('aria-label', link.label)
+  })
 })
