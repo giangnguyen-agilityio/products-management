@@ -72,7 +72,7 @@
 
 ## UserFlow Diagram
 
-![Main features](src\assets\images\UserFlow_Diagram.png)
+![Main features](/src/assets/images/UserFlow_Diagram.png)
 
 ## Getting Started
 
