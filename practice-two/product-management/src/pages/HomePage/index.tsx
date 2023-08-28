@@ -1,22 +1,37 @@
+// Libraries
 import { memo, useCallback, useContext, useState } from 'react'
 import { Box, Flex, Button, Image, Text } from '@chakra-ui/react'
 
-import ProductList from '@components/ProductList'
-import ProductListHeader from '@components/ProductList/ProductListHeader'
+// Components
+import Form from '@components/Form'
 import Contact from '@components/Contact'
-import Modal from '@components/common/Modal'
-import EmptyProduct from '@components/common/EmptyProduct'
-import Loading from '@components/common/Loading'
 import Hero from '@components/common/Hero'
+import Modal from '@components/common/Modal'
+import Loading from '@components/common/Loading'
+import ProductList from '@components/ProductList'
+import EmptyProduct from '@components/common/EmptyProduct'
+import ProductListHeader from '@components/ProductList/ProductListHeader'
+import ProductListControl from '@components/ProductList/ProductListControl'
 
-import { useCustomToasts } from '@utils/toast'
-import { MODAL, NOTIFICATIONS, heroSectionContent } from '@constants'
-import { IProduct } from '@types'
+// Context
 import ProductContext, {
   IProductContext,
-} from '@stores/products/ProductContext'
+} from '@context/ProductContext/ProductContext'
+
+// Types
+import { IProduct } from '@types'
+
+// Function helpers
+import { handleServerError } from '@helpers'
+
+// Utils
+import { useCustomToasts } from '@utils/toast'
+
+// Assets
 import arrowDownIcon from '@assets/icons/Arrow_down.svg'
-import ProductListControl from '@components/ProductList/ProductListControl'
+
+// Constants
+import { MODAL, NOTIFICATIONS, heroSectionContent } from '@constants'
 
 const Homepage = () => {
   const { listProduct, addNewProduct, isLoading, isError, handleLoadMore } =
@@ -25,16 +40,12 @@ const Homepage = () => {
   // State to manage modal open/close
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  // State to manage modal type: add or edit product
-  const [modalType, setModalType] = useState<MODAL.ADD | MODAL.EDIT>(MODAL.ADD)
-
   // Use custom toasts for displaying notifications
   const { showSuccessToast, showErrorToast } = useCustomToasts()
 
   // Function to open the modal for adding a new product
   const handleOpenModal = useCallback(() => {
     setIsModalOpen(true)
-    setModalType(MODAL.ADD)
   }, [])
 
   // Function to close the modal
@@ -46,15 +57,18 @@ const Homepage = () => {
   const handleAdd = useCallback(
     async (formData: IProduct): Promise<void> => {
       try {
-        addNewProduct(formData)
+        await addNewProduct(formData)
         showSuccessToast(
           'Success',
           `${NOTIFICATIONS.PRODUCT_ADDED_SUCCESSFULLY}`
         )
-      } catch (error) {
-        showErrorToast('Error', `${NOTIFICATIONS.PRODUCT_ADDED_FAILED}`)
-      } finally {
         handleCloseModal()
+      } catch (error) {
+        const errorMessage = handleServerError(error as any)
+        showErrorToast(
+          'Error',
+          `${NOTIFICATIONS.PRODUCT_ADDED_FAILED}: ${errorMessage}`
+        )
       }
     },
     [addNewProduct, handleCloseModal, showSuccessToast, showErrorToast]
@@ -131,12 +145,9 @@ const Homepage = () => {
       <Contact />
 
       {/* Display the modal */}
-      <Modal
-        isOpen={isModalOpen}
-        onCloseModal={handleCloseModal}
-        modalType={modalType}
-        onAdd={handleAdd}
-      />
+      <Modal isOpen={isModalOpen} onCloseModal={handleCloseModal}>
+        <Form formType={MODAL.ADD} onAdd={handleAdd} />
+      </Modal>
     </>
   )
 }

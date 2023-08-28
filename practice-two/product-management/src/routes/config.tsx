@@ -1,11 +1,21 @@
+// Libraries
 import { Suspense, lazy } from 'react'
-import { RouteObject } from 'react-router-dom'
-import { ENDPOINT, NOTIFICATIONS } from '@constants'
-import ProductProvider from '@stores/products/ProductProvider'
-import MainLayout from '@layouts/MainLayout'
 import { ChakraProvider } from '@chakra-ui/react'
+import { RouteObject } from 'react-router-dom'
+import { SWRConfig } from 'swr'
+
+// Constants
+import { ENDPOINT, NOTIFICATIONS } from '@constants'
+
+// Layouts
+import MainLayout from '@layouts/MainLayout'
+
+// Themes
 import Fonts from '@themes/fonts.tsx'
 import customThemeConfig from '@themes/custom-theme'
+
+// Utils
+import { swrFetcher } from '@utils/api'
 
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
@@ -20,11 +30,15 @@ export const routerConfig: RouteObject[] = [
     element: (
       <ChakraProvider theme={customThemeConfig}>
         <Fonts />
-        <Suspense fallback={<Loading />}>
-          <ProductProvider>
+        <SWRConfig
+          value={{
+            fetcher: swrFetcher,
+          }}
+        >
+          <Suspense fallback={<Loading />}>
             <MainLayout />
-          </ProductProvider>
-        </Suspense>
+          </Suspense>
+        </SWRConfig>
       </ChakraProvider>
     ),
     errorElement: <EmptyProduct errorMessage={NOTIFICATIONS.API_ERROR} />,
