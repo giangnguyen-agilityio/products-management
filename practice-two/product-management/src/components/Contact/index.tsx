@@ -34,13 +34,19 @@ const Contact: React.FC = () => (
 
     {/* Contact content */}
     <Flex
+      as="ul"
+      listStyleType="none"
       className="contact-content"
       flexDirection={{ base: 'column', lg: 'row' }}
       gap={{ base: 0, lg: '60px' }}
       margin={{ base: '0 auto', lg: '20px auto' }}
       width={{ base: '300px', sm: '340px', md: '720px', lg: '940px' }}
     >
-      <Box className="content-left" width={{ lg: '470px', xl: '570px' }}>
+      <Box
+        as="li"
+        className="content-left"
+        width={{ lg: '470px', xl: '570px' }}
+      >
         <Flex
           as="form"
           flexDirection="column"
@@ -100,9 +106,14 @@ const Contact: React.FC = () => (
         </Flex>
       </Box>
 
-      <Box className="content-right" width={{ lg: '470px', xl: '570px' }}>
+      <Box
+        as="li"
+        className="content-right"
+        width={{ lg: '470px', xl: '570px' }}
+      >
         {/* The content title */}
         <Text
+          as="h3"
           className="content-title"
           color="primary"
           variant="fontSecondary"
@@ -114,6 +125,7 @@ const Contact: React.FC = () => (
 
         {/* The content maxim */}
         <Text
+          as="blockquote"
           className="maxim"
           variant="fontPrimaryBold"
           fontSize="18px"

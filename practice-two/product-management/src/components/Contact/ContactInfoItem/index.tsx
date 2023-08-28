@@ -14,6 +14,7 @@ const ContactInfoItem: React.FC<ContactInfoItemProps> = ({
   content,
 }) => (
   <Box
+    as="address"
     display="flex"
     flexDirection="column"
     bgColor="background"
