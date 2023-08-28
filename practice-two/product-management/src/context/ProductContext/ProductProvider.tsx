@@ -23,6 +23,8 @@ type ProviderProps = {
 }
 
 const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
+  const PAGE_SIZE = 8
+
   const {
     data: allProducts,
     mutate,
@@ -31,7 +33,7 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     size,
     setSize,
   } = useSWRInfinite<IProduct[]>(
-    index => `/${ENDPOINT.PRODUCTS}?page=${index + 1}&limit=8`,
+    index => `/${ENDPOINT.PRODUCTS}?page=${index + 1}&limit=${PAGE_SIZE}`,
     { revalidateAll: true }
   )
 
@@ -63,6 +65,9 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     setSize(size + 1)
   }, [setSize, size])
 
+  const isLoadingMore =
+    isLoading ||
+    (size > 0 && allProducts && typeof allProducts[size - 1] === 'undefined')
   const isEmpty = allProducts?.[0]?.length === 0
   const isReachingEnd =
     isEmpty || (allProducts && allProducts[allProducts.length - 1]?.length < 8)
@@ -71,6 +76,7 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     () => ({
       listProduct: allProducts?.flat() || [],
       isLoading,
+      isLoadingMore,
       isReachingEnd,
       isError: error,
       addNewProduct,
@@ -81,6 +87,7 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     [
       allProducts,
       isLoading,
+      isLoadingMore,
       isReachingEnd,
       error,
       addNewProduct,
