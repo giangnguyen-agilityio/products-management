@@ -37,9 +37,9 @@ const Homepage = () => {
   const {
     listProduct,
     addNewProduct,
-    isLoading,
     isError,
     handleLoadMore,
+    isLoadingMore,
     isReachingEnd,
   } = useContext(ProductContext) as IProductContext
 
@@ -111,7 +111,11 @@ const Homepage = () => {
         <ProductListControl onOpenModal={handleOpenModal} />
 
         {/* Display the product list */}
-        {isLoading ? <Loading /> : <ProductList listProduct={listProduct} />}
+        {isLoadingMore ? (
+          <Loading />
+        ) : (
+          <ProductList listProduct={listProduct} />
+        )}
 
         {!isReachingEnd && (
           <Flex justifyContent="center" margin="50px auto">

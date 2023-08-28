@@ -2,4 +2,4 @@ User-agent: *
 Allow: 
 Disallow: 
 
-Sitemap: https://products-management-steel.vercel.app
+Sitemap: https://products-management-steel.vercel.app/sitemap.xml

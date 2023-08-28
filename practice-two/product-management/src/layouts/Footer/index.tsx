@@ -49,7 +49,7 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, label }) => (
 )
 
 const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => (
-  <Flex className="footer-column" flexDirection="column">
+  <Flex as="li" className="footer-column" flexDirection="column">
     <Text
       as="span"
       size="primary"
@@ -78,15 +78,25 @@ const Footer: React.FC = () => {
         gap={{ base: 2, sm: 8 }}
       >
         {/* Footer left */}
-        <Flex className="footer-left" flexDirection="column">
-          <Logo imageSrc={logoWebsite} />
-          <Text as="span" pt={2} pl={4} color="textSecondary" size="secondary">
-            Copyright &copy; 2023, Giang Nguyen
-            <br />
-            All rights reserved.
-          </Text>
+        <Flex as="ul" className="footer-left" flexDirection="column">
+          <Flex as="li">
+            <Logo imageSrc={logoWebsite} />
+          </Flex>
+          <Flex as="li">
+            <Text
+              as="span"
+              pt={2}
+              pl={4}
+              color="textSecondary"
+              size="secondary"
+            >
+              Copyright &copy; 2023, Giang Nguyen
+              <br />
+              All rights reserved.
+            </Text>
+          </Flex>
           {/* Social media links */}
-          <Flex className="link-social" pt={1} pl={2.5}>
+          <Flex as="li" className="link-social" pt={1} pl={2.5}>
             {socialLinks.map((link, index) => (
               <FooterButton key={index} icon={link.icon} href={link.href} />
             ))}
@@ -95,6 +105,7 @@ const Footer: React.FC = () => {
 
         {/* Footer right */}
         <Flex
+          as="ul"
           className="footer-right"
           marginLeft={{ base: 4, xl: 0 }}
           gap={{ base: 8, xl: 16 }}

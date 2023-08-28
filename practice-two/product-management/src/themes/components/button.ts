@@ -19,9 +19,9 @@ export const Button: ComponentStyleConfig = {
     },
 
     secondary: {
-      bgColor: 'blue.300',
-      _hover: { bgColor: 'blue.600' },
-      _loading: { bgColor: 'blue.600' },
+      bgColor: 'blue.500',
+      _hover: { bgColor: 'blue.300' },
+      _loading: { bgColor: 'blue.300' },
     },
 
     tertiary: {
@@ -33,19 +33,19 @@ export const Button: ComponentStyleConfig = {
     },
 
     success: {
-      bgColor: 'green.300',
-      _hover: { bgColor: 'green.500' },
+      bgColor: 'green.500',
+      _hover: { bgColor: 'green.300' },
     },
 
     danger: {
-      bgColor: 'red.300',
-      _hover: { bgColor: 'red.500' },
-      _loading: { bgColor: 'red.500' },
+      bgColor: 'red.500',
+      _hover: { bgColor: 'red.300' },
+      _loading: { bgColor: 'red.300' },
     },
 
     minimal: {
-      bgColor: 'gray.100',
-      _hover: { bgColor: 'gray.300' },
+      bgColor: 'gray.300',
+      _hover: { bgColor: 'gray.100' },
     },
 
     contract: {
