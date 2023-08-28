@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainLayout component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1qg750"
+  >
+    <div
+      class="css-wkpw2c"
+    >
+      <div
+        class="error-image css-0"
+      >
+        <img
+          alt="This is the error image"
+          class="chakra-image css-1ki54i"
+          src=""
+        />
+      </div>
+      <h2
+        class="chakra-text css-iseo8x"
+      >
+        Something went wrong ! Please try again
+      </h2>
+      <br />
+      <a
+        class="chakra-link css-spn4bz"
+        href="/"
+      >
+        Back to homepage
+      </a>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;

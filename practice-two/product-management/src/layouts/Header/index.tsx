@@ -1,8 +1,15 @@
+// Libraries
 import { Container, Flex } from '@chakra-ui/react'
-import logoWebsite from '@assets/images/logo_website.webp'
-import Logo from '@components/common/Logo'
+
+// Constants
 import { navigationLinks } from '@constants'
+
+// Components
+import Logo from '@components/common/Logo'
 import Navigation from '@components/common/Navigation'
+
+// Assets
+import logoWebsite from '@assets/images/logo_website.webp'
 
 // Header Component
 const Header = () => {

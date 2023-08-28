@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders without crashing 1`] = `
+<div>
+  <footer
+    class="chakra-container footer css-vhc7ah"
+  >
+    <div
+      class="css-hv056j"
+    >
+      <div
+        class="footer-left css-j7qwjs"
+      >
+        <a
+          href="/"
+        >
+          <div
+            class="logo css-759u60"
+          />
+        </a>
+        <span
+          class="chakra-text css-lsakg3"
+        >
+          Copyright © 2023, Giang Nguyen
+          <br />
+          All rights reserved.
+        </span>
+        <div
+          class="link-social css-1ov7iep"
+        >
+          <a
+            href="/"
+          >
+            <div
+              class="css-1wojifn"
+            >
+              <img
+                alt="The social icon"
+                class="chakra-image css-v67zxb"
+                src=""
+              />
+            </div>
+          </a>
+          <a
+            href="/"
+          >
+            <div
+              class="css-1wojifn"
+            >
+              <img
+                alt="The social icon"
+                class="chakra-image css-v67zxb"
+                src=""
+              />
+            </div>
+          </a>
+          <a
+            href="/"
+          >
+            <div
+              class="css-1wojifn"
+            >
+              <img
+                alt="The social icon"
+                class="chakra-image css-v67zxb"
+                src=""
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        class="footer-right css-1jnspk1"
+      >
+        <div
+          class="footer-column css-j7qwjs"
+        >
+          <span
+            class="chakra-text css-g1cs2b"
+          >
+            Discover
+          </span>
+          <ul
+            class="footer-column-items css-j7qwjs"
+          >
+            <li
+              class="css-1l0pjoz"
+            >
+              <a
+                href="/"
+              >
+                <span
+                  class="chakra-text footer-link css-14cj6ry"
+                >
+                  Home
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-1l0pjoz"
+            >
+              <a
+                href="/"
+              >
+                <span
+                  class="chakra-text footer-link css-14cj6ry"
+                >
+                  Products
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="footer-column css-j7qwjs"
+        >
+          <span
+            class="chakra-text css-g1cs2b"
+          >
+            About Us
+          </span>
+          <ul
+            class="footer-column-items css-j7qwjs"
+          >
+            <li
+              class="css-1l0pjoz"
+            >
+              <a
+                href="/"
+              >
+                <span
+                  class="chakra-text footer-link css-14cj6ry"
+                >
+                  Privacy Policy
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-1l0pjoz"
+            >
+              <a
+                href="/"
+              >
+                <span
+                  class="chakra-text footer-link css-14cj6ry"
+                >
+                  Service Terms
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-1l0pjoz"
+            >
+              <a
+                href="/"
+              >
+                <span
+                  class="chakra-text footer-link css-14cj6ry"
+                >
+                  Contact
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="footer-column css-j7qwjs"
+        >
+          <span
+            class="chakra-text css-g1cs2b"
+          >
+            Help
+          </span>
+          <ul
+            class="footer-column-items css-j7qwjs"
+          >
+            <li
+              class="css-1l0pjoz"
+            >
+              <a
+                href="/"
+              >
+                <span
+                  class="chakra-text footer-link css-14cj6ry"
+                >
+                  Help Center
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-1l0pjoz"
+            >
+              <a
+                href="/"
+              >
+                <span
+                  class="chakra-text footer-link css-14cj6ry"
+                >
+                  Report a Problem
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;

@@ -1,10 +1,18 @@
+// Libraries
 import React from 'react'
 import { Flex, Text, Image, Box, Container } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
+// Components
 import Logo from '@components/common/Logo'
+
+// Assets
 import logoWebsite from '@assets/images/logo_website.webp'
+
+// Constants
 import { aboutUsLinks, footerLinks, helpLinks, socialLinks } from '@constants'
+
+// Types
 import { FooterButtonProps, FooterLinkProps, FooterColumnProps } from '@types'
 
 const FooterButton: React.FC<FooterButtonProps> = ({ icon, href }) => (
