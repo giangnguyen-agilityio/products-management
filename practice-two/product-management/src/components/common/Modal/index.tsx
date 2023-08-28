@@ -1,3 +1,4 @@
+// Libraries
 import React, { memo } from 'react'
 import {
   Modal as ChakraModal,
@@ -7,31 +8,16 @@ import {
   ModalHeader,
   ModalBody,
 } from '@chakra-ui/react'
-import { MODAL } from '@constants'
-import Form from '@components/Form'
-import { IProduct } from '@types'
 
 // Interface for the props that the Modal component receives
 export interface ModalProps {
-  id?: string
   isOpen: boolean
   onCloseModal: () => void
-  modalType: MODAL.ADD | MODAL.EDIT | MODAL.DELETE
-  productData?: IProduct
-  onAdd?: (formData: IProduct) => Promise<void>
-  onEdit?: (id: string, formData: IProduct) => Promise<void>
+  children?: React.ReactNode
 }
 
 // The Modal component
-const Modal: React.FC<ModalProps> = ({
-  id,
-  isOpen,
-  productData,
-  onCloseModal,
-  modalType,
-  onAdd,
-  onEdit,
-}) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onCloseModal, children }) => {
   return (
     <ChakraModal isOpen={isOpen} onClose={onCloseModal} size="lg">
       <ModalOverlay />
@@ -49,18 +35,7 @@ const Modal: React.FC<ModalProps> = ({
           />
         </ModalHeader>
 
-        <ModalBody>
-          {/* Render the appropriate content based on the modalType */}
-          {modalType === MODAL.ADD || modalType === MODAL.EDIT ? (
-            <Form
-              id={id}
-              formType={modalType === MODAL.ADD ? MODAL.ADD : MODAL.EDIT}
-              onAdd={onAdd}
-              onEdit={onEdit}
-              productData={productData}
-            />
-          ) : null}
-        </ModalBody>
+        <ModalBody>{children}</ModalBody>
       </ModalContent>
     </ChakraModal>
   )

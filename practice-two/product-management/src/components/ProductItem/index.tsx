@@ -1,7 +1,12 @@
+// Libraries
 import React, { memo } from 'react'
-import { GridItem, Box, Image, Text, Link } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
+import { GridItem, Box, Image, Text, Link } from '@chakra-ui/react'
+
+// Assets
 import imageNotAvailable from '@assets/images/Image_not_available.webp'
+
+// Types
 import { IProductItem } from '@types'
 
 interface ProductItemProps {

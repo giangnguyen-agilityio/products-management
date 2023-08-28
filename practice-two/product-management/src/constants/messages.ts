@@ -14,6 +14,7 @@ export const NOTIFICATIONS = {
   FAILED_TO_GET_PRODUCT: "We couldn't find any product with ID",
 
   PRODUCT_ID_IS_MISSING: 'Product ID is missing',
+  ERROR_WHILE_SUBMITTING: 'An error occurred while submitting the form',
   ERROR_WHILE_FETCHING: 'An error occurred while fetching product data:',
   API_ERROR: 'Something went wrong ! Please try again',
   BACK_TO_HOMEPAGE: 'Back to homepage',

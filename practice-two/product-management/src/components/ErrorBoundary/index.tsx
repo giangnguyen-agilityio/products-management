@@ -1,6 +1,11 @@
+// Libraries
 import { Component, ErrorInfo } from 'react'
 import { Box, Flex, Text, Image, Link } from '@chakra-ui/react'
+
+// Constants
 import { NOTIFICATIONS } from '@constants/messages'
+
+// Assets
 import errorImage from '@assets/images/error-image.webp'
 
 interface State {

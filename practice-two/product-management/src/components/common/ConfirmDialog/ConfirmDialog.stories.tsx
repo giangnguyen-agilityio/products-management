@@ -1,4 +1,4 @@
-import ProductContext from '@stores/products/ProductContext'
+import ProductContext from '@context/ProductContext/ProductContext'
 import { MemoryRouter } from 'react-router-dom'
 import { Story, Meta } from '@storybook/react'
 import ConfirmDialog from './index'

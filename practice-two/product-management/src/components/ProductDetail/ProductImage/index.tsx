@@ -1,5 +1,8 @@
+// Libraries
 import React, { memo } from 'react'
 import { Box, Image } from '@chakra-ui/react'
+
+// Assets
 import imageNotAvailable from '@assets/images/Image_not_available.webp'
 
 interface ProductImageProps {

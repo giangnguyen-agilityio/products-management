@@ -1,13 +1,16 @@
+// Libraries
 import { memo } from 'react'
-import { Container, Grid, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { Container, Grid, Text } from '@chakra-ui/react'
+
+// Components
 import ContactInfoItem from '../ContactInfoItem'
 
-// Import icons and assets
-import locationIcon from '@assets/icons/Location_Icon.svg'
-import telephoneIcon from '@assets/icons/Telephone_Icon.svg'
+// Assets
 import faxIcon from '@assets/icons/Fax_Icon.svg'
 import emailIcon from '@assets/icons/Email_Icon.svg'
+import locationIcon from '@assets/icons/Location_Icon.svg'
+import telephoneIcon from '@assets/icons/Telephone_Icon.svg'
 
 // ContactInfo component
 const ContactInfo = () => {

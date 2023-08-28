@@ -1,7 +1,7 @@
-import { Meta, Story } from '@storybook/react'
-import FilterMenu from './index'
-import ProductContext from '@stores/products/ProductContext'
+import { Meta, StoryFn } from '@storybook/react'
+import ProductContext from '@context/ProductContext/ProductContext'
 import { MemoryRouter } from 'react-router-dom'
+import FilterMenu from './index'
 
 const meta: Meta = {
   title: 'Practice Two/FilterMenu Component',
@@ -54,7 +54,7 @@ const mockProductData = {
   },
 }
 
-const Template: Story<any> = args => (
+const Template: StoryFn<any> = args => (
   <MemoryRouter>
     <ProductContext.Provider value={mockProductData}>
       <FilterMenu {...args} />

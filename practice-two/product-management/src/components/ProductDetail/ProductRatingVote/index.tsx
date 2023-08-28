@@ -1,5 +1,8 @@
+// Libraries
 import React, { memo, useMemo } from 'react'
 import { Flex, Box, Image } from '@chakra-ui/react'
+
+// Assets
 import fullStarIcon from '@assets/icons/full_star_icon.svg'
 import halfStarIcon from '@assets/icons/half_star_icon.svg'
 import emptyStarIcon from '@assets/icons/empty_star_icon.svg'
@@ -66,7 +69,7 @@ const ProductRatingVote: React.FC<ProductRatingProps> = ({ ratingVote }) => {
   }
 
   // Memoize the generated stars to prevent unnecessary re-rendering.
-  const memoizedStars = useMemo(renderStars, [normalizedRating])
+  const memoizedStars = useMemo(renderStars, [fullStars, hasHalfStar])
 
   return (
     <Flex className="rating-vote" marginTop={1} color="secondary" gap={1}>

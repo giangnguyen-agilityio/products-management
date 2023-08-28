@@ -1,5 +1,10 @@
+// Libraries
 import React, { useRef, useState } from 'react'
 import {
+  Text,
+  Image,
+  Center,
+  Button,
   AlertDialog,
   AlertDialogBody,
   AlertDialogFooter,
@@ -7,11 +12,9 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   AlertDialogCloseButton,
-  Button,
-  Center,
-  Image,
-  Text,
 } from '@chakra-ui/react'
+
+// Assets
 import deleteAction from '@assets/images/delete_Action.gif'
 
 // Define the props interface for the ConfirmDialog component
@@ -32,9 +35,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   const [disableButton, setDisableButton] = useState(false)
 
   // Function to handle delete
-  const handleDelete = () => {
+  const handleDelete = async () => {
     setDisableButton(true)
-    onDelete(id)
+    await onDelete(id)
     setDisableButton(false)
     closeConfirmDialog()
   }
@@ -99,9 +102,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
             className="delete-btn"
             aria-label="Delete button"
             onClick={handleDelete}
-            variant="danger"
             marginLeft={3}
             isLoading={disableButton}
+            variant="danger"
+            _hover={{ opacity: 1 }}
           >
             Delete
           </Button>

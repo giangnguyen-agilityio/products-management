@@ -1,3 +1,4 @@
+// Libraries
 import React, { memo } from 'react'
 import { Box, Text } from '@chakra-ui/react'
 

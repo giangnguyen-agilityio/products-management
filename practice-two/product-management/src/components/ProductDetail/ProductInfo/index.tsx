@@ -1,7 +1,12 @@
+// Libraries
 import React, { memo } from 'react'
 import { Flex, Text, Badge, Button } from '@chakra-ui/react'
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
+
+// Types
 import { IProduct } from '@types'
+
+// Components
 import ProductRatingVote from '../ProductRatingVote'
 
 // Define the interface for the props passed to the component
@@ -13,6 +18,7 @@ interface ProductInfoProps {
 
 const ProductInfo: React.FC<ProductInfoProps> = props => {
   const { productData, openModal, openConfirmDialog } = props
+  const { name, newPrice, discount, oldPrice, rate } = productData
 
   return (
     <Flex
@@ -33,23 +39,23 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
           fontWeight="bold"
           color="primary"
         >
-          {productData.name}
+          {name}
         </Text>
-        <ProductRatingVote ratingVote={productData.rate} />
+        <ProductRatingVote ratingVote={rate} />
       </Flex>
 
       {/* Prices */}
       <Flex flexDirection="column" gap={2} marginTop={2} color="textPrimary">
         <Flex gap={2}>
           <Text className="new-price" fontSize="lg">
-            {productData.newPrice}
+            {newPrice}
           </Text>
           <Badge className="discount" variant="primary">
-            {productData.discount}% Off
+            {discount}% Off
           </Badge>
         </Flex>
         <Text className="old-price" opacity={0.5} textDecoration="line-through">
-          {productData.oldPrice}
+          {oldPrice}
         </Text>
       </Flex>
 

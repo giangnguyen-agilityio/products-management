@@ -1,6 +1,9 @@
+// Libraries
 import React, { memo } from 'react'
-import errorImage from '@assets/images/error-image.webp'
 import { Flex, Text, Box, Image, Container } from '@chakra-ui/react'
+
+// Assets
+import errorImage from '@assets/images/error-image.webp'
 
 // Define the props interface for the EmptyProduct component
 interface EmptyProductProps {

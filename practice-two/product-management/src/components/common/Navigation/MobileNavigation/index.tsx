@@ -1,15 +1,18 @@
+// Libraries
 import React from 'react'
 import {
+  Flex,
   Button,
   Drawer,
   DrawerBody,
-  DrawerCloseButton,
   DrawerContent,
   DrawerOverlay,
-  Flex,
+  DrawerCloseButton,
 } from '@chakra-ui/react'
-import { NavigationLink } from '@types'
 import { Link } from 'react-router-dom'
+
+// Types
+import { NavigationLink } from '@types'
 
 // Mobile Content Component
 const MobileContent: React.FC<{

@@ -1,12 +1,17 @@
+// Libraries
 import React, { LegacyRef, memo } from 'react'
 import { Container, Flex, Grid } from '@chakra-ui/react'
+import { ChevronDownIcon } from '@chakra-ui/icons'
+
+// Assets
 import tvIcon from '@assets/icons/TV_Icon.svg'
 import phoneIcon from '@assets/icons/Phone_Icon.svg'
 import laptopIcon from '@assets/icons/Laptop_Icon.svg'
 import refrigeratorIcon from '@assets/icons/Refrigerator_Icon.svg'
 import airConditionerIcon from '@assets/icons/Air_Conditioner_Icon.svg'
+
+// Components
 import FilterLink from '@components/FilterMenu/FilterLink'
-import { ChevronDownIcon } from '@chakra-ui/icons'
 
 // Define the props interface for the FilterMenu component
 interface FilterMenuProps {

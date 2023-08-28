@@ -1,12 +1,15 @@
+// Libraries
 import React, { useCallback, useRef } from 'react'
-import FilterMenu from '@components/FilterMenu'
-import { SmallAddIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import {
   Button,
   Container,
   useDisclosure,
   useOutsideClick,
 } from '@chakra-ui/react'
+import { SmallAddIcon, ChevronDownIcon } from '@chakra-ui/icons'
+
+// Components
+import FilterMenu from '@components/FilterMenu'
 
 interface ProductListControlProps {
   onOpenModal: () => void

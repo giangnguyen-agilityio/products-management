@@ -19,11 +19,9 @@ export const Button: ComponentStyleConfig = {
     },
 
     secondary: {
-      colorScheme: 'blue',
       bgColor: 'blue.300',
-      _hover: {
-        bgColor: 'blue.600',
-      },
+      _hover: { bgColor: 'blue.600' },
+      _loading: { bgColor: 'blue.600' },
     },
 
     tertiary: {
@@ -42,6 +40,7 @@ export const Button: ComponentStyleConfig = {
     danger: {
       bgColor: 'red.300',
       _hover: { bgColor: 'red.500' },
+      _loading: { bgColor: 'red.500' },
     },
 
     minimal: {
@@ -53,10 +52,7 @@ export const Button: ComponentStyleConfig = {
       border: '1px',
       borderColor: 'transparent',
       borderRadius: 'full',
-      _hover: {
-        bgColor: 'transparent',
-        borderColor: 'textSecondary',
-      },
+      _hover: { bgColor: 'transparent', borderColor: 'textSecondary' },
     },
 
     navigate: {
@@ -64,9 +60,7 @@ export const Button: ComponentStyleConfig = {
       textTransform: 'uppercase',
       textDecor: 'unset',
       color: 'textTertiary',
-      _hover: {
-        color: 'textSecondary',
-      },
+      _hover: { color: 'textSecondary' },
     },
   },
 }

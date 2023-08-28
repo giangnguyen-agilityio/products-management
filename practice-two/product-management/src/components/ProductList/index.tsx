@@ -1,9 +1,15 @@
-import React from 'react'
+// Libraries
+import React, { memo } from 'react'
 import { Grid, Container } from '@chakra-ui/react'
+
+// Components
 import ProductItem from '@components/ProductItem'
-import { NOTIFICATIONS } from '@constants'
 import EmptyProduct from '@components/common/EmptyProduct'
-import { memo } from 'react'
+
+// Constants
+import { NOTIFICATIONS } from '@constants'
+
+// Types
 import { IProduct } from '@types'
 
 interface ProductListProps {

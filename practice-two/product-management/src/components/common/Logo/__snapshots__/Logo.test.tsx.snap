@@ -3,7 +3,6 @@
 exports[`Logo component renders image when imageSrc prop is provided 1`] = `
 <div>
   <a
-    class="chakra-link css-0"
     href="/"
   >
     <div
@@ -24,7 +23,6 @@ exports[`Logo component renders image when imageSrc prop is provided 1`] = `
 exports[`Logo component renders text when text prop is provided 1`] = `
 <div>
   <a
-    class="chakra-link css-0"
     href="/"
   >
     <div
@@ -43,7 +41,6 @@ exports[`Logo component renders text when text prop is provided 1`] = `
 exports[`Logo component renders without crashing 1`] = `
 <div>
   <a
-    class="chakra-link css-0"
     href="/"
   >
     <div

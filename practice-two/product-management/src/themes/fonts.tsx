@@ -86,7 +86,6 @@ const Fonts = () => (
         font-display: swap;
         src: url(${fontRobotoCondensedBoldURL}) format('woff2');
       }
-      
       `}
   />
 )

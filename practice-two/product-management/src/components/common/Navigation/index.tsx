@@ -1,9 +1,16 @@
+// Libraries
 import React, { memo } from 'react'
 import { useDisclosure, Show, Hide, IconButton } from '@chakra-ui/react'
-import { NavigationLink } from '@types'
+
+// Components
 import DesktopNavigation from './DesktopNavigation'
 import MobileContent from './MobileNavigation'
+
+// Assets
 import { HamburgerIcon } from '@chakra-ui/icons'
+
+// Types
+import { NavigationLink } from '@types'
 
 interface NavigationProps {
   links: NavigationLink[]

@@ -1,6 +1,6 @@
-import ProductContext from '@stores/products/ProductContext'
+import ProductContext from '@context/ProductContext/ProductContext'
 import { MemoryRouter } from 'react-router-dom'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import ProductInfo from './index'
 
 export default {
@@ -45,7 +45,7 @@ const mockProductData = {
   },
 }
 
-const Template: Story<typeof ProductInfo> = () => {
+const Template: StoryFn<typeof ProductInfo> = () => {
   return (
     <MemoryRouter>
       <ProductContext.Provider value={mockProductData}>

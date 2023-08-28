@@ -1,15 +1,15 @@
 import { extendTheme } from '@chakra-ui/react'
-import { breakpoints } from './breakpoint'
-import { colors } from './colors'
 import { fonts } from './fonts'
+import { colors } from './colors'
 import { shadows } from './shadows'
-import { Badge } from './components/badge'
+import { breakpoints } from './breakpoint'
 import { Text } from './components/text'
-import { Textarea } from './components/textarea'
 import { Input } from './components/input'
+import { Badge } from './components/badge'
 import { Button } from './components/button'
-import { Container } from './components/container'
 import { Spinner } from './components/spinner'
+import { Textarea } from './components/textarea'
+import { Container } from './components/container'
 
 const customThemeConfig = extendTheme({
   styles: {
@@ -22,19 +22,18 @@ const customThemeConfig = extendTheme({
   sizes: {
     xs: '250px',
   },
-  breakpoints,
-  colors,
   fonts,
+  colors,
   shadows,
+  breakpoints,
   components: {
-    Badge,
     Text,
     Input,
-    Textarea,
+    Badge,
     Button,
-
-    Container,
     Spinner,
+    Textarea,
+    Container,
   },
 })
 

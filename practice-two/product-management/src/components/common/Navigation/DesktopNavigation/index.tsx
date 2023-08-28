@@ -1,6 +1,9 @@
+// Libraries
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+
+// Types
 import { NavigationLink } from '@types'
 
 // Desktop Navigation Component

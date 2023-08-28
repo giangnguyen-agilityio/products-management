@@ -1,3 +1,4 @@
+// Libraries
 import React, { memo } from 'react'
 import { Box, Flex, Image, Text, Button, Heading } from '@chakra-ui/react'
 import { HeroImageProps, HeroDetailProps, HeroProps } from '@types'
