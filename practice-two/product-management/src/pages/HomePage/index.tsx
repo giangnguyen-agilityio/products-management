@@ -34,8 +34,14 @@ import arrowDownIcon from '@assets/icons/Arrow_down.svg'
 import { MODAL, NOTIFICATIONS, heroSectionContent } from '@constants'
 
 const Homepage = () => {
-  const { listProduct, addNewProduct, isLoading, isError, handleLoadMore } =
-    useContext(ProductContext) as IProductContext
+  const {
+    listProduct,
+    addNewProduct,
+    isLoading,
+    isError,
+    handleLoadMore,
+    isReachingEnd,
+  } = useContext(ProductContext) as IProductContext
 
   // State to manage modal open/close
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -98,7 +104,7 @@ const Homepage = () => {
         as="section"
         className="product-list-section"
         width="full"
-        margin="0 auto 150px"
+        margin="0 auto 200px"
         padding={{ base: '0 50px', md: '0' }}
       >
         <ProductListHeader />
@@ -107,38 +113,40 @@ const Homepage = () => {
         {/* Display the product list */}
         {isLoading ? <Loading /> : <ProductList listProduct={listProduct} />}
 
-        <Flex justifyContent="center" margin="50px auto">
-          <Button
-            onClick={handleLoadMore}
-            className="load-more-btn"
-            name="button"
-            aria-label="Button for loading more products"
-            fontFamily="Oswald-Regular"
-            padding="12px 40px"
-            variant="tertiary"
-            height="fit-content"
-          >
-            <Image
-              src={arrowDownIcon}
-              width="20px"
-              height="20px"
-              alt="Arrow down icon"
-              margin="0 auto"
-              loading="eager"
-            />
-            <Text
-              as="span"
-              display="flex"
-              color="textSecondary"
-              justifyContent="center"
-              fontSize="18px"
-              textTransform="uppercase"
-              marginLeft={2}
+        {!isReachingEnd && (
+          <Flex justifyContent="center" margin="50px auto">
+            <Button
+              onClick={handleLoadMore}
+              className="load-more-btn"
+              name="button"
+              aria-label="Button for loading more products"
+              fontFamily="Oswald-Regular"
+              padding="12px 40px"
+              variant="tertiary"
+              height="fit-content"
             >
-              load more
-            </Text>
-          </Button>
-        </Flex>
+              <Image
+                src={arrowDownIcon}
+                width="20px"
+                height="20px"
+                alt="Arrow down icon"
+                margin="0 auto"
+                loading="eager"
+              />
+              <Text
+                as="span"
+                display="flex"
+                color="textSecondary"
+                justifyContent="center"
+                fontSize="18px"
+                textTransform="uppercase"
+                marginLeft={2}
+              >
+                load more
+              </Text>
+            </Button>
+          </Flex>
+        )}
       </Box>
 
       {/* Display the contact section */}

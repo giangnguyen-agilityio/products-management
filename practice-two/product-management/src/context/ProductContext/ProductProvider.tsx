@@ -63,10 +63,15 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     setSize(size + 1)
   }, [setSize, size])
 
+  const isEmpty = allProducts?.[0]?.length === 0
+  const isReachingEnd =
+    isEmpty || (allProducts && allProducts[allProducts.length - 1]?.length < 8)
+
   const contextValue = useMemo(
     () => ({
       listProduct: allProducts?.flat() || [],
       isLoading,
+      isReachingEnd,
       isError: error,
       addNewProduct,
       editProduct,
@@ -76,6 +81,7 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     [
       allProducts,
       isLoading,
+      isReachingEnd,
       error,
       addNewProduct,
       editProduct,
