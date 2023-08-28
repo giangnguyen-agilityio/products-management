@@ -21,7 +21,7 @@ const ProductListHeader = () => (
       <Text as="span" height={1} bgColor="secondary" />
       {/* The maxim */}
       <Text
-        as="span"
+        as="blockquote"
         className="maxim"
         width="block"
         px={{ base: 1, md: 6 }}

@@ -52,7 +52,13 @@ const ProductListControl: React.FC<ProductListControlProps> = ({
           Select category <ChevronDownIcon w={8} h={8} />
         </Button>
 
-        <Button w={8} h={8} aria-label="Add Product" onClick={onOpenModal}>
+        <Button
+          w={8}
+          h={8}
+          aria-label="Add Product"
+          onClick={onOpenModal}
+          bgColor="background"
+        >
           <SmallAddIcon w={8} h={8} color="primary" />
         </Button>
       </Container>

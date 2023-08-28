@@ -63,6 +63,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
       <Flex className="button-control" margin="10px 0" gap={2}>
         {/* Edit button */}
         <Button
+          className="edit-btn"
           aria-label="Edit button"
           borderRadius="full"
           width="40px"
@@ -76,6 +77,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
         {/* Delete button */}
         <Button
           className="delete-btn"
+          aria-label="Delete button"
           borderRadius="full"
           width="40px"
           height="40px"
