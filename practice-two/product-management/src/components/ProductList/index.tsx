@@ -31,9 +31,8 @@ const ProductList: React.FC<ProductListProps> = ({ listProduct }) => {
               md: 'repeat(2, 1fr)',
               lg: 'repeat(4,1fr)',
             }}
-            gap={{ base: '4', md: '8' }}
-            margin={{ base: '0 -50px', sm: '0 auto' }}
-            rowGap={{ md: '0' }}
+            gap="30px"
+            margin={{ base: '30px -50px 0', sm: '30px auto 0' }}
           >
             {listProduct.map(product => (
               <ProductItem key={product.id} {...{ product }} />

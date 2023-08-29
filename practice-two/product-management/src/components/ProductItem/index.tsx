@@ -14,24 +14,24 @@ interface ProductItemProps {
 }
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
-  <GridItem
-    className="product-item"
-    margin="0 auto"
-    key={product.id}
-    textAlign="center"
-    as="li"
-    listStyleType="none"
+  <Box
+    transition="transform 0.3s ease-in-out"
+    _hover={{
+      transform: 'scale(1.05)',
+    }}
   >
-    <Box
-      className="product-item-content"
-      marginTop="50px"
-      bgColor="background"
-      borderTop="8px solid"
-      borderColor="secondary"
-      borderRadius="0 0 20px 20px"
+    <GridItem
+      className="product-item"
+      margin="0 auto"
+      key={product.id}
+      textAlign="center"
+      as="li"
+      listStyleType="none"
+      borderRadius="20px"
       boxShadow="tertiary"
+      bgColor="background"
       width="full"
-      h={{ base: '516px', md: '482px', lg: '318px', xl: '482px' }}
+      height={{ base: '516px', md: '470px', lg: '318px', xl: '360px' }}
       padding={{ base: '30px 0', sm: '30px 20px' }}
       position="relative"
     >
@@ -40,12 +40,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
         <Image
           src={product.image || imageNotAvailable}
           alt={product.name}
-          width={{
-            base: '340px',
-            md: '305px',
-            lg: '173px',
-            xl: '220px',
-          }}
+          width="full"
           height={{
             base: '300px',
             md: '305px',
@@ -57,6 +52,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
           loading="lazy"
         />
       </Box>
+
       {/* Product Name */}
       <Text
         fontWeight="semibold"
@@ -76,7 +72,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
         to={`/products/${product.id}`}
         color="textPrimary"
         position="absolute"
-        bottom={{ base: '3%', lg: '3%', xl: '20%' }}
+        bottom={0}
         left="50%"
         transform="translate(-50%, -50%)"
         fontSize="14px"
@@ -89,8 +85,8 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
       >
         detail
       </Link>
-    </Box>
-  </GridItem>
+    </GridItem>
+  </Box>
 )
 
 export default memo(ProductItem)

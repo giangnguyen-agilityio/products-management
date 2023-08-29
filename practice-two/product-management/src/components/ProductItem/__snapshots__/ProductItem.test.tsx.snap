@@ -2,18 +2,18 @@
 
 exports[`ProductItem Component matches the snapshot 1`] = `
 <div>
-  <li
-    class="product-item css-gon1ka"
+  <div
+    class="css-wi5mwl"
   >
-    <div
-      class="product-item-content css-55cmdl"
+    <li
+      class="product-item css-1pj6k6r"
     >
       <div
         class="image-container css-0"
       >
         <img
           alt="Sample Product"
-          class="chakra-image css-1goliy0"
+          class="chakra-image css-1nisw3u"
           loading="lazy"
           src="sample-image.jpg"
         />
@@ -24,30 +24,30 @@ exports[`ProductItem Component matches the snapshot 1`] = `
         Sample Product
       </p>
       <a
-        class="chakra-link css-204pox"
+        class="chakra-link css-16n634d"
         href="/products/P01"
       >
         detail
       </a>
-    </div>
-  </li>
+    </li>
+  </div>
 </div>
 `;
 
 exports[`ProductItem Component renders imageNotAvailable when product image is not available 1`] = `
 <div>
-  <li
-    class="product-item css-gon1ka"
+  <div
+    class="css-wi5mwl"
   >
-    <div
-      class="product-item-content css-55cmdl"
+    <li
+      class="product-item css-1pj6k6r"
     >
       <div
         class="image-container css-0"
       >
         <img
           alt="Sample Product"
-          class="chakra-image css-1goliy0"
+          class="chakra-image css-1nisw3u"
           loading="lazy"
           src="[object Object]"
         />
@@ -58,13 +58,13 @@ exports[`ProductItem Component renders imageNotAvailable when product image is n
         Sample Product
       </p>
       <a
-        class="chakra-link css-204pox"
+        class="chakra-link css-16n634d"
         href="/products/P01"
       >
         detail
       </a>
-    </div>
-  </li>
+    </li>
+  </div>
   ,
 </div>
 `;
