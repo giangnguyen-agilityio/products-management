@@ -70,7 +70,8 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     (size > 0 && allProducts && typeof allProducts[size - 1] === 'undefined')
   const isEmpty = allProducts?.[0]?.length === 0
   const isReachingEnd =
-    isEmpty || (allProducts && allProducts[allProducts.length - 1]?.length < 8)
+    isEmpty ||
+    (allProducts && allProducts[allProducts.length - 1]?.length < PAGE_SIZE)
 
   const contextValue = useMemo(
     () => ({

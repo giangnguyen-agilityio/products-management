@@ -10,5 +10,5 @@ export interface FooterLinkProps {
 
 export interface FooterColumnProps {
   title: string
-  links: { label: string; href: string }[]
+  links: FooterLinkProps[]
 }
