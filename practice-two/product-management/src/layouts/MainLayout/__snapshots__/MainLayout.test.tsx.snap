@@ -20,7 +20,7 @@ exports[`MainLayout component matches snapshot 1`] = `
         </a>
         <button
           aria-label="Open Menu"
-          class="chakra-button hamburger-menu css-130cxkw"
+          class="chakra-button hamburger-menu css-1lguxu9"
           type="button"
         >
           <svg

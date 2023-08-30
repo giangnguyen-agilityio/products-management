@@ -7,7 +7,7 @@ exports[`ImageUploader component displays an error message 1`] = `
     role="group"
   >
     <label
-      class="chakra-form__label form-label css-16hu8s6"
+      class="chakra-form__label form-label css-k0s0px"
       for="field-:r1:"
       id="field-:r1:-label"
     >
@@ -32,7 +32,7 @@ exports[`ImageUploader component displays an error message 1`] = `
     />
     <img
       alt="The Test Image image"
-      class="image-uploaded css-754yvm"
+      class="image-uploaded css-1i7uvu9"
       src="test-image-url"
     />
   </div>
@@ -46,7 +46,7 @@ exports[`ImageUploader component renders without errors 1`] = `
     role="group"
   >
     <label
-      class="chakra-form__label form-label css-16hu8s6"
+      class="chakra-form__label form-label css-k0s0px"
       for="field-:r0:"
       id="field-:r0:-label"
     >
@@ -71,7 +71,7 @@ exports[`ImageUploader component renders without errors 1`] = `
     />
     <img
       alt="The Test Image image"
-      class="image-uploaded css-754yvm"
+      class="image-uploaded css-1i7uvu9"
       src="test-image-url"
     />
   </div>

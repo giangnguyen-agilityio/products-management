@@ -7,7 +7,7 @@ exports[`InputField Component renders the component with default props 1`] = `
     role="group"
   >
     <label
-      class="chakra-form__label form-label css-16hu8s6"
+      class="chakra-form__label form-label css-k0s0px"
       data-invalid=""
       for="field-:r0:"
       id="field-:r0:-label"

@@ -6,7 +6,7 @@ exports[`EmptyProduct Component renders with error message 1`] = `
     class="chakra-container empty-product css-0"
   >
     <div
-      class="css-1axsfj3"
+      class="css-28uq1i"
     >
       <div
         class="error-image css-0"
@@ -33,7 +33,7 @@ exports[`EmptyProduct Component renders without error message 1`] = `
     class="chakra-container empty-product css-0"
   >
     <div
-      class="css-1axsfj3"
+      class="css-28uq1i"
     >
       <div
         class="error-image css-0"

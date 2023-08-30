@@ -14,7 +14,7 @@ exports[`ContactInfoItem component renders correctly 1`] = `
         src="icon-url"
       />
       <p
-        class="chakra-text css-31u82y"
+        class="chakra-text css-1xtp2ig"
       >
         Contact Title
       </p>

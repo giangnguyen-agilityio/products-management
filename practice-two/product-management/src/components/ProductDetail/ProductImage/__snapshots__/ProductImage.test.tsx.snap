@@ -3,7 +3,7 @@
 exports[`ProductImage Component renders with the correct height based on screen size 1`] = `
 <div>
   <div
-    class="css-1al0hrz"
+    class="css-mul3q"
   >
     <img
       alt="The product image"

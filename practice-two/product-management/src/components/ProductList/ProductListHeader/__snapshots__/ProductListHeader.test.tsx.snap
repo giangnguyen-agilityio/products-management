@@ -6,7 +6,7 @@ exports[`ProductListHeader Component matches snapshot 1`] = `
     class="css-cxazlp"
   >
     <h2
-      class="chakra-heading product-list-title css-1rcmjjf"
+      class="chakra-heading product-list-title css-dq1xb9"
     >
       All Products
     </h2>

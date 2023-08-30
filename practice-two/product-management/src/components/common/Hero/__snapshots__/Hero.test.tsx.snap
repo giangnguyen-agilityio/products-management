@@ -37,18 +37,18 @@ exports[`Hero Component matches snapshot 1`] = `
         class="hero-detail css-1fw5if8"
       >
         <h2
-          class="chakra-heading hero-title css-yjbb1g"
+          class="chakra-heading hero-title css-ssjvx1"
         >
           Test Title
         </h2>
         <p
-          class="chakra-text hero-description css-8urhta"
+          class="chakra-text hero-description css-1sahs1f"
         >
           Test Description
         </p>
         <a
           aria-label="Learn More Button"
-          class="chakra-button hero-btn css-paa06n"
+          class="chakra-button hero-btn css-1d5ejpu"
           href="/test-link"
         >
           Learn more

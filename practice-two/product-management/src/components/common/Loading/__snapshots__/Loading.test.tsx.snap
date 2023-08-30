@@ -6,7 +6,7 @@ exports[`Loading Component should render the loading spinner 1`] = `
     class="chakra-container css-0"
   >
     <div
-      class="css-5wn9te"
+      class="css-gv2u4r"
     >
       <div
         class="chakra-spinner css-mb5q2b"
@@ -18,7 +18,7 @@ exports[`Loading Component should render the loading spinner 1`] = `
         </span>
       </div>
       <p
-        class="chakra-text css-edrbut"
+        class="chakra-text css-xyfjrl"
       >
         Loading....
       </p>

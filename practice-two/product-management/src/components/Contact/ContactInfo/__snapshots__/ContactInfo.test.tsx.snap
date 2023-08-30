@@ -20,7 +20,7 @@ exports[`ContactInfo component renders contact information 1`] = `
             src="[object Object]"
           />
           <p
-            class="chakra-text css-31u82y"
+            class="chakra-text css-1xtp2ig"
           >
             our main office
           </p>
@@ -39,7 +39,7 @@ exports[`ContactInfo component renders contact information 1`] = `
             src="[object Object]"
           />
           <p
-            class="chakra-text css-31u82y"
+            class="chakra-text css-1xtp2ig"
           >
             phone number
           </p>
@@ -67,7 +67,7 @@ exports[`ContactInfo component renders contact information 1`] = `
             src="[object Object]"
           />
           <p
-            class="chakra-text css-31u82y"
+            class="chakra-text css-1xtp2ig"
           >
             fax
           </p>
@@ -86,7 +86,7 @@ exports[`ContactInfo component renders contact information 1`] = `
             src="[object Object]"
           />
           <p
-            class="chakra-text css-31u82y"
+            class="chakra-text css-1xtp2ig"
           >
             email
           </p>
