@@ -22,7 +22,7 @@ const EmptyProduct: React.FC<EmptyProductProps> = props => {
         justifyContent="center"
         background="background"
         margin="40px auto 150px"
-        borderRadius={6}
+        borderRadius="small"
         height="100vh"
       >
         {/* Box containing the error image */}

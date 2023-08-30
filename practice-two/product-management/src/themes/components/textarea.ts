@@ -5,7 +5,7 @@ export const Textarea: ComponentStyleConfig = {
     primary: {
       border: 'none',
       background: 'background',
-      borderBottom: '2px solid',
+      borderBottom: 'medium',
       borderColor: 'textPrimary',
       borderRadius: 'none',
       outline: 'none',

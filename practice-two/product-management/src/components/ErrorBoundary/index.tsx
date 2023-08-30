@@ -51,7 +51,7 @@ export class ErrorBoundary extends Component<Props, State> {
             <Text
               as="h2"
               variant="fontPrimaryBold"
-              fontSize="lg"
+              fontSize="medium"
               color="primary"
               textAlign="center"
             >

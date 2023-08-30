@@ -98,7 +98,7 @@ const Contact: React.FC = () => (
             aria-label="Submit button"
             padding="15px 30px"
             height="56px"
-            borderRadius="10px"
+            borderRadius="medium"
             variant="default"
           >
             Submit
@@ -117,8 +117,8 @@ const Contact: React.FC = () => (
           className="content-title"
           color="primary"
           variant="fontSecondary"
-          fontWeight="600"
-          fontSize="24px"
+          fontWeight="semibold"
+          fontSize="large"
         >
           {content.contentTitle}
         </Text>
@@ -128,8 +128,8 @@ const Contact: React.FC = () => (
           as="blockquote"
           className="maxim"
           variant="fontPrimaryBold"
-          fontSize="18px"
-          lineHeight="1.8"
+          fontSize="medium"
+          lineHeight="base"
           fontStyle="italic"
           margin="20px 0 0"
         >
@@ -139,8 +139,8 @@ const Contact: React.FC = () => (
         {/* The content description */}
         <Text
           className="content-description"
-          fontSize="16px"
-          lineHeight="2"
+          fontSize="small"
+          lineHeight="tall"
           margin="20px 0 0"
           width={{ base: '100%', sm: '330px', md: '100%' }}
         >

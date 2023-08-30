@@ -26,7 +26,7 @@ export const Button: ComponentStyleConfig = {
 
     tertiary: {
       border: '1px solid',
-      borderRadius: 'full',
+      borderRadius: 'circle',
       borderColor: 'secondary',
       bgColor: 'transparent',
       _hover: { bgColor: 'secondary' },
@@ -51,7 +51,7 @@ export const Button: ComponentStyleConfig = {
     contract: {
       border: '1px',
       borderColor: 'transparent',
-      borderRadius: 'full',
+      borderRadius: 'circle',
       _hover: { bgColor: 'transparent', borderColor: 'textSecondary' },
     },
 

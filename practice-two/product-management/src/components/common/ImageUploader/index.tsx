@@ -43,7 +43,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       <FormLabel
         className="form-label"
         fontFamily="Oswald-Regular"
-        fontSize="xl"
+        fontSize="mediumLarge"
         letterSpacing="1px"
       >
         Image:
@@ -66,7 +66,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
           padding={4}
           border="1px solid"
           borderColor="primary"
-          borderRadius={20}
+          borderRadius="large"
           width="350px"
           objectFit="contain"
           className="image-uploaded"

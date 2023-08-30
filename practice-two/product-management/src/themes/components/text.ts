@@ -8,19 +8,24 @@ export const Text: ComponentStyleConfig = {
 
   sizes: {
     primary: {
-      fontSize: { base: '12px', md: '20px' },
+      fontSize: { base: 'default', md: 'mediumLarge' },
     },
     secondary: {
-      fontSize: { base: '14px', md: '16px' },
+      fontSize: { base: 'tiny', md: 'small' },
     },
     tertiary: {
-      fontSize: { base: '16px', lg: '24px' },
+      fontSize: { base: 'small', lg: 'large' },
     },
     quaternary: {
-      fontSize: { base: '30px', md: '24px', lg: '17px' },
+      fontSize: { base: 'extraLarge', md: 'large', lg: 'regular' },
     },
     quinary: {
-      fontSize: { base: '16px', md: '20px', lg: '24px', xl: '30px' },
+      fontSize: {
+        base: 'small',
+        md: 'mediumLarge',
+        lg: 'large',
+        xl: 'extraLarge',
+      },
     },
   },
 

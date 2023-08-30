@@ -10,7 +10,7 @@ const Loading = () => {
         flexDirection="column"
         margin="0 auto"
         height="100vh"
-        borderRadius={10}
+        borderRadius="medium"
         fontFamily="Oswald-Regular"
         alignItems="center"
       >
@@ -24,7 +24,7 @@ const Loading = () => {
         {/* Display a text indicating the loading process */}
         <Text
           variant="fontSecondary"
-          fontSize="lg"
+          fontSize="medium"
           color="secondary"
           marginTop={2}
         >

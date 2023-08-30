@@ -50,7 +50,7 @@ const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, customRef }) => (
         zIndex="2"
         pos="absolute"
         top="10px"
-        borderRadius="10px"
+        borderRadius="medium"
         justifyContent={{ base: 'space-evenly', sm: 'unset' }}
         textAlign="center"
         gap={{ base: '10px', lg: '20px' }}

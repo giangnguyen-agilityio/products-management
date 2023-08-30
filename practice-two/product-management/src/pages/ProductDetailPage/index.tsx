@@ -144,7 +144,7 @@ const ProductDetailPage = () => {
         gridTemplateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}
         margin="30px auto"
         background="background"
-        borderRadius={10}
+        borderRadius="medium"
         fontFamily="Oswald-Regular"
       >
         {/* Display the product image */}

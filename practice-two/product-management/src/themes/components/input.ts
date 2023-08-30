@@ -13,9 +13,9 @@ export const Input: ComponentStyleConfig = {
   variants: {
     primary: {
       field: {
-        border: '1px solid',
+        border: 'small',
         borderColor: 'gray.300',
-        borderRadius: '6px',
+        borderRadius: 'small',
         _hover: { borderColor: 'gray.300' },
         _focus: { borderColor: 'primary' },
       },
@@ -24,7 +24,7 @@ export const Input: ComponentStyleConfig = {
     secondary: {
       field: {
         border: 'none',
-        borderBottom: '2px solid',
+        borderBottom: 'medium',
         borderColor: 'textPrimary',
         outline: 'none',
         borderRadius: 'none',

@@ -12,7 +12,7 @@ const ProductDesc: React.FC<ProductDescProp> = props => {
   return (
     <Box marginTop={4}>
       {/* Title */}
-      <Text fontSize="lg" fontWeight="bold" color="secondary">
+      <Text fontSize="medium" fontWeight="bold" color="secondary">
         Overview
       </Text>
       {/* The product description */}

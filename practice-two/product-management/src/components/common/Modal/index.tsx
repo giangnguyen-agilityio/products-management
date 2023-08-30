@@ -25,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onCloseModal, children }) => {
         <ModalHeader>
           {/* Close button */}
           <ModalCloseButton
-            borderRadius="full"
+            borderRadius="circle"
             border="2px solid"
             borderColor="transparent"
             color="primary"

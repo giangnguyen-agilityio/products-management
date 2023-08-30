@@ -12,7 +12,7 @@ const ProductListHeader = () => (
     <Heading
       as="h2"
       className="product-list-title"
-      fontSize={{ base: '30px', md: '48px', lg: '60px' }}
+      fontSize={{ base: 'extraLarge', md: 'super', lg: 'mega' }}
     >
       All Products
     </Heading>

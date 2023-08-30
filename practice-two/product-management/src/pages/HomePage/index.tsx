@@ -142,7 +142,7 @@ const Homepage = () => {
                 display="flex"
                 color="textSecondary"
                 justifyContent="center"
-                fontSize="18px"
+                fontSize="medium"
                 textTransform="uppercase"
                 marginLeft={2}
               >

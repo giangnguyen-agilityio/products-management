@@ -56,9 +56,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
         <AlertDialogHeader>Confirmation</AlertDialogHeader>
         <AlertDialogCloseButton
           className="close-dialog-button"
-          border="2px solid transparent"
+          border="small"
           color="primary"
-          borderRadius="full"
+          borderRadius="circle"
           _hover={{
             borderColor: 'primary',
           }}

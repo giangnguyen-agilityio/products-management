@@ -54,8 +54,8 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
         as="h2"
         className="hero-title"
         fontFamily="Oswald-Regular"
-        fontWeight="600"
-        fontSize={{ base: '34px', md: '60px', xl: '50px' }}
+        fontWeight="semibold"
+        fontSize={{ base: 'huge', md: 'mega', xl: 'ultra' }}
       >
         {title}
       </Heading>
@@ -63,9 +63,9 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
       <Text
         className="hero-description"
         margin="30px 0"
-        fontSize={{ base: '17px', xl: '15px' }}
+        fontSize={{ base: 'regular', xl: 'extraSmall' }}
         fontStyle="italic"
-        lineHeight="1.8"
+        lineHeight="base"
       >
         {description}
       </Text>
@@ -78,7 +78,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
         width={{ base: '210px', xl: '200px' }}
         letterSpacing={1}
         padding={{ base: '18px 57px 19px', md: '21px 55px 21px' }}
-        borderRadius="10px"
+        borderRadius="medium"
         fontFamily="OpenSans-Semibold"
         height={{ base: 'full', xl: '62px' }}
         variant="primary"

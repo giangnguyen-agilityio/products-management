@@ -32,7 +32,7 @@ const MobileContent: React.FC<{
       <DrawerCloseButton
         width="40px"
         height="40px"
-        fontSize="sm"
+        fontSize="tiny"
         color="textTertiary"
         _hover={{
           color: 'textSecondary',
@@ -68,7 +68,7 @@ const MobileNavigationLinks: React.FC<{ links: NavigationLink[] }> = ({
           aria-label={label}
           width="full"
           height="40px"
-          fontSize="md"
+          fontSize="small"
           variant="navigate"
         >
           {label}

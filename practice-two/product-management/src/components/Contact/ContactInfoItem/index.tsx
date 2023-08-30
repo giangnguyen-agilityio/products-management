@@ -37,7 +37,7 @@ const ContactInfoItem: React.FC<ContactInfoItemProps> = ({
         textTransform="uppercase"
         margin={5}
         variant="fontPrimaryBold"
-        fontSize="18px"
+        fontSize="medium"
       >
         {title}
       </Text>

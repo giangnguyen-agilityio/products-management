@@ -17,7 +17,7 @@ const ProductImage: React.FC<ProductImageProps> = ({ src }) => {
       padding={2}
       border="2px solid"
       borderColor="secondary"
-      borderRadius={20}
+      borderRadius="large"
     >
       <Image
         className="product-image"

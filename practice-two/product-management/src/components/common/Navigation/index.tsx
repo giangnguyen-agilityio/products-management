@@ -31,7 +31,7 @@ const Navigation: React.FC<NavigationProps> = ({ links }) => {
         <IconButton
           className="hamburger-menu"
           aria-label="Open Menu"
-          fontSize="xl"
+          fontSize="mediumLarge"
           paddingTop={1}
           icon={<HamburgerIcon />}
           onClick={onToggle}

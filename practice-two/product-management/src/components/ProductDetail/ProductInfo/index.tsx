@@ -35,7 +35,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
         <Text
           noOfLines={2}
           className="product-name"
-          fontSize="xl"
+          fontSize="mediumLarge"
           fontWeight="bold"
           color="primary"
         >
@@ -47,7 +47,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
       {/* Prices */}
       <Flex flexDirection="column" gap={2} marginTop={2} color="textPrimary">
         <Flex gap={2}>
-          <Text className="new-price" fontSize="lg">
+          <Text className="new-price" fontSize="medium">
             {newPrice}
           </Text>
           <Badge className="discount" variant="primary">
@@ -65,7 +65,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
         <Button
           className="edit-btn"
           aria-label="Edit button"
-          borderRadius="full"
+          borderRadius="circle"
           width="40px"
           height="40px"
           onClick={openModal}
@@ -78,7 +78,7 @@ const ProductInfo: React.FC<ProductInfoProps> = props => {
         <Button
           className="delete-btn"
           aria-label="Delete button"
-          borderRadius="full"
+          borderRadius="circle"
           width="40px"
           height="40px"
           variant="danger"

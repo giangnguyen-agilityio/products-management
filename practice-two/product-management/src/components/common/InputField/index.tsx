@@ -55,7 +55,7 @@ const InputField: React.FC<InputFieldProps> = ({
     <FormLabel
       className="form-label"
       fontFamily="Oswald-Regular"
-      fontSize="xl"
+      fontSize="mediumLarge"
       letterSpacing="1px"
     >
       {label}:
