@@ -17,7 +17,7 @@ export const swrFetcher = async (url: string) => {
   try {
     const res = await axiosInstance.get(url)
     return res.data
-  } catch {
+  } catch (error) {
     throw NOTIFICATIONS.API_ERROR
   }
 }
