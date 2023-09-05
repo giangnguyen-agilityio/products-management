@@ -3,11 +3,7 @@ import { ReactNode, useCallback, useMemo } from 'react'
 import useSWRInfinite from 'swr/infinite'
 
 // Services
-import {
-  addNewProductAPI,
-  editProductAPI,
-  deleteProductAPI,
-} from '@services/api-actions'
+import { addNewProductAPI } from '@services/api-actions'
 
 // Types
 import { IProduct } from '@types'
@@ -45,22 +41,6 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     [allProducts, mutate]
   )
 
-  const editProduct = useCallback(
-    async (id: string, payload: IProduct) => {
-      await editProductAPI(id, payload)
-      mutate(allProducts) // Update the SWR cache after editing a product
-    },
-    [allProducts, mutate]
-  )
-
-  const deleteProduct = useCallback(
-    async (id: string) => {
-      await deleteProductAPI(id)
-      mutate(allProducts) // Update the SWR cache after deleting a product
-    },
-    [allProducts, mutate]
-  )
-
   const handleLoadMore = useCallback(() => {
     setSize(size + 1)
   }, [setSize, size])
@@ -81,8 +61,6 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
       isReachingEnd,
       isError: error,
       addNewProduct,
-      editProduct,
-      deleteProduct,
       handleLoadMore,
     }),
     [
@@ -92,8 +70,6 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
       isReachingEnd,
       error,
       addNewProduct,
-      editProduct,
-      deleteProduct,
       handleLoadMore,
     ]
   )

@@ -17,6 +17,9 @@ import customThemeConfig from '@themes/custom-theme'
 // Utils
 import { swrFetcher } from '@utils/api'
 
+// Importing the product providers
+import ProductProvider from '@context/ProductContext/ProductProvider'
+
 // Importing the pages
 const HomePage = lazy(() => import('@pages/HomePage'))
 const ProductDetailPage = lazy(() => import('@pages/ProductDetailPage'))
@@ -45,7 +48,11 @@ export const routerConfig: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: (
+          <ProductProvider>
+            <HomePage />,
+          </ProductProvider>
+        ),
       },
       {
         path: ENDPOINT.PRODUCTS,

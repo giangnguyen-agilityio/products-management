@@ -8,8 +8,6 @@ export interface IProductContext {
   isReachingEnd: boolean | undefined
   isError: any
   addNewProduct: (payload: IProduct) => Promise<void>
-  editProduct: (id: string, payload: IProduct) => Promise<void>
-  deleteProduct: (id: string) => Promise<void>
   handleLoadMore: () => void
 }
 

@@ -1,5 +1,5 @@
 // Libraries
-import { memo, useCallback, useContext, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { Container, Grid } from '@chakra-ui/react'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -28,10 +28,8 @@ import { useCustomToasts } from '@utils/toast'
 // Constants
 import { MODAL, NOTIFICATIONS } from '@constants'
 
-// Context
-import ProductContext, {
-  IProductContext,
-} from '@context/ProductContext/ProductContext'
+// Services
+import { deleteProductAPI, editProductAPI } from '@services/api-actions'
 
 const ProductDetailPage = () => {
   // Get the 'id' parameter from the URL
@@ -40,11 +38,6 @@ const ProductDetailPage = () => {
 
   // Set up navigation and toast
   const navigate = useNavigate()
-
-  // Access product-related states using context
-  const { editProduct, deleteProduct } = useContext(
-    ProductContext
-  ) as IProductContext
 
   // Manage modal and dialog state
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -79,7 +72,7 @@ const ProductDetailPage = () => {
   const handleEdit = useCallback(
     async (id: string, formData: IProduct): Promise<void> => {
       try {
-        await editProduct(id, formData)
+        await editProductAPI(id, formData)
         mutate(data)
         showSuccessToast('Success', `Product with ID ${id} has been updated.`)
         closeModal()
@@ -91,21 +84,21 @@ const ProductDetailPage = () => {
         )
       }
     },
-    [editProduct, mutate, data, showSuccessToast, closeModal, showErrorToast]
+    [mutate, data, showSuccessToast, closeModal, showErrorToast]
   )
 
   // Handle deleting a product
   const handleDelete = useCallback(
     async (id: string) => {
       try {
-        await deleteProduct(id)
+        await deleteProductAPI(id)
         navigate('/')
         showSuccessToast('Success', `Item with ID ${id} has been deleted.`)
       } catch (error) {
         showErrorToast('Error', `${NOTIFICATIONS.PRODUCT_DELETED_FAILED} ${id}`)
       }
     },
-    [deleteProduct, navigate, showSuccessToast, showErrorToast]
+    [navigate, showSuccessToast, showErrorToast]
   )
 
   // Handle different scenarios based on data and loading status
