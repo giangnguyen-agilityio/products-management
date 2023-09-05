@@ -49,14 +49,8 @@ const mockProductData = {
   addNewProduct: async () => {
     console.log('Add new product')
   },
-  editProduct: async () => {
-    console.log('Add new product')
-  },
-  deleteProduct: async () => {
-    console.log('Add new product')
-  },
   handleLoadMore: () => {
-    console.log('Add new product')
+    console.log('Load more product')
   },
 }
 
