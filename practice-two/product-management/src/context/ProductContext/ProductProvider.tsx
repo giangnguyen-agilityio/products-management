@@ -30,7 +30,10 @@ const ProductProvider = ({ children }: ProviderProps): JSX.Element => {
     setSize,
   } = useSWRInfinite<IProduct[]>(
     index => `/${ENDPOINT.PRODUCTS}?page=${index + 1}&limit=${PAGE_SIZE}`,
-    { revalidateAll: true }
+    {
+      revalidateFirstPage: false,
+      revalidateOnMount: true,
+    }
   )
 
   const addNewProduct = useCallback(
