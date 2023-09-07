@@ -1,5 +1,5 @@
 User-agent: *
 Allow: 
-Disallow: 
+Disallow: /
 
 Sitemap: https://products-management-steel.vercel.app/sitemap.xml

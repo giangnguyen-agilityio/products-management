@@ -79,6 +79,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => (
       bgColor="primary"
       color="textSecondary"
       width="100px"
+      aria-label="Redirect to the product detail page"
       _hover={{
         border: '2px solid',
         color: 'primary',

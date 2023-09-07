@@ -21,6 +21,7 @@ exports[`ProductItem Component matches the snapshot 1`] = `
       Sample Product
     </p>
     <a
+      aria-label="Redirect to the product detail page"
       class="chakra-button css-1dyt33o"
       href="/products/P01"
     >
@@ -51,6 +52,7 @@ exports[`ProductItem Component renders imageNotAvailable when product image is n
       Sample Product
     </p>
     <a
+      aria-label="Redirect to the product detail page"
       class="chakra-button css-1dyt33o"
       href="/products/P01"
     >

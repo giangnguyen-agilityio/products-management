@@ -123,7 +123,7 @@ const Homepage = () => {
               onClick={handleLoadMore}
               className="load-more-btn"
               name="button"
-              aria-label="Button for loading more products"
+              aria-label="Load More in the list"
               fontFamily="Oswald-Regular"
               padding="12px 40px"
               variant="tertiary"

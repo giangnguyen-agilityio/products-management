@@ -119,7 +119,7 @@ exports[`MainLayout component matches snapshot 1`] = `
             class="footer-column css-j7qwjs"
           >
             <span
-              class="chakra-text css-g1cs2b"
+              class="chakra-text css-1c6t563"
             >
               Discover
             </span>
@@ -158,7 +158,7 @@ exports[`MainLayout component matches snapshot 1`] = `
             class="footer-column css-j7qwjs"
           >
             <span
-              class="chakra-text css-g1cs2b"
+              class="chakra-text css-1c6t563"
             >
               About Us
             </span>
@@ -210,7 +210,7 @@ exports[`MainLayout component matches snapshot 1`] = `
             class="footer-column css-j7qwjs"
           >
             <span
-              class="chakra-text css-g1cs2b"
+              class="chakra-text css-1c6t563"
             >
               Help
             </span>
