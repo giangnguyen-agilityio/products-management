@@ -122,8 +122,7 @@ const Homepage = () => {
             <Button
               onClick={handleLoadMore}
               className="load-more-btn"
-              name="button"
-              aria-label="Load More in the list"
+              aria-label="Load More product from the list"
               fontFamily="Oswald-Regular"
               padding="12px 40px"
               variant="tertiary"
@@ -146,7 +145,7 @@ const Homepage = () => {
                 textTransform="uppercase"
                 marginLeft={2}
               >
-                load more
+                Load More
               </Text>
             </Button>
           </Flex>
